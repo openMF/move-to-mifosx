@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>user and staff</name>
+    <name>fund</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -62,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;13 16&#x3a;57&#x3a;09.730</created_date>
+  <created_date>2013&#x2f;06&#x2f;17 11&#x3a;38&#x3a;52.480</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;13 16&#x3a;57&#x3a;09.730</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;17 11&#x3a;38&#x3a;52.480</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -288,150 +287,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input - User</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Mapper - Active</to><enabled>Y</enabled> </hop>
-  <hop> <from>Mapper - Active</from><to>Constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Is Loan Officer</to><enabled>Y</enabled> </hop>
-  <hop> <from>Is Loan Officer</from><to>Output - Staff</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input Fund</from><to>Output Fund</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>firsttime_login_remaining</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>nonexpired</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>nonlocked</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>nonexpired_credentials</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>enabled</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>579</xloc>
-      <yloc>222</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Is Loan Officer</send_true_to>
-<send_false_to>Mapper - Active</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>LEVEL_ID</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>402</xloc>
-      <yloc>220</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>EMAIL_ID</name>
-        <value>demo&#x40;gfsl.com</value>
-        <mask/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>579</xloc>
-      <yloc>308</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Input - User</name>
+    <name>Input Fund</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -441,7 +300,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  pl.PERSONNEL_ID&#xd;&#xa;, LEVEL_ID&#xd;&#xa;, GLOBAL_PERSONNEL_NUM&#xd;&#xa;, pl.OFFICE_ID&#xd;&#xa;, TITLE&#xd;&#xa;, PERSONNEL_STATUS&#xd;&#xa;, PASSWORD&#xd;&#xa;, LOGIN_NAME&#xd;&#xa;, EMAIL_ID&#xd;&#xa;, pl.DISPLAY_NAME&#xd;&#xa;, pl.CREATED_BY&#xd;&#xa;, pl.CREATED_DATE&#xd;&#xa;, LAST_LOGIN&#xd;&#xa;, LOCKED&#xd;&#xa;, pd.FIRST_NAME&#xd;&#xa;, pd.MIDDLE_NAME&#xd;&#xa;, pd.LAST_NAME&#xd;&#xa;FROM personnel pl&#xd;&#xa;LEFT JOIN personnel_details pd ON pd.PERSONNEL_ID &#x3d; pl.PERSONNEL_ID&#xd;&#xa;JOIN office of ON of.OFFICE_ID &#x3d; .pl.OFFICE_ID</sql>
+    <sql>SELECT&#xd;&#xa;  FUND_ID&#xd;&#xa;, FUND_NAME&#xd;&#xa;, VERSION_NO&#xd;&#xa;, FUNDCODE_ID&#xd;&#xa;FROM fund&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -449,76 +308,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>226</xloc>
-      <yloc>220</yloc>
+      <xloc>325</xloc>
+      <yloc>109</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Is Loan Officer</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>IsLoanOfficer</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>402</xloc>
-      <yloc>71</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Mapper - Active</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>PERSONNEL_STATUS</field_to_use>
-    <target_field>IsDeleted</target_field>
-    <non_match_default>0</non_match_default>
-    <fields>
-      <field>
-        <source_value>1</source_value>
-        <target_value>0</target_value>
-      </field>
-      <field>
-        <source_value>2</source_value>
-        <target_value>1</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>402</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Output - App User</name>
+    <name>Output Fund</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -529,7 +326,7 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_appuser</table>
+    <table>m_fund</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -541,132 +338,23 @@
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
-    <tablename_in_table>N</tablename_in_table>
+    <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>PERSONNEL_ID</stream_name>
-        </field>
-        <field>
-          <column_name>office_id</column_name>
-          <stream_name>OFFICE_ID</stream_name>
-        </field>
-        <field>
-          <column_name>username</column_name>
-          <stream_name>LOGIN_NAME</stream_name>
-        </field>
-        <field>
-          <column_name>password</column_name>
-          <stream_name>PASSWORD</stream_name>
-        </field>
-        <field>
-          <column_name>email</column_name>
-          <stream_name>EMAIL_ID</stream_name>
-        </field>
-        <field>
-          <column_name>firsttime_login_remaining</column_name>
-          <stream_name>firsttime_login_remaining</stream_name>
-        </field>
-        <field>
-          <column_name>nonexpired</column_name>
-          <stream_name>nonexpired</stream_name>
-        </field>
-        <field>
-          <column_name>nonlocked</column_name>
-          <stream_name>nonlocked</stream_name>
-        </field>
-        <field>
-          <column_name>nonexpired_credentials</column_name>
-          <stream_name>nonexpired_credentials</stream_name>
-        </field>
-        <field>
-          <column_name>enabled</column_name>
-          <stream_name>enabled</stream_name>
-        </field>
-        <field>
-          <column_name>is_deleted</column_name>
-          <stream_name>IsDeleted</stream_name>
-        </field>
-        <field>
-          <column_name>lastname</column_name>
-          <stream_name>LAST_NAME</stream_name>
-        </field>
-        <field>
-          <column_name>firstname</column_name>
-          <stream_name>FIRST_NAME</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>580</xloc>
-      <yloc>386</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Output - Staff</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <schema/>
-    <table>m_staff</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>N</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>PERSONNEL_ID</stream_name>
-        </field>
-        <field>
-          <column_name>office_id</column_name>
-          <stream_name>OFFICE_ID</stream_name>
-        </field>
         <field>
           <column_name>external_id</column_name>
-          <stream_name>GLOBAL_PERSONNEL_NUM</stream_name>
+          <stream_name>FUND_ID</stream_name>
         </field>
         <field>
-          <column_name>is_loan_officer</column_name>
-          <stream_name>IsLoanOfficer</stream_name>
-        </field>
-        <field>
-          <column_name>display_name</column_name>
-          <stream_name>LOGIN_NAME</stream_name>
-        </field>
-        <field>
-          <column_name>lastname</column_name>
-          <stream_name>LAST_NAME</stream_name>
-        </field>
-        <field>
-          <column_name>firstname</column_name>
-          <stream_name>FIRST_NAME</stream_name>
+          <column_name>name</column_name>
+          <stream_name>FUND_NAME</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>587</xloc>
-      <yloc>71</yloc>
+      <xloc>568</xloc>
+      <yloc>109</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
