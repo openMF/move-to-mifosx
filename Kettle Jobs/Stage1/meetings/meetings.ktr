@@ -436,8 +436,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1012</xloc>
-      <yloc>53</yloc>
+      <xloc>1029</xloc>
+      <yloc>54</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1564,8 +1564,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1117</xloc>
-      <yloc>53</yloc>
+      <xloc>1167</xloc>
+      <yloc>54</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
