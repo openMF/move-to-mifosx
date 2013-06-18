@@ -288,9 +288,9 @@
   </connection>
   <order>
   <hop> <from>Table Meeting</from><to>Table Meeting Center</to><enabled>Y</enabled> </hop>
-  <hop> <from>Table Meeting 2</from><to>Table Meeting Center 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table Calendar</from><to>Table Calendar instance</to><enabled>Y</enabled> </hop>
   <hop> <from>Table input</from><to>build recurrence pattern</to><enabled>Y</enabled> </hop>
-  <hop> <from>build recurrence pattern</from><to>Table Meeting 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>build recurrence pattern</from><to>Table Calendar</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Table Meeting</name>
@@ -398,7 +398,7 @@
     </step>
 
   <step>
-    <name>Table Meeting 2</name>
+    <name>Table Calendar</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -552,7 +552,7 @@
     </step>
 
   <step>
-    <name>Table Meeting Center 2</name>
+    <name>Table Calendar instance</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
