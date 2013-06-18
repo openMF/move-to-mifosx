@@ -88,6 +88,28 @@ chmod +x *.sh
 
 <p>Start Spoon by executing spoon.bat on Windows, or spoon.sh on Unix-like operating systems. As soon as Spoon starts, a dialog window appears asking for the repository connection data. Click the No Repository button.</p>
 
+<h2>
+<a name="configure-source-and-destination-database" class="anchor" href="#configure-source-and-destination-database"><span class="octicon octicon-link"></span></a>Configure source and destination database</h2>
+
+<p>Navigate to simple-jndi folder</p>
+
+<pre><code>cd &lt;Kettle&gt;/..\data-integration\simple-jndi\
+</code></pre>
+
+<p>And append below line to jdbc.properties file and save it. </p>
+
+<pre><code>SourceDB/type=javax.sql.DataSource
+SourceDB/driver=org.gjt.mm.mysql.Driver
+SourceDB/url=jdbc:mysql://000.00.00.00:3306/mifos?useUnicode=true&amp;characterEncoding=UTF-8
+SourceDB/user=conflux
+SourceDB/password=confluxtech
+DestinationDB/type=javax.sql.DataSource
+DestinationDB/driver=org.gjt.mm.mysql.Driver
+DestinationDB/url=jdbc:mysql://localhost:3306/mifosx?useUnicode=true&amp;characterEncoding=UTF-8
+DestinationDB/user=root
+DestinationDB/password=****
+</code></pre>
+
 <h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
