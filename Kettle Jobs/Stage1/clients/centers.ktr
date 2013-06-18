@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>office</name>
+    <name>centers</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -45,7 +44,7 @@
     <size_rowset>10000</size_rowset>
     <sleep_time_empty>50</sleep_time_empty>
     <sleep_time_full>50</sleep_time_full>
-    <unique_connections>Y</unique_connections>
+    <unique_connections>N</unique_connections>
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
@@ -62,11 +61,32 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;13 12&#x3a;51&#x3a;22.937</created_date>
+  <created_date>2013&#x2f;06&#x2f;18 11&#x3a;24&#x3a;00.036</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;13 12&#x3a;51&#x3a;22.937</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;18 11&#x3a;24&#x3a;00.036</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <note>In Select add condition pr.level&#x3d;1 to &#xd;&#xa;avoid getting centers with non loan officer as loan officers&#xd;&#xa;&#xd;&#xa;This  needs correction</note>
+      <xloc>68</xloc>
+      <yloc>173</yloc>
+      <width>451</width>
+      <heigth>88</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>AgileBI</name>
@@ -288,195 +308,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input - Office</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>HO is not migrated</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Database lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup</from><to>Space</to><enabled>Y</enabled> </hop>
-  <hop> <from>Space</from><to>Derive heirarchy</to><enabled>Y</enabled> </hop>
-  <hop> <from>Derive heirarchy</from><to>Replace spaces</to><enabled>Y</enabled> </hop>
-  <hop> <from>Replace spaces</from><to>Insert &#x2f; Update Office</to><enabled>Y</enabled> </hop>
+  <hop> <from>Clients Input</from><to>Center status</to><enabled>Y</enabled> </hop>
+  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>m_office</table>
-      <orderby/>
-      <fail_on_multiple>Y</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>parent_id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>hierarchy</name>
-        <rename>parenthierarchy</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>279</xloc>
-      <yloc>283</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Derive heirarchy</name>
-    <type>ConcatFields</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>.</separator>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>parenthierarchy</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Space</name>
-        <type>-</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-<targetFieldName>hierarchy</targetFieldName>
-<targetFieldLength>0</targetFieldLength>
-<removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>441</xloc>
-      <yloc>285</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Database lookup</send_true_to>
-<send_false_to>HO is not migrated</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>levelId</leftvalue>
- <function>&#x3c;&#x3e;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>283</xloc>
-      <yloc>164</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>HO is not migrated</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>279</xloc>
-      <yloc>60</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Input - Office</name>
+    <name>Clients Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -486,7 +322,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  OFFICE_ID As id&#xd;&#xa;, GLOBAL_OFFICE_NUM As external_id&#xd;&#xa;, DISPLAY_NAME As name&#xd;&#xa;, CREATED_DATE As opening_date&#xd;&#xa;, PARENT_OFFICE_ID As parent_id&#xd;&#xa;, OFFICE_LEVEL_ID As levelId&#xd;&#xa;FROM office&#xd;&#xa;ORDER BY levelId&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.GLOBAL_CUST_NUM As external_id&#xd;&#xa;, cr.STATUS_ID	 As	status_enum&#xd;&#xa;, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date&#xd;&#xa;, cr.BRANCH_ID	 As	office_id&#xd;&#xa;, cr.LOAN_OFFICER_ID 	 As	staff_id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID	 As	parent_id&#xd;&#xa;, 1	 As	level_id&#xd;&#xa;, cr.DISPLAY_NAME	 As	display_name&#xd;&#xa;, NULL	 As	hierarchy&#xd;&#xa;FROM customer cr&#xd;&#xa;JOIN personnel pl ON pl.PERSONNEL_ID &#x3d; cr.LOAN_OFFICER_ID&#xd;&#xa;WHERE pl.LEVEL_ID &#x3d; 1 AND DISCRIMINATOR &#x3d; &#x27;CENTER&#x27; AND BRANCH_ID &#x3d; 12 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -494,86 +330,15 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>145</xloc>
-      <yloc>164</yloc>
+      <xloc>204</xloc>
+      <yloc>101</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Replace spaces</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>hierarchy</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string> </replace_string>
-        <replace_by_string/>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-      </field>
-      <field>
-        <in_stream_name>hierarchy</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>..</replace_string>
-        <replace_by_string>.</replace_by_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>556</xloc>
-      <yloc>164</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Space</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>Space</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>441</xloc>
-      <yloc>163</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insert &#x2f; Update Office</name>
-    <type>InsertUpdate</type>
+    <name>Table output</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -582,52 +347,99 @@
            <schema_name/>
            </partitioning>
     <connection>DestinationDB</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>m_office</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>parent_id</name>
-        <rename>parent_id</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>hierarchy</name>
-        <rename>hierarchy</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>external_id</name>
-        <rename>external_id</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>name</name>
-        <rename>name</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>opening_date</name>
-        <rename>opening_date</rename>
-        <update>N</update>
-      </value>
-    </lookup>
+    <schema/>
+    <table>m_group</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>display_name</column_name>
+          <stream_name>display_name</stream_name>
+        </field>
+        <field>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>external_id</column_name>
+          <stream_name>external_id</stream_name>
+        </field>
+        <field>
+          <column_name>status_enum</column_name>
+          <stream_name>status_enum</stream_name>
+        </field>
+        <field>
+          <column_name>activation_date</column_name>
+          <stream_name>activation_date</stream_name>
+        </field>
+        <field>
+          <column_name>office_id</column_name>
+          <stream_name>office_id</stream_name>
+        </field>
+        <field>
+          <column_name>staff_id</column_name>
+          <stream_name>staff_id</stream_name>
+        </field>
+        <field>
+          <column_name>parent_id</column_name>
+          <stream_name>parent_id</stream_name>
+        </field>
+        <field>
+          <column_name>level_id</column_name>
+          <stream_name>level_id</stream_name>
+        </field>
+        <field>
+          <column_name>hierarchy</column_name>
+          <stream_name>hierarchy</stream_name>
+        </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>697</xloc>
-      <yloc>165</yloc>
+      <xloc>638</xloc>
+      <yloc>98</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Center status</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use>status_enum</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>13</source_value>
+        <target_value>300</target_value>
+      </field>
+      <field>
+        <source_value>14</source_value>
+        <target_value>600</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>400</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
