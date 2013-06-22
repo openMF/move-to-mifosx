@@ -66,27 +66,6 @@
   <modified_date>2013&#x2f;06&#x2f;18 11&#x3a;24&#x3a;00.036</modified_date>
   </info>
   <notepads>
-    <notepad>
-      <note>In Select add condition pr.level&#x3d;1 to &#xd;&#xa;avoid getting centers with non loan officer as loan officers&#xd;&#xa;&#xd;&#xa;This  needs correction</note>
-      <xloc>68</xloc>
-      <yloc>173</yloc>
-      <width>451</width>
-      <heigth>88</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>AgileBI</name>
@@ -312,6 +291,37 @@
   <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>Center status</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use>status_enum</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>13</source_value>
+        <target_value>300</target_value>
+      </field>
+      <field>
+        <source_value>14</source_value>
+        <target_value>600</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>400</xloc>
+      <yloc>98</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Clients Input</name>
     <type>TableInput</type>
     <description/>
@@ -322,7 +332,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.GLOBAL_CUST_NUM As external_id&#xd;&#xa;, cr.STATUS_ID	 As	status_enum&#xd;&#xa;, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date&#xd;&#xa;, cr.BRANCH_ID	 As	office_id&#xd;&#xa;, cr.LOAN_OFFICER_ID 	 As	staff_id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID	 As	parent_id&#xd;&#xa;, 1	 As	level_id&#xd;&#xa;, cr.DISPLAY_NAME	 As	display_name&#xd;&#xa;, NULL	 As	hierarchy&#xd;&#xa;FROM customer cr&#xd;&#xa;JOIN personnel pl ON pl.PERSONNEL_ID &#x3d; cr.LOAN_OFFICER_ID&#xd;&#xa;WHERE pl.LEVEL_ID &#x3d; 1 AND DISCRIMINATOR &#x3d; &#x27;CENTER&#x27; AND BRANCH_ID &#x3d; 12 </sql>
+    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.GLOBAL_CUST_NUM As external_id&#xd;&#xa;, cr.STATUS_ID	 As	status_enum&#xd;&#xa;, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date&#xd;&#xa;, cr.BRANCH_ID	 As	office_id&#xd;&#xa;, cr.LOAN_OFFICER_ID 	 As	staff_id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID	 As	parent_id&#xd;&#xa;, 1	 As	level_id&#xd;&#xa;, cr.DISPLAY_NAME	 As	display_name&#xd;&#xa;, NULL	 As	hierarchy&#xd;&#xa;FROM customer cr&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CENTER&#x27; AND BRANCH_ID &#x3d; 12 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -408,37 +418,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>638</xloc>
-      <yloc>98</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Center status</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>status_enum</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>13</source_value>
-        <target_value>300</target_value>
-      </field>
-      <field>
-        <source_value>14</source_value>
-        <target_value>600</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
