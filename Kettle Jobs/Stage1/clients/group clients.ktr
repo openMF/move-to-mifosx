@@ -301,7 +301,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID  &#xd;&#xa;FROM customer cr&#xd;&#xa;LEFT JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 &#xd;&#xa;LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND cnd.NAME_TYPE &#x3d; 3&#xd;&#xa;WHERE DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; &#xd;&#xa;AND BRANCH_ID &#x3d; 12</sql>
+    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID  &#xd;&#xa;FROM customer cr&#xd;&#xa;LEFT JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 &#xd;&#xa;LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND cnd.NAME_TYPE &#x3d; 3&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; AND cr.STATUS_ID &#x3d; 3&#xd;&#xa;AND BRANCH_ID &#x3d; 12</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -311,6 +311,47 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>245</xloc>
       <yloc>98</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Migrate Groups</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>m_group</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>PARENT_CUSTOMER_ID</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <default/>
+        <type>-</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>407</xloc>
+      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -356,47 +397,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>571</xloc>
       <yloc>96</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Migrate Groups</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>m_group</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>PARENT_CUSTOMER_ID</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <default/>
-        <type>-</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>407</xloc>
-      <yloc>97</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
