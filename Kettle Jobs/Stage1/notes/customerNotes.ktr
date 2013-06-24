@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>loancharges</name>
+    <name>customerNotes</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,32 +61,11 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;20 10&#x3a;28&#x3a;45.051</created_date>
+  <created_date>2013&#x2f;06&#x2f;24 17&#x3a;12&#x3a;18.564</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;20 10&#x3a;28&#x3a;45.051</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;24 17&#x3a;12&#x3a;18.564</modified_date>
   </info>
   <notepads>
-    <notepad>
-      <note>If loan fee is reversed or not paid in one installment&#xd;&#xa;this step is creating multiple row for same fee&#xd;&#xa;&#xd;&#xa;need fix &#x28;post processing to remov duplicates&#x29;</note>
-      <xloc>111</xloc>
-      <yloc>291</yloc>
-      <width>404</width>
-      <heigth>88</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>AgileBI</name>
@@ -308,10 +287,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Account fees input</from><to>loan charges output</to><enabled>Y</enabled> </hop>
+  <hop> <from>customer notes input</from><to>Notes output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Account fees input</name>
+    <name>customer notes input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -321,7 +300,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;la.ACCOUNT_ID As loan_id , &#xd;&#xa;af.FEE_ID As  charge_id ,&#xd;&#xa;0 As is_penalty ,&#xd;&#xa;1 As charge_time_enum ,&#xd;&#xa;NULL As due_for_collection_as_of_date ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , 2 , 1&#x29; As charge_calculation_enum ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT , NULL &#x29; As calculation_percentage ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , la.LOAN_AMOUNT ,NULL &#x29;  As calculation_on_amount ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100 , af.ACCOUNT_FEE_AMNT &#x29; As amount ,&#xd;&#xa;ftd.FEE_AMOUNT As amount_paid_derived ,&#xd;&#xa;NULL As amount_waived_derived ,&#xd;&#xa;NULL As amount_writtenoff_derived ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100, fe.FEE_AMOUNT &#x29;  - IFNULL&#x28;ftd.FEE_AMOUNT , 0&#x29;   As amount_outstanding_derived ,&#xd;&#xa;if &#x28;ftd.FEE_AMOUNT &#x3d; NULL , 0 , 1&#x29; As is_paid_derived ,&#xd;&#xa;0 As waived&#xd;&#xa;FROM loan_account la&#xd;&#xa;JOIN account_fees af ON af.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;JOIN fees fe ON fe.FEE_ID &#x3d; af.FEE_ID &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;LEFT JOIN fee_trxn_detail ftd ON ftd.ACCOUNT_FEE_ID &#x3d; af.ACCOUNT_FEE_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12 </sql>
+    <sql>SELECT &#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3d; 1 , cr.CUSTOMER_ID , NULL &#x29; As client_id ,&#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3e; 1 , cr.CUSTOMER_ID , NULL &#x29; As group_id , &#xd;&#xa;NULL As loan_id ,&#xd;&#xa;NULL As loan_transaction_id ,&#xd;&#xa;&#x27;200&#x27; As note_type_enum , &#xd;&#xa;cn.&#x60;COMMENT&#x60; As note ,&#xd;&#xa;cn.COMMENT_DATE As created_date , &#xd;&#xa;cn.FIELD_OFFICER_ID As createdby_id , &#xd;&#xa;cn.COMMENT_DATE  As lastmodified_date , &#xd;&#xa;cn.FIELD_OFFICER_ID As lastmodifiedby_id&#xd;&#xa;FROM customer_note cn &#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; cn.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -329,14 +308,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>260</xloc>
-      <yloc>125</yloc>
+      <xloc>273</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>loan charges output</name>
+    <name>Notes output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -347,7 +326,7 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_loan_charge</table>
+    <table>m_note</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -364,70 +343,50 @@
     <return_field/>
     <fields>
         <field>
+          <column_name>client_id</column_name>
+          <stream_name>client_id</stream_name>
+        </field>
+        <field>
+          <column_name>group_id</column_name>
+          <stream_name>group_id</stream_name>
+        </field>
+        <field>
           <column_name>loan_id</column_name>
           <stream_name>loan_id</stream_name>
         </field>
         <field>
-          <column_name>charge_id</column_name>
-          <stream_name>charge_id</stream_name>
+          <column_name>loan_transaction_id</column_name>
+          <stream_name>loan_transaction_id</stream_name>
         </field>
         <field>
-          <column_name>is_penalty</column_name>
-          <stream_name>is_penalty</stream_name>
+          <column_name>note_type_enum</column_name>
+          <stream_name>note_type_enum</stream_name>
         </field>
         <field>
-          <column_name>charge_time_enum</column_name>
-          <stream_name>charge_time_enum</stream_name>
+          <column_name>note</column_name>
+          <stream_name>note</stream_name>
         </field>
         <field>
-          <column_name>due_for_collection_as_of_date</column_name>
-          <stream_name>due_for_collection_as_of_date</stream_name>
+          <column_name>created_date</column_name>
+          <stream_name>created_date</stream_name>
         </field>
         <field>
-          <column_name>charge_calculation_enum</column_name>
-          <stream_name>charge_calculation_enum</stream_name>
+          <column_name>createdby_id</column_name>
+          <stream_name>createdby_id</stream_name>
         </field>
         <field>
-          <column_name>calculation_percentage</column_name>
-          <stream_name>calculation_percentage</stream_name>
+          <column_name>lastmodified_date</column_name>
+          <stream_name>lastmodified_date</stream_name>
         </field>
         <field>
-          <column_name>calculation_on_amount</column_name>
-          <stream_name>calculation_on_amount</stream_name>
-        </field>
-        <field>
-          <column_name>amount</column_name>
-          <stream_name>amount</stream_name>
-        </field>
-        <field>
-          <column_name>amount_paid_derived</column_name>
-          <stream_name>amount_paid_derived</stream_name>
-        </field>
-        <field>
-          <column_name>amount_waived_derived</column_name>
-          <stream_name>amount_waived_derived</stream_name>
-        </field>
-        <field>
-          <column_name>amount_writtenoff_derived</column_name>
-          <stream_name>amount_writtenoff_derived</stream_name>
-        </field>
-        <field>
-          <column_name>amount_outstanding_derived</column_name>
-          <stream_name>amount_outstanding_derived</stream_name>
-        </field>
-        <field>
-          <column_name>is_paid_derived</column_name>
-          <stream_name>is_paid_derived</stream_name>
-        </field>
-        <field>
-          <column_name>waived</column_name>
-          <stream_name>waived</stream_name>
+          <column_name>lastmodifiedby_id</column_name>
+          <stream_name>lastmodifiedby_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>504</xloc>
-      <yloc>123</yloc>
+      <xloc>543</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
