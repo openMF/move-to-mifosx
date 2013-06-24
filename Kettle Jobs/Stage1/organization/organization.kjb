@@ -269,8 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>66</xloc>
-      <yloc>173</yloc>
+      <xloc>154</xloc>
+      <yloc>231</yloc>
       </entry>
     <entry>
       <name>update office heirarchy</name>
@@ -302,8 +302,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>358</xloc>
-      <yloc>96</yloc>
+      <xloc>446</xloc>
+      <yloc>154</yloc>
       </entry>
     <entry>
       <name>User and staff</name>
@@ -335,8 +335,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>353</xloc>
-      <yloc>256</yloc>
+      <xloc>441</xloc>
+      <yloc>314</yloc>
       </entry>
     <entry>
       <name>Roles</name>
@@ -368,8 +368,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>550</xloc>
-      <yloc>92</yloc>
+      <xloc>638</xloc>
+      <yloc>150</yloc>
       </entry>
     <entry>
       <name>User roles</name>
@@ -401,8 +401,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>549</xloc>
-      <yloc>252</yloc>
+      <xloc>637</xloc>
+      <yloc>310</yloc>
       </entry>
     <entry>
       <name>Fund</name>
@@ -434,8 +434,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>743</xloc>
-      <yloc>89</yloc>
+      <xloc>831</xloc>
+      <yloc>147</yloc>
       </entry>
     <entry>
       <name>office</name>
@@ -467,8 +467,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>178</xloc>
-      <yloc>97</yloc>
+      <xloc>266</xloc>
+      <yloc>155</yloc>
       </entry>
     <entry>
       <name>office 2</name>
@@ -500,8 +500,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>175</xloc>
-      <yloc>256</yloc>
+      <xloc>263</xloc>
+      <yloc>314</yloc>
       </entry>
   </entries>
   <hops>
