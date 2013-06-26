@@ -269,41 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>154</xloc>
-      <yloc>231</yloc>
-      </entry>
-    <entry>
-      <name>update office heirarchy</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;office.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>446</xloc>
-      <yloc>154</yloc>
+      <xloc>73</xloc>
+      <yloc>241</yloc>
       </entry>
     <entry>
       <name>User and staff</name>
@@ -335,8 +302,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>441</xloc>
-      <yloc>314</yloc>
+      <xloc>514</xloc>
+      <yloc>149</yloc>
       </entry>
     <entry>
       <name>Roles</name>
@@ -368,8 +335,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>638</xloc>
-      <yloc>150</yloc>
+      <xloc>625</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>User roles</name>
@@ -401,8 +368,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>637</xloc>
-      <yloc>310</yloc>
+      <xloc>712</xloc>
+      <yloc>143</yloc>
       </entry>
     <entry>
       <name>Fund</name>
@@ -434,8 +401,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>831</xloc>
-      <yloc>147</yloc>
+      <xloc>757</xloc>
+      <yloc>321</yloc>
       </entry>
     <entry>
       <name>office</name>
@@ -467,41 +434,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>266</xloc>
-      <yloc>155</yloc>
-      </entry>
-    <entry>
-      <name>office 2</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;office.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>263</xloc>
-      <yloc>314</yloc>
+      <xloc>280</xloc>
+      <yloc>324</yloc>
       </entry>
     <entry>
       <name>Lookup Values</name>
@@ -533,20 +467,204 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>833</xloc>
-      <yloc>309</yloc>
+      <xloc>852</xloc>
+      <yloc>447</yloc>
+      </entry>
+    <entry>
+      <name>Import entity name</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importnewcodes.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>857</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Evaluate rows number in a m_office</name>
+      <description/>
+      <type>EVAL_TABLE_CONTENT</type>
+      <connection>DestinationDB</connection>
+      <schemaname/>
+      <tablename>m_office</tablename>
+      <success_condition>rows_count_equal</success_condition>
+      <limit>&#x24;&#x7b;TotalNumberOfOffices&#x7d;</limit>
+      <is_custom_sql>N</is_custom_sql>
+      <is_usevars>N</is_usevars>
+      <custom_sql/>
+      <add_rows_result>N</add_rows_result>
+      <clear_result_rows>Y</clear_result_rows>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>456</xloc>
+      <yloc>321</yloc>
+      </entry>
+    <entry>
+      <name>Set Total Offices</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;initializeVaribles&#x5c;setTotalOffices.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>163</xloc>
+      <yloc>321</yloc>
+      </entry>
+    <entry>
+      <name>Abort job</name>
+      <description>Abort job</description>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>276</xloc>
+      <yloc>799</yloc>
+      </entry>
+    <entry>
+      <name>Init</name>
+      <description>Set variables</description>
+      <type>SET_VARIABLES</type>
+      <replacevars>N</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>max_tries</variable_name>
+          <variable_value>10</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>current_attempt</variable_name>
+          <variable_value>0</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>260</xloc>
+      <yloc>145</yloc>
+      </entry>
+    <entry>
+      <name>increase tries</name>
+      <description>JavaScript</description>
+      <type>EVAL</type>
+      <script>var attempt &#x3d; parseInt&#x28;parent_job.getVariable&#x28;&#x22;current_attempt&#x22;&#x29;, 10&#x29;&#x3b;&#xa;attempt&#x2b;&#x2b;&#x3b;&#xa;parent_job.setVariable&#x28;&#x22;current_attempt&#x22;, attempt&#x29;&#x3b;&#xa;&#xa;true&#x3b;&#xa;</script>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>451</xloc>
+      <yloc>454</yloc>
+      </entry>
+    <entry>
+      <name>should retry&#x3f;</name>
+      <description>Simple evaluation</description>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>&#x24;&#x7b;current_attempt&#x7d;</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>&#x24;&#x7b;max_tries&#x7d;</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>different</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>true</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>277</xloc>
+      <yloc>574</yloc>
+      </entry>
+    <entry>
+      <name>Report Failed Job</name>
+      <description>Write To Log</description>
+      <type>WRITE_TO_LOG</type>
+      <logmessage/>
+      <loglevel>Minimal</loglevel>
+      <logsubject>failed &#x24;&#x7b;max_tries&#x7d; times, time to give up... </logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>275</xloc>
+      <yloc>680</yloc>
+      </entry>
+    <entry>
+      <name>wait a while</name>
+      <description>Wait for</description>
+      <type>DELAY</type>
+      <maximumTimeout>3</maximumTimeout>
+      <scaletime>0</scaletime>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>279</xloc>
+      <yloc>461</yloc>
+      </entry>
+    <entry>
+      <name>Report Failed Attempt</name>
+      <description>Write To Log</description>
+      <type>WRITE_TO_LOG</type>
+      <logmessage/>
+      <loglevel>Minimal</loglevel>
+      <logsubject>doh... failed for the &#x24;&#x7b;current_attempt&#x7d;. time ... will try up to &#x24;&#x7b;max_tries&#x7d; times...</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>450</xloc>
+      <yloc>576</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>update office heirarchy</from>
-      <to>User and staff</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>User and staff</from>
       <to>Roles</to>
@@ -575,8 +693,26 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>Fund</from>
+      <to>Import entity name</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Import entity name</from>
+      <to>Lookup Values</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>START</from>
-      <to>office</to>
+      <to>Set Total Offices</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -585,7 +721,7 @@
     </hop>
     <hop>
       <from>office</from>
-      <to>office 2</to>
+      <to>Evaluate rows number in a m_office</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -593,8 +729,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>office 2</from>
-      <to>update office heirarchy</to>
+      <from>Evaluate rows number in a m_office</from>
+      <to>User and staff</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -602,8 +738,80 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Fund</from>
-      <to>Lookup Values</to>
+      <from>Set Total Offices</from>
+      <to>Init</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Init</from>
+      <to>office</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Evaluate rows number in a m_office</from>
+      <to>increase tries</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>increase tries</from>
+      <to>Report Failed Attempt</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Report Failed Attempt</from>
+      <to>should retry&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>should retry&#x3f;</from>
+      <to>wait a while</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>wait a while</from>
+      <to>office</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>should retry&#x3f;</from>
+      <to>Report Failed Job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Report Failed Job</from>
+      <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -612,5 +820,26 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Reason For Loop&#x3a;&#xd;&#xa;While inserting&#x2f;updating office entry, step need to calculate heirarchy&#xd;&#xa;for that it does look for parent, and there is no guaranty that parent will&#xd;&#xa;be present. So this is does not produce consistant result. So this step is&#xd;&#xa; put into loop til all the offices are migrated to with parent id. &#xd;&#xa;&#x28; PDI does not exec this in sequentially that is reason for iconsistant&#xd;&#xa;result&#x29; </note>
+      <xloc>163</xloc>
+      <yloc>0</yloc>
+      <width>557</width>
+      <heigth>147</heigth>
+      <fontname/>
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 </job>

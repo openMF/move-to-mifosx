@@ -269,8 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>155</xloc>
-      <yloc>139</yloc>
+      <xloc>66</xloc>
+      <yloc>148</yloc>
       </entry>
     <entry>
       <name>Organization details</name>
@@ -278,7 +278,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;organization&#x5c;organization.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;organization&#x5c;organization.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -299,8 +299,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>333</xloc>
-      <yloc>39</yloc>
+      <xloc>260</xloc>
+      <yloc>40</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -308,7 +308,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;products&#x5c;loan products.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;products&#x5c;loan products.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -329,8 +329,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>333</xloc>
-      <yloc>227</yloc>
+      <xloc>359</xloc>
+      <yloc>234</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -338,7 +338,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;clients.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;clients.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -359,8 +359,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>549</xloc>
-      <yloc>38</yloc>
+      <xloc>464</xloc>
+      <yloc>41</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -368,7 +368,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;meetings&#x5c;meeting.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;meetings&#x5c;meeting.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>550</xloc>
-      <yloc>225</yloc>
+      <xloc>562</xloc>
+      <yloc>235</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -398,7 +398,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;loans&#x5c;loanaccouts.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;loans&#x5c;loanaccouts.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -419,8 +419,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>753</xloc>
-      <yloc>36</yloc>
+      <xloc>668</xloc>
+      <yloc>40</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -428,7 +428,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;notes&#x5c;notes.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;notes&#x5c;notes.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -449,20 +449,31 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>752</xloc>
-      <yloc>231</yloc>
+      <xloc>760</xloc>
+      <yloc>238</yloc>
+      </entry>
+    <entry>
+      <name>Set variables</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>TOOLHOME</variable_name>
+          <variable_value>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>198</xloc>
+      <yloc>144</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>Organization details</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Organization details</from>
       <to>Loan Product details</to>
@@ -502,6 +513,24 @@
     <hop>
       <from>loan accounts</from>
       <to>Notes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Set variables</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Set variables</from>
+      <to>Organization details</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

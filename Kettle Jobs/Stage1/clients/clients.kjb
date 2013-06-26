@@ -278,7 +278,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;centers.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;centers.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -311,7 +311,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;group clients.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;group clients.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -344,7 +344,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;clients.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;clients.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -377,7 +377,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;groups.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;groups.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -403,6 +403,39 @@
       <nr>0</nr>
       <xloc>345</xloc>
       <yloc>267</yloc>
+      </entry>
+    <entry>
+      <name>Client Details</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;clientsDetails.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>761</xloc>
+      <yloc>85</yloc>
       </entry>
   </entries>
   <hops>
@@ -436,6 +469,15 @@
     <hop>
       <from>Clients</from>
       <to>Group clients relation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Group clients relation</from>
+      <to>Client Details</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

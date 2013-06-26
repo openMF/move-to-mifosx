@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>loan schedule</name>
+    <name>setTotalOffices</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;20 15&#x3a;49&#x3a;45.474</created_date>
+  <created_date>2013&#x2f;06&#x2f;25 12&#x3a;50&#x3a;54.648</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;20 15&#x3a;49&#x3a;45.474</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;25 12&#x3a;50&#x3a;54.648</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,10 +287,37 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Total Offices</from><to>Set Variables</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Table input</name>
+    <name>Set Variables</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <field_name>numberOff</field_name>
+        <variable_name>TotalNumberOfOffices</variable_name>
+        <variable_type>JVM</variable_type>
+        <default_value>271</default_value>
+        </field>
+      </fields>
+    <use_formatting>Y</use_formatting>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>427</xloc>
+      <yloc>124</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Total Offices</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -300,7 +327,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;  ls.ID As 	id&#xd;&#xa;, ls.ACCOUNT_ID As 	loan_id&#xd;&#xa;, NULL As 	fromdate&#xd;&#xa;, ls.ACTION_DATE As 	duedate&#xd;&#xa;, ls.INSTALLMENT_ID As 	installment&#xd;&#xa;, ls.PRINCIPAL As 	principal_amount&#xd;&#xa;, ls.PRINCIPAL_PAID As 	principal_completed_derived&#xd;&#xa;, NULL As 	principal_writtenoff_derived&#xd;&#xa;, ls.INTEREST As 	interest_amount&#xd;&#xa;, ls.INTEREST_PAID As 	interest_completed_derived&#xd;&#xa;, NULL As 	interest_writtenoff_derived&#xd;&#xa;, NULL As 	interest_waived_derived&#xd;&#xa;, ls.MISC_FEES As 	fee_charges_amount&#xd;&#xa;, ls.MISC_FEES_PAID As 	fee_charges_completed_derived&#xd;&#xa;, NULL As 	fee_charges_writtenoff_derived&#xd;&#xa;, NULL As 	fee_charges_waived_derived&#xd;&#xa;, NULL As 	penalty_charges_amount&#xd;&#xa;, NULL As 	penalty_charges_completed_derived&#xd;&#xa;, NULL As 	penalty_charges_writtenoff_derived&#xd;&#xa;, NULL As 	penalty_charges_waived_derived&#xd;&#xa;, NULL As 	total_paid_in_advance_derived&#xd;&#xa;, NULL As 	total_paid_late_derived&#xd;&#xa;, ls.PAYMENT_STATUS As 	completed_derived&#xd;&#xa;, NULL As 	obligations_met_on_date&#xd;&#xa;, NULL As 	createdby_id&#xd;&#xa;, ls.PAYMENT_DATE As 	created_date&#xd;&#xa;, NULL As 	lastmodified_date&#xd;&#xa;, NULL As 	lastmodifiedby_id&#xd;&#xa;FROM loan_schedule ls&#xd;&#xa;JOIN loan_account la ON la.ACCOUNT_ID &#x3d; ls.ACCOUNT_ID&#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;JOIN meeting me ON me.MEETING_ID &#x3d; la.MEETING_ID&#xd;&#xa;JOIN recurrence_detail rd ON rd.MEETING_ID &#x3d; me.MEETING_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12</sql>
+    <sql>SELECT count&#x28;&#x2a;&#x29; As numberOff FROM office</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -308,153 +335,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>298</xloc>
-      <yloc>145</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <schema/>
-    <table>m_loan_repayment_schedule</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>loan_id</column_name>
-          <stream_name>loan_id</stream_name>
-        </field>
-        <field>
-          <column_name>fromdate</column_name>
-          <stream_name>fromdate</stream_name>
-        </field>
-        <field>
-          <column_name>duedate</column_name>
-          <stream_name>duedate</stream_name>
-        </field>
-        <field>
-          <column_name>installment</column_name>
-          <stream_name>installment</stream_name>
-        </field>
-        <field>
-          <column_name>principal_amount</column_name>
-          <stream_name>principal_amount</stream_name>
-        </field>
-        <field>
-          <column_name>principal_completed_derived</column_name>
-          <stream_name>principal_completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>principal_writtenoff_derived</column_name>
-          <stream_name>principal_writtenoff_derived</stream_name>
-        </field>
-        <field>
-          <column_name>interest_amount</column_name>
-          <stream_name>interest_amount</stream_name>
-        </field>
-        <field>
-          <column_name>interest_completed_derived</column_name>
-          <stream_name>interest_completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>interest_writtenoff_derived</column_name>
-          <stream_name>interest_writtenoff_derived</stream_name>
-        </field>
-        <field>
-          <column_name>interest_waived_derived</column_name>
-          <stream_name>interest_waived_derived</stream_name>
-        </field>
-        <field>
-          <column_name>fee_charges_amount</column_name>
-          <stream_name>fee_charges_amount</stream_name>
-        </field>
-        <field>
-          <column_name>fee_charges_completed_derived</column_name>
-          <stream_name>fee_charges_completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>fee_charges_writtenoff_derived</column_name>
-          <stream_name>fee_charges_writtenoff_derived</stream_name>
-        </field>
-        <field>
-          <column_name>fee_charges_waived_derived</column_name>
-          <stream_name>fee_charges_waived_derived</stream_name>
-        </field>
-        <field>
-          <column_name>penalty_charges_amount</column_name>
-          <stream_name>penalty_charges_amount</stream_name>
-        </field>
-        <field>
-          <column_name>penalty_charges_completed_derived</column_name>
-          <stream_name>penalty_charges_completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>penalty_charges_writtenoff_derived</column_name>
-          <stream_name>penalty_charges_writtenoff_derived</stream_name>
-        </field>
-        <field>
-          <column_name>penalty_charges_waived_derived</column_name>
-          <stream_name>penalty_charges_waived_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_paid_in_advance_derived</column_name>
-          <stream_name>total_paid_in_advance_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_paid_late_derived</column_name>
-          <stream_name>total_paid_late_derived</stream_name>
-        </field>
-        <field>
-          <column_name>completed_derived</column_name>
-          <stream_name>completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>obligations_met_on_date</column_name>
-          <stream_name>obligations_met_on_date</stream_name>
-        </field>
-        <field>
-          <column_name>createdby_id</column_name>
-          <stream_name>createdby_id</stream_name>
-        </field>
-        <field>
-          <column_name>created_date</column_name>
-          <stream_name>created_date</stream_name>
-        </field>
-        <field>
-          <column_name>lastmodified_date</column_name>
-          <stream_name>lastmodified_date</stream_name>
-        </field>
-        <field>
-          <column_name>lastmodifiedby_id</column_name>
-          <stream_name>lastmodifiedby_id</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>539</xloc>
-      <yloc>145</yloc>
+      <xloc>244</xloc>
+      <yloc>126</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
