@@ -269,8 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>66</xloc>
-      <yloc>148</yloc>
+      <xloc>71</xloc>
+      <yloc>195</yloc>
       </entry>
     <entry>
       <name>Organization details</name>
@@ -299,8 +299,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>260</xloc>
-      <yloc>40</yloc>
+      <xloc>265</xloc>
+      <yloc>87</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -329,8 +329,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>359</xloc>
-      <yloc>234</yloc>
+      <xloc>364</xloc>
+      <yloc>281</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -359,8 +359,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>464</xloc>
-      <yloc>41</yloc>
+      <xloc>469</xloc>
+      <yloc>88</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>562</xloc>
-      <yloc>235</yloc>
+      <xloc>567</xloc>
+      <yloc>282</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -419,8 +419,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>668</xloc>
-      <yloc>40</yloc>
+      <xloc>673</xloc>
+      <yloc>87</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -449,8 +449,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>760</xloc>
-      <yloc>238</yloc>
+      <xloc>765</xloc>
+      <yloc>285</yloc>
       </entry>
     <entry>
       <name>Set variables</name>
@@ -469,8 +469,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>198</xloc>
-      <yloc>144</yloc>
+      <xloc>203</xloc>
+      <yloc>191</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -499,8 +499,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>863</xloc>
-      <yloc>44</yloc>
+      <xloc>868</xloc>
+      <yloc>91</yloc>
       </entry>
   </entries>
   <hops>

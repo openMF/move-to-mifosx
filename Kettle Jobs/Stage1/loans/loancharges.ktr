@@ -68,8 +68,8 @@
   <notepads>
     <notepad>
       <note>If loan fee is reversed or not paid in one installment&#xd;&#xa;this step is creating multiple row for same fee&#xd;&#xa;&#xd;&#xa;need fix &#x28;post processing to remov duplicates&#x29;</note>
-      <xloc>111</xloc>
-      <yloc>291</yloc>
+      <xloc>154</xloc>
+      <yloc>196</yloc>
       <width>404</width>
       <heigth>88</heigth>
       <fontname>Arial</fontname>
@@ -321,7 +321,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;la.ACCOUNT_ID As loan_id , &#xd;&#xa;af.FEE_ID As  charge_id ,&#xd;&#xa;0 As is_penalty ,&#xd;&#xa;1 As charge_time_enum ,&#xd;&#xa;NULL As due_for_collection_as_of_date ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , 2 , 1&#x29; As charge_calculation_enum ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT , NULL &#x29; As calculation_percentage ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , la.LOAN_AMOUNT ,NULL &#x29;  As calculation_on_amount ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100 , af.ACCOUNT_FEE_AMNT &#x29; As amount ,&#xd;&#xa;ftd.FEE_AMOUNT As amount_paid_derived ,&#xd;&#xa;NULL As amount_waived_derived ,&#xd;&#xa;NULL As amount_writtenoff_derived ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100, fe.FEE_AMOUNT &#x29;  - IFNULL&#x28;ftd.FEE_AMOUNT , 0&#x29;   As amount_outstanding_derived ,&#xd;&#xa;if &#x28;ftd.FEE_AMOUNT &#x3d; NULL , 0 , 1&#x29; As is_paid_derived ,&#xd;&#xa;0 As waived&#xd;&#xa;FROM loan_account la&#xd;&#xa;JOIN account_fees af ON af.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;JOIN fees fe ON fe.FEE_ID &#x3d; af.FEE_ID &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;LEFT JOIN fee_trxn_detail ftd ON ftd.ACCOUNT_FEE_ID &#x3d; af.ACCOUNT_FEE_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12 </sql>
+    <sql>SELECT &#xd;&#xa;la.ACCOUNT_ID As loan_id , &#xd;&#xa;af.FEE_ID As  charge_id ,&#xd;&#xa;0 As is_penalty ,&#xd;&#xa;1 As charge_time_enum ,&#xd;&#xa;NULL As due_for_collection_as_of_date ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , 2 , 1&#x29; As charge_calculation_enum ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT , NULL &#x29; As calculation_percentage ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , la.LOAN_AMOUNT ,NULL &#x29;  As calculation_on_amount ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100 , af.ACCOUNT_FEE_AMNT &#x29; As amount ,&#xd;&#xa;ftd.FEE_AMOUNT As amount_paid_derived ,&#xd;&#xa;NULL As amount_waived_derived ,&#xd;&#xa;NULL As amount_writtenoff_derived ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100, af.ACCOUNT_FEE_AMNT &#x29;  - IFNULL&#x28;ftd.FEE_AMOUNT , 0&#x29;   As amount_outstanding_derived ,&#xd;&#xa;if &#x28;ftd.FEE_AMOUNT &#x3d; NULL , 0 , 1&#x29; As is_paid_derived ,&#xd;&#xa;0 As waived&#xd;&#xa;FROM loan_account la&#xd;&#xa;JOIN account_fees af ON af.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;JOIN fees fe ON fe.FEE_ID &#x3d; af.FEE_ID &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;LEFT JOIN fee_trxn_detail ftd ON ftd.ACCOUNT_FEE_ID &#x3d; af.ACCOUNT_FEE_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -329,8 +329,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>260</xloc>
-      <yloc>125</yloc>
+      <xloc>267</xloc>
+      <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -426,8 +426,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>504</xloc>
-      <yloc>123</yloc>
+      <xloc>555</xloc>
+      <yloc>120</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
