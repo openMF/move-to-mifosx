@@ -299,8 +299,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>265</xloc>
-      <yloc>87</yloc>
+      <xloc>319</xloc>
+      <yloc>286</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -329,8 +329,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>364</xloc>
-      <yloc>281</yloc>
+      <xloc>436</xloc>
+      <yloc>86</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -359,8 +359,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>469</xloc>
-      <yloc>88</yloc>
+      <xloc>522</xloc>
+      <yloc>287</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>567</xloc>
-      <yloc>282</yloc>
+      <xloc>625</xloc>
+      <yloc>82</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -419,8 +419,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>673</xloc>
-      <yloc>87</yloc>
+      <xloc>731</xloc>
+      <yloc>287</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -446,11 +446,11 @@
       <pass_export>N</pass_export>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
+      <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>765</xloc>
-      <yloc>285</yloc>
+      <xloc>823</xloc>
+      <yloc>90</yloc>
       </entry>
     <entry>
       <name>Set variables</name>
@@ -465,12 +465,17 @@
           <variable_value>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx</variable_value>
           <variable_type>JVM</variable_type>
         </field>
+        <field>
+          <variable_name>CUR</variable_name>
+          <variable_value>INR</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>203</xloc>
-      <yloc>191</yloc>
+      <xloc>182</xloc>
+      <yloc>192</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -499,8 +504,38 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>868</xloc>
-      <yloc>91</yloc>
+      <xloc>822</xloc>
+      <yloc>286</yloc>
+      </entry>
+    <entry>
+      <name>Configuration</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;configurations&#x5c;config.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>248</xloc>
+      <yloc>85</yloc>
       </entry>
   </entries>
   <hops>
@@ -559,8 +594,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Organization details</to>
+      <from>Notes</from>
+      <to>QG</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -568,8 +603,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Notes</from>
-      <to>QG</to>
+      <from>Set variables</from>
+      <to>Configuration</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Configuration</from>
+      <to>Organization details</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
