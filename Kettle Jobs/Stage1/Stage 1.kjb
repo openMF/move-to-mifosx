@@ -269,8 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>71</xloc>
-      <yloc>195</yloc>
+      <xloc>57</xloc>
+      <yloc>156</yloc>
       </entry>
     <entry>
       <name>Organization details</name>
@@ -299,8 +299,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>319</xloc>
-      <yloc>286</yloc>
+      <xloc>373</xloc>
+      <yloc>252</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -329,8 +329,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>436</xloc>
-      <yloc>86</yloc>
+      <xloc>472</xloc>
+      <yloc>47</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -359,8 +359,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>522</xloc>
-      <yloc>287</yloc>
+      <xloc>569</xloc>
+      <yloc>251</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>625</xloc>
-      <yloc>82</yloc>
+      <xloc>661</xloc>
+      <yloc>46</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -419,8 +419,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>731</xloc>
-      <yloc>287</yloc>
+      <xloc>767</xloc>
+      <yloc>251</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -449,8 +449,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>823</xloc>
-      <yloc>90</yloc>
+      <xloc>858</xloc>
+      <yloc>49</yloc>
       </entry>
     <entry>
       <name>Set variables</name>
@@ -474,8 +474,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>182</xloc>
-      <yloc>192</yloc>
+      <xloc>218</xloc>
+      <yloc>156</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -504,8 +504,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>822</xloc>
-      <yloc>286</yloc>
+      <xloc>858</xloc>
+      <yloc>250</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -534,8 +534,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>248</xloc>
-      <yloc>85</yloc>
+      <xloc>284</xloc>
+      <yloc>47</yloc>
       </entry>
   </entries>
   <hops>
@@ -607,7 +607,7 @@
       <to>Configuration</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
