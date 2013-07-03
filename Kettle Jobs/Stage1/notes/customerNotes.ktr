@@ -290,31 +290,6 @@
   <hop> <from>customer notes input</from><to>Notes output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>customer notes input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3d; 1 , cr.CUSTOMER_ID , NULL &#x29; As client_id ,&#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3e; 1 , cr.CUSTOMER_ID , NULL &#x29; As group_id , &#xd;&#xa;NULL As loan_id ,&#xd;&#xa;NULL As loan_transaction_id ,&#xd;&#xa;&#x27;200&#x27; As note_type_enum , &#xd;&#xa;cn.&#x60;COMMENT&#x60; As note ,&#xd;&#xa;cn.COMMENT_DATE As created_date , &#xd;&#xa;cn.FIELD_OFFICER_ID As createdby_id , &#xd;&#xa;cn.COMMENT_DATE  As lastmodified_date , &#xd;&#xa;cn.FIELD_OFFICER_ID As lastmodifiedby_id&#xd;&#xa;FROM customer_note cn &#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; cn.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>273</xloc>
-      <yloc>190</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Notes output</name>
     <type>TableOutput</type>
     <description/>
@@ -386,6 +361,31 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>543</xloc>
+      <yloc>190</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>customer notes input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>SourceDB</connection>
+    <sql>SELECT &#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3d; 1 , cr.CUSTOMER_ID , NULL &#x29; As client_id ,&#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3e; 1 , cr.CUSTOMER_ID , NULL &#x29; As group_id , &#xd;&#xa;NULL As loan_id ,&#xd;&#xa;NULL As loan_transaction_id ,&#xd;&#xa;&#x27;200&#x27; As note_type_enum , &#xd;&#xa;cn.&#x60;COMMENT&#x60; As note ,&#xd;&#xa;cn.COMMENT_DATE As created_date , &#xd;&#xa;cn.FIELD_OFFICER_ID As createdby_id , &#xd;&#xa;cn.COMMENT_DATE  As lastmodified_date , &#xd;&#xa;cn.FIELD_OFFICER_ID As lastmodifiedby_id&#xd;&#xa;FROM customer_note cn &#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; cn.CUSTOMER_ID</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>273</xloc>
       <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>

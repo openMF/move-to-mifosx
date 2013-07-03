@@ -287,11 +287,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Clients Input</from><to>Center status</to><enabled>Y</enabled> </hop>
-  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Group Input</from><to>Group status</to><enabled>Y</enabled> </hop>
+  <hop> <from>Group status</from><to>Group output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Center status</name>
+    <name>Group status</name>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
@@ -338,7 +338,7 @@
     </step>
 
   <step>
-    <name>Clients Input</name>
+    <name>Group Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -348,7 +348,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.GLOBAL_CUST_NUM As external_id&#xd;&#xa;, cr.STATUS_ID	 As	status_enum&#xd;&#xa;, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date&#xd;&#xa;, cr.BRANCH_ID	 As	office_id&#xd;&#xa;, cr.LOAN_OFFICER_ID 	 As	staff_id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID	 As	parent_id&#xd;&#xa;, 2	 As	level_id&#xd;&#xa;, cr.DISPLAY_NAME	 As	display_name&#xd;&#xa;, NULL	 As	hierarchy&#xd;&#xa;FROM customer cr&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;GROUP&#x27; AND cr.BRANCH_ID &#x3d; 12 </sql>
+    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.GLOBAL_CUST_NUM As external_id&#xd;&#xa;, cr.STATUS_ID	 As	status_enum&#xd;&#xa;, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date&#xd;&#xa;, cr.BRANCH_ID	 As	office_id&#xd;&#xa;, cr.LOAN_OFFICER_ID 	 As	staff_id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID	 As	parent_id&#xd;&#xa;, 2	 As	level_id&#xd;&#xa;, cr.DISPLAY_NAME	 As	display_name&#xd;&#xa;, NULL	 As	hierarchy&#xd;&#xa;FROM customer cr&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;GROUP&#x27;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -363,7 +363,7 @@
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Group output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>

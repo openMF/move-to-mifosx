@@ -377,7 +377,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3d; 1 , cr.CUSTOMER_ID , NULL &#x29; As client_id ,&#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3e; 1 , cr.CUSTOMER_ID , NULL &#x29; As group_id , &#xd;&#xa;ac.ACCOUNT_ID As loan_id ,&#xd;&#xa;NULL As loan_transaction_id ,&#xd;&#xa;&#x27;200&#x27; As note_type_enum , &#xd;&#xa;an.NOTE As note ,&#xd;&#xa;an.COMMENT_DATE As created_date , &#xd;&#xa;an.OFFICER_ID As createdby_id , &#xd;&#xa;an.COMMENT_DATE  As lastmodified_date , &#xd;&#xa;an.OFFICER_ID As lastmodifiedby_id&#xd;&#xa;FROM account_notes an &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; an.ACCOUNT_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12 AND ac.ACCOUNT_TYPE_ID &#x3d; 1</sql>
+    <sql>SELECT &#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3d; 1 , cr.CUSTOMER_ID , NULL &#x29; As client_id ,&#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3e; 1 , cr.CUSTOMER_ID , NULL &#x29; As group_id , &#xd;&#xa;ac.ACCOUNT_ID As loan_id ,&#xd;&#xa;NULL As loan_transaction_id ,&#xd;&#xa;&#x27;200&#x27; As note_type_enum , &#xd;&#xa;an.NOTE As note ,&#xd;&#xa;an.COMMENT_DATE As created_date , &#xd;&#xa;an.OFFICER_ID As createdby_id , &#xd;&#xa;an.COMMENT_DATE  As lastmodified_date , &#xd;&#xa;an.OFFICER_ID As lastmodifiedby_id&#xd;&#xa;FROM account_notes an &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; an.ACCOUNT_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE ac.ACCOUNT_TYPE_ID &#x3d; 1</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

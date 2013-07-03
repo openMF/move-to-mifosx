@@ -300,7 +300,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID&#xd;&#xa;, cr.DATE_OF_BIRTH&#xd;&#xa;, cr.GOVERNMENT_ID&#xd;&#xa;, ETHINICITY&#xd;&#xa;, CITIZENSHIP&#xd;&#xa;, HANDICAPPED&#xd;&#xa;, BUSINESS_ACTIVITIES&#xd;&#xa;, MARITAL_STATUS&#xd;&#xa;, EDUCATION_LEVEL&#xd;&#xa;, NUM_CHILDREN&#xd;&#xa;, GENDER&#xd;&#xa;, DATE_STARTED&#xd;&#xa;, HANDICAPPED_DETAILS&#xd;&#xa;, POVERTY_STATUS&#xd;&#xa;, POVERTY_LHOOD_PCT&#xd;&#xa;FROM customer_detail cd&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; cd.CUSTOMER_ID&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; AND cr.BRANCH_ID &#x3d; 12&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID&#xd;&#xa;, cr.DATE_OF_BIRTH&#xd;&#xa;, cr.GOVERNMENT_ID&#xd;&#xa;, ETHINICITY&#xd;&#xa;, CITIZENSHIP&#xd;&#xa;, HANDICAPPED&#xd;&#xa;, BUSINESS_ACTIVITIES&#xd;&#xa;, MARITAL_STATUS&#xd;&#xa;, EDUCATION_LEVEL&#xd;&#xa;, NUM_CHILDREN&#xd;&#xa;, GENDER&#xd;&#xa;, DATE_STARTED&#xd;&#xa;, HANDICAPPED_DETAILS&#xd;&#xa;, POVERTY_STATUS&#xd;&#xa;, POVERTY_LHOOD_PCT&#xd;&#xa;FROM customer_detail cd&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; cd.CUSTOMER_ID&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

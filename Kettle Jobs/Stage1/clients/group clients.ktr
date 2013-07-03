@@ -288,7 +288,7 @@
   </connection>
   <order>
   <hop> <from>Clients Input</from><to>Migrate Groups</to><enabled>Y</enabled> </hop>
-  <hop> <from>Migrate Groups</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Migrate Groups</from><to>Group Client relation output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Clients Input</name>
@@ -301,7 +301,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID  &#xd;&#xa;FROM customer cr&#xd;&#xa;LEFT JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 &#xd;&#xa;LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND cnd.NAME_TYPE &#x3d; 3&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; AND cr.STATUS_ID &#x3d; 3&#xd;&#xa;AND BRANCH_ID &#x3d; 12</sql>
+    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID  &#xd;&#xa;FROM customer cr&#xd;&#xa;LEFT JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 &#xd;&#xa;LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND cnd.NAME_TYPE &#x3d; 3&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; AND cr.STATUS_ID &#x3d; 3</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -357,7 +357,7 @@
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Group Client relation output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
