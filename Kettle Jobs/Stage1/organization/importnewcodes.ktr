@@ -290,6 +290,47 @@
   <hop> <from>MifosX codes Input</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>Insert &#x2f; Update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>m_code</table>
+      <key>
+        <name>code_name</name>
+        <field>code_name</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>code_name</name>
+        <rename>code_name</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>is_system_defined</name>
+        <rename>is_system_defined</rename>
+        <update>N</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>556</xloc>
+      <yloc>177</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>MifosX codes Input</name>
     <type>ExcelInput</type>
     <description/>
@@ -315,7 +356,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx&#x5c;Mapping Docs&#x5c;MifosX mcodes.xls</name>
+      <name>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Mapping Docs&#x5c;MifosX mcodes.xls</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -375,47 +416,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>325</xloc>
-      <yloc>177</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insert &#x2f; Update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>m_code</table>
-      <key>
-        <name>code_name</name>
-        <field>code_name</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>code_name</name>
-        <rename>code_name</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>is_system_defined</name>
-        <rename>is_system_defined</rename>
-        <update>N</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>556</xloc>
       <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
