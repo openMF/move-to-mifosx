@@ -501,7 +501,7 @@
       <pass_export>N</pass_export>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
+      <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>918</xloc>
