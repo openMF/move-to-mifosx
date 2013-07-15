@@ -4,11 +4,11 @@
     <description/>
     <extended_description/>
     <job_version/>
-  <directory>&#x2f;</directory>
+  <directory>&#47;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;07&#x2f;17 18&#x3a;44&#x3a;45.902</created_date>
+  <created_date>2013&#47;07&#47;17 18:44:45.902</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;07&#x2f;17 18&#x3a;44&#x3a;45.902</modified_date>
+  <modified_date>2013&#47;07&#47;17 18:44:45.902</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -278,7 +278,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;organization&#x5c;organization.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\organization\organization.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -300,7 +300,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>373</xloc>
-      <yloc>252</yloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -308,7 +308,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;products&#x5c;loan products.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\products\loan products.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -329,7 +329,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>472</xloc>
+      <xloc>570</xloc>
       <yloc>47</yloc>
       </entry>
     <entry>
@@ -338,7 +338,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;clients.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\clients\clients.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -360,7 +360,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>569</xloc>
-      <yloc>251</yloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -368,7 +368,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;meetings&#x5c;meeting.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\meetings\meeting.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>661</xloc>
-      <yloc>46</yloc>
+      <xloc>774</xloc>
+      <yloc>47</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -398,7 +398,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;loans&#x5c;loanaccouts.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\loans\loanaccouts.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -420,7 +420,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>767</xloc>
-      <yloc>251</yloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -428,7 +428,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;notes&#x5c;notes.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\notes\notes.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -449,8 +449,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>858</xloc>
-      <yloc>49</yloc>
+      <xloc>923</xloc>
+      <yloc>47</yloc>
       </entry>
     <entry>
       <name>Set variables</name>
@@ -462,7 +462,7 @@
       <fields>
         <field>
           <variable_name>TOOLHOME</variable_name>
-          <variable_value>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx</variable_value>
+          <variable_value>C:\Users\nayan\Documents\GitHub\move-to-mifosx</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -474,8 +474,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>218</xloc>
-      <yloc>156</yloc>
+      <xloc>171</xloc>
+      <yloc>47</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -483,7 +483,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;qg&#x5c;question groups.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\qg\question groups.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -504,8 +504,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>858</xloc>
-      <yloc>250</yloc>
+      <xloc>918</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -513,7 +513,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;configurations&#x5c;config.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\configurations\config.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -534,8 +534,49 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>284</xloc>
+      <xloc>375</xloc>
       <yloc>47</yloc>
+      </entry>
+    <entry>
+      <name>Clean db data</name>
+      <description/>
+      <type>SQL</type>
+      <sql>SET foreign_key_checks = 0;
+TRUNCATE m_appuser_role;
+TRUNCATE  m_role;
+TRUNCATE m_appuser;
+TRUNCATE m_staff;
+DELETE FROM `m_office` WHERE  `id` &gt; 1;
+TRUNCATE m_product_loan;
+TRUNCATE m_charge;
+TRUNCATE m_product_loan_charge;
+TRUNCATE m_fund;
+TRUNCATE m_group;
+TRUNCATE m_client;
+TRUNCATE m_group_client;
+TRUNCATE m_calendar;
+TRUNCATE m_calendar_instance;
+TRUNCATE m_loan;
+TRUNCATE m_loan_charge;
+TRUNCATE m_loan_repayment_schedule;
+TRUNCATE m_loan_transaction;
+TRUNCATE m_code_value;
+TRUNCATE m_note;
+TRUNCATE `m_organisation_currency`;
+TRUNCATE `call reports`;
+TRUNCATE `address`;
+TRUNCATE `personal info`;
+SET foreign_key_checks = 0;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>168</xloc>
+      <yloc>256</yloc>
       </entry>
   </entries>
   <hops>
@@ -603,8 +644,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Configuration</to>
+      <from>Configuration</from>
+      <to>Organization details</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -612,8 +653,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Configuration</from>
-      <to>Organization details</to>
+      <from>Set variables</from>
+      <to>Clean db data</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Clean db data</from>
+      <to>Configuration</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
