@@ -4,11 +4,11 @@
     <description/>
     <extended_description/>
     <job_version/>
-  <directory>&#x2f;</directory>
+  <directory>&#47;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;07&#x2f;17 18&#x3a;44&#x3a;45.902</created_date>
+  <created_date>2013&#47;07&#47;17 18:44:45.902</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;07&#x2f;17 18&#x3a;44&#x3a;45.902</modified_date>
+  <modified_date>2013&#47;07&#47;17 18:44:45.902</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -278,7 +278,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;organization&#x5c;organization.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\organization\organization.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -308,7 +308,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;products&#x5c;loan products.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\products\loan products.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -338,7 +338,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;clients&#x5c;clients.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\clients\clients.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -368,7 +368,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;meetings&#x5c;meeting.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\meetings\meeting.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -398,7 +398,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;loans&#x5c;loanaccouts.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\loans\loanaccouts.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -428,7 +428,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;notes&#x5c;notes.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\notes\notes.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -462,7 +462,7 @@
       <fields>
         <field>
           <variable_name>TOOLHOME</variable_name>
-          <variable_value>C&#x3a;&#x5c;Users&#x5c;nayan&#x5c;Documents&#x5c;GitHub&#x5c;move-to-mifosx</variable_value>
+          <variable_value>C:\Users\nayan\Documents\GitHub\move-to-mifosx</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -483,7 +483,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;qg&#x5c;question groups.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\qg\question groups.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -513,7 +513,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;configurations&#x5c;config.kjb</filename>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\configurations\config.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
