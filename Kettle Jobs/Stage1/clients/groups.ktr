@@ -287,11 +287,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Group Input</from><to>Group status</to><enabled>Y</enabled> </hop>
-  <hop> <from>Group status</from><to>Group output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Clients Input</from><to>Center status</to><enabled>Y</enabled> </hop>
+  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Group status</name>
+    <name>Center status</name>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
@@ -338,7 +338,7 @@
     </step>
 
   <step>
-    <name>Group Input</name>
+    <name>Clients Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -363,7 +363,7 @@
     </step>
 
   <step>
-    <name>Group output</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>

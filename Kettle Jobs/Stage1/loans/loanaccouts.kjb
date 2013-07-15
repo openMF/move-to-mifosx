@@ -269,8 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>221</xloc>
-      <yloc>198</yloc>
+      <xloc>134</xloc>
+      <yloc>195</yloc>
       </entry>
     <entry>
       <name>Loan Accounts</name>
@@ -302,8 +302,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>406</xloc>
-      <yloc>85</yloc>
+      <xloc>319</xloc>
+      <yloc>82</yloc>
       </entry>
     <entry>
       <name>Loan Charges</name>
@@ -335,8 +335,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>403</xloc>
-      <yloc>303</yloc>
+      <xloc>316</xloc>
+      <yloc>300</yloc>
       </entry>
     <entry>
       <name>Loan Schedule</name>
@@ -404,6 +404,26 @@
       <xloc>606</xloc>
       <yloc>304</yloc>
       </entry>
+    <entry>
+      <name>firstTime</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>N</replacevars>
+      <filename/>
+      <file_variable_type>ROOT_JOB</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>lastDueDate</variable_name>
+          <variable_value/>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>472</xloc>
+      <yloc>185</yloc>
+      </entry>
   </entries>
   <hops>
     <hop>
@@ -425,17 +445,26 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Loan Charges</from>
-      <to>Loan Schedule</to>
+      <from>Loan Schedule</from>
+      <to>Loan transactions</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Loan Schedule</from>
-      <to>Loan transactions</to>
+      <from>Loan Charges</from>
+      <to>firstTime</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>firstTime</from>
+      <to>Loan Schedule</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

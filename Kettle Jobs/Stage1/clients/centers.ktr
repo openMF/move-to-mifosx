@@ -287,8 +287,8 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Centers Input</from><to>Center status</to><enabled>Y</enabled> </hop>
-  <hop> <from>Center status</from><to>Center output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Clients Input</from><to>Center status</to><enabled>Y</enabled> </hop>
+  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Center status</name>
@@ -322,7 +322,7 @@
     </step>
 
   <step>
-    <name>Centers Input</name>
+    <name>Clients Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -347,7 +347,7 @@
     </step>
 
   <step>
-    <name>Center output</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>

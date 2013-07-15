@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -44,7 +45,7 @@
     <size_rowset>10000</size_rowset>
     <sleep_time_empty>50</sleep_time_empty>
     <sleep_time_full>50</sleep_time_full>
-    <unique_connections>N</unique_connections>
+    <unique_connections>Y</unique_connections>
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
@@ -300,7 +301,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;  ls.ID As 	id&#xd;&#xa;, ls.ACCOUNT_ID As 	loan_id&#xd;&#xa;, NULL As 	fromdate&#xd;&#xa;, ls.ACTION_DATE As 	duedate&#xd;&#xa;, ls.INSTALLMENT_ID As 	installment&#xd;&#xa;, ls.PRINCIPAL As 	principal_amount&#xd;&#xa;, ls.PRINCIPAL_PAID As 	principal_completed_derived&#xd;&#xa;, NULL As 	principal_writtenoff_derived&#xd;&#xa;, ls.INTEREST As 	interest_amount&#xd;&#xa;, ls.INTEREST_PAID As 	interest_completed_derived&#xd;&#xa;, NULL As 	interest_writtenoff_derived&#xd;&#xa;, NULL As 	interest_waived_derived&#xd;&#xa;, ls.MISC_FEES As 	fee_charges_amount&#xd;&#xa;, ls.MISC_FEES_PAID As 	fee_charges_completed_derived&#xd;&#xa;, NULL As 	fee_charges_writtenoff_derived&#xd;&#xa;, NULL As 	fee_charges_waived_derived&#xd;&#xa;, NULL As 	penalty_charges_amount&#xd;&#xa;, NULL As 	penalty_charges_completed_derived&#xd;&#xa;, NULL As 	penalty_charges_writtenoff_derived&#xd;&#xa;, NULL As 	penalty_charges_waived_derived&#xd;&#xa;, NULL As 	total_paid_in_advance_derived&#xd;&#xa;, NULL As 	total_paid_late_derived&#xd;&#xa;, ls.PAYMENT_STATUS As 	completed_derived&#xd;&#xa;, NULL As 	obligations_met_on_date&#xd;&#xa;, NULL As 	createdby_id&#xd;&#xa;, ls.PAYMENT_DATE As 	created_date&#xd;&#xa;, NULL As 	lastmodified_date&#xd;&#xa;, NULL As 	lastmodifiedby_id&#xd;&#xa;FROM loan_schedule ls&#xd;&#xa;JOIN loan_account la ON la.ACCOUNT_ID &#x3d; ls.ACCOUNT_ID&#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;JOIN meeting me ON me.MEETING_ID &#x3d; la.MEETING_ID&#xd;&#xa;JOIN recurrence_detail rd ON rd.MEETING_ID &#x3d; me.MEETING_ID</sql>
+    <sql>SELECT &#xd;&#xa;  ls.ID As 	id&#xd;&#xa;, ls.ACCOUNT_ID As 	loan_id&#xd;&#xa;, if&#x28;ls.installment_id &#x3d; 1 , la.disbursement_date , lsp.action_date &#x29; As fromDate&#xd;&#xa;, ls.ACTION_DATE As 	duedate&#xd;&#xa;, ls.INSTALLMENT_ID As 	installment&#xd;&#xa;, ls.PRINCIPAL As 	principal_amount&#xd;&#xa;, if&#x28;ac.account_state_id &#x3d; 7 AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.closed_date , 0 , ls.PRINCIPAL_PAID &#x29; As 	principal_completed_derived&#xd;&#xa;, if&#x28;ac.account_state_id &#x3d; 7 AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.closed_date , ls.PRINCIPAL_PAID , 0 &#x29; As 	principal_writtenoff_derived&#xd;&#xa;, ls.INTEREST As 	interest_amount&#xd;&#xa;, if&#x28;ac.account_state_id &#x3d; 7 AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.closed_date , 0 , ls.INTEREST_PAID &#x29; As 	interest_completed_derived&#xd;&#xa;, if&#x28;ac.account_state_id &#x3d; 7 AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.closed_date , ls.INTEREST_PAID , 0 &#x29; As 	interest_writtenoff_derived&#xd;&#xa;, NULL As 	interest_waived_derived&#xd;&#xa;, lfs.amount As 	fee_charges_amount&#xd;&#xa;, if&#x28;ac.account_state_id &#x3d; 7 AND lfs.last_updated &#x3e;&#x3d; ac.closed_date , 0 , lfs.amount_paid &#x29;  As fee_charges_completed_derived&#xd;&#xa;, if&#x28;ac.account_state_id &#x3d; 7 AND lfs.last_updated &#x3e;&#x3d; ac.closed_date , lfs.amount_paid , 0 &#x29;  As fee_charges_writtenoff_derived&#xd;&#xa;, NULL As 	fee_charges_waived_derived&#xd;&#xa;, NULL As 	penalty_charges_amount&#xd;&#xa;, NULL As 	penalty_charges_completed_derived&#xd;&#xa;, NULL As 	penalty_charges_writtenoff_derived&#xd;&#xa;, NULL As 	penalty_charges_waived_derived&#xd;&#xa;, NULL As 	total_paid_in_advance_derived&#xd;&#xa;, NULL As 	total_paid_late_derived&#xd;&#xa;, ls.PAYMENT_STATUS As 	completed_derived&#xd;&#xa;, NULL As 	obligations_met_on_date&#xd;&#xa;, NULL As 	createdby_id&#xd;&#xa;, ls.PAYMENT_DATE As 	created_date&#xd;&#xa;, NULL As 	lastmodified_date&#xd;&#xa;, NULL As 	lastmodifiedby_id&#xd;&#xa;, la.disbursement_date As DisbDate&#xd;&#xa;FROM loan_schedule ls&#xd;&#xa;LEFT JOIN loan_schedule lsp ON lsp.account_id &#x3d; ls.account_id AND ls.installment_id &#x3e; 1 AND lsp.installment_id  &#x3d;  &#x28;ls.installment_id - 1&#x29;&#xd;&#xa;JOIN loan_account la ON la.ACCOUNT_ID &#x3d; ls.ACCOUNT_ID&#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;LEFT JOIN loan_fee_schedule lfs ON lfs.id &#x3d; ls.id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -308,8 +309,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>298</xloc>
-      <yloc>145</yloc>
+      <xloc>343</xloc>
+      <yloc>149</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -348,7 +349,7 @@
         </field>
         <field>
           <column_name>fromdate</column_name>
-          <stream_name>fromdate</stream_name>
+          <stream_name>fromDate</stream_name>
         </field>
         <field>
           <column_name>duedate</column_name>
@@ -453,8 +454,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>539</xloc>
-      <yloc>145</yloc>
+      <xloc>619</xloc>
+      <yloc>149</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

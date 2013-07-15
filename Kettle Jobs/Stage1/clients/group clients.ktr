@@ -288,7 +288,7 @@
   </connection>
   <order>
   <hop> <from>Clients Input</from><to>Migrate Groups</to><enabled>Y</enabled> </hop>
-  <hop> <from>Migrate Groups</from><to>Group Client relation output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Migrate Groups</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Clients Input</name>
@@ -357,7 +357,7 @@
     </step>
 
   <step>
-    <name>Group Client relation output</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
