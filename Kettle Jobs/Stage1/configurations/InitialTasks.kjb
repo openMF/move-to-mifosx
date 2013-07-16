@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>Stage 1</name>
+  <name>InitialTasks</name>
     <description/>
     <extended_description/>
     <job_version/>
   <directory>&#47;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#47;07&#47;17 18:44:45.902</created_date>
+  <created_date>2013&#47;07&#47;16 17:10:02.371</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;07&#47;17 18:44:45.902</modified_date>
+  <modified_date>2013&#47;07&#47;16 17:10:02.371</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -269,384 +269,153 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>41</xloc>
-      <yloc>158</yloc>
+      <xloc>111</xloc>
+      <yloc>202</yloc>
       </entry>
     <entry>
-      <name>Organization details</name>
+      <name>Clean db data</name>
       <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\organization\organization.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <type>SQL</type>
+      <sql>SET foreign_key_checks = 0;
+TRUNCATE m_appuser_role;
+TRUNCATE  m_role;
+TRUNCATE m_appuser;
+TRUNCATE m_staff;
+DELETE FROM `m_office` WHERE  `id` &gt; 1;
+TRUNCATE m_product_loan;
+TRUNCATE m_charge;
+TRUNCATE m_product_loan_charge;
+TRUNCATE m_fund;
+TRUNCATE m_group;
+TRUNCATE m_client;
+TRUNCATE m_group_client;
+TRUNCATE m_calendar;
+TRUNCATE m_calendar_instance;
+TRUNCATE m_loan;
+TRUNCATE m_loan_charge;
+TRUNCATE m_loan_repayment_schedule;
+TRUNCATE m_loan_transaction;
+TRUNCATE m_code_value;
+TRUNCATE m_note;
+TRUNCATE `m_organisation_currency`;
+TRUNCATE `call reports`;
+TRUNCATE `address`;
+TRUNCATE `personal info`;
+SET foreign_key_checks = 0;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>287</xloc>
-      <yloc>253</yloc>
+      <xloc>264</xloc>
+      <yloc>103</yloc>
       </entry>
     <entry>
-      <name>Loan Product details</name>
+      <name>Create proc addLoanCycleCounter</name>
       <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\products\loan products.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <type>SQL</type>
+      <sql>DROP PROCEDURE IF EXISTS `addLoanCycleCounter`; 
+DELIMITER &#47;&#47;  
+CREATE PROCEDURE `addLoanCycleCounter` ()
+LANGUAGE SQL
+COMMENT &apos;Genernates loan cycle counter&apos;
+BEGIN
+DECLARE acctId , xclientId, xprodId , clientId, prodId , lastRecord , lCounter, lpCounter INT;
+DECLARE cur1 CURSOR FOR SELECT ml.account_no , ml.client_id , ml.product_id FROM m_loan ml order by ml.client_id , ml.product_id;
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET lastRecord = 1;
+SET lastRecord = 0;
+SET lCounter = 1 ;
+SET lpCounter = 1 ;
+SET xclientId = -1;
+SET xprodId = -1;
+OPEN cur1;
+WHILE lastRecord = 0 DO
+        	FETCH cur1 INTO acctId , clientId , prodId;
+   		IF lastRecord = 0 THEN
+        		IF xclientId = clientId THEN
+    				SET lCounter = lCounter + 1;
+    				UPDATE m_loan mln SET mln.loan_counter = lCounter WHERE  mln.account_no = acctId;
+    				IF xprodId = prodId THEN
+    					SET lpCounter = lpCounter + 1;
+	    				UPDATE m_loan mln SET mln.loan_product_counter = lpCounter WHERE  mln.account_no = acctId;    				
+    				ELSE
+						SET lpCounter = 1;
+						UPDATE m_loan mln SET mln.loan_product_counter = lpCounter WHERE  mln.account_no = acctId;    				
+    				END IF;
+				ELSE
+				 	SET lCounter = 1;
+				 	SET lpCounter = 1;
+    				UPDATE m_loan mln SET mln.loan_counter = lCounter WHERE  mln.account_no = acctId;
+    				UPDATE m_loan mln SET mln.loan_product_counter = lpCounter WHERE  mln.account_no = acctId;
+	         END IF;
+			END IF;  
+			SET xclientId = clientId;
+			SET xprodId = prodId;
+END WHILE;
+CLOSE cur1;
+END</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>472</xloc>
-      <yloc>47</yloc>
+      <xloc>266</xloc>
+      <yloc>309</yloc>
       </entry>
     <entry>
-      <name>Centers Groups and Clients</name>
+      <name>Create additional datatable</name>
       <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\clients\clients.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <type>SQL</type>
+      <sql>CREATE TABLE IF NOT EXISTS `personal info` (
+  `client_id` bigint(20) NOT NULL,
+  `Date Of Birth` date DEFAULT NULL,
+  `Gender_cd_Gender` int(11) DEFAULT NULL,
+  `MaritalStatus_cd_Marital Status` int(11) DEFAULT NULL,
+  `Number Of Children` int(11) DEFAULT NULL,
+  `Citizenship_cd_Citizenship` int(11) DEFAULT NULL,
+  `EducationLevel_cd_Education Level` int(11) DEFAULT NULL,
+  `BusinessActivities_cd_Activities` int(11) DEFAULT NULL,
+  `PovertyStatus_cd_Poverty Status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`client_id`),
+  CONSTRAINT `fk_personal_info_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE IF NOT EXISTS `address` (
+  `client_id` bigint(20) NOT NULL,
+  `Physical Home Address` varchar(200) NOT NULL,
+  `Work Place Address` varchar(200) DEFAULT NULL,
+  `PO BOX` varchar(200) DEFAULT NULL,
+  `City District` varchar(200) DEFAULT NULL,
+  `State` varchar(200) DEFAULT NULL,
+  `Country` varchar(200) DEFAULT NULL,
+  `Other_Phone` varchar(200) DEFAULT NULL,
+  `Main_Telephone` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`client_id`),
+  CONSTRAINT `fk_address_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>474</xloc>
-      <yloc>251</yloc>
-      </entry>
-    <entry>
-      <name>Meetings</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\meetings\meeting.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>661</xloc>
-      <yloc>46</yloc>
-      </entry>
-    <entry>
-      <name>loan accounts</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\loans\loanaccouts.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>656</xloc>
-      <yloc>255</yloc>
-      </entry>
-    <entry>
-      <name>Notes</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\notes\notes.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>Y</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>858</xloc>
-      <yloc>49</yloc>
-      </entry>
-    <entry>
-      <name>Set variables</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>TOOLHOME</variable_name>
-          <variable_value>C:\Users\nayan\Documents\GitHub\move-to-mifosx</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>CUR</variable_name>
-          <variable_value>INR</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>139</xloc>
-      <yloc>51</yloc>
-      </entry>
-    <entry>
-      <name>QG</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\qg\question groups.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>Y</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>858</xloc>
-      <yloc>260</yloc>
-      </entry>
-    <entry>
-      <name>Configuration</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\configurations\config.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>284</xloc>
-      <yloc>47</yloc>
-      </entry>
-    <entry>
-      <name>Batch Job</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\batchjobs\batchjobs.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>862</xloc>
-      <yloc>458</yloc>
-      </entry>
-    <entry>
-      <name>Initial Tasks</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${TOOLHOME}\Kettle Jobs\Stage1\configurations\InitialTasks.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>141</xloc>
-      <yloc>250</yloc>
+      <xloc>520</xloc>
+      <yloc>100</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>Organization details</from>
-      <to>Loan Product details</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Loan Product details</from>
-      <to>Centers Groups and Clients</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Centers Groups and Clients</from>
-      <to>Meetings</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Meetings</from>
-      <to>loan accounts</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>loan accounts</from>
-      <to>Notes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>START</from>
-      <to>Set variables</to>
+      <to>Clean db data</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -654,17 +423,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Notes</from>
-      <to>QG</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Configuration</from>
-      <to>Organization details</to>
+      <from>Clean db data</from>
+      <to>Create proc addLoanCycleCounter</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -672,26 +432,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>QG</from>
-      <to>Batch Job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set variables</from>
-      <to>Initial Tasks</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Initial Tasks</from>
-      <to>Configuration</to>
+      <from>Create proc addLoanCycleCounter</from>
+      <to>Create additional datatable</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
