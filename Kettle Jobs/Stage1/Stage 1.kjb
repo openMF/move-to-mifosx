@@ -462,7 +462,7 @@
       <fields>
         <field>
           <variable_name>TOOLHOME</variable_name>
-          <variable_value>I:\Devspace\move-to-mifosx</variable_value>
+          <variable_value>C:\Users\nayan\Documents\GitHub\move-to-mifosx</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -511,47 +511,6 @@
       <nr>0</nr>
       <xloc>284</xloc>
       <yloc>47</yloc>
-      </entry>
-    <entry>
-      <name>Clean db data</name>
-      <description/>
-      <type>SQL</type>
-      <sql>SET foreign_key_checks = 0;
-TRUNCATE m_appuser_role;
-TRUNCATE  m_role;
-TRUNCATE m_appuser;
-TRUNCATE m_staff;
-DELETE FROM `m_office` WHERE  `id` &gt; 1;
-TRUNCATE m_product_loan;
-TRUNCATE m_charge;
-TRUNCATE m_product_loan_charge;
-TRUNCATE m_fund;
-TRUNCATE m_group;
-TRUNCATE m_client;
-TRUNCATE m_group_client;
-TRUNCATE m_calendar;
-TRUNCATE m_calendar_instance;
-TRUNCATE m_loan;
-TRUNCATE m_loan_charge;
-TRUNCATE m_loan_repayment_schedule;
-TRUNCATE m_loan_transaction;
-TRUNCATE m_code_value;
-TRUNCATE m_note;
-TRUNCATE `m_organisation_currency`;
-TRUNCATE `call reports`;
-TRUNCATE `address`;
-TRUNCATE `personal info`;
-SET foreign_key_checks = 0;</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DestinationDB</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>200</xloc>
-      <yloc>253</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -686,6 +645,36 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <xloc>769</xloc>
       <yloc>354</yloc>
       </entry>
+    <entry>
+      <name>Initial tasks</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${TOOLHOME}\Kettle Jobs\Stage1\configurations\InitialTasks.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>205</xloc>
+      <yloc>252</yloc>
+      </entry>
   </entries>
   <hops>
     <hop>
@@ -752,24 +741,6 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Clean db data</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Clean db data</from>
-      <to>Configuration</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Notes</from>
       <to>QG</to>
       <from_nr>0</from_nr>
@@ -790,6 +761,24 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
     <hop>
       <from>scheduled-job-arrears</from>
       <to>scheduled-job-loan-summary</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set variables</from>
+      <to>Initial tasks</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Initial tasks</from>
+      <to>Configuration</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
