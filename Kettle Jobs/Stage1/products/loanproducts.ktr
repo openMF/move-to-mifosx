@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;14 18&#x3a;36&#x3a;26.745</created_date>
+  <created_date>2013&#47;06&#47;14 18:36:26.745</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;14 18&#x3a;36&#x3a;26.745</modified_date>
+  <modified_date>2013&#47;06&#47;14 18:36:26.745</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Loan Products</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>
-  <hop> <from>Interest method mapper</from><to>Output Loan Products</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Input Loan Products</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Interest method mapper</from><to>Output Loan Products</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Input Loan Products</name>
     <type>TableInput</type>
@@ -301,7 +299,48 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  po.PRD_OFFERING_ID As id&#xd;&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xd;&#xa;, 2 As currency_digits&#xd;&#xa;, laa.DEFAULT_LOAN_AMOUNT As principal_amount&#xd;&#xa;, laa.MIN_LOAN_AMOUNT As min_principal_amount&#xd;&#xa;, laa.MAX_LOAN_AMNT As max_principal_amount&#xd;&#xa;, 0 As arrearstolerance_amount&#xd;&#xa;, po.PRD_OFFERING_NAME As name&#xd;&#xa;, po.DESCRIPTION As description&#xd;&#xa;, null  As fund_id&#xd;&#xa;, lo.DEF_INTEREST_RATE As 	nominal_interest_rate_per_period&#xd;&#xa;, lo.MIN_INTEREST_RATE As 	min_nominal_interest_rate_per_period&#xd;&#xa;, lo.MAX_INTEREST_RATE As 	max_nominal_interest_rate_per_period&#xd;&#xa;, 3 As 	interest_period_frequency_enum -- Per year&#xd;&#xa;, lo.DEF_INTEREST_RATE As 	annual_nominal_interest_rate&#xd;&#xa;, lo.INTEREST_TYPE_ID As 	interest_method_enum&#xd;&#xa;, 1 As 	interest_calculated_in_period_enum  -- Same as repayment period&#xd;&#xa;, rd.RECUR_AFTER As 	repay_every&#xd;&#xa;, rd.RECURRENCE_ID As 	repayment_period_frequency_enum&#xd;&#xa;, nl.DEFAULT_NO_INSTALL As 	number_of_repayments&#xd;&#xa;, nl.MIN_NO_INSTALL As 	min_number_of_repayments&#xd;&#xa;, nl.MAX_NO_INSTALL As 	max_number_of_repayments&#xd;&#xa;, if&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 OR lo.GRACEPERIOD_TYPE_ID &#x3d; 3 , lo.GRACE_PERIOD_DURATION , NULL &#x29; As 	grace_on_principal_periods&#xd;&#xa;, if&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 , lo.GRACE_PERIOD_DURATION , NULL &#x29; As 	grace_on_interest_periods&#xd;&#xa;, NULL As 	grace_interest_free_periods&#xd;&#xa;, 1 As 	amortization_method_enum&#xd;&#xa;, 1 As 	accounting_type&#xd;&#xa;, 1 As 	loan_transaction_strategy_id -- Mifos Style&#xd;&#xa;, po.GLOBAL_PRD_OFFERING_NUM As 	external_id&#xd;&#xa;FROM prd_offering po &#xd;&#xa;JOIN loan_offering lo ON lo.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID&#xd;&#xa;LEFT JOIN loan_amount_same_for_all_loan laa ON laa.PRD_OFFERING_ID &#x3d; lo.PRD_OFFERING_ID&#xd;&#xa;JOIN prd_offering_meeting pom ON pom.PRD_OFFERING_ID &#x3d; lo.PRD_OFFERING_ID&#xd;&#xa;JOIN meeting me ON me.MEETING_ID &#x3d; pom.PRD_MEETING_ID&#xd;&#xa;JOIN recurrence_detail rd ON rd.MEETING_ID &#x3d; me.MEETING_ID&#xd;&#xa;JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID &#x3d; lo.PRD_OFFERING_ID&#xd;&#xa;</sql>
+    <sql>SELECT
+  po.PRD_OFFERING_ID As id
+, ${CUR} As currency_code
+, 2 As currency_digits
+, laa.DEFAULT_LOAN_AMOUNT As principal_amount
+, laa.MIN_LOAN_AMOUNT As min_principal_amount
+, laa.MAX_LOAN_AMNT As max_principal_amount
+, 0 As arrearstolerance_amount
+, po.PRD_OFFERING_NAME As name
+, po.DESCRIPTION As description
+, null  As fund_id
+, lo.DEF_INTEREST_RATE As 	nominal_interest_rate_per_period
+, lo.MIN_INTEREST_RATE As 	min_nominal_interest_rate_per_period
+, lo.MAX_INTEREST_RATE As 	max_nominal_interest_rate_per_period
+, 3 As 	interest_period_frequency_enum -- Per year
+, lo.DEF_INTEREST_RATE As 	annual_nominal_interest_rate
+, lo.INTEREST_TYPE_ID As 	interest_method_enum
+, 1 As 	interest_calculated_in_period_enum  -- Same as repayment period
+, rd.RECUR_AFTER As 	repay_every
+, rd.RECURRENCE_ID As 	repayment_period_frequency_enum
+, nl.DEFAULT_NO_INSTALL As 	number_of_repayments
+, nl.MIN_NO_INSTALL As 	min_number_of_repayments
+, nl.MAX_NO_INSTALL As 	max_number_of_repayments
+, if(lo.GRACEPERIOD_TYPE_ID = 2 OR lo.GRACEPERIOD_TYPE_ID = 3 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_principal_periods
+, if(lo.GRACEPERIOD_TYPE_ID = 2 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_interest_periods
+, NULL As 	grace_interest_free_periods
+, 1 As 	amortization_method_enum
+, 1 As 	accounting_type
+, 1 As 	loan_transaction_strategy_id -- Mifos Style
+, po.GLOBAL_PRD_OFFERING_NUM As 	external_id
+, loan_counter_flag As include_in_borrower_cycle
+, prd.start_date As start_date
+, if(prd.end_date &lt;&gt; NULL , prd.end_date , if(prd.offering_status_id = 1 , NULL , prd.updated_date ))  As close_date
+FROM prd_offering po 
+JOIN loan_offering lo ON lo.PRD_OFFERING_ID = po.PRD_OFFERING_ID
+JOIN prd_offering prd ON prd.prd_offering_id = lo.prd_offering_id
+LEFT JOIN loan_amount_same_for_all_loan laa ON laa.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
+JOIN prd_offering_meeting pom ON pom.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
+JOIN meeting me ON me.MEETING_ID = pom.PRD_MEETING_ID
+JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
+JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
