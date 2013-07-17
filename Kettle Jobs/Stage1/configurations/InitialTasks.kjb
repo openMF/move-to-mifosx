@@ -298,9 +298,8 @@ TRUNCATE m_loan_transaction;
 TRUNCATE m_code_value;
 TRUNCATE m_note;
 TRUNCATE `m_organisation_currency`;
-TRUNCATE `call reports`;
-TRUNCATE `address`;
-TRUNCATE `personal info`;
+TRUNCATE `luc`;
+TRUNCATE `customer details`;
 SET foreign_key_checks = 0;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
