@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;28 16&#x3a;55&#x3a;16.592</created_date>
+  <created_date>2013&#47;06&#47;28 16:55:16.592</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;28 16&#x3a;55&#x3a;16.592</modified_date>
+  <modified_date>2013&#47;06&#47;28 16:55:16.592</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,60 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Org Currency Input</from><to>Currency lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Currency lookup</from><to>Org currency</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Org Currency Input</from><to>Currency lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Currency lookup</from><to>Org currency</to><enabled>Y</enabled> </hop>  </order>
+  <step>
+    <name>Currency lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>m_currency</table>
+      <orderby/>
+      <fail_on_multiple>Y</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>CurrencyCodeUsed</name>
+        <field>code</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>display_symbol</name>
+        <rename>display_symbol</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>name</name>
+        <rename>name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>internationalized_name_code</name>
+        <rename>internationalized_name_code</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>460</xloc>
+      <yloc>117</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Org Currency Input</name>
     <type>ExcelInput</type>
@@ -316,7 +367,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Mapping Docs&#x5c;MifosX mcodes.xls</name>
+      <name>${TOOLHOME}\MappingDocs\MifosX mcodes.xls</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -433,59 +484,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>647</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Currency lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>m_currency</table>
-      <orderby/>
-      <fail_on_multiple>Y</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>CurrencyCodeUsed</name>
-        <field>code</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>display_symbol</name>
-        <rename>display_symbol</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>name</name>
-        <rename>name</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>internationalized_name_code</name>
-        <rename>internationalized_name_code</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>460</xloc>
       <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>

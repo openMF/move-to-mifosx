@@ -269,8 +269,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>111</xloc>
-      <yloc>202</yloc>
+      <xloc>236</xloc>
+      <yloc>201</yloc>
       </entry>
     <entry>
       <name>Clean db data</name>
@@ -310,135 +310,8 @@ SET foreign_key_checks = 0;</sql>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>264</xloc>
-      <yloc>103</yloc>
-      </entry>
-    <entry>
-      <name>Create proc addLoanCycleCounter</name>
-      <description/>
-      <type>SQL</type>
-      <sql>DROP PROCEDURE IF EXISTS `addLoanCycleCounter`; 
-DELIMITER &#47;&#47;  
-CREATE PROCEDURE `addLoanCycleCounter` ()
-LANGUAGE SQL
-COMMENT &apos;Genernates loan cycle counter&apos;
-BEGIN
-DECLARE acctId , xclientId, xprodId , clientId, prodId , lastRecord , lCounter, lpCounter INT;
-DECLARE cur1 CURSOR FOR SELECT ml.account_no , ml.client_id , ml.product_id FROM m_loan ml order by ml.client_id , ml.product_id;
-DECLARE CONTINUE HANDLER FOR NOT FOUND SET lastRecord = 1;
-SET lastRecord = 0;
-SET lCounter = 1 ;
-SET lpCounter = 1 ;
-SET xclientId = -1;
-SET xprodId = -1;
-OPEN cur1;
-WHILE lastRecord = 0 DO
-        	FETCH cur1 INTO acctId , clientId , prodId;
-   		IF lastRecord = 0 THEN
-        		IF xclientId = clientId THEN
-    				SET lCounter = lCounter + 1;
-    				UPDATE m_loan mln SET mln.loan_counter = lCounter WHERE  mln.account_no = acctId;
-    				IF xprodId = prodId THEN
-    					SET lpCounter = lpCounter + 1;
-	    				UPDATE m_loan mln SET mln.loan_product_counter = lpCounter WHERE  mln.account_no = acctId;    				
-    				ELSE
-						SET lpCounter = 1;
-						UPDATE m_loan mln SET mln.loan_product_counter = lpCounter WHERE  mln.account_no = acctId;    				
-    				END IF;
-				ELSE
-				 	SET lCounter = 1;
-				 	SET lpCounter = 1;
-    				UPDATE m_loan mln SET mln.loan_counter = lCounter WHERE  mln.account_no = acctId;
-    				UPDATE m_loan mln SET mln.loan_product_counter = lpCounter WHERE  mln.account_no = acctId;
-	         END IF;
-			END IF;  
-			SET xclientId = clientId;
-			SET xprodId = prodId;
-END WHILE;
-CLOSE cur1;
-END</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DestinationDB</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>266</xloc>
-      <yloc>309</yloc>
-      </entry>
-    <entry>
-      <name>Create additional datatable</name>
-      <description/>
-      <type>SQL</type>
-      <sql>CREATE TABLE IF NOT EXISTS `personal info` (
-  `client_id` bigint(20) NOT NULL,
-  `Date Of Birth` date DEFAULT NULL,
-  `Gender_cd_Gender` int(11) DEFAULT NULL,
-  `MaritalStatus_cd_Marital Status` int(11) DEFAULT NULL,
-  `Number Of Children` int(11) DEFAULT NULL,
-  `Citizenship_cd_Citizenship` int(11) DEFAULT NULL,
-  `EducationLevel_cd_Education Level` int(11) DEFAULT NULL,
-  `BusinessActivities_cd_Activities` int(11) DEFAULT NULL,
-  `PovertyStatus_cd_Poverty Status` int(11) DEFAULT NULL,
-  PRIMARY KEY (`client_id`),
-  CONSTRAINT `fk_personal_info_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-
-CREATE TABLE IF NOT EXISTS `address` (
-  `client_id` bigint(20) NOT NULL,
-  `Physical Home Address` varchar(200) NOT NULL,
-  `Work Place Address` varchar(200) DEFAULT NULL,
-  `PO BOX` varchar(200) DEFAULT NULL,
-  `City District` varchar(200) DEFAULT NULL,
-  `State` varchar(200) DEFAULT NULL,
-  `Country` varchar(200) DEFAULT NULL,
-  `Other_Phone` varchar(200) DEFAULT NULL,
-  `Main_Telephone` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`client_id`),
-  CONSTRAINT `fk_address_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 
-</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DestinationDB</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>520</xloc>
-      <yloc>100</yloc>
-      </entry>
-    <entry>
-      <name>Create Call report table</name>
-      <description/>
-      <type>SQL</type>
-      <sql>CREATE TABLE IF NOT EXISTS `call reports` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `client_id` bigint(20) NOT NULL,
-  `MFI official` varchar(200) DEFAULT NULL,
-  `Type of call` varchar(200) DEFAULT NULL,
-  `Place of call` varchar(200) DEFAULT NULL,
-  `Objective of call` varchar(2000) DEFAULT NULL,
-  `Result of call` varchar(1000) DEFAULT NULL,
-  `Follow-up date` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_client_id` (`client_id`),
-  CONSTRAINT `fk_call_reports_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 
-</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DestinationDB</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>522</xloc>
-      <yloc>308</yloc>
+      <xloc>450</xloc>
+      <yloc>201</yloc>
       </entry>
   </entries>
   <hops>
@@ -450,33 +323,6 @@ CREATE TABLE IF NOT EXISTS `address` (
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Clean db data</from>
-      <to>Create proc addLoanCycleCounter</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Create proc addLoanCycleCounter</from>
-      <to>Create additional datatable</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Create additional datatable</from>
-      <to>Create Call report table</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
