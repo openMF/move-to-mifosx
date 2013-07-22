@@ -518,7 +518,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>I:\Devspace\move-to-mifosx\KettleJobs\Stage1\qg\question groups.kjb</filename>
+      <filename>${TOOLHOME}\KettleJobs\Stage1\qg\question groups.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
