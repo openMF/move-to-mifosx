@@ -298,8 +298,6 @@ TRUNCATE m_loan_transaction;
 TRUNCATE m_code_value;
 TRUNCATE m_note;
 TRUNCATE `m_organisation_currency`;
-TRUNCATE `luc`;
-TRUNCATE `customer details`;
 SET foreign_key_checks = 0;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
@@ -320,7 +318,6 @@ SET foreign_key_checks = 0;</sql>
 DELIMITER &#47;&#47;  
 CREATE PROCEDURE `addLoanCycleCounter` ()
 LANGUAGE SQL
-COMMENT &apos;Genernates loan cycle counter&apos;
 BEGIN
 DECLARE acctId , xclientId, xprodId , clientId, prodId , lastRecord , lCounter, lpCounter INT;
 DECLARE cur1 CURSOR FOR SELECT ml.account_no , ml.client_id , ml.product_id FROM m_loan ml order by ml.client_id , ml.product_id;
@@ -371,7 +368,7 @@ END</sql>
       <name>Create additional datatable</name>
       <description/>
       <type>SQL</type>
-      <sql>CREATE TABLE IF NOT EXISTS CREATE TABLE `luc` (
+      <sql>CREATE TABLE IF NOT EXISTS `luc` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `loan_id` bigint(20) NOT NULL,
   `Conducted_Date` date DEFAULT NULL,
@@ -382,7 +379,7 @@ END</sql>
   CONSTRAINT `fk_luc_loan_id` FOREIGN KEY (`loan_id`) REFERENCES `m_loan` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23589 DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS CREATE TABLE `customer details` (
+CREATE TABLE IF NOT EXISTS `customer details` (
   `client_id` bigint(20) NOT NULL,
   `Date Of Birth` date DEFAULT NULL,
   `Gender_cd_Gender` int(11) DEFAULT NULL,
@@ -433,8 +430,8 @@ CREATE TABLE IF NOT EXISTS CREATE TABLE `customer details` (
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
