@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;24 12&#x3a;31&#x3a;03.111</created_date>
+  <created_date>2013&#47;06&#47;24 12:31:03.111</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;24 12&#x3a;31&#x3a;03.111</modified_date>
+  <modified_date>2013&#47;06&#47;24 12:31:03.111</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Database lookup</from><to>Code value output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Gender input</from><to>Database lookup</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Database lookup</from><to>Code value output</to><enabled>Y</enabled> </hop>  <hop> <from>Code input</from><to>Database lookup</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Code value output</name>
     <type>TableOutput</type>
@@ -362,7 +360,7 @@
       <key>
         <name>entityName</name>
         <field>code_name</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
@@ -381,7 +379,7 @@
     </step>
 
   <step>
-    <name>Gender input</name>
+    <name>Code input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -391,7 +389,13 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;lv.LOOKUP_ID As id ,&#xd;&#xa;IFNULL&#x28;lvl.LOOKUP_VALUE , lv.LOOKUP_NAME&#x29;  As code_value ,&#xd;&#xa;le.ENTITY_NAME As entityName&#xd;&#xa;FROM lookup_value lv &#xd;&#xa;JOIN lookup_entity le ON le.ENTITY_ID &#x3d; lv.ENTITY_ID&#xd;&#xa;LEFT JOIN lookup_value_locale lvl ON lvl.LOOKUP_ID &#x3d; lv.LOOKUP_ID</sql>
+    <sql>SELECT 
+lv.LOOKUP_ID As id ,
+IFNULL(lvl.LOOKUP_VALUE , lv.LOOKUP_NAME)  As code_value ,
+le.ENTITY_NAME As entityName
+FROM lookup_value lv 
+JOIN lookup_entity le ON le.ENTITY_ID = lv.ENTITY_ID
+LEFT JOIN lookup_value_locale lvl ON lvl.LOOKUP_ID = lv.LOOKUP_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
