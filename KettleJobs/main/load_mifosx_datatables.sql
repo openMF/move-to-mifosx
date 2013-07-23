@@ -43,12 +43,15 @@ CREATE TABLE IF NOT EXISTS `call reports` (
 CREATE TABLE `Relatives` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
-  `Relationship_cd_Relationship` int(11) DEFAULT NULL,
+  `SpouseFather_cd_Relationship` int(11) DEFAULT NULL,
   `First Name` varchar(2000) DEFAULT NULL,
   `Last Name` varchar(2000) DEFAULT NULL,
+  `Gender_cd_Gender` int(11) DEFAULT NULL,
+  `Date Of Birth` date DEFAULT NULL,
+  `LivingStatus_cd_Living Status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_client_id` (`client_id`),
-  CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
+  CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_cl                                                      ient` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Impact Measurement` (
