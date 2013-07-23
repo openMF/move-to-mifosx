@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   PRIMARY KEY (`client_id`),
   CONSTRAINT `fk_address_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `call reports` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
@@ -37,4 +38,30 @@ CREATE TABLE IF NOT EXISTS `call reports` (
   PRIMARY KEY (`id`),
   KEY `fk_client_id` (`client_id`),
   CONSTRAINT `fk_call_reports_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `Relatives` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `client_id` bigint(20) NOT NULL,
+  `Relationship_cd_Relationship` int(11) DEFAULT NULL,
+  `First Name` varchar(2000) DEFAULT NULL,
+  `Last Name` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_client_id` (`client_id`),
+  CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `Impact Measurement` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `client_id` bigint(20) NOT NULL,
+  `YesNo_cd_Repaid on Schedule` int(11) DEFAULT NULL,
+  `If No Reason` text,
+  `How was loan amount invested` text,
+  `Additional Income generated due to loan` text,
+  `What was the additional income used for` text,
+  `YesNo_cd_New Jobs created due to loan` int(11) DEFAULT NULL,
+  `If Yes How many` text,
+  PRIMARY KEY (`id`),
+  KEY `fk_client_id` (`client_id`),
+  CONSTRAINT `fk_impact_measurement_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

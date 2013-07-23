@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>Call Report</name>
+    <name>impactMeasurement</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;07&#47;04 15:36:00.120</created_date>
+  <created_date>2013&#47;07&#47;23 15:53:11.764</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;07&#47;04 15:36:00.120</modified_date>
+  <modified_date>2013&#47;07&#47;23 15:53:11.764</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Call report input</from><to>Row denormaliser</to><enabled>Y</enabled> </hop>  <hop> <from>Row denormaliser</from><to>Concat Obective 1 and Obective 2</to><enabled>Y</enabled> </hop>  <hop> <from>Concat Obective 1 and Obective 2</from><to>Call report output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>IM input</from><to>Row denormaliser</to><enabled>Y</enabled> </hop>  <hop> <from>Row denormaliser</from><to>IM output</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Call report input</name>
+    <name>IM input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -307,7 +307,7 @@ qgr.question_group_instance_id As instanceId ,
 qgr.sections_questions_id As qid
 FROM 
 question_group_instance qgi 
-JOIN question_group qg ON qg.id = qgi.question_group_id AND qgi.event_source_id = 3 AND qg.id = 8
+JOIN question_group qg ON qg.id = qgi.question_group_id AND qgi.event_source_id = 3 AND qg.id = 4
 JOIN question_group_response qgr ON qgr.question_group_instance_id = qgi.id
 JOIN customer cs ON cs.customer_id = qgi.entity_id
 ORDER BY instanceId</sql>
@@ -318,94 +318,14 @@ ORDER BY instanceId</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>311</xloc>
-      <yloc>185</yloc>
+      <xloc>247</xloc>
+      <yloc>253</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Concat Obective 1 and Obective 2</name>
-    <type>ConcatFields</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator/>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>Objectiveofcall1</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Objectiveofcall2</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-<targetFieldName>Objectiveofcall</targetFieldName>
-<targetFieldLength>0</targetFieldLength>
-<removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>461</xloc>
-      <yloc>302</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Call report output</name>
+    <name>IM output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -416,7 +336,7 @@ ORDER BY instanceId</sql>
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>call reports</table>
+    <table>Impact Measurement</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -433,38 +353,42 @@ ORDER BY instanceId</sql>
     <return_field/>
     <fields>
         <field>
-          <column_name>MFI official</column_name>
-          <stream_name>MFIofficial</stream_name>
-        </field>
-        <field>
-          <column_name>Type of call</column_name>
-          <stream_name>Typeofcall</stream_name>
-        </field>
-        <field>
-          <column_name>Objective of call</column_name>
-          <stream_name>Objectiveofcall</stream_name>
-        </field>
-        <field>
-          <column_name>Place of call</column_name>
-          <stream_name>Placeofcall</stream_name>
-        </field>
-        <field>
-          <column_name>Result of call</column_name>
-          <stream_name>Resultofcall</stream_name>
-        </field>
-        <field>
-          <column_name>Follow-up date</column_name>
-          <stream_name>Followupdate</stream_name>
-        </field>
-        <field>
           <column_name>client_id</column_name>
           <stream_name>custId</stream_name>
+        </field>
+        <field>
+          <column_name>YesNo_cd_Repaid on Schedule</column_name>
+          <stream_name>YesNo_cd_Repaid</stream_name>
+        </field>
+        <field>
+          <column_name>If No Reason</column_name>
+          <stream_name>IfNoReason</stream_name>
+        </field>
+        <field>
+          <column_name>How was loan amount invested</column_name>
+          <stream_name>Howwasloanamountinvested</stream_name>
+        </field>
+        <field>
+          <column_name>Additional Income generated due to loan</column_name>
+          <stream_name>AdditionalIncomegenerated</stream_name>
+        </field>
+        <field>
+          <column_name>What was the additional income used for</column_name>
+          <stream_name>Whatwastheadditionalincome</stream_name>
+        </field>
+        <field>
+          <column_name>YesNo_cd_New Jobs created due to loan</column_name>
+          <stream_name>YesNo_cd_NewJobs </stream_name>
+        </field>
+        <field>
+          <column_name>If Yes How many</column_name>
+          <stream_name>IfYesHowmany</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>636</xloc>
-      <yloc>162</yloc>
+      <xloc>573</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -488,8 +412,8 @@ ORDER BY instanceId</sql>
       <fields>
         <field>
           <field_name>response</field_name>
-          <key_value>78</key_value>
-          <target_name>MFIofficial</target_name>
+          <key_value>42</key_value>
+          <target_name>YesNo_cd_Repaid</target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -502,8 +426,8 @@ ORDER BY instanceId</sql>
           </field>
         <field>
           <field_name>response</field_name>
-          <key_value>79</key_value>
-          <target_name>Typeofcall</target_name>
+          <key_value>43</key_value>
+          <target_name>IfNoReason</target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -516,8 +440,8 @@ ORDER BY instanceId</sql>
           </field>
         <field>
           <field_name>response</field_name>
-          <key_value>80</key_value>
-          <target_name>Placeofcall</target_name>
+          <key_value>44</key_value>
+          <target_name>Howwasloanamountinvested</target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -530,8 +454,8 @@ ORDER BY instanceId</sql>
           </field>
         <field>
           <field_name>response</field_name>
-          <key_value>81</key_value>
-          <target_name>Objectiveofcall1</target_name>
+          <key_value>45</key_value>
+          <target_name>AdditionalIncomegenerated</target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -544,8 +468,8 @@ ORDER BY instanceId</sql>
           </field>
         <field>
           <field_name>response</field_name>
-          <key_value>82</key_value>
-          <target_name>Resultofcall</target_name>
+          <key_value>46</key_value>
+          <target_name>Whatwastheadditionalincome</target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -558,8 +482,8 @@ ORDER BY instanceId</sql>
           </field>
         <field>
           <field_name>response</field_name>
-          <key_value>83</key_value>
-          <target_name>Followupdate</target_name>
+          <key_value>47</key_value>
+          <target_name>YesNo_cd_NewJobs </target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -572,8 +496,8 @@ ORDER BY instanceId</sql>
           </field>
         <field>
           <field_name>response</field_name>
-          <key_value>84</key_value>
-          <target_name>Objectiveofcall2</target_name>
+          <key_value>48</key_value>
+          <target_name>IfYesHowmany</target_name>
           <target_type>String</target_type>
           <target_format/>
           <target_length>-1</target_length>
@@ -587,8 +511,8 @@ ORDER BY instanceId</sql>
         </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>461</xloc>
-      <yloc>52</yloc>
+      <xloc>401</xloc>
+      <yloc>145</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

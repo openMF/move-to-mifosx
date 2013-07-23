@@ -299,7 +299,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>373</xloc>
+      <xloc>325</xloc>
       <yloc>252</yloc>
       </entry>
     <entry>
@@ -329,8 +329,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>472</xloc>
-      <yloc>47</yloc>
+      <xloc>515</xloc>
+      <yloc>46</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -359,8 +359,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>569</xloc>
-      <yloc>251</yloc>
+      <xloc>521</xloc>
+      <yloc>252</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -389,8 +389,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>661</xloc>
-      <yloc>46</yloc>
+      <xloc>688</xloc>
+      <yloc>51</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -419,8 +419,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>767</xloc>
-      <yloc>251</yloc>
+      <xloc>692</xloc>
+      <yloc>250</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -479,8 +479,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>136</xloc>
-      <yloc>156</yloc>
+      <xloc>158</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -509,7 +509,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>284</xloc>
+      <xloc>327</xloc>
       <yloc>47</yloc>
       </entry>
     <entry>
@@ -539,8 +539,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>922</xloc>
-      <yloc>257</yloc>
+      <xloc>857</xloc>
+      <yloc>255</yloc>
       </entry>
     <entry>
       <name>scheduled-job-arrears</name>
@@ -672,8 +672,8 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>205</xloc>
-      <yloc>252</yloc>
+      <xloc>156</xloc>
+      <yloc>251</yloc>
       </entry>
   </entries>
   <hops>
@@ -772,7 +772,7 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <to>Initial tasks</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
