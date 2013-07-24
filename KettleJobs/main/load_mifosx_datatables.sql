@@ -29,12 +29,12 @@ CREATE TABLE IF NOT EXISTS `address` (
 CREATE TABLE IF NOT EXISTS `call reports` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
-  `MFI official` varchar(200) DEFAULT NULL,
-  `Type of call` varchar(200) DEFAULT NULL,
-  `Place of call` varchar(200) DEFAULT NULL,
+  `MFI official` varchar(2000) DEFAULT NULL,
+  `Type of call` varchar(2000) DEFAULT NULL,
+  `Place of call` varchar(2000) DEFAULT NULL,
   `Objective of call` varchar(2000) DEFAULT NULL,
-  `Result of call` varchar(1000) DEFAULT NULL,
-  `Follow-up date` date DEFAULT NULL,
+  `Result of call` varchar(2000) DEFAULT NULL,
+  `Follow-up date` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_client_id` (`client_id`),
   CONSTRAINT `fk_call_reports_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
