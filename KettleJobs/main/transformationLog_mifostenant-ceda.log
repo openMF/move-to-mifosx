@@ -1,31 +1,3 @@
 DEBUG: Using JAVA_HOME
 DEBUG: _PENTAHO_JAVA_HOME=C:\Program Files\Java\jdk1.6.0_21
 DEBUG: _PENTAHO_JAVA=C:\Program Files\Java\jdk1.6.0_21\bin\java.exe
-ERROR 22-07 18:26:48,616 - LUC  data table output - Unexpected batch update error committing the database connection.
-ERROR 22-07 18:26:48,623 - LUC  data table output - org.pentaho.di.core.exception.KettleDatabaseBatchException: 
-Error updating batch
-Data truncation: Incorrect date value: 'Alice to follow-up' for column 'Follow-up date' at row 1
-
-	at org.pentaho.di.core.database.Database.emptyAndCommit(Database.java:1503)
-	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:658)
-	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:79)
-	at java.lang.Thread.run(Thread.java:619)
-Caused by: java.sql.BatchUpdateException: Data truncation: Incorrect date value: 'Alice to follow-up' for column 'Follow-up date' at row 1
-	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2054)
-	at com.mysql.jdbc.PreparedStatement.executeBatch(PreparedStatement.java:1467)
-	at org.pentaho.di.core.database.Database.emptyAndCommit(Database.java:1486)
-	... 3 more
-Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect date value: 'Alice to follow-up' for column 'Follow-up date' at row 1
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4185)
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4119)
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2570)
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2731)
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2815)
-	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2155)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2458)
-	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2006)
-	... 5 more
-
-ERROR 22-07 18:26:48,640 - Call Report - Errors detected!
-ERROR 22-07 18:26:48,646 - Call Report - Errors detected!
-ERROR 22-07 18:26:48,798 - Kitchen - Finished with errors
