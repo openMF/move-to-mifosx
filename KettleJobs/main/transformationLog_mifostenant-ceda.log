@@ -1,3 +1,89 @@
 DEBUG: Using JAVA_HOME
 DEBUG: _PENTAHO_JAVA_HOME=C:\Program Files\Java\jdk1.6.0_21
 DEBUG: _PENTAHO_JAVA=C:\Program Files\Java\jdk1.6.0_21\bin\java.exe
+ERROR 24-07 10:36:45,363 - question groups - org.pentaho.di.core.exception.KettleException: 
+Unexpected error during transformation metadata load
+
+Unable to read file [file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr]
+Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+
+
+	at org.pentaho.di.job.entries.trans.JobEntryTrans.getTransMeta(JobEntryTrans.java:1202)
+	at org.pentaho.di.job.entries.trans.JobEntryTrans.execute(JobEntryTrans.java:621)
+	at org.pentaho.di.job.Job.execute(Job.java:589)
+	at org.pentaho.di.job.Job.execute(Job.java:728)
+	at org.pentaho.di.job.Job.execute(Job.java:495)
+	at org.pentaho.di.job.entries.job.JobEntryJobRunner.run(JobEntryJobRunner.java:68)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.pentaho.di.core.exception.KettleXMLException: 
+Unable to read file [file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr]
+Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+
+	at org.pentaho.di.core.xml.XMLHandler.loadXMLFile(XMLHandler.java:510)
+	at org.pentaho.di.core.xml.XMLHandler.loadXMLFile(XMLHandler.java:494)
+	at org.pentaho.di.trans.TransMeta.<init>(TransMeta.java:2760)
+	at org.pentaho.di.trans.TransMeta.<init>(TransMeta.java:2741)
+	at org.pentaho.di.job.entries.trans.JobEntryTrans.getTransMeta(JobEntryTrans.java:1158)
+	... 6 more
+Caused by: org.apache.commons.vfs.FileNotFoundException: Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+	at org.apache.commons.vfs.provider.AbstractFileObject.getInputStream(Unknown Source)
+	at org.apache.commons.vfs.provider.DefaultFileContent.getInputStream(Unknown Source)
+	at org.pentaho.di.core.vfs.KettleVFS.getInputStream(KettleVFS.java:247)
+	at org.pentaho.di.core.xml.XMLHandler.loadXMLFile(XMLHandler.java:508)
+	... 10 more
+Caused by: java.io.FileNotFoundException: C:\Users\nayan\Documents\GitHub\move-to-mifosx\KettleJobs\Stage1\qg\clientAddress.ktr (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.apache.commons.vfs.provider.local.LocalFile.doGetInputStream(Unknown Source)
+	... 14 more
+
+ERROR 24-07 10:36:45,503 - QG - An error occurred executing this job entry : 
+ERROR 24-07 10:36:45,505 - QG - org.pentaho.di.core.exception.KettleException: 
+Unexpected error occurred while launching entry [Address.0]
+
+Unexpected error during transformation metadata load
+
+Unable to read file [file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr]
+Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+
+
+
+	at org.pentaho.di.job.Job.execute(Job.java:733)
+	at org.pentaho.di.job.Job.execute(Job.java:495)
+	at org.pentaho.di.job.entries.job.JobEntryJobRunner.run(JobEntryJobRunner.java:68)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.pentaho.di.core.exception.KettleException: 
+Unexpected error during transformation metadata load
+
+Unable to read file [file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr]
+Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+
+
+	at org.pentaho.di.job.entries.trans.JobEntryTrans.getTransMeta(JobEntryTrans.java:1202)
+	at org.pentaho.di.job.entries.trans.JobEntryTrans.execute(JobEntryTrans.java:621)
+	at org.pentaho.di.job.Job.execute(Job.java:589)
+	at org.pentaho.di.job.Job.execute(Job.java:728)
+	... 3 more
+Caused by: org.pentaho.di.core.exception.KettleXMLException: 
+Unable to read file [file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr]
+Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+
+	at org.pentaho.di.core.xml.XMLHandler.loadXMLFile(XMLHandler.java:510)
+	at org.pentaho.di.core.xml.XMLHandler.loadXMLFile(XMLHandler.java:494)
+	at org.pentaho.di.trans.TransMeta.<init>(TransMeta.java:2760)
+	at org.pentaho.di.trans.TransMeta.<init>(TransMeta.java:2741)
+	at org.pentaho.di.job.entries.trans.JobEntryTrans.getTransMeta(JobEntryTrans.java:1158)
+	... 6 more
+Caused by: org.apache.commons.vfs.FileNotFoundException: Could not read from "file:///C:/Users/nayan/Documents/GitHub/move-to-mifosx/KettleJobs/Stage1/qg/clientAddress.ktr" because it is a not a file.
+	at org.apache.commons.vfs.provider.AbstractFileObject.getInputStream(Unknown Source)
+	at org.apache.commons.vfs.provider.DefaultFileContent.getInputStream(Unknown Source)
+	at org.pentaho.di.core.vfs.KettleVFS.getInputStream(KettleVFS.java:247)
+	at org.pentaho.di.core.xml.XMLHandler.loadXMLFile(XMLHandler.java:508)
+	... 10 more
+Caused by: java.io.FileNotFoundException: C:\Users\nayan\Documents\GitHub\move-to-mifosx\KettleJobs\Stage1\qg\clientAddress.ktr (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.apache.commons.vfs.provider.local.LocalFile.doGetInputStream(Unknown Source)
+	... 14 more
+
+ERROR 24-07 10:36:45,539 - Kitchen - Finished with errors
