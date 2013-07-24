@@ -1,8 +1,8 @@
 DEBUG: Using JAVA_HOME
 DEBUG: _PENTAHO_JAVA_HOME=C:\Program Files\Java\jdk1.6.0_21
 DEBUG: _PENTAHO_JAVA=C:\Program Files\Java\jdk1.6.0_21\bin\java.exe
-ERROR 24-07 10:50:55,024 - Call report output - Unexpected batch update error committing the database connection.
-ERROR 24-07 10:50:55,030 - Call report output - org.pentaho.di.core.exception.KettleDatabaseBatchException: 
+ERROR 24-07 11:07:55,748 - Call report output - Unexpected batch update error committing the database connection.
+ERROR 24-07 11:07:55,753 - Call report output - org.pentaho.di.core.exception.KettleDatabaseBatchException: 
 Error updating batch
 Data truncation: Incorrect date value: 'Alice to follow-up' for column 'Follow-up date' at row 1
 
@@ -26,6 +26,6 @@ Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect date v
 	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2006)
 	... 5 more
 
-ERROR 24-07 10:50:55,045 - Call Report - Errors detected!
-ERROR 24-07 10:50:55,184 - Call Report - Errors detected!
-ERROR 24-07 10:50:55,248 - Kitchen - Finished with errors
+ERROR 24-07 11:07:55,765 - Call Report - Errors detected!
+ERROR 24-07 11:07:55,770 - Call Report - Errors detected!
+ERROR 24-07 11:07:55,894 - Kitchen - Finished with errors

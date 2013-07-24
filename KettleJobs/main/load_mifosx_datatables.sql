@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS `personal info` (
+DROP TABLE IF EXISTS `personal info`;
+CREATE TABLE `personal info` (
   `client_id` bigint(20) NOT NULL,
   `Date Of Birth` date DEFAULT NULL,
   `Gender_cd_Gender` int(11) DEFAULT NULL,
@@ -12,7 +13,8 @@ CREATE TABLE IF NOT EXISTS `personal info` (
   CONSTRAINT `fk_personal_info_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `address` (
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address` (
   `client_id` bigint(20) NOT NULL,
   `Physical Home Address` varchar(200) NOT NULL,
   `Work Place Address` varchar(200) DEFAULT NULL,
@@ -26,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   CONSTRAINT `fk_address_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `call reports`;
 CREATE TABLE IF NOT EXISTS `call reports` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
@@ -40,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `call reports` (
   CONSTRAINT `fk_call_reports_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `Relatives`;
 CREATE TABLE `Relatives` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
@@ -54,6 +58,7 @@ CREATE TABLE `Relatives` (
   CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_cl                                                      ient` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `Impact Measurement`;
 CREATE TABLE `Impact Measurement` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
