@@ -55,7 +55,7 @@ CREATE TABLE `Relatives` (
   `LivingStatus_cd_Living Status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_client_id` (`client_id`),
-  CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_cl                                                      ient` (`id`)
+  CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `Impact Measurement`;
