@@ -4,11 +4,11 @@
     <description/>
     <extended_description/>
     <job_version/>
-  <directory>&#47;</directory>
+  <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#47;07&#47;17 18:44:45.902</created_date>
+  <created_date>2013&#x2f;07&#x2f;17 18&#x3a;44&#x3a;45.902</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;07&#47;17 18:44:45.902</modified_date>
+  <modified_date>2013&#x2f;07&#x2f;17 18&#x3a;44&#x3a;45.902</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -23,18 +23,21 @@
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
+    <read_only>true</read_only>
     <attributes>
       <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
     </attributes>
   </connection>
   <connection>
     <name>DestinatioDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinatioDB</database>
     <port>3306</port>
     <username/>
@@ -59,7 +62,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -184,7 +187,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -238,7 +241,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></job-log-table>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
 <jobentry-log-table><connection/>
 <schema/>
 <table/>
@@ -249,6 +252,17 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<checkpoint-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<max_nr_retries/>
+<run_retry_period/>
+<namespace_parameter/>
+<save_parameters/>
+<save_result_rows/>
+<save_result_files/>
+<field><id>ID_JOB_RUN</id><enabled>Y</enabled><name>ID_JOB_RUN</name></field><field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>NAMESPACE</id><enabled>Y</enabled><name>NAMESPACE</name></field><field><id>CHECKPOINT_NAME</id><enabled>Y</enabled><name>CHECKPOINT_NAME</name></field><field><id>CHECKPOINT_COPYNR</id><enabled>Y</enabled><name>CHECKPOINT_COPYNR</name></field><field><id>ATTEMPT_NR</id><enabled>Y</enabled><name>ATTEMPT_NR</name></field><field><id>JOB_RUN_START_DATE</id><enabled>Y</enabled><name>JOB_RUN_START_DATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>RESULT_XML</id><enabled>Y</enabled><name>RESULT_XML</name></field><field><id>PARAMETER_XML</id><enabled>Y</enabled><name>PARAMETER_XML</name></field></checkpoint-log-table>
    <pass_batchid>N</pass_batchid>
    <shared_objects_file/>
   <entries>
@@ -278,7 +292,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\organization\organization.kjb</filename>
+      <filename>C&#x3a;&#x5c;Users&#x5c;madhukar&#x5c;conflux&#x5c;move-to-mifosx&#x5c;KettleJobs&#x5c;Stage1&#x5c;organization&#x5c;organization.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -292,8 +306,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -308,7 +324,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\products\loan products.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;products&#x5c;loan products.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -322,8 +338,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -338,7 +356,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\clients\clients.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;clients&#x5c;clients.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -352,8 +370,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -368,7 +388,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\meetings\meeting.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;meetings&#x5c;meeting.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -382,8 +402,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -398,7 +420,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\loans\loanaccouts.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;loans&#x5c;loanaccouts.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -412,8 +434,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -428,7 +452,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\notes\notes.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;notes&#x5c;notes.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -442,8 +466,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>Y</parallel>
@@ -462,12 +488,12 @@
       <fields>
         <field>
           <variable_name>TOOLHOME</variable_name>
-          <variable_value>C:\Users\nayan\Documents\GitHub\move-to-mifosx</variable_value>
+          <variable_value>C&#x3a;&#x5c;Users&#x5c;madhukar&#x5c;conflux&#x5c;move-to-mifosx</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>CUR</variable_name>
-          <variable_value>&apos;UGX&apos;</variable_value>
+          <variable_value>&#x27;UGX&#x27;</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
@@ -488,7 +514,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\configurations\config.kjb</filename>
+      <filename>C&#x3a;&#x5c;Users&#x5c;madhukar&#x5c;conflux&#x5c;move-to-mifosx&#x5c;KettleJobs&#x5c;Stage1&#x5c;configurations&#x5c;config.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -502,8 +528,10 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -518,7 +546,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\qg\question groups.kjb</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;qg&#x5c;question groups.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -532,41 +560,23 @@
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>857</xloc>
-      <yloc>255</yloc>
+      <xloc>908</xloc>
+      <yloc>260</yloc>
       </entry>
     <entry>
       <name>scheduled-job-arrears</name>
       <description/>
       <type>SQL</type>
-      <sql>truncate table m_loan_arrears_aging;
-INSERT INTO m_loan_arrears_aging(`loan_id`,`principal_overdue_derived`,`interest_overdue_derived`,
-`fee_charges_overdue_derived`,`penalty_charges_overdue_derived`,
-`total_overdue_derived`,`overdue_since_date_derived`)
-select 
-ml.id as loanId,
-SUM((ifnull(mr.principal_amount,0) - ifnull(mr.principal_completed_derived, 0))) as principal_overdue_derived,
-SUM((ifnull(mr.interest_amount,0)  - ifnull(mr.interest_completed_derived, 0))) as interest_overdue_derived,
-SUM((ifnull(mr.fee_charges_amount,0)  - ifnull(mr.fee_charges_completed_derived, 0))) as fee_charges_overdue_derived,
-SUM((ifnull(mr.penalty_charges_amount,0)  - ifnull(mr.penalty_charges_completed_derived, 0))) as penalty_charges_overdue_derived,
-SUM((ifnull(mr.principal_amount,0) - ifnull(mr.principal_completed_derived, 0))) +
-SUM((ifnull(mr.interest_amount,0)  - ifnull(mr.interest_completed_derived, 0))) +
-SUM((ifnull(mr.fee_charges_amount,0)  - ifnull(mr.fee_charges_completed_derived, 0))) +
-SUM((ifnull(mr.penalty_charges_amount,0)  - ifnull(mr.penalty_charges_completed_derived, 0))) as total_overdue_derived,
-MIN(mr.duedate) as overdue_since_date_derived
-FROM m_loan ml
-INNER JOIN m_loan_repayment_schedule mr on mr.loan_id = ml.id 
-WHERE ml.loan_status_id = 300
-and mr.completed_derived is false
-and mr.duedate &lt; CURDATE()
-GROUP BY ml.id</sql>
+      <sql>truncate table m_loan_arrears_aging&#x3b;&#xa;INSERT INTO m_loan_arrears_aging&#x28;&#x60;loan_id&#x60;,&#x60;principal_overdue_derived&#x60;,&#x60;interest_overdue_derived&#x60;,&#xa;&#x60;fee_charges_overdue_derived&#x60;,&#x60;penalty_charges_overdue_derived&#x60;,&#xa;&#x60;total_overdue_derived&#x60;,&#x60;overdue_since_date_derived&#x60;&#x29;&#xa;select &#xa;ml.id as loanId,&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.principal_amount,0&#x29; - ifnull&#x28;mr.principal_completed_derived, 0&#x29;&#x29;&#x29; as principal_overdue_derived,&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.interest_amount,0&#x29;  - ifnull&#x28;mr.interest_completed_derived, 0&#x29;&#x29;&#x29; as interest_overdue_derived,&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.fee_charges_amount,0&#x29;  - ifnull&#x28;mr.fee_charges_completed_derived, 0&#x29;&#x29;&#x29; as fee_charges_overdue_derived,&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.penalty_charges_amount,0&#x29;  - ifnull&#x28;mr.penalty_charges_completed_derived, 0&#x29;&#x29;&#x29; as penalty_charges_overdue_derived,&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.principal_amount,0&#x29; - ifnull&#x28;mr.principal_completed_derived, 0&#x29;&#x29;&#x29; &#x2b;&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.interest_amount,0&#x29;  - ifnull&#x28;mr.interest_completed_derived, 0&#x29;&#x29;&#x29; &#x2b;&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.fee_charges_amount,0&#x29;  - ifnull&#x28;mr.fee_charges_completed_derived, 0&#x29;&#x29;&#x29; &#x2b;&#xa;SUM&#x28;&#x28;ifnull&#x28;mr.penalty_charges_amount,0&#x29;  - ifnull&#x28;mr.penalty_charges_completed_derived, 0&#x29;&#x29;&#x29; as total_overdue_derived,&#xa;MIN&#x28;mr.duedate&#x29; as overdue_since_date_derived&#xa;FROM m_loan ml&#xa;INNER JOIN m_loan_repayment_schedule mr on mr.loan_id &#x3d; ml.id &#xa;WHERE ml.loan_status_id &#x3d; 300&#xa;and mr.completed_derived is false&#xa;and mr.duedate &#x3c; CURDATE&#x28;&#x29;&#xa;GROUP BY ml.id</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -582,58 +592,7 @@ GROUP BY ml.id</sql>
       <name>scheduled-job-loan-summary</name>
       <description/>
       <type>SQL</type>
-      <sql>update m_loan join (
-SELECT ml.id AS loanId,
-SUM(mr.principal_amount) as principal_disbursed_derived, 
-SUM(IFNULL(mr.principal_completed_derived,0)) as principal_repaid_derived,
-SUM(IFNULL(mr.principal_writtenoff_derived,0)) as principal_writtenoff_derived,
-SUM(IFNULL(mr.interest_amount,0)) as interest_charged_derived,
-SUM(IFNULL(mr.interest_completed_derived,0)) as interest_repaid_derived,
-SUM(IFNULL(mr.interest_waived_derived,0)) as interest_waived_derived,
-SUM(IFNULL(mr.interest_writtenoff_derived,0)) as interest_writtenoff_derived,
-SUM(IFNULL(mr.fee_charges_amount,0)) as fee_charges_charged_derived,
-SUM(IFNULL(mr.fee_charges_completed_derived,0)) as fee_charges_repaid_derived,
-SUM(IFNULL(mr.fee_charges_waived_derived,0)) as fee_charges_waived_derived,
-SUM(IFNULL(mr.fee_charges_writtenoff_derived,0)) as fee_charges_writtenoff_derived,
-SUM(IFNULL(mr.penalty_charges_amount,0)) as penalty_charges_charged_derived,
-SUM(IFNULL(mr.penalty_charges_completed_derived,0)) as penalty_charges_repaid_derived,
-SUM(IFNULL(mr.penalty_charges_waived_derived,0)) as penalty_charges_waived_derived,
-SUM(IFNULL(mr.penalty_charges_writtenoff_derived,0)) as penalty_charges_writtenoff_derived
- FROM m_loan ml
- INNER JOIN m_loan_repayment_schedule mr on mr.loan_id = ml.id 
- WHERE ml.disbursedon_date is not null 
- GROUP BY ml.id 
-) x on x.loanId = m_loan.id 
-SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
-            m_loan.principal_repaid_derived = x.principal_repaid_derived,
-            m_loan.principal_writtenoff_derived = x.principal_writtenoff_derived,
-            m_loan.principal_outstanding_derived = (x.principal_disbursed_derived - (x.principal_repaid_derived + x.principal_writtenoff_derived)),
-            m_loan.interest_charged_derived = x.interest_charged_derived,
-            m_loan.interest_repaid_derived = x.interest_repaid_derived,
-            m_loan.interest_waived_derived = x.interest_waived_derived,
-            m_loan.interest_writtenoff_derived = x.interest_writtenoff_derived,
-            m_loan.interest_outstanding_derived = (x.interest_charged_derived - (x.interest_repaid_derived + x.interest_waived_derived + x.interest_writtenoff_derived)),
-            m_loan.fee_charges_charged_derived = x.fee_charges_charged_derived,
-            m_loan.fee_charges_repaid_derived = x.fee_charges_repaid_derived,
-            m_loan.fee_charges_waived_derived = x.fee_charges_waived_derived,
-            m_loan.fee_charges_writtenoff_derived = x.fee_charges_writtenoff_derived,
-            m_loan.fee_charges_outstanding_derived = (x.fee_charges_charged_derived - (x.fee_charges_repaid_derived + x.fee_charges_waived_derived + x.fee_charges_writtenoff_derived)),
-            m_loan.penalty_charges_charged_derived = x.penalty_charges_charged_derived,
-            m_loan.penalty_charges_repaid_derived = x.penalty_charges_repaid_derived,
-            m_loan.penalty_charges_waived_derived = x.penalty_charges_waived_derived,
-            m_loan.penalty_charges_writtenoff_derived = x.penalty_charges_writtenoff_derived,
-            m_loan.penalty_charges_outstanding_derived = (x.penalty_charges_charged_derived - (x.penalty_charges_repaid_derived + x.penalty_charges_waived_derived + x.penalty_charges_writtenoff_derived)),
-            m_loan.total_expected_repayment_derived = (x.principal_disbursed_derived + x.interest_charged_derived + x.fee_charges_charged_derived + x.penalty_charges_charged_derived),
-            m_loan.total_repayment_derived = (x.principal_repaid_derived + x.interest_repaid_derived + x.fee_charges_repaid_derived + x.penalty_charges_repaid_derived),
-            m_loan.total_expected_costofloan_derived = (x.interest_charged_derived + x.fee_charges_charged_derived + x.penalty_charges_charged_derived),
-            m_loan.total_costofloan_derived = (x.interest_repaid_derived + x.fee_charges_repaid_derived + x.penalty_charges_repaid_derived),
-            m_loan.total_waived_derived = (x.interest_waived_derived + x.fee_charges_waived_derived + x.penalty_charges_waived_derived),
-            m_loan.total_writtenoff_derived = (x.interest_writtenoff_derived +  x.fee_charges_writtenoff_derived + x.penalty_charges_writtenoff_derived),
-            m_loan.total_outstanding_derived=
-            (x.principal_disbursed_derived - (x.principal_repaid_derived + x.principal_writtenoff_derived)) + 
-            (x.interest_charged_derived - (x.interest_repaid_derived + x.interest_waived_derived + x.interest_writtenoff_derived)) +
-            (x.fee_charges_charged_derived - (x.fee_charges_repaid_derived + x.fee_charges_waived_derived + x.fee_charges_writtenoff_derived)) +
-            (x.penalty_charges_charged_derived - (x.penalty_charges_repaid_derived + x.penalty_charges_waived_derived + x.penalty_charges_writtenoff_derived))</sql>
+      <sql>update m_loan join &#x28;&#xa;SELECT ml.id AS loanId,&#xa;SUM&#x28;mr.principal_amount&#x29; as principal_disbursed_derived, &#xa;SUM&#x28;IFNULL&#x28;mr.principal_completed_derived,0&#x29;&#x29; as principal_repaid_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.principal_writtenoff_derived,0&#x29;&#x29; as principal_writtenoff_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.interest_amount,0&#x29;&#x29; as interest_charged_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.interest_completed_derived,0&#x29;&#x29; as interest_repaid_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.interest_waived_derived,0&#x29;&#x29; as interest_waived_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.interest_writtenoff_derived,0&#x29;&#x29; as interest_writtenoff_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.fee_charges_amount,0&#x29;&#x29; as fee_charges_charged_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.fee_charges_completed_derived,0&#x29;&#x29; as fee_charges_repaid_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.fee_charges_waived_derived,0&#x29;&#x29; as fee_charges_waived_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.fee_charges_writtenoff_derived,0&#x29;&#x29; as fee_charges_writtenoff_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.penalty_charges_amount,0&#x29;&#x29; as penalty_charges_charged_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.penalty_charges_completed_derived,0&#x29;&#x29; as penalty_charges_repaid_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.penalty_charges_waived_derived,0&#x29;&#x29; as penalty_charges_waived_derived,&#xa;SUM&#x28;IFNULL&#x28;mr.penalty_charges_writtenoff_derived,0&#x29;&#x29; as penalty_charges_writtenoff_derived&#xa; FROM m_loan ml&#xa; INNER JOIN m_loan_repayment_schedule mr on mr.loan_id &#x3d; ml.id &#xa; WHERE ml.disbursedon_date is not null &#xa; GROUP BY ml.id &#xa;&#x29; x on x.loanId &#x3d; m_loan.id &#xa;SET m_loan.principal_disbursed_derived &#x3d; x.principal_disbursed_derived,&#xa;            m_loan.principal_repaid_derived &#x3d; x.principal_repaid_derived,&#xa;            m_loan.principal_writtenoff_derived &#x3d; x.principal_writtenoff_derived,&#xa;            m_loan.principal_outstanding_derived &#x3d; &#x28;x.principal_disbursed_derived - &#x28;x.principal_repaid_derived &#x2b; x.principal_writtenoff_derived&#x29;&#x29;,&#xa;            m_loan.interest_charged_derived &#x3d; x.interest_charged_derived,&#xa;            m_loan.interest_repaid_derived &#x3d; x.interest_repaid_derived,&#xa;            m_loan.interest_waived_derived &#x3d; x.interest_waived_derived,&#xa;            m_loan.interest_writtenoff_derived &#x3d; x.interest_writtenoff_derived,&#xa;            m_loan.interest_outstanding_derived &#x3d; &#x28;x.interest_charged_derived - &#x28;x.interest_repaid_derived &#x2b; x.interest_waived_derived &#x2b; x.interest_writtenoff_derived&#x29;&#x29;,&#xa;            m_loan.fee_charges_charged_derived &#x3d; x.fee_charges_charged_derived,&#xa;            m_loan.fee_charges_repaid_derived &#x3d; x.fee_charges_repaid_derived,&#xa;            m_loan.fee_charges_waived_derived &#x3d; x.fee_charges_waived_derived,&#xa;            m_loan.fee_charges_writtenoff_derived &#x3d; x.fee_charges_writtenoff_derived,&#xa;            m_loan.fee_charges_outstanding_derived &#x3d; &#x28;x.fee_charges_charged_derived - &#x28;x.fee_charges_repaid_derived &#x2b; x.fee_charges_waived_derived &#x2b; x.fee_charges_writtenoff_derived&#x29;&#x29;,&#xa;            m_loan.penalty_charges_charged_derived &#x3d; x.penalty_charges_charged_derived,&#xa;            m_loan.penalty_charges_repaid_derived &#x3d; x.penalty_charges_repaid_derived,&#xa;            m_loan.penalty_charges_waived_derived &#x3d; x.penalty_charges_waived_derived,&#xa;            m_loan.penalty_charges_writtenoff_derived &#x3d; x.penalty_charges_writtenoff_derived,&#xa;            m_loan.penalty_charges_outstanding_derived &#x3d; &#x28;x.penalty_charges_charged_derived - &#x28;x.penalty_charges_repaid_derived &#x2b; x.penalty_charges_waived_derived &#x2b; x.penalty_charges_writtenoff_derived&#x29;&#x29;,&#xa;            m_loan.total_expected_repayment_derived &#x3d; &#x28;x.principal_disbursed_derived &#x2b; x.interest_charged_derived &#x2b; x.fee_charges_charged_derived &#x2b; x.penalty_charges_charged_derived&#x29;,&#xa;            m_loan.total_repayment_derived &#x3d; &#x28;x.principal_repaid_derived &#x2b; x.interest_repaid_derived &#x2b; x.fee_charges_repaid_derived &#x2b; x.penalty_charges_repaid_derived&#x29;,&#xa;            m_loan.total_expected_costofloan_derived &#x3d; &#x28;x.interest_charged_derived &#x2b; x.fee_charges_charged_derived &#x2b; x.penalty_charges_charged_derived&#x29;,&#xa;            m_loan.total_costofloan_derived &#x3d; &#x28;x.interest_repaid_derived &#x2b; x.fee_charges_repaid_derived &#x2b; x.penalty_charges_repaid_derived&#x29;,&#xa;            m_loan.total_waived_derived &#x3d; &#x28;x.interest_waived_derived &#x2b; x.fee_charges_waived_derived &#x2b; x.penalty_charges_waived_derived&#x29;,&#xa;            m_loan.total_writtenoff_derived &#x3d; &#x28;x.interest_writtenoff_derived &#x2b;  x.fee_charges_writtenoff_derived &#x2b; x.penalty_charges_writtenoff_derived&#x29;,&#xa;            m_loan.total_outstanding_derived&#x3d;&#xa;            &#x28;x.principal_disbursed_derived - &#x28;x.principal_repaid_derived &#x2b; x.principal_writtenoff_derived&#x29;&#x29; &#x2b; &#xa;            &#x28;x.interest_charged_derived - &#x28;x.interest_repaid_derived &#x2b; x.interest_waived_derived &#x2b; x.interest_writtenoff_derived&#x29;&#x29; &#x2b;&#xa;            &#x28;x.fee_charges_charged_derived - &#x28;x.fee_charges_repaid_derived &#x2b; x.fee_charges_waived_derived &#x2b; x.fee_charges_writtenoff_derived&#x29;&#x29; &#x2b;&#xa;            &#x28;x.penalty_charges_charged_derived - &#x28;x.penalty_charges_repaid_derived &#x2b; x.penalty_charges_waived_derived &#x2b; x.penalty_charges_writtenoff_derived&#x29;&#x29;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -651,7 +610,7 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\configurations\InitialTasks.kjb</filename>
+      <filename>C&#x3a;&#x5c;Users&#x5c;madhukar&#x5c;conflux&#x5c;move-to-mifosx&#x5c;KettleJobs&#x5c;Stage1&#x5c;configurations&#x5c;InitialTasks.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -665,8 +624,10 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -745,8 +706,8 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <to>QG</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
@@ -755,7 +716,7 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
@@ -785,7 +746,17 @@ SET m_loan.principal_disbursed_derived = x.principal_disbursed_derived,
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Notes</from>
+      <to>scheduled-job-arrears</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
   </notepads>
+
 </job>
