@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>clients</name>
+    <name>loanaccounts</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;18 13&#x3a;21&#x3a;53.385</created_date>
+  <created_date>2013&#47;06&#47;19 12:09:36.477</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;18 13&#x3a;21&#x3a;53.385</modified_date>
+  <modified_date>2013&#47;06&#47;19 12:09:36.477</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,11 +287,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Clients Input</from><to>Client status</to><enabled>Y</enabled> </hop>
-  <hop> <from>Client status</from><to>Table output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Table input</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Interest method mapper</from><to>Account state mapping</to><enabled>Y</enabled> </hop>  <hop> <from>Account state mapping</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Client status</name>
+    <name>Account state mapping</name>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
@@ -300,7 +298,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <field_to_use>status_enum</field_to_use>
+    <field_to_use>loan_status_id</field_to_use>
     <target_field/>
     <non_match_default/>
     <fields>
@@ -314,31 +312,82 @@
       </field>
       <field>
         <source_value>3</source_value>
-        <target_value>300</target_value>
-      </field>
-      <field>
-        <source_value>4</source_value>
-        <target_value>100</target_value>
+        <target_value>200</target_value>
       </field>
       <field>
         <source_value>5</source_value>
-        <target_value>600</target_value>
+        <target_value>300</target_value>
       </field>
       <field>
         <source_value>6</source_value>
         <target_value>600</target_value>
       </field>
+      <field>
+        <source_value>7</source_value>
+        <target_value>601</target_value>
+      </field>
+      <field>
+        <source_value>8</source_value>
+        <target_value>602</target_value>
+      </field>
+      <field>
+        <source_value>9</source_value>
+        <target_value>300</target_value>
+      </field>
+      <field>
+        <source_value>10</source_value>
+        <target_value>500</target_value>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>490</xloc>
-      <yloc>131</yloc>
+      <xloc>351</xloc>
+      <yloc>327</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Clients Input</name>
+    <name>Interest method mapper</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use>interest_method_enum</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>0</target_value>
+      </field>
+      <field>
+        <source_value>3</source_value>
+        <target_value>0</target_value>
+      </field>
+      <field>
+        <source_value>4</source_value>
+        <target_value>0</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>351</xloc>
+      <yloc>108</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -348,16 +397,102 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, ac.GLOBAL_CUST_NUM As account_no&#xd;&#xa;, cr.loan_officer_id As staff_id&#xd;&#xa;, cr.GLOBAL_CUST_NUM As external_id&#xd;&#xa;, cr.STATUS_ID	 As	status_enum&#xd;&#xa;, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date&#xd;&#xa;, cr.BRANCH_ID	 As	office_id&#xd;&#xa;, cnd.FIRST_NAME As firstname&#xd;&#xa;, cnd.MIDDLE_NAME As middlename&#xd;&#xa;, cnd.LAST_NAME As lastname&#xd;&#xa;, cnd.DISPLAY_NAME As fullname&#xd;&#xa;, cnd.DISPLAY_NAME As display_name&#xd;&#xa;, NULL	 As	image_id&#xd;&#xa;FROM customer cr&#xd;&#xa;LEFT JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 &#xd;&#xa;LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND cnd.NAME_TYPE &#x3d; 3&#xd;&#xa;WHERE DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; &#xd;&#xa;AND BRANCH_ID &#x3d; 12</sql>
+    <sql>SELECT 
+  la.ACCOUNT_ID As 	id
+, la.ACCOUNT_ID As 	account_no
+, ac.GLOBAL_ACCOUNT_NUM As 	external_id
+, ac.CUSTOMER_ID As 	client_id
+, IF ( cr.status_id = 3 , cr.PARENT_CUSTOMER_ID , null ) As group_id
+, la.PRD_OFFERING_ID As product_id
+, la.FUND_ID As fund_id
+, cr.loan_officer_id As 	loan_officer_id
+, la.BUSINESS_ACTIVITIES_ID As 	loanpurpose_cv_id
+, ac.ACCOUNT_STATE_ID As 	loan_status_id
+, if ( la.GROUP_FLAG = 1 , 2 , 1 ) As 	loan_type_enum
+, &apos;INR&apos; As 	currency_code
+, 2 As 	currency_digits
+, la.LOAN_AMOUNT As 	principal_amount
+, NULL As 	arrearstolerance_amount
+, IFNULL(la.INTEREST_RATE , 0.000000 ) As nominal_interest_rate_per_period
+, 3 As 	interest_period_frequency_enum  -- Per year
+, IFNULL(la.INTEREST_RATE , 0.000000 )  As 	annual_nominal_interest_rate
+, la.INTEREST_TYPE_ID As 	interest_method_enum
+, 1 As 	interest_calculated_in_period_enum  -- same as repayment freq period
+, la.NO_OF_INSTALLMENTS As 	term_frequency
+, rd.RECURRENCE_ID As 	term_period_frequency_enum
+, rd.RECUR_AFTER As 	repay_every
+, rd.RECURRENCE_ID As 	repayment_period_frequency_enum
+, la.NO_OF_INSTALLMENTS As 	number_of_repayments
+, IF(la.GRACE_PERIOD_TYPE_ID = 2 OR la.GRACE_PERIOD_TYPE_ID = 3 , la.GRACE_PERIOD_DURATION , NULL  ) As 	grace_on_principal_periods
+, IF(la.GRACE_PERIOD_TYPE_ID = 2 , la.GRACE_PERIOD_DURATION , NULL  ) As 	grace_on_interest_periods
+, NULL As 	grace_interest_free_periods
+, 1    As 	amortization_method_enum
+, ac.CREATED_DATE As 	submittedon_date
+, ac.CREATED_BY As 	submittedon_userid
+, NULL As 	approvedon_date
+, NULL As 	approvedon_userid
+, la.DISBURSEMENT_DATE As 	expected_disbursedon_date
+, lsfirstpayment.ACTION_DATE As 	expected_firstrepaymenton_date
+, la.DISBURSEMENT_DATE As 	interest_calculated_from_date
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , la.DISBURSEMENT_DATE , NULL ) As disbursedon_date
+, NULL As 	disbursedon_userid
+, lslastpayment.ACTION_DATE As 	expected_maturedon_date
+, lslastpayment.ACTION_DATE As 	maturedon_date
+, ac.CLOSED_DATE As 	closedon_date
+, if( ac.CLOSED_DATE = NULL , NULL , ac.UPDATED_BY )  As closedon_userid
+, lsum.ORIG_FEES As 	total_charges_due_at_disbursement_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.ORIG_PRINCIPAL , 0.000000 ) As 	principal_disbursed_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.PRINCIPAL_PAID , 0.000000 ) As 	principal_repaid_derived
+, if (ac.ACCOUNT_STATE_ID = 7 , lsum.ORIG_PRINCIPAL - lsum.PRINCIPAL_PAID , 0.000000 ) As 	principal_writtenoff_derived
+, if (ac.ACCOUNT_STATE_ID = 5 OR ac.ACCOUNT_STATE_ID = 6 OR ac.ACCOUNT_STATE_ID = 9 , lsum.ORIG_PRINCIPAL - lsum.PRINCIPAL_PAID , 0.000000 ) As 	principal_outstanding_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.ORIG_INTEREST , 0.000000 ) As 	interest_charged_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.INTEREST_PAID , 0.000000 )  As 	interest_repaid_derived
+, 0.000000 As 	interest_waived_derived
+, if ( ac.ACCOUNT_STATE_ID = 7 , lsum.ORIG_INTEREST - lsum.INTEREST_PAID ,  0.000000 ) As 	interest_writtenoff_derived
+, if (ac.ACCOUNT_STATE_ID = 5 OR ac.ACCOUNT_STATE_ID = 6 OR ac.ACCOUNT_STATE_ID = 9 , lsum.ORIG_INTEREST - lsum.INTEREST_PAID , 0.000000 )  As 	interest_outstanding_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.ORIG_FEES , 0.000000 ) As 	fee_charges_charged_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.FEES_PAID , 0.000000 ) As 	fee_charges_repaid_derived
+, 0.000000 As 	fee_charges_waived_derived
+, if ( ac.ACCOUNT_STATE_ID = 7 , lsum.ORIG_FEES - lsum.FEES_PAID , 0.000000 ) As 	fee_charges_writtenoff_derived
+, if (ac.ACCOUNT_STATE_ID = 5 OR ac.ACCOUNT_STATE_ID = 6 OR ac.ACCOUNT_STATE_ID = 9 , lsum.ORIG_FEES - lsum.FEES_PAID , 0.000000 )  As 	fee_charges_outstanding_derived
+, 0.000000 As 	penalty_charges_charged_derived
+, 0.000000 As 	penalty_charges_repaid_derived
+, 0.000000 As 	penalty_charges_waived_derived
+, 0.000000 As 	penalty_charges_writtenoff_derived
+, 0.000000 As 	penalty_charges_outstanding_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.ORIG_PRINCIPAL + lsum.ORIG_INTEREST + lsum.ORIG_FEES , 0.000000 ) As 	total_expected_repayment_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.PRINCIPAL_PAID + lsum.INTEREST_PAID + lsum.FEES_PAID , 0.000000 ) As 	total_repayment_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.ORIG_INTEREST + lsum.ORIG_FEES , 0.000000 ) As 	total_expected_costofloan_derived
+, if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.INTEREST_PAID + lsum.FEES_PAID , 0.000000 ) As 	total_costofloan_derived
+, 0.000000 As 	total_waived_derived
+, if ( ac.ACCOUNT_STATE_ID = 7 , lsum.ORIG_PRINCIPAL + lsum.ORIG_INTEREST + lsum.ORIG_FEES - lsum.PRINCIPAL_PAID - lsum.INTEREST_PAID - lsum.FEES_PAID , 0.000000 ) As 	total_writtenoff_derived
+, if (ac.ACCOUNT_STATE_ID = 5 OR ac.ACCOUNT_STATE_ID = 6 OR ac.ACCOUNT_STATE_ID = 9  , lsum.ORIG_PRINCIPAL + lsum.ORIG_INTEREST + lsum.ORIG_FEES - lsum.PRINCIPAL_PAID - lsum.INTEREST_PAID - lsum.FEES_PAID , 0.000000 ) As 	 total_outstanding_derived
+, NULL As 	total_overpaid_derived
+, if( ac.ACCOUNT_STATE_ID = 10 , ac.closed_date , NULL ) As 	rejectedon_date
+, NULL As 	rejectedon_userid
+, NULL As 	rescheduledon_date
+, NULL As 	withdrawnon_date
+, NULL As 	withdrawnon_userid
+, if( ac.ACCOUNT_STATE_ID = 7 , ac.closed_date , NULL ) As 	writtenoffon_date
+, 1 	 As 	loan_transaction_strategy_id  -- MIfos Style
+FROM loan_account la
+JOIN account ac ON ac.ACCOUNT_ID = la.ACCOUNT_ID
+JOIN customer cr ON cr.CUSTOMER_ID = ac.CUSTOMER_ID
+JOIN meeting me ON me.MEETING_ID = la.MEETING_ID
+JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
+LEFT JOIN loan_schedule lsfirstpayment ON lsfirstpayment.ACCOUNT_ID = ac.ACCOUNT_ID AND lsfirstpayment.INSTALLMENT_ID = 1
+LEFT JOIN loan_schedule lslastpayment ON lslastpayment.ACCOUNT_ID = ac.ACCOUNT_ID AND lslastpayment.INSTALLMENT_ID = la.NO_OF_INSTALLMENTS
+LEFT JOIN loan_summary lsum ON lsum.ACCOUNT_ID = ac.ACCOUNT_ID
+WHERE cr.BRANCH_ID = 12 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>295</xloc>
-      <yloc>131</yloc>
+      <xloc>221</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -374,7 +509,7 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_client</table>
+    <table>m_loan</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -391,62 +526,318 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>display_name</column_name>
-          <stream_name>display_name</stream_name>
-        </field>
-        <field>
           <column_name>id</column_name>
           <stream_name>id</stream_name>
-        </field>
-        <field>
-          <column_name>external_id</column_name>
-          <stream_name>external_id</stream_name>
-        </field>
-        <field>
-          <column_name>status_enum</column_name>
-          <stream_name>status_enum</stream_name>
-        </field>
-        <field>
-          <column_name>activation_date</column_name>
-          <stream_name>activation_date</stream_name>
-        </field>
-        <field>
-          <column_name>office_id</column_name>
-          <stream_name>office_id</stream_name>
         </field>
         <field>
           <column_name>account_no</column_name>
           <stream_name>account_no</stream_name>
         </field>
         <field>
-          <column_name>firstname</column_name>
-          <stream_name>firstname</stream_name>
+          <column_name>external_id</column_name>
+          <stream_name>external_id</stream_name>
         </field>
         <field>
-          <column_name>middlename</column_name>
-          <stream_name>middlename</stream_name>
+          <column_name>client_id</column_name>
+          <stream_name>client_id</stream_name>
         </field>
         <field>
-          <column_name>lastname</column_name>
-          <stream_name>lastname</stream_name>
+          <column_name>group_id</column_name>
+          <stream_name>group_id</stream_name>
         </field>
         <field>
-          <column_name>fullname</column_name>
-          <stream_name>fullname</stream_name>
+          <column_name>product_id</column_name>
+          <stream_name>product_id</stream_name>
         </field>
         <field>
-          <column_name>image_id</column_name>
-          <stream_name>image_id</stream_name>
+          <column_name>fund_id</column_name>
+          <stream_name>fund_id</stream_name>
         </field>
         <field>
-          <column_name>staff_id</column_name>
-          <stream_name>staff_id</stream_name>
+          <column_name>loan_officer_id</column_name>
+          <stream_name>loan_officer_id</stream_name>
+        </field>
+        <field>
+          <column_name>loanpurpose_cv_id</column_name>
+          <stream_name>loanpurpose_cv_id</stream_name>
+        </field>
+        <field>
+          <column_name>loan_status_id</column_name>
+          <stream_name>loan_status_id</stream_name>
+        </field>
+        <field>
+          <column_name>loan_type_enum</column_name>
+          <stream_name>loan_type_enum</stream_name>
+        </field>
+        <field>
+          <column_name>currency_code</column_name>
+          <stream_name>currency_code</stream_name>
+        </field>
+        <field>
+          <column_name>currency_digits</column_name>
+          <stream_name>currency_digits</stream_name>
+        </field>
+        <field>
+          <column_name>principal_amount</column_name>
+          <stream_name>principal_amount</stream_name>
+        </field>
+        <field>
+          <column_name>arrearstolerance_amount</column_name>
+          <stream_name>arrearstolerance_amount</stream_name>
+        </field>
+        <field>
+          <column_name>nominal_interest_rate_per_period</column_name>
+          <stream_name>nominal_interest_rate_per_period</stream_name>
+        </field>
+        <field>
+          <column_name>interest_period_frequency_enum</column_name>
+          <stream_name>interest_period_frequency_enum</stream_name>
+        </field>
+        <field>
+          <column_name>annual_nominal_interest_rate</column_name>
+          <stream_name>annual_nominal_interest_rate</stream_name>
+        </field>
+        <field>
+          <column_name>interest_method_enum</column_name>
+          <stream_name>interest_method_enum</stream_name>
+        </field>
+        <field>
+          <column_name>interest_calculated_in_period_enum</column_name>
+          <stream_name>interest_calculated_in_period_enum</stream_name>
+        </field>
+        <field>
+          <column_name>term_frequency</column_name>
+          <stream_name>term_frequency</stream_name>
+        </field>
+        <field>
+          <column_name>term_period_frequency_enum</column_name>
+          <stream_name>term_period_frequency_enum</stream_name>
+        </field>
+        <field>
+          <column_name>repay_every</column_name>
+          <stream_name>repay_every</stream_name>
+        </field>
+        <field>
+          <column_name>repayment_period_frequency_enum</column_name>
+          <stream_name>repayment_period_frequency_enum</stream_name>
+        </field>
+        <field>
+          <column_name>number_of_repayments</column_name>
+          <stream_name>number_of_repayments</stream_name>
+        </field>
+        <field>
+          <column_name>grace_on_principal_periods</column_name>
+          <stream_name>grace_on_principal_periods</stream_name>
+        </field>
+        <field>
+          <column_name>grace_on_interest_periods</column_name>
+          <stream_name>grace_on_interest_periods</stream_name>
+        </field>
+        <field>
+          <column_name>grace_interest_free_periods</column_name>
+          <stream_name>grace_interest_free_periods</stream_name>
+        </field>
+        <field>
+          <column_name>amortization_method_enum</column_name>
+          <stream_name>amortization_method_enum</stream_name>
+        </field>
+        <field>
+          <column_name>submittedon_date</column_name>
+          <stream_name>submittedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>submittedon_userid</column_name>
+          <stream_name>submittedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>approvedon_date</column_name>
+          <stream_name>approvedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>approvedon_userid</column_name>
+          <stream_name>approvedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>expected_disbursedon_date</column_name>
+          <stream_name>expected_disbursedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>expected_firstrepaymenton_date</column_name>
+          <stream_name>expected_firstrepaymenton_date</stream_name>
+        </field>
+        <field>
+          <column_name>interest_calculated_from_date</column_name>
+          <stream_name>interest_calculated_from_date</stream_name>
+        </field>
+        <field>
+          <column_name>disbursedon_date</column_name>
+          <stream_name>disbursedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>disbursedon_userid</column_name>
+          <stream_name>disbursedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>expected_maturedon_date</column_name>
+          <stream_name>expected_maturedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>maturedon_date</column_name>
+          <stream_name>maturedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>closedon_date</column_name>
+          <stream_name>closedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>closedon_userid</column_name>
+          <stream_name>closedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>total_charges_due_at_disbursement_derived</column_name>
+          <stream_name>total_charges_due_at_disbursement_derived</stream_name>
+        </field>
+        <field>
+          <column_name>principal_disbursed_derived</column_name>
+          <stream_name>principal_disbursed_derived</stream_name>
+        </field>
+        <field>
+          <column_name>principal_repaid_derived</column_name>
+          <stream_name>principal_repaid_derived</stream_name>
+        </field>
+        <field>
+          <column_name>principal_writtenoff_derived</column_name>
+          <stream_name>principal_writtenoff_derived</stream_name>
+        </field>
+        <field>
+          <column_name>principal_outstanding_derived</column_name>
+          <stream_name>principal_outstanding_derived</stream_name>
+        </field>
+        <field>
+          <column_name>interest_charged_derived</column_name>
+          <stream_name>interest_charged_derived</stream_name>
+        </field>
+        <field>
+          <column_name>interest_repaid_derived</column_name>
+          <stream_name>interest_repaid_derived</stream_name>
+        </field>
+        <field>
+          <column_name>interest_waived_derived</column_name>
+          <stream_name>interest_waived_derived</stream_name>
+        </field>
+        <field>
+          <column_name>interest_writtenoff_derived</column_name>
+          <stream_name>interest_writtenoff_derived</stream_name>
+        </field>
+        <field>
+          <column_name>interest_outstanding_derived</column_name>
+          <stream_name>interest_outstanding_derived</stream_name>
+        </field>
+        <field>
+          <column_name>fee_charges_charged_derived</column_name>
+          <stream_name>fee_charges_charged_derived</stream_name>
+        </field>
+        <field>
+          <column_name>fee_charges_repaid_derived</column_name>
+          <stream_name>fee_charges_repaid_derived</stream_name>
+        </field>
+        <field>
+          <column_name>fee_charges_waived_derived</column_name>
+          <stream_name>fee_charges_waived_derived</stream_name>
+        </field>
+        <field>
+          <column_name>fee_charges_writtenoff_derived</column_name>
+          <stream_name>fee_charges_writtenoff_derived</stream_name>
+        </field>
+        <field>
+          <column_name>fee_charges_outstanding_derived</column_name>
+          <stream_name>fee_charges_outstanding_derived</stream_name>
+        </field>
+        <field>
+          <column_name>penalty_charges_charged_derived</column_name>
+          <stream_name>penalty_charges_charged_derived</stream_name>
+        </field>
+        <field>
+          <column_name>penalty_charges_repaid_derived</column_name>
+          <stream_name>penalty_charges_repaid_derived</stream_name>
+        </field>
+        <field>
+          <column_name>penalty_charges_waived_derived</column_name>
+          <stream_name>penalty_charges_waived_derived</stream_name>
+        </field>
+        <field>
+          <column_name>penalty_charges_writtenoff_derived</column_name>
+          <stream_name>penalty_charges_writtenoff_derived</stream_name>
+        </field>
+        <field>
+          <column_name>penalty_charges_outstanding_derived</column_name>
+          <stream_name>penalty_charges_outstanding_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_expected_repayment_derived</column_name>
+          <stream_name>total_expected_repayment_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_repayment_derived</column_name>
+          <stream_name>total_repayment_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_expected_costofloan_derived</column_name>
+          <stream_name>total_expected_costofloan_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_costofloan_derived</column_name>
+          <stream_name>total_costofloan_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_waived_derived</column_name>
+          <stream_name>total_waived_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_writtenoff_derived</column_name>
+          <stream_name>total_writtenoff_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_outstanding_derived</column_name>
+          <stream_name>total_outstanding_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_overpaid_derived</column_name>
+          <stream_name>total_overpaid_derived</stream_name>
+        </field>
+        <field>
+          <column_name>rejectedon_date</column_name>
+          <stream_name>rejectedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>rejectedon_userid</column_name>
+          <stream_name>rejectedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>rescheduledon_date</column_name>
+          <stream_name>rescheduledon_date</stream_name>
+        </field>
+        <field>
+          <column_name>withdrawnon_date</column_name>
+          <stream_name>withdrawnon_date</stream_name>
+        </field>
+        <field>
+          <column_name>withdrawnon_userid</column_name>
+          <stream_name>withdrawnon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>writtenoffon_date</column_name>
+          <stream_name>writtenoffon_date</stream_name>
+        </field>
+        <field>
+          <column_name>loan_transaction_strategy_id</column_name>
+          <stream_name>loan_transaction_strategy_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>661</xloc>
-      <yloc>131</yloc>
+      <xloc>497</xloc>
+      <yloc>211</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

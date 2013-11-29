@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>loanproducts</name>
+    <name>clients</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;06&#47;14 18:36:26.745</created_date>
+  <created_date>2013&#47;06&#47;18 13:21:53.385</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;06&#47;14 18:36:26.745</modified_date>
+  <modified_date>2013&#47;06&#47;18 13:21:53.385</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,56 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Loan Products</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Interest method mapper</from><to>Output Loan Products</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Clients Input</from><to>Client status</to><enabled>Y</enabled> </hop>  <hop> <from>Client status</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Input Loan Products</name>
+    <name>Client status</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use>status_enum</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>100</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>100</target_value>
+      </field>
+      <field>
+        <source_value>3</source_value>
+        <target_value>300</target_value>
+      </field>
+      <field>
+        <source_value>4</source_value>
+        <target_value>100</target_value>
+      </field>
+      <field>
+        <source_value>5</source_value>
+        <target_value>600</target_value>
+      </field>
+      <field>
+        <source_value>6</source_value>
+        <target_value>600</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>490</xloc>
+      <yloc>131</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Clients Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -300,101 +347,39 @@
            </partitioning>
     <connection>SourceDB</connection>
     <sql>SELECT
-  po.PRD_OFFERING_ID As id
-, ${CUR} As currency_code
-, 2 As currency_digits
-, laa.DEFAULT_LOAN_AMOUNT As principal_amount
-, laa.MIN_LOAN_AMOUNT As min_principal_amount
-, laa.MAX_LOAN_AMNT As max_principal_amount
-, 0 As arrearstolerance_amount
-, po.PRD_OFFERING_NAME As name
-, po.DESCRIPTION As description
-, null  As fund_id
-, lo.DEF_INTEREST_RATE As 	nominal_interest_rate_per_period
-, lo.MIN_INTEREST_RATE As 	min_nominal_interest_rate_per_period
-, lo.MAX_INTEREST_RATE As 	max_nominal_interest_rate_per_period
-, 3 As 	interest_period_frequency_enum -- Per year
-, lo.DEF_INTEREST_RATE As 	annual_nominal_interest_rate
-, lo.INTEREST_TYPE_ID As 	interest_method_enum
-, 1 As 	interest_calculated_in_period_enum  -- Same as repayment period
-, rd.RECUR_AFTER As 	repay_every
-, rd.RECURRENCE_ID As 	repayment_period_frequency_enum
-, nl.DEFAULT_NO_INSTALL As 	number_of_repayments
-, nl.MIN_NO_INSTALL As 	min_number_of_repayments
-, nl.MAX_NO_INSTALL As 	max_number_of_repayments
-, if(lo.GRACEPERIOD_TYPE_ID = 2 OR lo.GRACEPERIOD_TYPE_ID = 3 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_principal_periods
-, if(lo.GRACEPERIOD_TYPE_ID = 2 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_interest_periods
-, NULL As 	grace_interest_free_periods
-, 1 As 	amortization_method_enum
-, 1 As 	accounting_type
-, 1 As 	loan_transaction_strategy_id -- Mifos Style
-, po.GLOBAL_PRD_OFFERING_NUM As 	external_id
-, loan_counter_flag As include_in_borrower_cycle
-, prd.start_date As start_date
-, if(prd.end_date &lt;&gt; NULL , prd.end_date , if(prd.offering_status_id = 1 , NULL , prd.updated_date ))  As close_date
-FROM prd_offering po 
-JOIN loan_offering lo ON lo.PRD_OFFERING_ID = po.PRD_OFFERING_ID
-JOIN prd_offering prd ON prd.prd_offering_id = lo.prd_offering_id
-LEFT JOIN loan_amount_same_for_all_loan laa ON laa.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
-JOIN prd_offering_meeting pom ON pom.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
-JOIN meeting me ON me.MEETING_ID = pom.PRD_MEETING_ID
-JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
-JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
-</sql>
+  cr.CUSTOMER_ID As id
+, cr.GLOBAL_CUST_NUM As account_no
+, cr.loan_officer_id As staff_id
+, cr.GLOBAL_CUST_NUM As external_id
+, cr.STATUS_ID	 As	status_enum
+, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date
+, cr.BRANCH_ID	 As	office_id
+, cnd.FIRST_NAME As firstname
+, cnd.MIDDLE_NAME As middlename
+, cnd.LAST_NAME As lastname
+, cnd.DISPLAY_NAME As fullname
+, cnd.DISPLAY_NAME As display_name
+, NULL	 As	image_id
+FROM customer cr
+LEFT JOIN account ac ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 
+LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID = cr.CUSTOMER_ID AND cnd.NAME_TYPE = 3
+WHERE DISCRIMINATOR = &apos;CLIENT&apos; 
+AND BRANCH_ID = 12</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>210</xloc>
-      <yloc>113</yloc>
+      <xloc>293</xloc>
+      <yloc>131</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Interest method mapper</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>interest_method_enum</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>1</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>2</source_value>
-        <target_value>0</target_value>
-      </field>
-      <field>
-        <source_value>3</source_value>
-        <target_value>0</target_value>
-      </field>
-      <field>
-        <source_value>4</source_value>
-        <target_value>0</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>430</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Output Loan Products</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -405,7 +390,7 @@ JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_product_loan</table>
+    <table>m_client</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -422,126 +407,62 @@ JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING
     <return_field/>
     <fields>
         <field>
-          <column_name>description</column_name>
-          <stream_name>description</stream_name>
+          <column_name>display_name</column_name>
+          <stream_name>display_name</stream_name>
         </field>
         <field>
           <column_name>id</column_name>
           <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>currency_code</column_name>
-          <stream_name>currency_code</stream_name>
-        </field>
-        <field>
-          <column_name>currency_digits</column_name>
-          <stream_name>currency_digits</stream_name>
-        </field>
-        <field>
-          <column_name>principal_amount</column_name>
-          <stream_name>principal_amount</stream_name>
-        </field>
-        <field>
-          <column_name>min_principal_amount</column_name>
-          <stream_name>min_principal_amount</stream_name>
-        </field>
-        <field>
-          <column_name>max_principal_amount</column_name>
-          <stream_name>max_principal_amount</stream_name>
-        </field>
-        <field>
-          <column_name>arrearstolerance_amount</column_name>
-          <stream_name>arrearstolerance_amount</stream_name>
-        </field>
-        <field>
-          <column_name>name</column_name>
-          <stream_name>name</stream_name>
-        </field>
-        <field>
-          <column_name>fund_id</column_name>
-          <stream_name>fund_id</stream_name>
-        </field>
-        <field>
-          <column_name>nominal_interest_rate_per_period</column_name>
-          <stream_name>nominal_interest_rate_per_period</stream_name>
-        </field>
-        <field>
-          <column_name>min_nominal_interest_rate_per_period</column_name>
-          <stream_name>min_nominal_interest_rate_per_period</stream_name>
-        </field>
-        <field>
-          <column_name>max_nominal_interest_rate_per_period</column_name>
-          <stream_name>max_nominal_interest_rate_per_period</stream_name>
-        </field>
-        <field>
-          <column_name>interest_period_frequency_enum</column_name>
-          <stream_name>interest_period_frequency_enum</stream_name>
-        </field>
-        <field>
-          <column_name>annual_nominal_interest_rate</column_name>
-          <stream_name>annual_nominal_interest_rate</stream_name>
-        </field>
-        <field>
-          <column_name>interest_method_enum</column_name>
-          <stream_name>interest_method_enum</stream_name>
-        </field>
-        <field>
-          <column_name>interest_calculated_in_period_enum</column_name>
-          <stream_name>interest_calculated_in_period_enum</stream_name>
-        </field>
-        <field>
-          <column_name>repay_every</column_name>
-          <stream_name>repay_every</stream_name>
-        </field>
-        <field>
-          <column_name>repayment_period_frequency_enum</column_name>
-          <stream_name>repayment_period_frequency_enum</stream_name>
-        </field>
-        <field>
-          <column_name>number_of_repayments</column_name>
-          <stream_name>number_of_repayments</stream_name>
-        </field>
-        <field>
-          <column_name>min_number_of_repayments</column_name>
-          <stream_name>min_number_of_repayments</stream_name>
-        </field>
-        <field>
-          <column_name>max_number_of_repayments</column_name>
-          <stream_name>max_number_of_repayments</stream_name>
-        </field>
-        <field>
-          <column_name>grace_on_principal_periods</column_name>
-          <stream_name>grace_on_principal_periods</stream_name>
-        </field>
-        <field>
-          <column_name>grace_on_interest_periods</column_name>
-          <stream_name>grace_on_interest_periods</stream_name>
-        </field>
-        <field>
-          <column_name>grace_interest_free_periods</column_name>
-          <stream_name>grace_interest_free_periods</stream_name>
-        </field>
-        <field>
-          <column_name>amortization_method_enum</column_name>
-          <stream_name>amortization_method_enum</stream_name>
-        </field>
-        <field>
-          <column_name>accounting_type</column_name>
-          <stream_name>accounting_type</stream_name>
-        </field>
-        <field>
-          <column_name>loan_transaction_strategy_id</column_name>
-          <stream_name>loan_transaction_strategy_id</stream_name>
-        </field>
-        <field>
           <column_name>external_id</column_name>
           <stream_name>external_id</stream_name>
+        </field>
+        <field>
+          <column_name>status_enum</column_name>
+          <stream_name>status_enum</stream_name>
+        </field>
+        <field>
+          <column_name>activation_date</column_name>
+          <stream_name>activation_date</stream_name>
+        </field>
+        <field>
+          <column_name>office_id</column_name>
+          <stream_name>office_id</stream_name>
+        </field>
+        <field>
+          <column_name>account_no</column_name>
+          <stream_name>account_no</stream_name>
+        </field>
+        <field>
+          <column_name>firstname</column_name>
+          <stream_name>firstname</stream_name>
+        </field>
+        <field>
+          <column_name>middlename</column_name>
+          <stream_name>middlename</stream_name>
+        </field>
+        <field>
+          <column_name>lastname</column_name>
+          <stream_name>lastname</stream_name>
+        </field>
+        <field>
+          <column_name>fullname</column_name>
+          <stream_name>fullname</stream_name>
+        </field>
+        <field>
+          <column_name>image_id</column_name>
+          <stream_name>image_id</stream_name>
+        </field>
+        <field>
+          <column_name>staff_id</column_name>
+          <stream_name>staff_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>671</xloc>
-      <yloc>111</yloc>
+      <xloc>661</xloc>
+      <yloc>131</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
