@@ -4,11 +4,11 @@
     <description/>
     <extended_description/>
     <job_version/>
-  <directory>&#x2f;</directory>
+  <directory>&#47;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;14 17&#x3a;37&#x3a;09.752</created_date>
+  <created_date>2013&#47;06&#47;14 17:37:09.752</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;14 17&#x3a;37&#x3a;09.752</modified_date>
+  <modified_date>2013&#47;06&#47;14 17:37:09.752</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -278,7 +278,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;user and staff - both.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;user and staff - both.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -297,7 +297,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -311,7 +310,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;roles.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;roles.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -330,7 +329,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -344,7 +342,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;user roles.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;user roles.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -363,7 +361,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -377,7 +374,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;fund.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;fund.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -396,7 +393,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -410,7 +406,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;office.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;office.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -429,7 +425,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -443,7 +438,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;lookValues.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;lookValues.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -462,7 +457,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -476,7 +470,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importnewcodes.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;importnewcodes.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -495,7 +489,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -511,7 +504,7 @@
       <schemaname/>
       <tablename>m_office</tablename>
       <success_condition>rows_count_equal</success_condition>
-      <limit>&#x24;&#x7b;TotalNumberOfOffices&#x7d;</limit>
+      <limit>${TotalNumberOfOffices}</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
       <custom_sql/>
@@ -529,7 +522,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Kettle Jobs&#x5c;Stage1&#x5c;initializeVaribles&#x5c;setTotalOffices.ktr</filename>
+      <filename>${TOOLHOME}\KettleJobs\Stage1\initializeVaribles\setTotalOffices.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -548,7 +541,6 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -596,7 +588,12 @@
       <name>increase tries</name>
       <description>JavaScript</description>
       <type>EVAL</type>
-      <script>var attempt &#x3d; parseInt&#x28;parent_job.getVariable&#x28;&#x22;current_attempt&#x22;&#x29;, 10&#x29;&#x3b;&#xa;attempt&#x2b;&#x2b;&#x3b;&#xa;parent_job.setVariable&#x28;&#x22;current_attempt&#x22;, attempt&#x29;&#x3b;&#xa;&#xa;true&#x3b;&#xa;</script>
+      <script>var attempt = parseInt(parent_job.getVariable(&quot;current_attempt&quot;), 10);
+attempt++;
+parent_job.setVariable(&quot;current_attempt&quot;, attempt);
+
+true;
+</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -604,15 +601,15 @@
       <yloc>454</yloc>
       </entry>
     <entry>
-      <name>should retry&#x3f;</name>
+      <name>should retry?</name>
       <description>Simple evaluation</description>
       <type>SIMPLE_EVAL</type>
       <valuetype>variable</valuetype>
       <fieldname/>
-      <variablename>&#x24;&#x7b;current_attempt&#x7d;</variablename>
+      <variablename>${current_attempt}</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
-      <comparevalue>&#x24;&#x7b;max_tries&#x7d;</comparevalue>
+      <comparevalue>${max_tries}</comparevalue>
       <minvalue/>
       <maxvalue/>
       <successcondition>different</successcondition>
@@ -631,7 +628,7 @@
       <type>WRITE_TO_LOG</type>
       <logmessage/>
       <loglevel>Minimal</loglevel>
-      <logsubject>failed &#x24;&#x7b;max_tries&#x7d; times, time to give up... </logsubject>
+      <logsubject>failed ${max_tries} times, time to give up... </logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -656,7 +653,7 @@
       <type>WRITE_TO_LOG</type>
       <logmessage/>
       <loglevel>Minimal</loglevel>
-      <logsubject>doh... failed for the &#x24;&#x7b;current_attempt&#x7d;. time ... will try up to &#x24;&#x7b;max_tries&#x7d; times...</logsubject>
+      <logsubject>doh... failed for the ${current_attempt}. time ... will try up to ${max_tries} times...</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -775,7 +772,7 @@
     </hop>
     <hop>
       <from>Report Failed Attempt</from>
-      <to>should retry&#x3f;</to>
+      <to>should retry?</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -783,7 +780,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>should retry&#x3f;</from>
+      <from>should retry?</from>
       <to>wait a while</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -801,7 +798,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>should retry&#x3f;</from>
+      <from>should retry?</from>
       <to>Report Failed Job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -821,7 +818,13 @@
   </hops>
   <notepads>
     <notepad>
-      <note>Reason For Loop&#x3a;&#xd;&#xa;While inserting&#x2f;updating office entry, step need to calculate heirarchy&#xd;&#xa;for that it does look for parent, and there is no guaranty that parent will&#xd;&#xa;be present. So this is does not produce consistant result. So this step is&#xd;&#xa; put into loop til all the offices are migrated to with parent id. &#xd;&#xa;&#x28; PDI does not exec this in sequentially that is reason for iconsistant&#xd;&#xa;result&#x29; </note>
+      <note>Reason For Loop:
+While inserting&#47;updating office entry, step need to calculate heirarchy
+for that it does look for parent, and there is no guaranty that parent will
+be present. So this is does not produce consistant result. So this step is
+ put into loop til all the offices are migrated to with parent id. 
+( PDI does not exec this in sequentially that is reason for iconsistant
+result) </note>
       <xloc>163</xloc>
       <yloc>0</yloc>
       <width>557</width>

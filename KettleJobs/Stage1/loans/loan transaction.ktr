@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;21 10&#x3a;27&#x3a;07.980</created_date>
+  <created_date>2013&#47;06&#47;21 10:27:07.980</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;21 10&#x3a;27&#x3a;07.980</modified_date>
+  <modified_date>2013&#47;06&#47;21 10:27:07.980</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Loan transaction details input</from><to>Value Mapper</to><enabled>Y</enabled> </hop>
-  <hop> <from>Value Mapper</from><to>Loan transaction output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Loan transaction details input</from><to>Value Mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Value Mapper</from><to>Loan transaction output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Loan transaction details input</name>
     <type>TableInput</type>
@@ -301,7 +299,25 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa; ltd.ACCOUNT_TRXN_ID	id&#xd;&#xa; , ax.ACCOUNT_ID As 	loan_id&#xd;&#xa; , NULL As 	payment_detail_id&#xd;&#xa; , 0	As 	is_reversed&#xd;&#xa; , NULL As 	transaction_type_enum&#xd;&#xa; , ax.ACTION_DATE As 	transaction_date&#xd;&#xa; , ax.AMOUNT As 	amount&#xd;&#xa; , ltd.PRINCIPAL_AMOUNT As 	principal_portion_derived&#xd;&#xa; , ltd.INTEREST_AMOUNT As 	interest_portion_derived&#xd;&#xa; , ltd.MISC_FEE_AMOUNT As 	fee_charges_portion_derived&#xd;&#xa; , NULL As penalty_charges_portion_derived&#xd;&#xa;FROM&#xd;&#xa;loan_trxn_detail ltd&#xd;&#xa;JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID &#x3d; ltd.ACCOUNT_TRXN_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ax.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12  </sql>
+    <sql>SELECT 
+ ltd.ACCOUNT_TRXN_ID	id
+ , cr.BRANCH_ID As branchId
+ , 0 as overPaymentDerived
+ , ax.ACCOUNT_ID As 	loan_id
+ , NULL As 	payment_detail_id
+ , 0	As 	is_reversed
+ , ax.account_action_id As 	transaction_type_enum
+ , ax.ACTION_DATE As 	transaction_date
+ , ax.AMOUNT As 	amount
+ , ltd.PRINCIPAL_AMOUNT As 	principal_portion_derived
+ , ltd.INTEREST_AMOUNT As 	interest_portion_derived
+ , ltd.MISC_FEE_AMOUNT As 	fee_charges_portion_derived
+ , NULL As penalty_charges_portion_derived
+FROM
+loan_trxn_detail ltd
+JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID = ltd.ACCOUNT_TRXN_ID
+JOIN customer cr ON cr.CUSTOMER_ID = ax.CUSTOMER_ID
+WHERE cr.BRANCH_ID = 12  </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -309,8 +325,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>259</xloc>
-      <yloc>88</yloc>
+      <xloc>261</xloc>
+      <yloc>87</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -387,11 +403,19 @@
           <column_name>penalty_charges_portion_derived</column_name>
           <stream_name>penalty_charges_portion_derived</stream_name>
         </field>
+        <field>
+          <column_name>office_id</column_name>
+          <stream_name>branchId</stream_name>
+        </field>
+        <field>
+          <column_name>overpayment_portion_derived</column_name>
+          <stream_name>overPaymentDerived</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>665</xloc>
-      <yloc>87</yloc>
+      <xloc>663</xloc>
+      <yloc>86</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
