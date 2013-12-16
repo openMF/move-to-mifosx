@@ -310,6 +310,7 @@
 , 0 As is_penalty
 , if ( STATUS = &apos;1&apos; , 1 , 0)  As is_active
 , 0 As is_deleted
+, 0 As charge_payment_mode_enum
 FROM fees</sql>
     <limit>0</limit>
     <lookup/>
@@ -318,8 +319,8 @@ FROM fees</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>285</xloc>
-      <yloc>138</yloc>
+      <xloc>283</xloc>
+      <yloc>139</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,13 +61,16 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;20 10&#x3a;28&#x3a;45.051</created_date>
+  <created_date>2013&#47;06&#47;20 10:28:45.051</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;20 10&#x3a;28&#x3a;45.051</modified_date>
+  <modified_date>2013&#47;06&#47;20 10:28:45.051</modified_date>
   </info>
   <notepads>
     <notepad>
-      <note>If loan fee is reversed or not paid in one installment&#xd;&#xa;this step is creating multiple row for same fee&#xd;&#xa;&#xd;&#xa;need fix &#x28;post processing to remov duplicates&#x29;</note>
+      <note>If loan fee is reversed or not paid in one installment
+this step is creating multiple row for same fee
+
+need fix (post processing to remov duplicates)</note>
       <xloc>154</xloc>
       <yloc>196</yloc>
       <width>404</width>
@@ -308,8 +311,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Account fees input</from><to>loan charges output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Account fees input</from><to>loan charges output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Account fees input</name>
     <type>TableInput</type>
@@ -321,7 +323,30 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;la.ACCOUNT_ID As loan_id , &#xd;&#xa;af.FEE_ID As  charge_id ,&#xd;&#xa;0 As is_penalty ,&#xd;&#xa;1 As charge_time_enum ,&#xd;&#xa;NULL As due_for_collection_as_of_date ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , 2 , 1&#x29; As charge_calculation_enum ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT , NULL &#x29; As calculation_percentage ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , la.LOAN_AMOUNT ,NULL &#x29;  As calculation_on_amount ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100 , af.ACCOUNT_FEE_AMNT &#x29; As amount ,&#xd;&#xa;ftd.FEE_AMOUNT As amount_paid_derived ,&#xd;&#xa;NULL As amount_waived_derived ,&#xd;&#xa;NULL As amount_writtenoff_derived ,&#xd;&#xa;if &#x28; fe.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , af.FEE_AMNT &#x2a; la.LOAN_AMOUNT &#x2f; 100, af.ACCOUNT_FEE_AMNT &#x29;  - IFNULL&#x28;ftd.FEE_AMOUNT , 0&#x29;   As amount_outstanding_derived ,&#xd;&#xa;if &#x28;ftd.FEE_AMOUNT &#x3d; NULL , 0 , 1&#x29; As is_paid_derived ,&#xd;&#xa;0 As waived&#xd;&#xa;FROM loan_account la&#xd;&#xa;JOIN account_fees af ON af.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;JOIN fees fe ON fe.FEE_ID &#x3d; af.FEE_ID &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xd;&#xa;LEFT JOIN fee_trxn_detail ftd ON ftd.ACCOUNT_FEE_ID &#x3d; af.ACCOUNT_FEE_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE cr.BRANCH_ID &#x3d; 12 </sql>
+    <sql>SELECT 
+la.ACCOUNT_ID As loan_id , 
+af.FEE_ID As  charge_id ,
+0 As is_penalty ,
+1 As charge_time_enum ,
+NULL As due_for_collection_as_of_date ,
+if ( fe.DISCRIMINATOR = &apos;RATE&apos; , 2 , 1) As charge_calculation_enum ,
+if ( fe.DISCRIMINATOR = &apos;RATE&apos; , af.FEE_AMNT , NULL ) As calculation_percentage ,
+if ( fe.DISCRIMINATOR = &apos;RATE&apos; , la.LOAN_AMOUNT ,NULL )  As calculation_on_amount ,
+if ( fe.DISCRIMINATOR = &apos;RATE&apos; , af.FEE_AMNT * la.LOAN_AMOUNT &#47; 100 , af.ACCOUNT_FEE_AMNT ) As amount ,
+ftd.FEE_AMOUNT As amount_paid_derived ,
+NULL As amount_waived_derived ,
+NULL As amount_writtenoff_derived ,
+if ( fe.DISCRIMINATOR = &apos;RATE&apos; , af.FEE_AMNT * la.LOAN_AMOUNT &#47; 100, af.ACCOUNT_FEE_AMNT )  - IFNULL(ftd.FEE_AMOUNT , 0)   As amount_outstanding_derived ,
+if (ftd.FEE_AMOUNT = NULL , 0 , 1) As is_paid_derived ,
+0 As waived ,
+0 As charge_payment_mode_enum
+FROM loan_account la
+JOIN account_fees af ON af.ACCOUNT_ID = la.ACCOUNT_ID
+JOIN fees fe ON fe.FEE_ID = af.FEE_ID 
+JOIN account ac ON ac.ACCOUNT_ID = la.ACCOUNT_ID
+LEFT JOIN fee_trxn_detail ftd ON ftd.ACCOUNT_FEE_ID = af.ACCOUNT_FEE_ID
+JOIN customer cr ON cr.CUSTOMER_ID = ac.CUSTOMER_ID
+WHERE cr.BRANCH_ID = 12 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -422,6 +447,10 @@
         <field>
           <column_name>waived</column_name>
           <stream_name>waived</stream_name>
+        </field>
+        <field>
+          <column_name>charge_payment_mode_enum</column_name>
+          <stream_name>charge_payment_mode_enum</stream_name>
         </field>
     </fields>
      <cluster_schema/>
