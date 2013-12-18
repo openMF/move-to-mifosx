@@ -393,6 +393,10 @@ FROM fees</sql>
           <column_name>is_deleted</column_name>
           <stream_name>is_deleted</stream_name>
         </field>
+        <field>
+          <column_name>charge_payment_mode_enum</column_name>
+          <stream_name>charge_payment_mode_enum</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
