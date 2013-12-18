@@ -504,8 +504,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>918</xloc>
-      <yloc>256</yloc>
+      <xloc>911</xloc>
+      <yloc>518</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -564,8 +564,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>918</xloc>
-      <yloc>492</yloc>
+      <xloc>753</xloc>
+      <yloc>362</yloc>
       </entry>
     <entry>
       <name>Misc</name>
@@ -594,8 +594,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>765</xloc>
-      <yloc>360</yloc>
+      <xloc>759</xloc>
+      <yloc>522</yloc>
       </entry>
     <entry>
       <name>Initial tasks</name>
@@ -625,6 +625,36 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>173</xloc>
+      <yloc>262</yloc>
+      </entry>
+    <entry>
+      <name>Set Openning balance</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#47;home&#47;nayan&#47;Documents&#47;GitHub&#47;move-to-mifosx&#47;KettleJobs&#47;Stage1&#47;configurations&#47;openingBalance.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>916</xloc>
       <yloc>262</yloc>
       </entry>
   </entries>
@@ -684,15 +714,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Notes</from>
-      <to>QG</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Configuration</from>
       <to>Organization details</to>
       <from_nr>0</from_nr>
@@ -731,6 +752,24 @@
     <hop>
       <from>Set variables</from>
       <to>Initial tasks</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set Openning balance</from>
+      <to>QG</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Notes</from>
+      <to>Set Openning balance</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

@@ -288,48 +288,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input - Office</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>HO is not migrated</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>Insert &#47; Update Office</to><enabled>Y</enabled> </hop>  </order>
-  <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>m_office</table>
-      <orderby/>
-      <fail_on_multiple>Y</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>parent_id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>hierarchy</name>
-        <rename>parenthierarchy</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>279</xloc>
-      <yloc>283</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+  <hop> <from>Input - Office</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>HO is not migrated</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Insert &#47; Update Office</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
@@ -340,7 +299,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Database lookup</send_true_to>
+<send_true_to>Insert &#47; Update Office</send_true_to>
 <send_false_to>HO is not migrated</send_false_to>
     <compare>
 <condition>
@@ -352,7 +311,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>283</xloc>
+      <xloc>433</xloc>
       <yloc>164</yloc>
       <draw>Y</draw>
       </GUI>
@@ -370,7 +329,7 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>279</xloc>
+      <xloc>429</xloc>
       <yloc>60</yloc>
       <draw>Y</draw>
       </GUI>
@@ -405,8 +364,8 @@ ORDER BY levelId
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>145</xloc>
-      <yloc>164</yloc>
+      <xloc>190</xloc>
+      <yloc>163</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -446,7 +405,7 @@ ORDER BY levelId
       <value>
         <name>hierarchy</name>
         <rename>hierarchy</rename>
-        <update>Y</update>
+        <update>N</update>
       </value>
       <value>
         <name>external_id</name>
