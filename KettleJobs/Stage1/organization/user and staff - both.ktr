@@ -7,7 +7,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -62,9 +62,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;13 16&#x3a;57&#x3a;09.730</created_date>
+  <created_date>2013&#47;06&#47;13 16:57:09.730</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;13 16&#x3a;57&#x3a;09.730</modified_date>
+  <modified_date>2013&#47;06&#47;13 16:57:09.730</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -288,13 +288,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Mapper - Active</from><to>Constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Is Loan Officer</from><to>Output - Staff</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>
-  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>
-  <hop> <from>Input - User</from><to>Is Loan Officer</to><enabled>Y</enabled> </hop>
-  <hop> <from>Output - Staff</from><to>Mapper - Active</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Mapper - Active</from><to>Constants</to><enabled>Y</enabled> </hop>  <hop> <from>Is Loan Officer</from><to>Output - Staff</to><enabled>Y</enabled> </hop>  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>  <hop> <from>Input - User</from><to>Is Loan Officer</to><enabled>Y</enabled> </hop>  <hop> <from>Output - Staff</from><to>Mapper - Active</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Constants</name>
     <type>Constant</type>
@@ -400,7 +394,7 @@
     <fields>
       <field>
         <name>EMAIL_ID</name>
-        <value>demo&#x40;gfsl.com</value>
+        <value>demo@gfsl.com</value>
         <mask/>
         </field>
       </fields>
@@ -423,7 +417,27 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  pl.PERSONNEL_ID&#xd;&#xa;, LEVEL_ID&#xd;&#xa;, GLOBAL_PERSONNEL_NUM&#xd;&#xa;, pl.OFFICE_ID&#xd;&#xa;, TITLE&#xd;&#xa;, PERSONNEL_STATUS&#xd;&#xa;, PASSWORD&#xd;&#xa;, LOGIN_NAME&#xd;&#xa;, EMAIL_ID&#xd;&#xa;, pl.DISPLAY_NAME&#xd;&#xa;, pl.CREATED_BY&#xd;&#xa;, pl.CREATED_DATE&#xd;&#xa;, LAST_LOGIN&#xd;&#xa;, LOCKED&#xd;&#xa;, pd.FIRST_NAME&#xd;&#xa;, pd.MIDDLE_NAME&#xd;&#xa;, pd.LAST_NAME&#xd;&#xa;FROM personnel pl&#xd;&#xa;LEFT JOIN personnel_details pd ON pd.PERSONNEL_ID &#x3d; pl.PERSONNEL_ID&#xd;&#xa;JOIN office of ON of.OFFICE_ID &#x3d; .pl.OFFICE_ID</sql>
+    <sql>SELECT
+  pl.PERSONNEL_ID
+, LEVEL_ID
+, GLOBAL_PERSONNEL_NUM
+, pl.OFFICE_ID
+, TITLE
+, PERSONNEL_STATUS
+, PASSWORD
+, LOGIN_NAME
+, EMAIL_ID
+, pl.DISPLAY_NAME
+, pl.CREATED_BY
+, pl.CREATED_DATE
+, LAST_LOGIN
+, LOCKED
+, pd.FIRST_NAME
+, pd.MIDDLE_NAME
+, pd.LAST_NAME
+FROM personnel pl
+LEFT JOIN personnel_details pd ON pd.PERSONNEL_ID = pl.PERSONNEL_ID
+JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

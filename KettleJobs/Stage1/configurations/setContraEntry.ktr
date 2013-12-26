@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>CoAconfig</name>
+    <name>setContraEntry</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;12&#47;18 07:54:24.530</created_date>
+  <created_date>2013&#47;12&#47;18 18:04:58.148</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;12&#47;18 07:54:24.530</modified_date>
+  <modified_date>2013&#47;12&#47;18 18:04:58.148</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -118,116 +118,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>CoAinputs</from><to>Account type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>Account type mapping</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Chart of accounts</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Table input</from><to>Reverse the type</to><enabled>Y</enabled> </hop>  <hop> <from>Reverse the type</from><to>Add contra gl code</to><enabled>Y</enabled> </hop>  <hop> <from>Add contra gl code</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>Openning Balance</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Account type mapping</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>AccType</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>EXP</source_value>
-        <target_value>5</target_value>
-      </field>
-      <field>
-        <source_value>INC</source_value>
-        <target_value>4</target_value>
-      </field>
-      <field>
-        <source_value>LIAB</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>ASST</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>EQT</source_value>
-        <target_value>3</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>412</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>Hierarchy</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>.</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>disabled</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>manual_entries_allowed</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>account_usage</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>414</xloc>
-      <yloc>359</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Chart of accounts</name>
+    <name>Openning Balance</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -238,7 +131,7 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>acc_gl_account</table>
+    <table>acc_gl_journal_entry</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -255,45 +148,101 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>name</column_name>
-          <stream_name>Account Name</stream_name>
+          <column_name>office_id</column_name>
+          <stream_name>office_id</stream_name>
         </field>
         <field>
-          <column_name>gl_code</column_name>
-          <stream_name>Account Code</stream_name>
+          <column_name>amount</column_name>
+          <stream_name>amount</stream_name>
         </field>
         <field>
-          <column_name>classification_enum</column_name>
-          <stream_name>AccType</stream_name>
+          <column_name>reversed</column_name>
+          <stream_name>reversed</stream_name>
         </field>
         <field>
-          <column_name>hierarchy</column_name>
-          <stream_name>Hierarchy</stream_name>
+          <column_name>transaction_id</column_name>
+          <stream_name>transaction_id</stream_name>
         </field>
         <field>
-          <column_name>disabled</column_name>
-          <stream_name>disabled</stream_name>
+          <column_name>ref_num</column_name>
+          <stream_name>ref_num</stream_name>
         </field>
         <field>
-          <column_name>manual_journal_entries_allowed</column_name>
-          <stream_name>manual_entries_allowed</stream_name>
+          <column_name>manual_entry</column_name>
+          <stream_name>manual_entry</stream_name>
         </field>
         <field>
-          <column_name>account_usage</column_name>
-          <stream_name>account_usage</stream_name>
+          <column_name>description</column_name>
+          <stream_name>description</stream_name>
+        </field>
+        <field>
+          <column_name>is_running_balance_caculated</column_name>
+          <stream_name>is_running_balance_caculated</stream_name>
+        </field>
+        <field>
+          <column_name>office_running_balance</column_name>
+          <stream_name>office_running_balance</stream_name>
+        </field>
+        <field>
+          <column_name>organization_running_balance</column_name>
+          <stream_name>organization_running_balance</stream_name>
+        </field>
+        <field>
+          <column_name>reversal_id</column_name>
+          <stream_name>reversal_id</stream_name>
+        </field>
+        <field>
+          <column_name>currency_code</column_name>
+          <stream_name>currency_code</stream_name>
+        </field>
+        <field>
+          <column_name>entry_date</column_name>
+          <stream_name>entry_date</stream_name>
+        </field>
+        <field>
+          <column_name>type_enum</column_name>
+          <stream_name>type_enum</stream_name>
+        </field>
+        <field>
+          <column_name>entity_type_enum</column_name>
+          <stream_name>entity_type_enum</stream_name>
+        </field>
+        <field>
+          <column_name>entity_id</column_name>
+          <stream_name>entity_id</stream_name>
+        </field>
+        <field>
+          <column_name>createdby_id</column_name>
+          <stream_name>createdby_id</stream_name>
+        </field>
+        <field>
+          <column_name>lastmodifiedby_id</column_name>
+          <stream_name>lastmodifiedby_id</stream_name>
+        </field>
+        <field>
+          <column_name>created_date</column_name>
+          <stream_name>created_date</stream_name>
+        </field>
+        <field>
+          <column_name>lastmodified_date</column_name>
+          <stream_name>lastmodified_date</stream_name>
+        </field>
+        <field>
+          <column_name>account_id</column_name>
+          <stream_name>conta_account_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>593</xloc>
-      <yloc>219</yloc>
+      <xloc>648</xloc>
+      <yloc>251</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>CoAinputs</name>
-    <type>ExcelInput</type>
+    <name>Reverse the type</name>
+    <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -301,95 +250,146 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>&#47;home&#47;nayan&#47;Documents&#47;GitHub&#47;move-to-mifosx&#47;MappingDocs&#47;CoA.xls</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
+    <field_to_use>type_enum</field_to_use>
+    <target_field/>
+    <non_match_default/>
     <fields>
       <field>
-        <name>Account Name</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <source_value>1</source_value>
+        <target_value>2</target_value>
       </field>
       <field>
-        <name>AccType</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Account Code</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <source_value>2</source_value>
+        <target_value>1</target_value>
       </field>
     </fields>
-    <sheets>
-      <sheet>
-        <name>CoA</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-        </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>JXL</spreadsheet_type>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>262</xloc>
-      <yloc>245</yloc>
+      <xloc>437</xloc>
+      <yloc>54</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <sql>SELECT
+  id
+, account_id
+, office_id
+, reversal_id
+, currency_code
+, transaction_id
+, loan_transaction_id
+, savings_transaction_id
+, if( reversed = 0, 0, 1) As reversed
+, ref_num
+, if( manual_entry = 0 , 0 , 1 ) As manual_entry
+, entry_date
+, type_enum
+, amount
+, description
+, entity_type_enum
+, entity_id
+, createdby_id
+, lastmodifiedby_id
+, created_date
+, lastmodified_date
+, is_running_balance_caculated
+, office_running_balance
+, organization_running_balance
+FROM stage1_acc_gl_journal_entry
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>314</xloc>
+      <yloc>167</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add contra gl code</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>contra_gl_code</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>9099</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>437</xloc>
+      <yloc>249</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>acc_gl_account</table>
+      <orderby/>
+      <fail_on_multiple>Y</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>contra_gl_code</name>
+        <field>gl_code</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>conta_account_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>648</xloc>
+      <yloc>57</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
