@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;26 14&#x3a;28&#x3a;03.780</created_date>
+  <created_date>2013&#47;06&#47;26 14:28:03.780</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;26 14&#x3a;28&#x3a;03.780</modified_date>
+  <modified_date>2013&#47;06&#47;26 14:28:03.780</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,9 +287,60 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>LUC Questions input</from><to>Row denormaliser</to><enabled>Y</enabled> </hop>
-  <hop> <from>Row denormaliser</from><to>LUC  data table output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>LUC Questions input</from><to>Row denormaliser</to><enabled>Y</enabled> </hop>  <hop> <from>Row denormaliser</from><to>LUC  data table output</to><enabled>Y</enabled> </hop>  </order>
+  <step>
+    <name>LUC  data table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>LUC</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>loan_id</column_name>
+          <stream_name>accountId</stream_name>
+        </field>
+        <field>
+          <column_name>Conducted_Date</column_name>
+          <stream_name>createdDate</stream_name>
+        </field>
+        <field>
+          <column_name>Loan_Utilization_Status</column_name>
+          <stream_name>LoanUtilizationStatus</stream_name>
+        </field>
+        <field>
+          <column_name>LUC_Comments</column_name>
+          <stream_name>LUCComments</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>720</xloc>
+      <yloc>181</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>LUC Questions input</name>
     <type>TableInput</type>
@@ -301,7 +352,19 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;la.ACCOUNT_ID As accountId ,&#xd;&#xa;qgi.date_conducted As createdDate ,&#xd;&#xa;qgr.response As response ,&#xd;&#xa;qgr.question_group_instance_id As instanceId ,&#xd;&#xa;qgr.sections_questions_id As qid&#xd;&#xa;FROM &#xd;&#xa;question_group_instance qgi &#xd;&#xa;JOIN question_group qg ON qg.id &#x3d; qgi.question_group_id AND qgi.event_source_id &#x3d; 7&#xd;&#xa;JOIN question_group_response qgr ON qgr.question_group_instance_id &#x3d; qgi.id&#xd;&#xa;JOIN loan_account la ON la.ACCOUNT_ID &#x3d; qgi.entity_id&#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID AND ac.OFFICE_ID &#x3d; 12&#xd;&#xa;ORDER BY instanceId</sql>
+    <sql>SELECT 
+la.ACCOUNT_ID As accountId ,
+qgi.date_conducted As createdDate ,
+qgr.response As response ,
+qgr.question_group_instance_id As instanceId ,
+qgr.sections_questions_id As qid
+FROM 
+question_group_instance qgi 
+JOIN question_group qg ON qg.id = qgi.question_group_id AND qgi.event_source_id = 7
+JOIN question_group_response qgr ON qgr.question_group_instance_id = qgi.id
+JOIN loan_account la ON la.ACCOUNT_ID = qgi.entity_id
+JOIN account ac ON ac.ACCOUNT_ID = la.ACCOUNT_ID AND ac.OFFICE_ID = 12
+ORDER BY instanceId</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -363,60 +426,7 @@
         </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>493</xloc>
-      <yloc>181</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>LUC  data table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <schema/>
-    <table>LUC</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>loan_id</column_name>
-          <stream_name>accountId</stream_name>
-        </field>
-        <field>
-          <column_name>Conducted_Date</column_name>
-          <stream_name>createdDate</stream_name>
-        </field>
-        <field>
-          <column_name>Loan_Utilization_Status</column_name>
-          <stream_name>LoanUtilizationStatus</stream_name>
-        </field>
-        <field>
-          <column_name>LUC_Comments</column_name>
-          <stream_name>LUCComments</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>720</xloc>
+      <xloc>492</xloc>
       <yloc>181</yloc>
       <draw>Y</draw>
       </GUI>

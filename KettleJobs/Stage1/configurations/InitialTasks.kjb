@@ -297,8 +297,11 @@ TRUNCATE m_loan_repayment_schedule;
 TRUNCATE m_loan_transaction;
 TRUNCATE m_code_value;
 TRUNCATE m_note;
-TRUNCATE `m_organisation_currency`;
-SET foreign_key_checks = 0;</sql>
+TRUNCATE `acc_gl_journal_entry`;
+TRUNCATE `acc_gl_account`;
+
+SET foreign_key_checks = 0;
+</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>

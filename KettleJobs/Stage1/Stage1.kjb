@@ -504,8 +504,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>911</xloc>
-      <yloc>518</yloc>
+      <xloc>910</xloc>
+      <yloc>570</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -565,7 +565,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>753</xloc>
-      <yloc>362</yloc>
+      <yloc>392</yloc>
       </entry>
     <entry>
       <name>Misc</name>
@@ -594,8 +594,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>759</xloc>
-      <yloc>522</yloc>
+      <xloc>746</xloc>
+      <yloc>570</yloc>
       </entry>
     <entry>
       <name>Initial tasks</name>
@@ -624,8 +624,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>173</xloc>
-      <yloc>262</yloc>
+      <xloc>172</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Set Openning balance</name>
@@ -727,7 +727,7 @@
       <to>Batch Job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -736,7 +736,7 @@
       <to>Misc</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -763,9 +763,9 @@
       <to>QG</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Notes</from>
