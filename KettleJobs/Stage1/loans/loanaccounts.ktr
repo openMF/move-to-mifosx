@@ -398,7 +398,7 @@
            </partitioning>
     <connection>SourceDB</connection>
     <sql>SELECT 
-  la.ACCOUNT_ID As 	id
+ la.ACCOUNT_ID As 	id
 , la.ACCOUNT_ID As 	account_no
 , ac.GLOBAL_ACCOUNT_NUM As 	external_id
 , ac.CUSTOMER_ID As 	client_id
@@ -429,8 +429,8 @@
 , 1    As 	amortization_method_enum
 , ac.CREATED_DATE As 	submittedon_date
 , ac.CREATED_BY As 	submittedon_userid
-, asch.CHANGED_DATE As 	approvedon_date
-, asch.CHANGED_BY As 	approvedon_userid
+, NULL As 	approvedon_date
+, NULL As 	approvedon_userid
 , la.DISBURSEMENT_DATE As 	expected_disbursedon_date
 , lsfirstpayment.ACTION_DATE As 	expected_firstrepaymenton_date
 , la.DISBURSEMENT_DATE As 	interest_calculated_from_date
@@ -483,7 +483,6 @@ JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
 LEFT JOIN loan_schedule lsfirstpayment ON lsfirstpayment.ACCOUNT_ID = ac.ACCOUNT_ID AND lsfirstpayment.INSTALLMENT_ID = 1
 LEFT JOIN loan_schedule lslastpayment ON lslastpayment.ACCOUNT_ID = ac.ACCOUNT_ID AND lslastpayment.INSTALLMENT_ID = la.NO_OF_INSTALLMENTS
 LEFT JOIN loan_summary lsum ON lsum.ACCOUNT_ID = ac.ACCOUNT_ID
-LEFT JOIN account_status_change_history asch ON la.account_id = asch.ACCOUNT_ID AND asch.NEW_STATUS =  5 AND asch.OLD_STATUS =  3
 WHERE cr.BRANCH_ID = 12 </sql>
     <limit>0</limit>
     <lookup/>

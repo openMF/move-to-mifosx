@@ -137,7 +137,7 @@ asch.ACCOUNT_ID
 FROM loan_account la
 LEFT JOIN account ac ON ac.account_id =  la.account_id and ac.office_id = 12
 LEFT JOIN account_status_change_history asch ON la.account_id = asch.ACCOUNT_ID
-WHERE asch.NEW_STATUS =  5 AND asch.OLD_STATUS =  3
+WHERE asch.NEW_STATUS =  3 AND asch.OLD_STATUS =  2
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -147,7 +147,7 @@ WHERE asch.NEW_STATUS =  5 AND asch.OLD_STATUS =  3
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>364</xloc>
-      <yloc>225</yloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
