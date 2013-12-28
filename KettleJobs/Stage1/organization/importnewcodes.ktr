@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;24 10&#x3a;10&#x3a;07.594</created_date>
+  <created_date>2013&#47;06&#47;24 10:10:07.594</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;24 10&#x3a;10&#x3a;07.594</modified_date>
+  <modified_date>2013&#47;06&#47;24 10:10:07.594</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,10 +287,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>MifosX codes Input</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>MifosX codes Input</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Insert &#x2f; Update</name>
+    <name>Insert &#47; Update</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -308,7 +307,7 @@
       <key>
         <name>code_name</name>
         <field>code_name</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
@@ -356,7 +355,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;Mapping Docs&#x5c;MifosX mcodes.xls</name>
+      <name>${TOOLHOME}\MappingDocs\MifosX mcodes.xls</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -415,8 +414,8 @@
     <spreadsheet_type>JXL</spreadsheet_type>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>325</xloc>
-      <yloc>177</yloc>
+      <xloc>329</xloc>
+      <yloc>179</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
