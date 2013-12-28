@@ -3,7 +3,7 @@
 
 PDI_HOME="/opt/pentaho/kettle"
 KETTLE_JOBS_PATH="/home/nayan/Documents/GitHub/move-to-mifosx/KettleJobs"
-DEST_DB="mifostenantgk"
+DEST_DB="mifostenant-gk"
 
 MYSQL_ARGS="-u root -ppassword"
 

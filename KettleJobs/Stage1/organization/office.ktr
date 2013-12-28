@@ -353,7 +353,7 @@
 , CREATED_DATE As opening_date
 , PARENT_OFFICE_ID As parent_id
 , OFFICE_LEVEL_ID As levelId
-, &quot;.&quot; As hierarchy
+, OFFICE_LEVEL_ID As hierarchy
 FROM office
 ORDER BY levelId
 </sql>
@@ -365,7 +365,7 @@ ORDER BY levelId
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>190</xloc>
-      <yloc>163</yloc>
+      <yloc>164</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
