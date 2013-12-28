@@ -564,8 +564,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>564</xloc>
-      <yloc>393</yloc>
+      <xloc>571</xloc>
+      <yloc>401</yloc>
       </entry>
     <entry>
       <name>Misc</name>
@@ -594,8 +594,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>755</xloc>
-      <yloc>571</yloc>
+      <xloc>750</xloc>
+      <yloc>574</yloc>
       </entry>
     <entry>
       <name>Initial tasks</name>
@@ -654,8 +654,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>916</xloc>
-      <yloc>262</yloc>
+      <xloc>915</xloc>
+      <yloc>253</yloc>
       </entry>
     <entry>
       <name>Details of client, groups</name>
@@ -663,7 +663,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename/>
+      <filename>${TOOLHOME}\KettleJobs\Stage1\additionalData\additionalDetailsOfClientGroupCenter.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -684,8 +684,38 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>748</xloc>
-      <yloc>389</yloc>
+      <xloc>745</xloc>
+      <yloc>392</yloc>
+      </entry>
+    <entry>
+      <name>MeetingAndAttendance</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${TOOLHOME}\KettleJobs\Stage1\attendance\meetingAndAttendence.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>912</xloc>
+      <yloc>393</yloc>
       </entry>
   </entries>
   <hops>
@@ -694,7 +724,7 @@
       <to>Loan Product details</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -771,15 +801,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Set Openning balance</from>
-      <to>QG</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Notes</from>
       <to>Set Openning balance</to>
       <from_nr>0</from_nr>
@@ -809,6 +830,24 @@
     <hop>
       <from>Details of client, groups</from>
       <to>Misc</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set Openning balance</from>
+      <to>MeetingAndAttendance</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>MeetingAndAttendance</from>
+      <to>QG</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
