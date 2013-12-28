@@ -360,6 +360,8 @@
 , cnd.DISPLAY_NAME As fullname
 , cnd.DISPLAY_NAME As display_name
 , NULL	 As	image_id
+, cr.CREATED_DATE As submitedDate
+, cr.CREATED_BY As submittedBy
 FROM customer cr
 LEFT JOIN account ac ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 
 LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID = cr.CUSTOMER_ID AND cnd.NAME_TYPE = 3
@@ -457,6 +459,14 @@ AND BRANCH_ID = 12</sql>
         <field>
           <column_name>staff_id</column_name>
           <stream_name>staff_id</stream_name>
+        </field>
+        <field>
+          <column_name>submittedon_date</column_name>
+          <stream_name>submitedDate</stream_name>
+        </field>
+        <field>
+          <column_name>submittedon_userid</column_name>
+          <stream_name>submittedBy</stream_name>
         </field>
     </fields>
      <cluster_schema/>

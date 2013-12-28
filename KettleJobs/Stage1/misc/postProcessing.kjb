@@ -289,7 +289,7 @@
       <yloc>86</yloc>
       </entry>
     <entry>
-      <name>Loan approved date</name>
+      <name>Loan approved date - change log</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -318,7 +318,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>392</xloc>
-      <yloc>306</yloc>
+      <yloc>307</yloc>
       </entry>
   </entries>
   <hops>
@@ -333,7 +333,7 @@
     </hop>
     <hop>
       <from>Add loan cycle counter</from>
-      <to>Loan approved date</to>
+      <to>Loan approved date - change log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
