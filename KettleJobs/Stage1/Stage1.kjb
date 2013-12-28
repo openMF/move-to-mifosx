@@ -564,8 +564,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>571</xloc>
-      <yloc>401</yloc>
+      <xloc>573</xloc>
+      <yloc>392</yloc>
       </entry>
     <entry>
       <name>Misc</name>
@@ -796,7 +796,7 @@
       <to>Initial tasks</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>

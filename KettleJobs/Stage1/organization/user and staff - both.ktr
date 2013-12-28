@@ -662,7 +662,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>231</xloc>
-      <yloc>323</yloc>
+      <yloc>322</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
