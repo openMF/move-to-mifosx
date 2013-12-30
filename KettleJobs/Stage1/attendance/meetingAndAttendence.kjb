@@ -141,7 +141,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;ClientAttendance.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;ClientAttendance_TwoLookup.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

@@ -633,7 +633,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;home&#47;nayan&#47;Documents&#47;GitHub&#47;move-to-mifosx&#47;KettleJobs&#47;Stage1&#47;configurations&#47;openingBalance.kjb</filename>
+      <filename>${TOOLHOME}\KettleJobs\Stage1\configurations\openingBalance.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -654,8 +654,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>915</xloc>
-      <yloc>253</yloc>
+      <xloc>918</xloc>
+      <yloc>255</yloc>
       </entry>
     <entry>
       <name>Details of client, groups</name>
@@ -715,7 +715,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>912</xloc>
-      <yloc>393</yloc>
+      <yloc>391</yloc>
       </entry>
   </entries>
   <hops>
@@ -796,7 +796,7 @@
       <to>Initial tasks</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>

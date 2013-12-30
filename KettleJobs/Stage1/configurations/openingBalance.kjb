@@ -164,8 +164,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>617</xloc>
-      <yloc>65</yloc>
+      <xloc>619</xloc>
+      <yloc>63</yloc>
       </entry>
     <entry>
       <name>Move ob from stage to prod</name>
