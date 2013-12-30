@@ -4,7 +4,7 @@ Move To Mifosx
 A migration tool to migrate data from Mifos 2.x to MifosX
 
 ####Installing Kettle
-You can download Pentaho Data Integration (PDI), also known as Kettle, from Sourceforge.net. Go to http://www.pentaho.com/download/ if you are looking for Pentaho Enterprise Edition (EE) of PDI.
+You can download Pentaho Data Integration (PDI), also known as Kettle, from Sourceforge.net. Go to http://community.pentaho.com/ Download> Data Integration.
 
 ####Prerequisites
 Kettle requires the Sun Java Runtime Environment (JRE) version 1.5 (also called 5.0 in some naming schemes) or newer. You can obtain a JRE for free from http://java.sun.com/.
