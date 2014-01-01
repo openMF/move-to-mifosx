@@ -7,7 +7,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#47;</directory>
+    <directory>&#x2f;</directory>
     <parameters>
     </parameters>
     <log>
@@ -17,7 +17,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -34,6 +34,11 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -62,9 +67,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;06&#47;13 16:57:09.730</created_date>
+  <created_date>2013&#x2f;06&#x2f;13 16&#x3a;57&#x3a;09.730</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;06&#47;13 16:57:09.730</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;13 16&#x3a;57&#x3a;09.730</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -80,18 +85,21 @@
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
+    <read_only>true</read_only>
     <attributes>
       <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
     </attributes>
   </connection>
   <connection>
     <name>DestinatioDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinatioDB</database>
     <port>3306</port>
     <username/>
@@ -116,7 +124,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -241,7 +249,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -288,12 +296,19 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Mapper - Active</from><to>Constants</to><enabled>Y</enabled> </hop>  <hop> <from>Is Loan Officer</from><to>Output - Staff</to><enabled>Y</enabled> </hop>  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>  <hop> <from>Input - User</from><to>Is Loan Officer</to><enabled>Y</enabled> </hop>  <hop> <from>Output - Staff</from><to>Mapper - Active</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input - User</from><to>Is Loan Officer</to><enabled>Y</enabled> </hop>
+  <hop> <from>Is Loan Officer</from><to>Mapper - Active</to><enabled>Y</enabled> </hop>
+  <hop> <from>Mapper - Active</from><to>Output - Staff</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output - Staff</from><to>Constants</to><enabled>Y</enabled> </hop>
+  </order>
   <step>
     <name>Constants</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -310,6 +325,7 @@
         <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>nonexpired</name>
@@ -321,6 +337,7 @@
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>nonlocked</name>
@@ -332,6 +349,7 @@
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>nonexpired_credentials</name>
@@ -343,6 +361,7 @@
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>enabled</name>
@@ -354,6 +373,7 @@
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>newpassword</name>
@@ -365,6 +385,7 @@
         <nullif>5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
      <cluster_schema/>
@@ -380,6 +401,7 @@
     <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -389,13 +411,15 @@
       <replaceAllMask/>
       <selectFields>Y</selectFields>
       <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>Y</setEmptyStringAll>
     <valuetypes>
       </valuetypes>
     <fields>
       <field>
         <name>EMAIL_ID</name>
-        <value>demo@gfsl.com</value>
+        <value>demo&#x40;gfsl.com</value>
         <mask/>
+        <set_empty_string>N</set_empty_string>
         </field>
       </fields>
      <cluster_schema/>
@@ -411,33 +435,14 @@
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT
-  pl.PERSONNEL_ID
-, LEVEL_ID
-, GLOBAL_PERSONNEL_NUM
-, pl.OFFICE_ID
-, TITLE
-, PERSONNEL_STATUS
-, PASSWORD
-, LOGIN_NAME
-, EMAIL_ID
-, pl.DISPLAY_NAME
-, pl.CREATED_BY
-, pl.CREATED_DATE
-, LAST_LOGIN
-, LOCKED
-, pd.FIRST_NAME
-, pd.MIDDLE_NAME
-, pd.LAST_NAME
-FROM personnel pl
-LEFT JOIN personnel_details pd ON pd.PERSONNEL_ID = pl.PERSONNEL_ID
-JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
+    <sql>SELECT DISTINCT&#xd;&#xa;  pl.PERSONNEL_ID&#xd;&#xa;, pl.LEVEL_ID&#xd;&#xa;, pl.GLOBAL_PERSONNEL_NUM&#xd;&#xa;, pl.OFFICE_ID&#xd;&#xa;, pl.TITLE&#xd;&#xa;, pl.PERSONNEL_STATUS&#xd;&#xa;, pl.PASSWORD&#xd;&#xa;, pl.LOGIN_NAME&#xd;&#xa;, pl.EMAIL_ID&#xd;&#xa;, CONCAT&#x28;pl.DISPLAY_NAME , IF&#x28;dupNames.PERSONNEL_ID IS NOT NULL , pl.PERSONNEL_ID , &#x27;&#x27;&#x29;&#x29; AS DISPLAY_NAME&#xd;&#xa;, pl.CREATED_BY&#xd;&#xa;, pl.CREATED_DATE&#xd;&#xa;, pl.LAST_LOGIN&#xd;&#xa;, pl.LOCKED&#xd;&#xa;, pd.FIRST_NAME&#xd;&#xa;, pd.MIDDLE_NAME&#xd;&#xa;, pd.LAST_NAME&#xd;&#xa;FROM personnel pl&#xd;&#xa;LEFT JOIN personnel_details pd ON pd.PERSONNEL_ID &#x3d; pl.PERSONNEL_ID&#xd;&#xa;LEFT JOIN personnel dupNames ON dupNames.DISPLAY_NAME &#x3d; pl.DISPLAY_NAME AND dupNames.PERSONNEL_ID &#x3c;&#x3e; pl.PERSONNEL_ID  &#xd;&#xa;JOIN office of ON of.OFFICE_ID &#x3d; pl.OFFICE_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -456,6 +461,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -472,6 +478,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
      <cluster_schema/>
@@ -487,6 +494,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -507,8 +515,8 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>422</xloc>
-      <yloc>97</yloc>
+      <xloc>236</xloc>
+      <yloc>199</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -518,6 +526,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -607,6 +616,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -648,7 +658,7 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
         </field>
         <field>
           <column_name>display_name</column_name>
-          <stream_name>LOGIN_NAME</stream_name>
+          <stream_name>DISPLAY_NAME</stream_name>
         </field>
         <field>
           <column_name>lastname</column_name>
@@ -658,11 +668,15 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
           <column_name>firstname</column_name>
           <stream_name>FIRST_NAME</stream_name>
         </field>
+        <field>
+          <column_name>is_active</column_name>
+          <stream_name>IsDeleted</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>231</xloc>
-      <yloc>322</yloc>
+      <xloc>420</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -672,4 +686,5 @@ JOIN office of ON of.OFFICE_ID = .pl.OFFICE_ID</sql>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
+
 </transformation>
