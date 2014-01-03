@@ -7,8 +7,7 @@ DEST_DB="mifostenant-gk"
 
 MYSQL_ARGS="-u root -ppassword"
 
-echo "drop database if exists $DEST_DB" | mysql $MYSQL_ARGS
-echo "create database $DEST_DB" | mysql $MYSQL_ARGS
+echo "USE $DEST_DB" | mysql $MYSQL_ARGS
 
 mysql $MYSQL_ARGS $DEST_DB < $KETTLE_JOBS_PATH/main/load_mifosx_ddl.sql
 mysql $MYSQL_ARGS $DEST_DB < $KETTLE_JOBS_PATH/main/load_mifosx_datatables.sql
