@@ -137,6 +137,56 @@
     </attributes>
   </connection>
   <connection>
+    <name>DestinationDBPilot</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>DestinationDBPilot</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DestinationDBtest</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>DestinationDBtest</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>mifos</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -438,7 +488,7 @@
 , NULL As 	disbursedon_userid
 , lslastpayment.ACTION_DATE As 	expected_maturedon_date
 , lslastpayment.ACTION_DATE As 	maturedon_date
-, ac.CLOSED_DATE As 	closedon_date
+, if( ac.CLOSED_DATE IS null , if( ac.ACCOUNT_STATE_ID = 10 , if ( ac.updated_date IS NULL, ac.created_date , ac.updated_date), NULL), ac.CLOSED_DATE ) As 	closedon_date
 , if( ac.CLOSED_DATE = NULL , NULL , ac.UPDATED_BY )  As closedon_userid
 , lsum.ORIG_FEES As 	total_charges_due_at_disbursement_derived
 , if (ac.ACCOUNT_STATE_ID &gt; 4 AND ac.ACCOUNT_STATE_ID &lt; 10 , lsum.ORIG_PRINCIPAL , 0.000000 ) As 	principal_disbursed_derived
@@ -468,7 +518,7 @@
 , if ( ac.ACCOUNT_STATE_ID = 7 , lsum.ORIG_PRINCIPAL + lsum.ORIG_INTEREST + lsum.ORIG_FEES - lsum.PRINCIPAL_PAID - lsum.INTEREST_PAID - lsum.FEES_PAID , 0.000000 ) As 	total_writtenoff_derived
 , if (ac.ACCOUNT_STATE_ID = 5 OR ac.ACCOUNT_STATE_ID = 6 OR ac.ACCOUNT_STATE_ID = 9  , lsum.ORIG_PRINCIPAL + lsum.ORIG_INTEREST + lsum.ORIG_FEES - lsum.PRINCIPAL_PAID - lsum.INTEREST_PAID - lsum.FEES_PAID , 0.000000 ) As 	 total_outstanding_derived
 , NULL As 	total_overpaid_derived
-, if( ac.ACCOUNT_STATE_ID = 10 , ac.closed_date , NULL ) As 	rejectedon_date
+, if( ac.ACCOUNT_STATE_ID = 10 , if(ac.closed_date IS NULL, if ( ac.updated_date IS NULL, ac.created_date , ac.updated_date), ac.closed_date) , NULL ) As 	rejectedon_date
 , NULL As 	rejectedon_userid
 , NULL As 	rescheduledon_date
 , NULL As 	withdrawnon_date
