@@ -383,6 +383,7 @@
 , loan_counter_flag As include_in_borrower_cycle
 , prd.start_date As start_date
 , if(prd.end_date &lt;&gt; NULL , prd.end_date , if(prd.offering_status_id = 1 , NULL , prd.updated_date ))  As close_date
+, 0 As currency_multiplesof
 FROM prd_offering po 
 JOIN loan_offering lo ON lo.PRD_OFFERING_ID = po.PRD_OFFERING_ID
 JOIN prd_offering prd ON prd.prd_offering_id = lo.prd_offering_id
@@ -603,6 +604,10 @@ JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING
         <field>
           <column_name>short_name</column_name>
           <stream_name>short_name</stream_name>
+        </field>
+        <field>
+          <column_name>currency_multiplesof</column_name>
+          <stream_name>currency_multiplesof</stream_name>
         </field>
     </fields>
      <cluster_schema/>
