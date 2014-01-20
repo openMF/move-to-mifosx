@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;18 14&#x3a;40&#x3a;05.774</created_date>
+  <created_date>2013&#47;06&#47;18 14:40:05.774</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;18 14&#x3a;40&#x3a;05.774</modified_date>
+  <modified_date>2013&#47;06&#47;18 14:40:05.774</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -130,6 +130,56 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DestinationDBPilot</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>DestinationDBPilot</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DestinationDBtest</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>DestinationDBtest</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -287,9 +337,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Clients Input</from><to>Migrate Groups</to><enabled>Y</enabled> </hop>
-  <hop> <from>Migrate Groups</from><to>Table output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Clients Input</from><to>Migrate Groups</to><enabled>Y</enabled> </hop>  <hop> <from>Migrate Groups</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Clients Input</name>
     <type>TableInput</type>
@@ -301,7 +349,14 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID As id&#xd;&#xa;, cr.PARENT_CUSTOMER_ID  &#xd;&#xa;FROM customer cr&#xd;&#xa;LEFT JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 &#xd;&#xa;LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND cnd.NAME_TYPE &#x3d; 3&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; AND cr.STATUS_ID &#x3d; 3&#xd;&#xa;AND BRANCH_ID &#x3d; 12</sql>
+    <sql>SELECT
+  cr.CUSTOMER_ID As id
+, cr.PARENT_CUSTOMER_ID  
+FROM customer cr
+LEFT JOIN account ac ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 
+LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID = cr.CUSTOMER_ID AND cnd.NAME_TYPE = 3
+WHERE cr.DISCRIMINATOR = &apos;CLIENT&apos; AND cr.STATUS_ID &lt;= 4
+AND BRANCH_ID = 12</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -338,7 +393,7 @@
       <key>
         <name>PARENT_CUSTOMER_ID</name>
         <field>id</field>
-        <condition>&#x3d;</condition>
+        <condition>=</condition>
         <name2/>
       </key>
       <value>
