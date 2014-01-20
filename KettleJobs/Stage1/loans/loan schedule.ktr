@@ -358,11 +358,11 @@
 , ls.ACTION_DATE As 	duedate
 , ls.INSTALLMENT_ID As 	installment
 , ls.PRINCIPAL As 	principal_amount
-, if(ac.account_state_id = 7 AND ls.PAYMENT_DATE &gt;= ac.closed_date , 0 , ls.PRINCIPAL_PAID ) As 	principal_completed_derived
-, if(ac.account_state_id = 7 AND ls.PAYMENT_DATE &gt;= ac.closed_date , ls.PRINCIPAL_PAID , 0 ) As 	principal_writtenoff_derived
+, if((ac.account_state_id = 7 OR ac.account_state_id = 8) AND ls.PAYMENT_DATE &gt;= ac.closed_date , 0 , ls.PRINCIPAL_PAID ) As 	principal_completed_derived
+, if((ac.account_state_id = 7 OR ac.account_state_id = 8) AND ls.PAYMENT_DATE &gt;= ac.closed_date , ls.PRINCIPAL_PAID , 0 ) As 	principal_writtenoff_derived
 , ls.INTEREST As 	interest_amount
-, if(ac.account_state_id = 7 AND ls.PAYMENT_DATE &gt;= ac.closed_date , 0 , ls.INTEREST_PAID ) As 	interest_completed_derived
-, if(ac.account_state_id = 7 AND ls.PAYMENT_DATE &gt;= ac.closed_date , ls.INTEREST_PAID , 0 ) As 	interest_writtenoff_derived
+, if((ac.account_state_id = 6 OR  ac.account_state_id = 7 OR ac.account_state_id = 8 ) AND ls.PAYMENT_DATE &gt; ac.closed_date , 0 , ls.INTEREST_PAID ) As 	interest_completed_derived
+, if((ac.account_state_id = 6 OR  ac.account_state_id = 7 OR ac.account_state_id = 8 ) AND ls.PAYMENT_DATE &gt; ac.closed_date , ls.INTEREST_PAID , 0 ) As 	interest_writtenoff_derived
 , NULL As 	interest_waived_derived
 , ls.MISC_FEES As 	fee_charges_amount
 , ls.MISC_FEES_PAID As 	fee_charges_completed_derived
