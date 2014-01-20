@@ -370,9 +370,9 @@
 , 1 As 	interest_calculated_in_period_enum  -- Same as repayment period
 , rd.RECUR_AFTER As 	repay_every
 , rd.RECURRENCE_ID As 	repayment_period_frequency_enum
-, nl.DEFAULT_NO_INSTALL As 	number_of_repayments
-, nl.MIN_NO_INSTALL As 	min_number_of_repayments
-, nl.MAX_NO_INSTALL As 	max_number_of_repayments
+, IF(lo.GRACEPERIOD_TYPE_ID = 2 OR (lo.GRACEPERIOD_TYPE_ID = 3 AND lo.MAX_INTEREST_RATE = 0 ) , nl.DEFAULT_NO_INSTALL + lo.GRACE_PERIOD_DURATION , nl.DEFAULT_NO_INSTALL ) As 	number_of_repayments
+, IF(lo.GRACEPERIOD_TYPE_ID = 2 OR (lo.GRACEPERIOD_TYPE_ID = 3 AND lo.MAX_INTEREST_RATE = 0 ) , nl.MIN_NO_INSTALL + lo.GRACE_PERIOD_DURATION , nl.MIN_NO_INSTALL ) As 	min_number_of_repayments
+, IF(lo.GRACEPERIOD_TYPE_ID = 2 OR (lo.GRACEPERIOD_TYPE_ID = 3 AND lo.MAX_INTEREST_RATE = 0 ) , nl.MAX_NO_INSTALL + lo.GRACE_PERIOD_DURATION , nl.MAX_NO_INSTALL ) As 	max_number_of_repayments
 , if(lo.GRACEPERIOD_TYPE_ID = 2 OR lo.GRACEPERIOD_TYPE_ID = 3 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_principal_periods
 , if(lo.GRACEPERIOD_TYPE_ID = 2 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_interest_periods
 , NULL As 	grace_interest_free_periods
