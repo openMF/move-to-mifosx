@@ -428,7 +428,7 @@
         </field>
         <field>
           <column_name>entry_date</column_name>
-          <stream_name>date</stream_name>
+          <stream_name>balDate</stream_name>
         </field>
         <field>
           <column_name>createdby_id</column_name>
@@ -547,6 +547,18 @@
       <field>
         <name>type</name>
         <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>balDate</name>
+        <type>Date</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
