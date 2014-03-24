@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#47;</directory>
+    <directory>&#x2f;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,6 +33,11 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -61,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;06&#47;20 15:49:45.474</created_date>
+  <created_date>2013&#x2f;06&#x2f;20 15&#x3a;49&#x3a;45.474</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;06&#47;20 15:49:45.474</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;20 15&#x3a;49&#x3a;45.474</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -117,7 +122,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -142,7 +147,7 @@
     <name>DestinationDBPilot</name>
     <server/>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDBPilot</database>
     <port>1521</port>
     <username/>
@@ -167,7 +172,7 @@
     <name>DestinationDBtest</name>
     <server/>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDBtest</database>
     <port>1521</port>
     <username/>
@@ -292,7 +297,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -339,56 +344,21 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Table input</from><to>Table output</to><enabled>Y</enabled> </hop>
+  </order>
   <step>
     <name>Table input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT 
-  ls.ID As 	id
-, ls.ACCOUNT_ID As 	loan_id
-, if(ls.installment_id = 1 , la.disbursement_date , lsp.action_date ) As fromDate
-, ls.ACTION_DATE As 	duedate
-, ls.INSTALLMENT_ID As 	installment
-, ls.PRINCIPAL As 	principal_amount
-, if((ac.account_state_id = 7 OR ac.account_state_id = 8) AND ls.PAYMENT_DATE &gt;= ac.closed_date , 0 , ls.PRINCIPAL_PAID ) As 	principal_completed_derived
-, if((ac.account_state_id = 7 OR ac.account_state_id = 8) AND ls.PAYMENT_DATE &gt;= ac.closed_date , ls.PRINCIPAL_PAID , 0 ) As 	principal_writtenoff_derived
-, ls.INTEREST As 	interest_amount
-, if((ac.account_state_id = 6 OR  ac.account_state_id = 7 OR ac.account_state_id = 8 ) AND ls.PAYMENT_DATE &gt; ac.closed_date , 0 , ls.INTEREST_PAID ) As 	interest_completed_derived
-, if((ac.account_state_id = 7 OR ac.account_state_id = 8 ) AND ls.PAYMENT_DATE &gt; ac.closed_date , ls.INTEREST_PAID , 0 ) As 	interest_writtenoff_derived
-, if((ac.account_state_id = 6  ) AND ls.PAYMENT_DATE &gt; ac.closed_date , ls.INTEREST_PAID , 0 ) As 	interest_waived_derived
-, ls.MISC_FEES As 	fee_charges_amount
-, ls.MISC_FEES_PAID As 	fee_charges_completed_derived
-, NULL As 	fee_charges_writtenoff_derived
-, NULL As 	fee_charges_waived_derived
-, NULL As 	penalty_charges_amount
-, NULL As 	penalty_charges_completed_derived
-, NULL As 	penalty_charges_writtenoff_derived
-, NULL As 	penalty_charges_waived_derived
-, NULL As 	total_paid_in_advance_derived
-, NULL As 	total_paid_late_derived
-, ls.PAYMENT_STATUS As 	completed_derived
-, IF(( ac.account_state_id = 6 OR ac.account_state_id = 7 OR ac.account_state_id = 8 )  AND ls.PAYMENT_DATE &gt;= ac.CLOSED_DATE , IF ( ac.CLOSED_DATE IS NULL , ac.UPDATED_DATE, ac.CLOSED_DATE ) , IF (ls.PAYMENT_STATUS = 1 , ls.PAYMENT_DATE , null)  )   As 	obligations_met_on_date
-, ac.CREATED_BY As 	createdby_id
-, ac.CREATED_DATE As 	created_date
-, ac.CREATED_DATE As 	lastmodified_date
-, ac.CREATED_BY As 	lastmodifiedby_id
-, la.disbursement_date As DisbDate
-FROM loan_schedule ls
-LEFT JOIN loan_schedule lsp ON lsp.account_id = ls.account_id AND ls.installment_id &gt; 1 AND lsp.installment_id  =  (ls.installment_id - 1)
-JOIN loan_account la ON la.ACCOUNT_ID = ls.ACCOUNT_ID
-JOIN account ac ON ac.ACCOUNT_ID = la.ACCOUNT_ID
-JOIN customer cr ON cr.CUSTOMER_ID = ac.CUSTOMER_ID
-JOIN meeting me ON me.MEETING_ID = la.MEETING_ID
-JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
-WHERE cr.BRANCH_ID = 12</sql>
+    <sql>SELECT &#xa;  ls.ID As 	id&#xa;, ls.ACCOUNT_ID As 	loan_id&#xa;, if&#x28;ls.installment_id &#x3d; 1 , la.disbursement_date , lsp.action_date &#x29; As fromDate&#xa;, ls.ACTION_DATE As 	duedate&#xa;, ls.INSTALLMENT_ID As 	installment&#xa;, ls.PRINCIPAL As 	principal_amount&#xa;, if&#x28;&#x28;ac.account_state_id &#x3d; 7 OR ac.account_state_id &#x3d; 8&#x29; AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.closed_date , 0 , ls.PRINCIPAL_PAID &#x29; As 	principal_completed_derived&#xa;, if&#x28;&#x28;ac.account_state_id &#x3d; 7 OR ac.account_state_id &#x3d; 8&#x29; AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.closed_date , ls.PRINCIPAL_PAID , 0 &#x29; As 	principal_writtenoff_derived&#xa;, ls.INTEREST As 	interest_amount&#xa;, if&#x28;&#x28;ac.account_state_id &#x3d; 6 OR  ac.account_state_id &#x3d; 7 OR ac.account_state_id &#x3d; 8 &#x29; AND ls.PAYMENT_DATE &#x3e; ac.closed_date , 0 , ls.INTEREST_PAID &#x29; As 	interest_completed_derived&#xa;, if&#x28;&#x28;ac.account_state_id &#x3d; 7 OR ac.account_state_id &#x3d; 8 &#x29; AND ls.PAYMENT_DATE &#x3e; ac.closed_date , ls.INTEREST_PAID , 0 &#x29; As 	interest_writtenoff_derived&#xa;, if&#x28;&#x28;ac.account_state_id &#x3d; 6  &#x29; AND ls.PAYMENT_DATE &#x3e; ac.closed_date , ls.INTEREST_PAID , 0 &#x29; As 	interest_waived_derived&#xa;, ls.MISC_FEES As 	fee_charges_amount&#xa;, ls.MISC_FEES_PAID As 	fee_charges_completed_derived&#xa;, NULL As 	fee_charges_writtenoff_derived&#xa;, NULL As 	fee_charges_waived_derived&#xa;, NULL As 	penalty_charges_amount&#xa;, NULL As 	penalty_charges_completed_derived&#xa;, NULL As 	penalty_charges_writtenoff_derived&#xa;, NULL As 	penalty_charges_waived_derived&#xa;, NULL As 	total_paid_in_advance_derived&#xa;, NULL As 	total_paid_late_derived&#xa;, ls.PAYMENT_STATUS As 	completed_derived&#xa;, IF&#x28;&#x28; ac.account_state_id &#x3d; 6 OR ac.account_state_id &#x3d; 7 OR ac.account_state_id &#x3d; 8 &#x29;  AND ls.PAYMENT_DATE &#x3e;&#x3d; ac.CLOSED_DATE , IF &#x28; ac.CLOSED_DATE IS NULL , ac.UPDATED_DATE, ac.CLOSED_DATE &#x29; , IF &#x28;ls.PAYMENT_STATUS &#x3d; 1 , ls.PAYMENT_DATE , null&#x29;  &#x29;   As 	obligations_met_on_date&#xa;, ac.CREATED_BY As 	createdby_id&#xa;, ac.CREATED_DATE As 	created_date&#xa;, ac.CREATED_DATE As 	lastmodified_date&#xa;, ac.CREATED_BY As 	lastmodifiedby_id&#xa;, la.disbursement_date As DisbDate&#xa;FROM loan_schedule ls&#xa;LEFT JOIN loan_schedule lsp ON lsp.account_id &#x3d; ls.account_id AND ls.installment_id &#x3e; 1 AND lsp.installment_id  &#x3d;  &#x28;ls.installment_id - 1&#x29;&#xa;JOIN loan_account la ON la.ACCOUNT_ID &#x3d; ls.ACCOUNT_ID&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; la.ACCOUNT_ID&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xa;JOIN meeting me ON me.MEETING_ID &#x3d; la.MEETING_ID&#xa;JOIN recurrence_detail rd ON rd.MEETING_ID &#x3d; me.MEETING_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -407,6 +377,7 @@ WHERE cr.BRANCH_ID = 12</sql>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -552,4 +523,5 @@ WHERE cr.BRANCH_ID = 12</sql>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
+
 </transformation>
