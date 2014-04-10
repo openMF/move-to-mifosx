@@ -168,7 +168,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>CoAinputs</from><to>Account type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>Account type mapping</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Chart of accounts</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>CoAinputs</from><to>Account type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>Account type mapping</from><to>Default hierarchy</to><enabled>Y</enabled> </hop>  <hop> <from>Default hierarchy</from><to>Chart of accounts</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Account type mapping</name>
     <type>ValueMapper</type>
@@ -213,7 +213,7 @@
     </step>
 
   <step>
-    <name>Add constants</name>
+    <name>Default hierarchy</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -231,39 +231,6 @@
         <decimal/>
         <group/>
         <nullif>.</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>disabled</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>manual_entries_allowed</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>account_usage</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -309,10 +276,6 @@
           <stream_name>Account Name</stream_name>
         </field>
         <field>
-          <column_name>gl_code</column_name>
-          <stream_name>Account Code</stream_name>
-        </field>
-        <field>
           <column_name>classification_enum</column_name>
           <stream_name>AccType</stream_name>
         </field>
@@ -322,15 +285,23 @@
         </field>
         <field>
           <column_name>disabled</column_name>
-          <stream_name>disabled</stream_name>
-        </field>
-        <field>
-          <column_name>manual_journal_entries_allowed</column_name>
-          <stream_name>manual_entries_allowed</stream_name>
+          <stream_name>Disabled</stream_name>
         </field>
         <field>
           <column_name>account_usage</column_name>
-          <stream_name>account_usage</stream_name>
+          <stream_name>AccountUsage</stream_name>
+        </field>
+        <field>
+          <column_name>manual_journal_entries_allowed</column_name>
+          <stream_name>ManualEntriesAllowed</stream_name>
+        </field>
+        <field>
+          <column_name>gl_code</column_name>
+          <stream_name>AccountCode</stream_name>
+        </field>
+        <field>
+          <column_name>description</column_name>
+          <stream_name>Description</stream_name>
         </field>
     </fields>
      <cluster_schema/>
@@ -399,7 +370,7 @@
         <group/>
       </field>
       <field>
-        <name>Account Code</name>
+        <name>AccountCode</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -416,7 +387,55 @@
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
-        <repeat>Y</repeat>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Disabled</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ManualEntriesAllowed</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>AccountUsage</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Description</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
         <format/>
         <currency/>
         <decimal/>

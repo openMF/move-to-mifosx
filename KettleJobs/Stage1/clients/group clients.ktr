@@ -337,7 +337,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Clients Input</from><to>Migrate Groups</to><enabled>Y</enabled> </hop>  <hop> <from>Migrate Groups</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Clients Input</from><to>Parent Group lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Parent Group lookup</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Clients Input</name>
     <type>TableInput</type>
@@ -355,8 +355,7 @@
 FROM customer cr
 LEFT JOIN account ac ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 
 LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID = cr.CUSTOMER_ID AND cnd.NAME_TYPE = 3
-WHERE cr.DISCRIMINATOR = &apos;CLIENT&apos; AND cr.STATUS_ID &lt;= 4
-AND BRANCH_ID = 12</sql>
+WHERE cr.DISCRIMINATOR = &apos;CLIENT&apos; AND cr.STATUS_ID &lt;= 4</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -365,13 +364,13 @@ AND BRANCH_ID = 12</sql>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>245</xloc>
-      <yloc>98</yloc>
+      <yloc>99</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Migrate Groups</name>
+    <name>Parent Group lookup</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -388,7 +387,7 @@ AND BRANCH_ID = 12</sql>
       <schema/>
       <table>m_group</table>
       <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
+      <fail_on_multiple>Y</fail_on_multiple>
       <eat_row_on_failure>Y</eat_row_on_failure>
       <key>
         <name>PARENT_CUSTOMER_ID</name>
@@ -405,8 +404,8 @@ AND BRANCH_ID = 12</sql>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>407</xloc>
-      <yloc>97</yloc>
+      <xloc>408</xloc>
+      <yloc>95</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

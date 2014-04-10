@@ -287,9 +287,49 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Clients Input</from><to>Center status</to><enabled>Y</enabled> </hop>  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Group Input</from><to>Group status</to><enabled>Y</enabled> </hop>  <hop> <from>Group status</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Center status</name>
+    <name>Group Input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>SourceDB</connection>
+    <sql>SELECT DISTINCT
+  cr.CUSTOMER_ID As id
+, cr.GLOBAL_CUST_NUM As external_id
+, cr.STATUS_ID     As    status_enum
+, cr.CUSTOMER_ACTIVATION_DATE     As    activation_date
+, cr.BRANCH_ID     As    office_id
+, cr.LOAN_OFFICER_ID      As    staff_id
+, cr.PARENT_CUSTOMER_ID     As    parent_id
+, 2     As    level_id
+, CONCAT(cr.DISPLAY_NAME , IF(cn.customer_id IS NOT NULL , cr.customer_id , &apos;&apos;)) AS DISPLAY_NAME
+, NULL     As    hierarchy
+, cr.CREATED_DATE As submitedDate
+, cr.CREATED_BY As submittedBy
+FROM customer cr
+LEFT join customer cn on cn.DISPLAY_NAME= cr.DISPLAY_NAME AND cn.CUSTOMER_ID &lt;&gt; cr.CUSTOMER_ID
+WHERE cr.DISCRIMINATOR = &apos;GROUP&apos;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>277</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Group status</name>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
@@ -331,45 +371,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>472</xloc>
       <yloc>118</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Clients Input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT
-  cr.CUSTOMER_ID As id
-, cr.GLOBAL_CUST_NUM As external_id
-, cr.STATUS_ID	 As	status_enum
-, cr.CUSTOMER_ACTIVATION_DATE	 As	activation_date
-, cr.BRANCH_ID	 As	office_id
-, cr.LOAN_OFFICER_ID 	 As	staff_id
-, cr.PARENT_CUSTOMER_ID	 As	parent_id
-, 2	 As	level_id
-, cr.DISPLAY_NAME	 As	display_name
-, NULL	 As	hierarchy
-, cr.CREATED_DATE As submitedDate
-, cr.CREATED_BY As submittedBy
-FROM customer cr
-WHERE cr.DISCRIMINATOR = &apos;GROUP&apos; AND cr.BRANCH_ID = 12 </sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>276</xloc>
-      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

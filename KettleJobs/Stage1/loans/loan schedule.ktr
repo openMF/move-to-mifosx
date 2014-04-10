@@ -387,8 +387,7 @@ JOIN loan_account la ON la.ACCOUNT_ID = ls.ACCOUNT_ID
 JOIN account ac ON ac.ACCOUNT_ID = la.ACCOUNT_ID
 JOIN customer cr ON cr.CUSTOMER_ID = ac.CUSTOMER_ID
 JOIN meeting me ON me.MEETING_ID = la.MEETING_ID
-JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
-WHERE cr.BRANCH_ID = 12</sql>
+JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

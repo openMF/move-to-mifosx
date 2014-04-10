@@ -287,7 +287,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Clients Input</from><to>Center status</to><enabled>Y</enabled> </hop>  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Centers Input</from><to>Center status</to><enabled>Y</enabled> </hop>  <hop> <from>Center status</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Center status</name>
     <type>ValueMapper</type>
@@ -320,7 +320,7 @@
     </step>
 
   <step>
-    <name>Clients Input</name>
+    <name>Centers Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -344,7 +344,7 @@
 , cr.CREATED_DATE As submitedDate
 , cr.CREATED_BY As submittedBy
 FROM customer cr
-WHERE cr.DISCRIMINATOR = &apos;CENTER&apos; AND BRANCH_ID = 12 </sql>
+WHERE cr.DISCRIMINATOR = &apos;CENTER&apos;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -352,7 +352,7 @@ WHERE cr.DISCRIMINATOR = &apos;CENTER&apos; AND BRANCH_ID = 12 </sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>208</xloc>
+      <xloc>209</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
