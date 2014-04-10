@@ -333,6 +333,7 @@ TRUNCATE m_appuser;
 TRUNCATE m_staff;
 DELETE FROM `m_office` WHERE  `id` &gt; 1;
 TRUNCATE m_product_loan;
+TRUNCATE m_savings_product;
 TRUNCATE m_charge;
 TRUNCATE m_product_loan_charge;
 TRUNCATE m_fund;

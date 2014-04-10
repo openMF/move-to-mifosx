@@ -415,8 +415,7 @@
 FROM customer cr
 LEFT JOIN account ac ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 
 LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID = cr.CUSTOMER_ID AND cnd.NAME_TYPE = 3
-WHERE DISCRIMINATOR = &apos;CLIENT&apos; 
-AND BRANCH_ID = 12</sql>
+WHERE DISCRIMINATOR = &apos;CLIENT&apos;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

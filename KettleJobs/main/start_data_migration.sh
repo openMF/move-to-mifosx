@@ -3,9 +3,9 @@
 
 PDI_HOME="/opt/pentaho/kettle"
 KETTLE_JOBS_PATH="/home/nayan/Documents/GitHub/move-to-mifosx/KettleJobs"
-DEST_DB="mifostenant-gk"
+DEST_DB="mifostenant-test"
 
-MYSQL_ARGS="-u root -ppassword"
+MYSQL_ARGS="-u root -pmysql"
 
 echo "USE $DEST_DB" | mysql $MYSQL_ARGS
 
