@@ -239,8 +239,8 @@
 , 0 AS lockin_period_frequency_enum
 , 0 AS withdrawal_fee_for_transfer
 , null AS lockedin_until_date_derived
-, SUM(stx.DEPOSIT_AMOUNT) AS total_deposits_derived
-, SUM(stx.WITHDRAWAL_AMOUNT) AS total_withdrawals_derived
+, SUM(IF(stx.DEPOSIT_AMOUNT &gt; 0 , atx.AMOUNT , 0 )) AS total_deposits_derived
+, SUM(IF(stx.WITHDRAWAL_AMOUNT &gt; 0 , atx.AMOUNT , 0)) AS total_withdrawals_derived
 , 0 As total_withdrawal_fees_derived
 , 0 As total_fees_charge_derived
 , 0 AS total_penalty_charge_derived
