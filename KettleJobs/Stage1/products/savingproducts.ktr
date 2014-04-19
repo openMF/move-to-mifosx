@@ -265,10 +265,6 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
           <stream_name>interest_posting_period_enum</stream_name>
         </field>
         <field>
-          <column_name>interest_calculation_type_enum</column_name>
-          <stream_name>interest_calculation_period_enum</stream_name>
-        </field>
-        <field>
           <column_name>interest_calculation_days_in_year_type_enum</column_name>
           <stream_name>interest_calculation_days_in_year__type_enum</stream_name>
         </field>
@@ -279,6 +275,10 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
         <field>
           <column_name>accounting_type</column_name>
           <stream_name>accounting_type</stream_name>
+        </field>
+        <field>
+          <column_name>interest_calculation_type_enum</column_name>
+          <stream_name>interest_calculation_type_enum</stream_name>
         </field>
     </fields>
      <cluster_schema/>
