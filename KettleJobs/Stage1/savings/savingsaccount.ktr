@@ -139,7 +139,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Account state mapping</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Account state mapping</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Table input</from><to>Account state mapping</to><enabled>Y</enabled> </hop>  <hop> <from>Account state mapping</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>interest calculation type mapping</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Account state mapping</name>
     <type>ValueMapper</type>
@@ -231,7 +231,7 @@
 , 0 AS currency_multiplesof
 , sa.interest_rate AS nominal_annual_interest_rate
 , 4 AS interest_compounding_period_enum
-, 4 AS interest_posting_period_enum
+, 5 AS interest_posting_period_enum
 , sa.interest_calculation_type_id AS interest_calculation_type_enum
 , 360 AS interest_calculation_days_in_year_type_enum
 , 0 AS min_required_opening_balance
@@ -446,8 +446,39 @@ GROUP BY sa.ACCOUNT_ID</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>482</xloc>
-      <yloc>272</yloc>
+      <xloc>639</xloc>
+      <yloc>179</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>interest calculation type mapping</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use>interest_calculation_type_enum</field_to_use>
+    <target_field/>
+    <non_match_default>1</non_match_default>
+    <fields>
+      <field>
+        <source_value>122</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>123</source_value>
+        <target_value>1</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>480</xloc>
+      <yloc>323</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
