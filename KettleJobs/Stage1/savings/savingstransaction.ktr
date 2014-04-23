@@ -163,7 +163,7 @@
  , ax.CREATED_DATE AS created_date
 FROM
 savings_trxn_detail std
-INNER JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID = std.ACCOUNT_TRXN_ID AND ax.ACCOUNT_ACTION_ID = 11 -- account_action_id 14 = saving adjustments, 6 = deposite, 7  = witdrwals , 11 = interest posting
+INNER JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID = std.ACCOUNT_TRXN_ID AND ax.ACCOUNT_ACTION_ID &lt;&gt; 14 -- account_action_id 14 = saving adjustments, 6 = deposite, 7  = witdrwals , 11 = interest posting
 INNER JOIN customer cr ON cr.CUSTOMER_ID = ax.CUSTOMER_ID</sql>
     <limit>0</limit>
     <lookup/>

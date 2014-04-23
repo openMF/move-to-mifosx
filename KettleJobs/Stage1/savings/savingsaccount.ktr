@@ -155,40 +155,28 @@
     <non_match_default/>
     <fields>
       <field>
-        <source_value>1</source_value>
+        <source_value>13</source_value>
         <target_value>100</target_value>
       </field>
       <field>
-        <source_value>2</source_value>
+        <source_value>14</source_value>
         <target_value>100</target_value>
       </field>
       <field>
-        <source_value>3</source_value>
-        <target_value>200</target_value>
-      </field>
-      <field>
-        <source_value>5</source_value>
-        <target_value>300</target_value>
-      </field>
-      <field>
-        <source_value>6</source_value>
+        <source_value>15</source_value>
         <target_value>600</target_value>
       </field>
       <field>
-        <source_value>7</source_value>
-        <target_value>601</target_value>
-      </field>
-      <field>
-        <source_value>8</source_value>
-        <target_value>602</target_value>
-      </field>
-      <field>
-        <source_value>9</source_value>
+        <source_value>16</source_value>
         <target_value>300</target_value>
       </field>
       <field>
-        <source_value>10</source_value>
-        <target_value>500</target_value>
+        <source_value>17</source_value>
+        <target_value>600</target_value>
+      </field>
+      <field>
+        <source_value>17</source_value>
+        <target_value>600</target_value>
       </field>
     </fields>
      <cluster_schema/>
