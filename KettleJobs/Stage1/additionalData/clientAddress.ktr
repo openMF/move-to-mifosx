@@ -315,8 +315,7 @@
 , phone_number
 , phone_number_stripped
 FROM customer_address_detail cad
-JOIN customer cr ON cr.customer_id = cad.customer_id and cr.discriminator = &quot;CLIENT&quot;
-WHERE cr.branch_id = 12</sql>
+JOIN customer cr ON cr.customer_id = cad.customer_id and cr.discriminator = &quot;CLIENT&quot;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

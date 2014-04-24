@@ -321,8 +321,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>57</xloc>
-      <yloc>156</yloc>
+      <xloc>61</xloc>
+      <yloc>140</yloc>
       </entry>
     <entry>
       <name>Organization details</name>
@@ -351,8 +351,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>334</xloc>
-      <yloc>266</yloc>
+      <xloc>337</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -381,8 +381,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>494</xloc>
-      <yloc>44</yloc>
+      <xloc>498</xloc>
+      <yloc>27</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -411,8 +411,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
-      <yloc>44</yloc>
+      <xloc>657</xloc>
+      <yloc>27</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -441,8 +441,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>658</xloc>
-      <yloc>266</yloc>
+      <xloc>819</xloc>
+      <yloc>27</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -471,8 +471,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>816</xloc>
-      <yloc>44</yloc>
+      <xloc>819</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -501,8 +501,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>977</xloc>
-      <yloc>44</yloc>
+      <xloc>972</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>Set variables</name>
@@ -526,8 +526,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>172</xloc>
-      <yloc>44</yloc>
+      <xloc>176</xloc>
+      <yloc>27</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -556,8 +556,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>974</xloc>
-      <yloc>598</yloc>
+      <xloc>819</xloc>
+      <yloc>323</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -586,8 +586,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>333</xloc>
-      <yloc>44</yloc>
+      <xloc>337</xloc>
+      <yloc>27</yloc>
       </entry>
     <entry>
       <name>Batch Job</name>
@@ -616,8 +616,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>663</xloc>
-      <yloc>413</yloc>
+      <xloc>657</xloc>
+      <yloc>323</yloc>
       </entry>
     <entry>
       <name>Misc</name>
@@ -646,8 +646,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>814</xloc>
-      <yloc>598</yloc>
+      <xloc>819</xloc>
+      <yloc>499</yloc>
       </entry>
     <entry>
       <name>Initial tasks</name>
@@ -676,8 +676,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>172</xloc>
-      <yloc>266</yloc>
+      <xloc>175</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>Set Openning balance</name>
@@ -706,8 +706,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>982</xloc>
-      <yloc>266</yloc>
+      <xloc>972</xloc>
+      <yloc>499</yloc>
       </entry>
     <entry>
       <name>Details of client, groups</name>
@@ -736,8 +736,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>806</xloc>
-      <yloc>415</yloc>
+      <xloc>657</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>MeetingAndAttendance</name>
@@ -766,8 +766,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>975</xloc>
-      <yloc>415</yloc>
+      <xloc>972</xloc>
+      <yloc>323</yloc>
       </entry>
     <entry>
       <name>Saving Product Details</name>
@@ -796,8 +796,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>266</yloc>
+      <xloc>499</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>Saving Accounts</name>
@@ -826,23 +826,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>820</xloc>
-      <yloc>266</yloc>
+      <xloc>972</xloc>
+      <yloc>27</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>Organization details</from>
       <to>Loan Product details</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Centers Groups and Clients</from>
-      <to>Meetings</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -895,53 +886,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Notes</from>
-      <to>Set Openning balance</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Misc</from>
       <to>Batch Job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>QG</from>
-      <to>Details of client, groups</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Details of client, groups</from>
-      <to>Misc</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set Openning balance</from>
-      <to>MeetingAndAttendance</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>MeetingAndAttendance</from>
-      <to>QG</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -978,6 +924,60 @@
     <hop>
       <from>loan accounts</from>
       <to>Saving Accounts</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Centers Groups and Clients</from>
+      <to>Details of client, groups</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Details of client, groups</from>
+      <to>Meetings</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>MeetingAndAttendance</from>
+      <to>Set Openning balance</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set Openning balance</from>
+      <to>QG</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Notes</from>
+      <to>MeetingAndAttendance</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>QG</from>
+      <to>Misc</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
