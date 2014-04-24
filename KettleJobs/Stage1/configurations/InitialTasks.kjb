@@ -319,67 +319,85 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>345</xloc>
-      <yloc>238</yloc>
+      <xloc>250</xloc>
+      <yloc>239</yloc>
       </entry>
     <entry>
-      <name>Clean db data</name>
+      <name>MIfos X schema DDL</name>
       <description/>
       <type>SQL</type>
-      <sql>SET foreign_key_checks = 0;
-TRUNCATE m_appuser_role;
-TRUNCATE  m_role;
-TRUNCATE m_appuser;
-TRUNCATE m_staff;
-DELETE FROM `m_office` WHERE  `id` &gt; 1;
-TRUNCATE m_product_loan;
-TRUNCATE m_savings_product;
-TRUNCATE m_charge;
-TRUNCATE m_product_loan_charge;
-TRUNCATE m_fund;
-TRUNCATE m_group;
-TRUNCATE m_client;
-TRUNCATE m_group_client;
-TRUNCATE m_calendar;
-TRUNCATE m_calendar_instance;
-TRUNCATE m_loan;
-TRUNCATE m_loan_charge;
-TRUNCATE m_loan_repayment_schedule;
-TRUNCATE m_loan_transaction;
-TRUNCATE m_code_value;
-TRUNCATE m_note;
-TRUNCATE `acc_gl_journal_entry`;
-TRUNCATE `acc_gl_account`;
-TRUNCATE `acc_gl_account`;
-TRUNCATE `m_organisation_currency`;
-TRUNCATE `m_meeting`;
-TRUNCATE `m_client_attendance`;
-
-
-
-SET foreign_key_checks = 1;
-</sql>
+      <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
+      <sqlfromfile>T</sqlfromfile>
+      <sqlfilename>${TOOLHOME}\KettleJobs\Stage1\sqlScripts\load_mifosx_ddl.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>DestinationDB</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>568</xloc>
-      <yloc>237</yloc>
+      <xloc>394</xloc>
+      <yloc>101</yloc>
+      </entry>
+    <entry>
+      <name>DDL for data tables</name>
+      <description/>
+      <type>SQL</type>
+      <sql/>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>T</sqlfromfile>
+      <sqlfilename>${TOOLHOME}\KettleJobs\Stage1\sqlScripts\load_mifosx_datatables.sql</sqlfilename>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>391</xloc>
+      <yloc>367</yloc>
+      </entry>
+    <entry>
+      <name>DDL for stage1 tables</name>
+      <description/>
+      <type>SQL</type>
+      <sql/>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>T</sqlfromfile>
+      <sqlfilename>${TOOLHOME}\KettleJobs\Stage1\sqlScripts\load_mifosx_stage1_tables.sql</sqlfilename>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>617</xloc>
+      <yloc>101</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Clean db data</to>
+      <to>MIfos X schema DDL</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>MIfos X schema DDL</from>
+      <to>DDL for data tables</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>DDL for data tables</from>
+      <to>DDL for stage1 tables</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
