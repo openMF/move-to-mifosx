@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;24 12&#x3a;50&#x3a;20.125</created_date>
+  <created_date>2013&#47;06&#47;24 12:50:20.125</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;24 12&#x3a;50&#x3a;20.125</modified_date>
+  <modified_date>2013&#47;06&#47;24 12:50:20.125</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -287,8 +287,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Customer Details input</from><to>Customer Details output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Customer Details input</from><to>Customer Details output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Customer Details input</name>
     <type>TableInput</type>
@@ -300,7 +299,25 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  cr.CUSTOMER_ID&#xd;&#xa;, cr.DATE_OF_BIRTH&#xd;&#xa;, cr.GOVERNMENT_ID&#xd;&#xa;, ETHINICITY&#xd;&#xa;, CITIZENSHIP&#xd;&#xa;, HANDICAPPED&#xd;&#xa;, BUSINESS_ACTIVITIES&#xd;&#xa;, MARITAL_STATUS&#xd;&#xa;, EDUCATION_LEVEL&#xd;&#xa;, NUM_CHILDREN&#xd;&#xa;, GENDER&#xd;&#xa;, DATE_STARTED&#xd;&#xa;, HANDICAPPED_DETAILS&#xd;&#xa;, POVERTY_STATUS&#xd;&#xa;, POVERTY_LHOOD_PCT&#xd;&#xa;FROM customer_detail cd&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; cd.CUSTOMER_ID&#xd;&#xa;WHERE cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27; AND cr.BRANCH_ID &#x3d; 12&#xd;&#xa;</sql>
+    <sql>SELECT
+  cr.CUSTOMER_ID
+, cr.DATE_OF_BIRTH
+, cr.GOVERNMENT_ID
+, NULL As ETHINICITY
+, CITIZENSHIP
+, HANDICAPPED
+, BUSINESS_ACTIVITIES
+, MARITAL_STATUS
+, EDUCATION_LEVEL
+, NUM_CHILDREN
+, GENDER
+, DATE_STARTED
+, HANDICAPPED_DETAILS
+, POVERTY_STATUS
+, POVERTY_LHOOD_PCT
+FROM customer_detail cd
+JOIN customer cr ON cr.CUSTOMER_ID = cd.CUSTOMER_ID
+WHERE cr.DISCRIMINATOR = &apos;CLIENT&apos;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
