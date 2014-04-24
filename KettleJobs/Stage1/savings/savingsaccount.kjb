@@ -221,43 +221,10 @@
       <yloc>349</yloc>
       </entry>
     <entry>
-      <name>Dummy payment details</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;dummy_payment_details.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>349</yloc>
-      </entry>
-    <entry>
-      <name>Remove dummy payment details</name>
+      <name>Drop payment_id column</name>
       <description/>
       <type>SQL</type>
-      <sql>UPDATE m_savings_account_transaction SET payment_detail_id = NULL;
-DELETE FROM m_payment_detail;</sql>
+      <sql>ALTER TABLE m_savings_account_transaction DROP payment_id;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -268,6 +235,22 @@ DELETE FROM m_payment_detail;</sql>
       <nr>0</nr>
       <xloc>885</xloc>
       <yloc>102</yloc>
+      </entry>
+    <entry>
+      <name>Add payment_id as temp column</name>
+      <description/>
+      <type>SQL</type>
+      <sql>ALTER TABLE m_savings_account_transaction ADD COLUMN payment_id INT(11) NOT NULL;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>DestinationDB</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>414</xloc>
+      <yloc>351</yloc>
       </entry>
   </entries>
   <hops>
@@ -290,8 +273,8 @@ DELETE FROM m_payment_detail;</sql>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Saving Accounts</from>
-      <to>Dummy payment details</to>
+      <from>Update reversal trx</from>
+      <to>Drop payment_id column</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -299,22 +282,22 @@ DELETE FROM m_payment_detail;</sql>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Dummy payment details</from>
+      <from>Saving Accounts</from>
+      <to>Add payment_id as temp column</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Add payment_id as temp column</from>
       <to>Saving Account Transactions</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Update reversal trx</from>
-      <to>Remove dummy payment details</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
