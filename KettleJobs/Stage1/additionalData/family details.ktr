@@ -309,8 +309,7 @@ cfd.DATE_OF_BIRTH As DateOfBirth,
 cfd.LIVING_STATUS As LivingStatus
 FROM customer_family_detail cfd
 JOIN customer cr ON cr.CUSTOMER_ID = cfd.CUSTOMER_ID AND cr.DISCRIMINATOR = &apos;CLIENT&apos;
-JOIN customer_name_detail cnd ON cnd.CUSTOMER_NAME_ID = cfd.CUSTOMER_NAME_ID
-WHERE cr.branch_id = 12</sql>
+JOIN customer_name_detail cnd ON cnd.CUSTOMER_NAME_ID = cfd.CUSTOMER_NAME_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
