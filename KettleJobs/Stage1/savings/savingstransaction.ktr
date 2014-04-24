@@ -154,7 +154,7 @@
     <sql>SELECT 
    ax.ACCOUNT_ID As savings_account_id
  , cr.BRANCH_ID As office_id
- , payment_id As payment_detail_id -- add temperory to refer reversal entries
+ , payment_id As payment_id
  , ax.ACCOUNT_ACTION_ID As transaction_type_enum
  , 0 As is_reversed  -- in next step this value is derived
  , ax.ACTION_DATE As transaction_date
@@ -172,7 +172,7 @@ INNER JOIN customer cr ON cr.CUSTOMER_ID = ax.CUSTOMER_ID</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>290</xloc>
+      <xloc>292</xloc>
       <yloc>218</yloc>
       <draw>Y</draw>
       </GUI>
@@ -215,10 +215,6 @@ INNER JOIN customer cr ON cr.CUSTOMER_ID = ax.CUSTOMER_ID</sql>
           <stream_name>office_id</stream_name>
         </field>
         <field>
-          <column_name>payment_detail_id</column_name>
-          <stream_name>payment_detail_id</stream_name>
-        </field>
-        <field>
           <column_name>transaction_type_enum</column_name>
           <stream_name>transaction_type_enum</stream_name>
         </field>
@@ -241,6 +237,10 @@ INNER JOIN customer cr ON cr.CUSTOMER_ID = ax.CUSTOMER_ID</sql>
         <field>
           <column_name>created_date</column_name>
           <stream_name>created_date</stream_name>
+        </field>
+        <field>
+          <column_name>payment_id</column_name>
+          <stream_name>payment_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>

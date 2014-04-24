@@ -118,9 +118,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Saing adjustment trx details</from><to>Update reversal trx</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Saving adjustment trx details</from><to>Update reversal trx</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Saing adjustment trx details</name>
+    <name>Saving adjustment trx details</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -132,7 +132,7 @@
     <connection>SourceDB</connection>
     <sql>SELECT 
  ax.ACCOUNT_ID As savings_account_id
-,payment_id As payment_detail_id
+,payment_id As payment_id
 ,1 As is_reversed
 FROM
 savings_trxn_detail std
@@ -145,7 +145,7 @@ INNER JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID = std.ACCOUNT_TRXN_ID AND ax.AC
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>341</xloc>
-      <yloc>204</yloc>
+      <yloc>202</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -173,8 +173,8 @@ INNER JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID = std.ACCOUNT_TRXN_ID AND ax.AC
         <name2/>
       </key>
       <key>
-        <name>payment_detail_id</name>
-        <field>payment_detail_id</field>
+        <name>payment_id</name>
+        <field>payment_id</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -187,7 +187,7 @@ INNER JOIN account_trxn ax ON ax.ACCOUNT_TRXN_ID = std.ACCOUNT_TRXN_ID AND ax.AC
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>594</xloc>
-      <yloc>204</yloc>
+      <yloc>202</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
