@@ -290,7 +290,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>  <hop> <from>Input - User</from><to>Is Loan Officer</to><enabled>Y</enabled> </hop>  <hop> <from>Is Loan Officer</from><to>User - Is Deleted</to><enabled>Y</enabled> </hop>  <hop> <from>Output - Staff</from><to>Constants</to><enabled>Y</enabled> </hop>  <hop> <from>User - Is Deleted</from><to>Staff - Is Active</to><enabled>Y</enabled> </hop>  <hop> <from>Staff - Is Active</from><to>Output - Staff</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Constants</from><to>If field value is null</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null</from><to>Output - App User</to><enabled>Y</enabled> </hop>  <hop> <from>Staff - Is Active</from><to>Output - Staff</to><enabled>Y</enabled> </hop>  <hop> <from>Input - User</from><to>Is loan Officer</to><enabled>Y</enabled> </hop>  <hop> <from>Output - Staff</from><to>User - Is Deleted</to><enabled>Y</enabled> </hop>  <hop> <from>User - Is Deleted</from><to>Constants</to><enabled>Y</enabled> </hop>  <hop> <from>Is loan Officer</from><to>Staff - Is Active</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Constants</name>
     <type>Constant</type>
@@ -371,8 +371,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>320</yloc>
+      <xloc>681</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -402,8 +402,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>600</xloc>
-      <yloc>80</yloc>
+      <xloc>682</xloc>
+      <yloc>275</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -449,70 +449,8 @@ JOIN office of ON of.OFFICE_ID = pl.OFFICE_ID</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>100</xloc>
-      <yloc>220</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Is Loan Officer</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>IsLoanOfficer</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>220</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>User - Is Deleted</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>PERSONNEL_STATUS</field_to_use>
-    <target_field>IsDeleted</target_field>
-    <non_match_default>0</non_match_default>
-    <fields>
-      <field>
-        <source_value>1</source_value>
-        <target_value>0</target_value>
-      </field>
-      <field>
-        <source_value>2</source_value>
-        <target_value>1</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>220</xloc>
-      <yloc>320</yloc>
+      <xloc>175</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -604,8 +542,8 @@ JOIN office of ON of.OFFICE_ID = pl.OFFICE_ID</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>600</xloc>
-      <yloc>320</yloc>
+      <xloc>842</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -668,13 +606,13 @@ JOIN office of ON of.OFFICE_ID = pl.OFFICE_ID</sql>
         </field>
         <field>
           <column_name>is_active</column_name>
-          <stream_name>IsDeleted</stream_name>
+          <stream_name>isActive</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>80</yloc>
+      <xloc>496</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -704,8 +642,70 @@ JOIN office of ON of.OFFICE_ID = pl.OFFICE_ID</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>319</xloc>
-      <yloc>187</yloc>
+      <xloc>331</xloc>
+      <yloc>275</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>User - Is Deleted</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use>PERSONNEL_STATUS</field_to_use>
+    <target_field>IsDeleted</target_field>
+    <non_match_default>0</non_match_default>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>0</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>1</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>497</xloc>
+      <yloc>275</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Is loan Officer</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <field_to_use/>
+    <target_field>IsLoanOfficer</target_field>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>0</target_value>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>334</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
