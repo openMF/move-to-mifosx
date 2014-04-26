@@ -321,8 +321,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>61</xloc>
-      <yloc>140</yloc>
+      <xloc>119</xloc>
+      <yloc>32</yloc>
       </entry>
     <entry>
       <name>Organization details</name>
@@ -351,8 +351,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>337</xloc>
-      <yloc>199</yloc>
+      <xloc>281</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>Loan Product details</name>
@@ -381,8 +381,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>498</xloc>
-      <yloc>27</yloc>
+      <xloc>442</xloc>
+      <yloc>31</yloc>
       </entry>
     <entry>
       <name>Centers Groups and Clients</name>
@@ -411,8 +411,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>657</xloc>
-      <yloc>27</yloc>
+      <xloc>601</xloc>
+      <yloc>31</yloc>
       </entry>
     <entry>
       <name>Meetings</name>
@@ -441,8 +441,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>819</xloc>
-      <yloc>27</yloc>
+      <xloc>763</xloc>
+      <yloc>31</yloc>
       </entry>
     <entry>
       <name>loan accounts</name>
@@ -471,8 +471,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>819</xloc>
-      <yloc>199</yloc>
+      <xloc>763</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>Notes</name>
@@ -501,33 +501,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>972</xloc>
-      <yloc>199</yloc>
-      </entry>
-    <entry>
-      <name>Set variables</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>TOOLHOME</variable_name>
-          <variable_value>&#47;home&#47;nayan&#47;Documents&#47;GitHub&#47;move-to-mifosx</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>CUR</variable_name>
-          <variable_value>INR</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>176</xloc>
-      <yloc>27</yloc>
+      <xloc>916</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>QG</name>
@@ -556,8 +531,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>663</xloc>
-      <yloc>326</yloc>
+      <xloc>607</xloc>
+      <yloc>330</yloc>
       </entry>
     <entry>
       <name>Configuration</name>
@@ -586,8 +561,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>337</xloc>
-      <yloc>27</yloc>
+      <xloc>281</xloc>
+      <yloc>31</yloc>
       </entry>
     <entry>
       <name>Batch Job</name>
@@ -616,8 +591,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>501</xloc>
-      <yloc>326</yloc>
+      <xloc>445</xloc>
+      <yloc>330</yloc>
       </entry>
     <entry>
       <name>Misc</name>
@@ -646,8 +621,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>663</xloc>
-      <yloc>502</yloc>
+      <xloc>607</xloc>
+      <yloc>506</yloc>
       </entry>
     <entry>
       <name>Initial tasks</name>
@@ -676,8 +651,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>175</xloc>
-      <yloc>199</yloc>
+      <xloc>119</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>Set Openning balance</name>
@@ -706,8 +681,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>816</xloc>
-      <yloc>502</yloc>
+      <xloc>760</xloc>
+      <yloc>506</yloc>
       </entry>
     <entry>
       <name>Details of client, groups</name>
@@ -736,8 +711,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>657</xloc>
-      <yloc>199</yloc>
+      <xloc>601</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>MeetingAndAttendance</name>
@@ -766,8 +741,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>816</xloc>
-      <yloc>326</yloc>
+      <xloc>760</xloc>
+      <yloc>330</yloc>
       </entry>
     <entry>
       <name>Saving Product Details</name>
@@ -796,8 +771,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>499</xloc>
-      <yloc>199</yloc>
+      <xloc>443</xloc>
+      <yloc>203</yloc>
       </entry>
     <entry>
       <name>Saving Accounts</name>
@@ -826,8 +801,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>972</xloc>
-      <yloc>27</yloc>
+      <xloc>916</xloc>
+      <yloc>31</yloc>
       </entry>
     <entry>
       <name>Client Fees</name>
@@ -856,8 +831,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>972</xloc>
-      <yloc>498</yloc>
+      <xloc>916</xloc>
+      <yloc>502</yloc>
       </entry>
   </entries>
   <hops>
@@ -880,15 +855,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>START</from>
-      <to>Set variables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Configuration</from>
       <to>Organization details</to>
       <from_nr>0</from_nr>
@@ -900,15 +866,6 @@
     <hop>
       <from>Initial tasks</from>
       <to>Configuration</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set variables</from>
-      <to>Initial tasks</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1022,6 +979,15 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Initial tasks</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
