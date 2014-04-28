@@ -421,6 +421,18 @@
         <source_value>ReasonForPreClosure</source_value>
         <target_value>ClientClosureReason</target_value>
       </field>
+      <field>
+        <source_value>SpouseFather</source_value>
+        <target_value>Relationship</target_value>
+      </field>
+      <field>
+        <source_value>Ethnicity</source_value>
+        <target_value>Barangay</target_value>
+      </field>
+      <field>
+        <source_value>Handicapped</source_value>
+        <target_value>Municipality</target_value>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
