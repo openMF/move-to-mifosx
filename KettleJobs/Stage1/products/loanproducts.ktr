@@ -377,7 +377,7 @@
 , if(lo.GRACEPERIOD_TYPE_ID = 2 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_interest_periods
 , NULL As 	grace_interest_free_periods
 , 1 As 	amortization_method_enum
-, 1 As 	accounting_type
+, 2 As 	accounting_type
 , 1 As 	loan_transaction_strategy_id -- Mifos Style
 , po.GLOBAL_PRD_OFFERING_NUM As 	external_id
 , loan_counter_flag As include_in_borrower_cycle
