@@ -300,16 +300,13 @@
            </partitioning>
     <connection>SourceDB</connection>
     <sql>SELECT 
-cfd.CUSTOMER_ID As client_id,
+cr.CUSTOMER_ID As client_id,
 cnd.FIRST_NAME As FirstName,
 cnd.LAST_NAME As LastName, 
-cfd.RELATIONSHIP As SpouseFather_cd_Relationship,
-cfd.GENDER As Gender_cd_Gender, 
-cfd.DATE_OF_BIRTH As DateOfBirth, 
-cfd.LIVING_STATUS As LivingStatus
-FROM customer_family_detail cfd
-JOIN customer cr ON cr.CUSTOMER_ID = cfd.CUSTOMER_ID AND cr.DISCRIMINATOR = &apos;CLIENT&apos;
-JOIN customer_name_detail cnd ON cnd.CUSTOMER_NAME_ID = cfd.CUSTOMER_NAME_ID</sql>
+cnd.NAME_TYPE As Relationship_cd_Relationship
+FROM customer_name_detail cnd
+JOIN customer cr ON cr.CUSTOMER_ID = cnd.CUSTOMER_NAME_ID AND cr.DISCRIMINATOR = &apos;CLIENT&apos; AND cnd.NAME_TYPE &lt;&gt; 3
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -364,26 +361,14 @@ JOIN customer_name_detail cnd ON cnd.CUSTOMER_NAME_ID = cfd.CUSTOMER_NAME_ID</sq
           <stream_name>LastName</stream_name>
         </field>
         <field>
-          <column_name>Gender_cd_Gender</column_name>
-          <stream_name>Gender_cd_Gender</stream_name>
-        </field>
-        <field>
-          <column_name>Date Of Birth</column_name>
-          <stream_name>DateOfBirth</stream_name>
-        </field>
-        <field>
-          <column_name>LivingStatus_cd_Living Status</column_name>
-          <stream_name>LivingStatus</stream_name>
-        </field>
-        <field>
           <column_name>SpouseFather_cd_Relationship</column_name>
-          <stream_name>SpouseFather_cd_Relationship</stream_name>
+          <stream_name>Relationship_cd_Relationship</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>552</xloc>
-      <yloc>184</yloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
