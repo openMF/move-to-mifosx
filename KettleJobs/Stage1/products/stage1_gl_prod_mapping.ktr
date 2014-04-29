@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>gl_product_mapping</name>
+    <name>stage1_gl_prod_mapping</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;12&#47;26 09:21:32.632</created_date>
+  <created_date>2014&#47;04&#47;29 11:38:12.770</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;12&#47;26 09:21:32.632</modified_date>
+  <modified_date>2014&#47;04&#47;29 11:38:12.770</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -118,10 +118,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>GL Account Id</to><enabled>Y</enabled> </hop>  <hop> <from>GL Account Id</from><to>Saving or Loan product</to><enabled>Y</enabled> </hop>  <hop> <from>Loan Product Id</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Saving or Loan product</from><to>Loan Product Id</to><enabled>Y</enabled> </hop>  <hop> <from>Saving or Loan product</from><to>Saving Product Id</to><enabled>Y</enabled> </hop>  <hop> <from>Saving Product Id</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>CoAinputs</from><to>Stage1 Acc Product Mapping</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
+    <name>CoAinputs</name>
+    <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -129,111 +129,125 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>DestinationDB</connection>
-    <sql>SELECT
-  stgl.product_name
-, stgl.gl_code
-, stgl.product_type
-, stgl.financial_account_type
-FROM stage1_acc_product_mapping stgl
-</sql>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>Y</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
     <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>198</xloc>
-      <yloc>169</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>GL Account Id</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>acc_gl_account</table>
-      <orderby/>
-      <fail_on_multiple>Y</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>gl_code</name>
-        <field>gl_code</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>gl_account_id</rename>
-        <default/>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>${TOOLHOME}\MappingDocs\acc_product_mapping.xls</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>Product Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GL Account Id</name>
         <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>364</xloc>
-      <yloc>164</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Loan Product Id</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>m_product_loan</table>
-      <orderby/>
-      <fail_on_multiple>Y</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>product_name</name>
-        <field>name</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>Product Id</rename>
-        <default/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Product Type</name>
         <type>Integer</type>
-      </value>
-    </lookup>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Financial Account Type</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Financial Account Type name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Acc product mapping</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+        </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>JXL</spreadsheet_type>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>656</xloc>
-      <yloc>276</yloc>
+      <xloc>352</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Stage1 Acc Product Mapping</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -244,9 +258,9 @@ FROM stage1_acc_product_mapping stgl
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>acc_product_mapping</table>
+    <table>stage1_acc_product_mapping</table>
     <commit>1000</commit>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
@@ -261,95 +275,26 @@ FROM stage1_acc_product_mapping stgl
     <return_field/>
     <fields>
         <field>
-          <column_name>product_id</column_name>
-          <stream_name>Product Id</stream_name>
+          <column_name>product_name</column_name>
+          <stream_name>Product Name</stream_name>
         </field>
         <field>
-          <column_name>gl_account_id</column_name>
-          <stream_name>gl_account_id</stream_name>
-        </field>
-        <field>
-          <column_name>financial_account_type</column_name>
-          <stream_name>financial_account_type</stream_name>
+          <column_name>gl_code</column_name>
+          <stream_name>GL Account Id</stream_name>
         </field>
         <field>
           <column_name>product_type</column_name>
-          <stream_name>product_type</stream_name>
+          <stream_name>Product Type</stream_name>
+        </field>
+        <field>
+          <column_name>financial_account_type</column_name>
+          <stream_name>Financial Account Type</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>800</xloc>
-      <yloc>164</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Saving or Loan product</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Loan Product Id</send_true_to>
-<send_false_to>Saving Product Id</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>product_type</leftvalue>
- <function>=</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>#;-#</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>498</xloc>
-      <yloc>164</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Saving Product Id</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>m_savings_product</table>
-      <orderby/>
-      <fail_on_multiple>Y</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>product_name</name>
-        <field>name</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>Product Id</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>655</xloc>
-      <yloc>58</yloc>
+      <xloc>594</xloc>
+      <yloc>199</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
