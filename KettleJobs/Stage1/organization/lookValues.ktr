@@ -494,13 +494,28 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT 
-lv.LOOKUP_ID As id ,
-IFNULL(lvl.LOOKUP_VALUE , lv.LOOKUP_NAME)  As code_value ,
-le.ENTITY_NAME As entityName
-FROM lookup_value lv 
-JOIN lookup_entity le ON le.ENTITY_ID = lv.ENTITY_ID
-LEFT JOIN lookup_value_locale lvl ON lvl.LOOKUP_ID = lv.LOOKUP_ID</sql>
+    <sql>SELECT  DISTINCT
+		ecv.id As id,
+		IF(dupecv.code_value IS NULL , ecv.code_value , CONCAT(ecv.code_value , ecv.id) ) As code_value ,
+		ecv.entityName As entityName
+FROM (
+	SELECT 
+	lv.LOOKUP_ID As id ,
+	IFNULL(lvl.LOOKUP_VALUE , lv.LOOKUP_NAME) As code_value ,
+	le.ENTITY_NAME As entityName
+	FROM lookup_value lv 
+	JOIN lookup_entity le ON le.ENTITY_ID = lv.ENTITY_ID
+	LEFT JOIN lookup_value_locale lvl ON lvl.LOOKUP_ID = lv.LOOKUP_ID
+	) AS ecv
+	LEFT JOIN  (
+	SELECT 
+	lv.LOOKUP_ID As id ,
+	IFNULL(lvl.LOOKUP_VALUE , lv.LOOKUP_NAME)  As code_value ,
+	le.ENTITY_NAME As entityName
+	FROM lookup_value lv 
+	JOIN lookup_entity le ON le.ENTITY_ID = lv.ENTITY_ID
+	LEFT JOIN lookup_value_locale lvl ON lvl.LOOKUP_ID = lv.LOOKUP_ID
+	) AS dupecv ON dupecv.entityName = ecv.entityName AND dupecv.code_value = ecv.code_value AND dupecv.id &lt;&gt; ecv.id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
