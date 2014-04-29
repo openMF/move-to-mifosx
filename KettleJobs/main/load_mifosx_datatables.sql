@@ -30,8 +30,8 @@ CREATE TABLE `address` (
   CONSTRAINT `fk_address_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `Relatives`;
-CREATE TABLE `Relatives` (
+DROP TABLE IF EXISTS `relatives`;
+CREATE TABLE `relatives` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `client_id` bigint(20) NOT NULL,
   `Relationship_cd_Relationship` int(11) DEFAULT NULL,
