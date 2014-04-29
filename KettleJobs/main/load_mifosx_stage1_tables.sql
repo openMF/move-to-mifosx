@@ -25,3 +25,12 @@ CREATE TABLE `stage1_acc_gl_journal_entry` (
   `organization_running_balance` decimal(19,6) NOT NULL DEFAULT '0.000000',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `stage1_acc_product_mapping`;
+CREATE TABLE `stage1_acc_product_mapping` (
+  `product_name` varchar(100) NOT NULL,
+  `gl_code` varchar(45) NOT NULL,
+  `product_id` bigint(20) DEFAULT NULL,
+  `product_type` smallint(5) DEFAULT NULL,
+  `financial_account_type` smallint(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
