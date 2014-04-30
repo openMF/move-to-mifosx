@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>savingproducts</name>
+    <name>family details</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;03&#47;23 13:36:41.567</created_date>
+  <created_date>2013&#47;07&#47;24 10:00:35.696</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;03&#47;23 13:36:41.567</modified_date>
+  <modified_date>2013&#47;07&#47;24 10:00:35.696</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -73,7 +73,7 @@
     <type>MONETDB</type>
     <access>Native</access>
     <database>pentaho-instaview</database>
-    <port>50000</port>
+    <port>50006</port>
     <username>monetdb</username>
     <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
     <servername/>
@@ -83,9 +83,32 @@
       <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DestinatioDB</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>DestinatioDB</database>
+    <port>3306</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
   <connection>
@@ -97,6 +120,106 @@
     <port>3306</port>
     <username/>
     <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>mifos</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>mifos</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SARALIM1SHARED</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>saral_im1</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SARALIM2SHARED</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>saral_im2</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SARALSHARED</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>saral</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -138,10 +261,35 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>staging</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>stage1</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>Input Saving Products</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>interest calculation type mapping</from><to>Output Savings Product</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Family details input</from><to>Family details output</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Input Saving Products</name>
+    <name>Family details input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -151,53 +299,33 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT
-po.PRD_OFFERING_ID As id
-, po.PRD_OFFERING_NAME As name
-, po.PRD_OFFERING_SHORT_NAME As short_name
-, IFNULL( IF(po.DESCRIPTION = &apos;&apos; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  ) , po.PRD_OFFERING_NAME ) As description
-, &apos;INR&apos; As currency_code
-, 2 As currency_digits
-, 0 As currency_multiplesof
-, so.interest_rate As nominal_annual_interest_rate
-, CASE 
-       WHEN ( rd_ip.recur_after * IF( rd_ip.RECURRENCE_ID = 1 , 7 , IF( rd_ip.RECURRENCE_ID = 2 , 30 , 1))) = 1 THEN 1 -- Daily
-       WHEN ( rd_ip.recur_after * IF( rd_ip.RECURRENCE_ID = 1 , 7 , IF( rd_ip.RECURRENCE_ID = 2 , 30 , 1))) &gt; 1 THEN 4 -- Monthly
-       ELSE 1  -- Defualted to Monthly 
-  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID [ 1 Week(s) 2 &#47; Month(s) 3 &#47; Day(s) ]
-, CASE
-	WHEN 31 &gt;= (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) AND (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) &gt; 27 THEN 4 -- Monthly
-	WHEN 100 &gt;= (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) AND (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) &gt; 80 THEN 5 -- Quarterly
-	WHEN 370 &gt;= (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) AND (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) &gt; 350 THEN 7 -- Annually
-	ELSE 7 -- Defualt to yearly
-  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID [ 1 Week(s) 2 &#47; Month(s) 3 &#47; Day(s) ]
-, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 = Daily balance 2 = Daily average balance
-, 360 AS interest_calculation_days_in_year__type_enum
-, so.recommended_amount AS min_required_opening_balance
-, ${ACCT_TYPE} AS accounting_type
-FROM prd_offering po 
-INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID = po.PRD_OFFERING_ID
-INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id = po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id = 3 -- Savings Frequency of Interest Posting to Accounts
-INNER JOIN  meeting mt_ip ON mt_ip.meeting_id = pom_ip.prd_meeting_id AND mt_ip.meeting_type_id = 3 -- Savings Frequency of Interest Posting to Accounts
-INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id = mt_ip.meeting_id
-INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id = po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id = 2 -- Savings Time Period for Interest Calculation
-INNER JOIN  meeting mt_ic ON mt_ic.meeting_id = pom_ic.prd_meeting_id AND mt_ic.meeting_type_id = 2 -- Savings Time Period for Interest Calculation
-INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
+    <sql>SELECT 
+cfd.CUSTOMER_ID As client_id,
+cnd.FIRST_NAME As FirstName,
+cnd.LAST_NAME As LastName, 
+cfd.RELATIONSHIP As Relationship_cd_Relationship,
+cfd.GENDER As Gender_cd_Gender, 
+cfd.DATE_OF_BIRTH As DateOfBirth, 
+cfd.LIVING_STATUS As LivingStatus
+FROM customer_family_detail cfd
+JOIN customer cr ON cr.CUSTOMER_ID = cfd.CUSTOMER_ID AND cr.DISCRIMINATOR = &apos;CLIENT&apos;
+JOIN customer_name_detail cnd ON cnd.CUSTOMER_NAME_ID = cfd.CUSTOMER_NAME_ID
+WHERE cr.branch_id = 12</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>351</xloc>
-      <yloc>210</yloc>
+      <xloc>263</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Output Savings Product</name>
+    <name>Family details output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -208,7 +336,7 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_savings_product</table>
+    <table>relatives</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -225,97 +353,26 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
     <return_field/>
     <fields>
         <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
+          <column_name>client_id</column_name>
+          <stream_name>client_id</stream_name>
         </field>
         <field>
-          <column_name>name</column_name>
-          <stream_name>name</stream_name>
+          <column_name>First Name</column_name>
+          <stream_name>FirstName</stream_name>
         </field>
         <field>
-          <column_name>short_name</column_name>
-          <stream_name>short_name</stream_name>
+          <column_name>Last Name</column_name>
+          <stream_name>LastName</stream_name>
         </field>
         <field>
-          <column_name>description</column_name>
-          <stream_name>description</stream_name>
-        </field>
-        <field>
-          <column_name>currency_code</column_name>
-          <stream_name>currency_code</stream_name>
-        </field>
-        <field>
-          <column_name>currency_digits</column_name>
-          <stream_name>currency_digits</stream_name>
-        </field>
-        <field>
-          <column_name>currency_multiplesof</column_name>
-          <stream_name>currency_multiplesof</stream_name>
-        </field>
-        <field>
-          <column_name>nominal_annual_interest_rate</column_name>
-          <stream_name>nominal_annual_interest_rate</stream_name>
-        </field>
-        <field>
-          <column_name>interest_compounding_period_enum</column_name>
-          <stream_name>interest_compounding_period_enum</stream_name>
-        </field>
-        <field>
-          <column_name>interest_posting_period_enum</column_name>
-          <stream_name>interest_posting_period_enum</stream_name>
-        </field>
-        <field>
-          <column_name>interest_calculation_days_in_year_type_enum</column_name>
-          <stream_name>interest_calculation_days_in_year__type_enum</stream_name>
-        </field>
-        <field>
-          <column_name>min_required_opening_balance</column_name>
-          <stream_name>min_required_opening_balance</stream_name>
-        </field>
-        <field>
-          <column_name>accounting_type</column_name>
-          <stream_name>accounting_type</stream_name>
-        </field>
-        <field>
-          <column_name>interest_calculation_type_enum</column_name>
-          <stream_name>interest_calculation_type_enum</stream_name>
+          <column_name>Relationship_cd_Relationship</column_name>
+          <stream_name>Relationship_cd_Relationship</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>504</xloc>
-      <yloc>342</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>interest calculation type mapping</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>interest_calculation_type_enum</field_to_use>
-    <target_field/>
-    <non_match_default>1</non_match_default>
-    <fields>
-      <field>
-        <source_value>122</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>123</source_value>
-        <target_value>1</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>504</xloc>
-      <yloc>86</yloc>
+      <xloc>552</xloc>
+      <yloc>184</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
