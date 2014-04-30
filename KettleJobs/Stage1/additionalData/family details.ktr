@@ -303,10 +303,10 @@
 cr.CUSTOMER_ID As client_id,
 cnd.FIRST_NAME As FirstName,
 cnd.LAST_NAME As LastName, 
-cnd.NAME_TYPE As Relationship_cd_Relationship
+sfl.LOOKUP_ID As Relationship_cd_Relationship
 FROM customer_name_detail cnd
 JOIN customer cr ON cr.CUSTOMER_ID = cnd.CUSTOMER_NAME_ID AND cr.DISCRIMINATOR = &apos;CLIENT&apos; AND cnd.NAME_TYPE &lt;&gt; 3
-</sql>
+INNER JOIN spouse_father_lookup sfl ON  sfl.SPOUSE_FATHER_ID = cnd.NAME_TYPE</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -332,7 +332,7 @@ JOIN customer cr ON cr.CUSTOMER_ID = cnd.CUSTOMER_NAME_ID AND cr.DISCRIMINATOR =
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>Relatives</table>
+    <table>relatives</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -361,7 +361,7 @@ JOIN customer cr ON cr.CUSTOMER_ID = cnd.CUSTOMER_NAME_ID AND cr.DISCRIMINATOR =
           <stream_name>LastName</stream_name>
         </field>
         <field>
-          <column_name>SpouseFather_cd_Relationship</column_name>
+          <column_name>Relationship_cd_Relationship</column_name>
           <stream_name>Relationship_cd_Relationship</stream_name>
         </field>
     </fields>

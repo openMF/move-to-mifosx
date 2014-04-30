@@ -30,6 +30,10 @@ CREATE TABLE `address` (
   CONSTRAINT `fk_address_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/* In MIfos if multiple family members inforamtion is cature 
+   then commment below bloack and un-comment commented block
+*/
+
 DROP TABLE IF EXISTS `relatives`;
 CREATE TABLE `relatives` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -41,6 +45,23 @@ CREATE TABLE `relatives` (
   KEY `fk_client_id` (`client_id`),
   CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*
+DROP TABLE IF EXISTS `relatives`;
+CREATE TABLE `relatives` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `client_id` bigint(20) NOT NULL,
+  `Relationship_cd_Relationship` int(11) DEFAULT NULL,
+  `First Name` varchar(2000) DEFAULT NULL,
+  `Last Name` varchar(2000) DEFAULT NULL,
+  `Gender_cd_Gender` int(11) DEFAULT NULL,
+  `Date Of Birth` date DEFAULT NULL,
+  `LivingStatus_cd_Living Status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_client_id` (`client_id`),
+  CONSTRAINT `fk_relatives_client_id` FOREIGN KEY (`client_id`) REFERENCES `m_client` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+*/
 
 
 DROP TABLE IF EXISTS `luc`;
