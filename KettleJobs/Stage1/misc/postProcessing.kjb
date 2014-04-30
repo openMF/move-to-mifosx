@@ -273,22 +273,6 @@
       <yloc>189</yloc>
       </entry>
     <entry>
-      <name>Add loan cycle counter</name>
-      <description/>
-      <type>SQL</type>
-      <sql>CALL addLoanCycleCounter();</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DestinationDB</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>392</xloc>
-      <yloc>86</yloc>
-      </entry>
-    <entry>
       <name>Loan approved date - change log</name>
       <description/>
       <type>TRANS</type>
@@ -320,11 +304,43 @@
       <xloc>392</xloc>
       <yloc>307</yloc>
       </entry>
+    <entry>
+      <name>Loan counter DB proc</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;loanCounterDBProc.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>393</xloc>
+      <yloc>92</yloc>
+      </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Add loan cycle counter</to>
+      <to>Loan counter DB proc</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -332,7 +348,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Add loan cycle counter</from>
+      <from>Loan counter DB proc</from>
       <to>Loan approved date - change log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
