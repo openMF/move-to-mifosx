@@ -2,7 +2,7 @@ Move To Mifosx
 --------------
 A migration tool to migrate data from Mifos 2.x to Mifos X 1.22.0
 
-### caution!
+### Caution!
 
 Since some of the Mifos feature are not supported in Mifos X, due to this migration may result into inconsitant data in Mifos X. before doing migration please do basic due diligence to see how data from Mifos will fit into Mifos X.
 
