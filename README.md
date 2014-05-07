@@ -53,8 +53,8 @@ DestinationDB/password=****
 
 Edit the file start_data_migration.bat/.sh ( file located under *\move-to-mifosx\KettleJobs\main\ )
 
-SET PDIPATH=<path where PDI tool is located>\data-integration\ Ex:I:\Devspace\opensourcetools\data-integration\
-SET KETTLEPATH=<path where Migration jobs are located>\move-to-mifosx\KettleJobs\  Ex: C:\Users\nayan\Documents\GitHub\move-to-mifosx\KettleJobs\
+* SET PDIPATH=<path where PDI tool is located>\data-integration\ Ex:I:\Devspace\opensourcetools\data-integration\
+* SET KETTLEPATH=<path where Migration jobs are located>\move-to-mifosx\KettleJobs\  Ex: C:\Users\nayan\Documents\GitHub\move-to-mifosx\KettleJobs\
 
 
 ### Run the migration tool
