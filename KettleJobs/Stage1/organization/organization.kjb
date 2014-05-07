@@ -4,11 +4,11 @@
     <description/>
     <extended_description/>
     <job_version/>
-  <directory>&#47;</directory>
+  <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#47;06&#47;14 17:37:09.752</created_date>
+  <created_date>2013&#x2f;06&#x2f;14 17&#x3a;37&#x3a;09.752</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;06&#47;14 17:37:09.752</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;14 17&#x3a;37&#x3a;09.752</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -61,7 +61,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -186,7 +186,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -240,7 +240,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></job-log-table>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
 <jobentry-log-table><connection/>
 <schema/>
 <table/>
@@ -280,7 +280,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;user and staff - both.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;user and staff - both.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -299,12 +299,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>676</xloc>
-      <yloc>359</yloc>
+      <xloc>566</xloc>
+      <yloc>94</yloc>
       </entry>
     <entry>
       <name>Roles</name>
@@ -312,7 +313,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;roles.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;roles.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -331,12 +332,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>671</xloc>
-      <yloc>103</yloc>
+      <xloc>565</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>User roles</name>
@@ -344,7 +346,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;user roles.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;user roles.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -363,12 +365,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>816</xloc>
-      <yloc>359</yloc>
+      <xloc>698</xloc>
+      <yloc>94</yloc>
       </entry>
     <entry>
       <name>Fund</name>
@@ -376,7 +379,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;fund.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;fund.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -395,12 +398,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>831</xloc>
-      <yloc>103</yloc>
+      <xloc>987</xloc>
+      <yloc>94</yloc>
       </entry>
     <entry>
       <name>office</name>
@@ -408,7 +412,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;office.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;office.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -427,12 +431,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>300</xloc>
-      <yloc>100</yloc>
+      <xloc>245</xloc>
+      <yloc>94</yloc>
       </entry>
     <entry>
       <name>Lookup Values</name>
@@ -440,7 +445,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;lookValues.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;lookValues.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -459,12 +464,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>951</xloc>
-      <yloc>103</yloc>
+      <xloc>987</xloc>
+      <yloc>503</yloc>
       </entry>
     <entry>
       <name>Import entity name</name>
@@ -472,7 +478,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;importnewcodes.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importnewcodes.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -491,12 +497,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>956</xloc>
-      <yloc>359</yloc>
+      <xloc>983</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -506,8 +513,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>300</xloc>
-      <yloc>560</yloc>
+      <xloc>245</xloc>
+      <yloc>561</yloc>
       </entry>
     <entry>
       <name>Report Failed Job</name>
@@ -515,12 +522,12 @@
       <type>WRITE_TO_LOG</type>
       <logmessage/>
       <loglevel>Minimal</loglevel>
-      <logsubject>failed ${max_tries} times, time to give up... </logsubject>
+      <logsubject>failed &#x24;&#x7b;max_tries&#x7d; times, time to give up... </logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>300</xloc>
-      <yloc>460</yloc>
+      <xloc>245</xloc>
+      <yloc>461</yloc>
       </entry>
     <entry>
       <name>Set Total Offices</name>
@@ -528,7 +535,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${TOOLHOME}\KettleJobs\Stage1\initializeVaribles\setTotalOffices.ktr</filename>
+      <filename>&#x24;&#x7b;TOOLHOME&#x7d;&#x5c;KettleJobs&#x5c;Stage1&#x5c;initializeVaribles&#x5c;setTotalOffices.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -547,12 +554,13 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>140</xloc>
-      <yloc>100</yloc>
+      <yloc>94</yloc>
       </entry>
     <entry>
       <name>Init</name>
@@ -576,8 +584,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>138</xloc>
-      <yloc>361</yloc>
+      <xloc>140</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>Evaluate rows number in a m_office</name>
@@ -587,7 +595,7 @@
       <schemaname/>
       <tablename>m_office</tablename>
       <success_condition>rows_count_equal</success_condition>
-      <limit>${TotalNumberOfOffices}</limit>
+      <limit>&#x24;&#x7b;TotalNumberOfOffices&#x7d;</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
       <custom_sql/>
@@ -596,24 +604,19 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>100</yloc>
+      <xloc>390</xloc>
+      <yloc>94</yloc>
       </entry>
     <entry>
       <name>increase tries</name>
       <description>JavaScript</description>
       <type>EVAL</type>
-      <script>var attempt = parseInt(parent_job.getVariable(&quot;current_attempt&quot;), 10);
-attempt++;
-parent_job.setVariable(&quot;current_attempt&quot;, attempt);
-
-true;
-</script>
+      <script>var attempt &#x3d; parseInt&#x28;parent_job.getVariable&#x28;&#x22;current_attempt&#x22;&#x29;, 10&#x29;&#x3b;&#xa;attempt&#x2b;&#x2b;&#x3b;&#xa;parent_job.setVariable&#x28;&#x22;current_attempt&#x22;, attempt&#x29;&#x3b;&#xa;&#xa;true&#x3b;&#xa;</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>260</yloc>
+      <xloc>388</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>Report Failed Attempt</name>
@@ -621,23 +624,23 @@ true;
       <type>WRITE_TO_LOG</type>
       <logmessage/>
       <loglevel>Minimal</loglevel>
-      <logsubject>doh... failed for the ${current_attempt}. time ... will try up to ${max_tries} times...</logsubject>
+      <logsubject>doh... failed for the &#x24;&#x7b;current_attempt&#x7d;. time ... will try up to &#x24;&#x7b;max_tries&#x7d; times...</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>360</yloc>
+      <xloc>392</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
-      <name>should retry?</name>
+      <name>should retry&#x3f;</name>
       <description>Simple evaluation</description>
       <type>SIMPLE_EVAL</type>
       <valuetype>variable</valuetype>
       <fieldname/>
-      <variablename>${current_attempt}</variablename>
+      <variablename>&#x24;&#x7b;current_attempt&#x7d;</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
-      <comparevalue>${max_tries}</comparevalue>
+      <comparevalue>&#x24;&#x7b;max_tries&#x7d;</comparevalue>
       <minvalue/>
       <maxvalue/>
       <successcondition>different</successcondition>
@@ -647,8 +650,8 @@ true;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>300</xloc>
-      <yloc>360</yloc>
+      <xloc>245</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>wait a while</name>
@@ -659,8 +662,107 @@ true;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>300</xloc>
-      <yloc>240</yloc>
+      <xloc>245</xloc>
+      <yloc>230</yloc>
+      </entry>
+    <entry>
+      <name>Permission Activity mapping</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;permission_activity_mapping.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>698</xloc>
+      <yloc>320</yloc>
+      </entry>
+    <entry>
+      <name>Stage role activities</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;stage_role_activities.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>861</xloc>
+      <yloc>94</yloc>
+      </entry>
+    <entry>
+      <name>Role permission</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;roles_permissions.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>856</xloc>
+      <yloc>320</yloc>
       </entry>
   </entries>
   <hops>
@@ -676,15 +778,6 @@ true;
     <hop>
       <from>Roles</from>
       <to>User roles</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>User roles</from>
-      <to>Fund</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -783,7 +876,7 @@ true;
     </hop>
     <hop>
       <from>Report Failed Attempt</from>
-      <to>should retry?</to>
+      <to>should retry&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -791,7 +884,7 @@ true;
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>should retry?</from>
+      <from>should retry&#x3f;</from>
       <to>wait a while</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -809,7 +902,7 @@ true;
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>should retry?</from>
+      <from>should retry&#x3f;</from>
       <to>Report Failed Job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -817,7 +910,44 @@ true;
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>User roles</from>
+      <to>Permission Activity mapping</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Permission Activity mapping</from>
+      <to>Stage role activities</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Stage role activities</from>
+      <to>Role permission</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Role permission</from>
+      <to>Fund</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
   </notepads>
+
 </job>

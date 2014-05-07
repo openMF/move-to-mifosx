@@ -34,3 +34,15 @@ CREATE TABLE `stage1_acc_product_mapping` (
   `product_type` smallint(5) DEFAULT NULL,
   `financial_account_type` smallint(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `stage1_roles_activity` (
+	`ACTIVITY_ID` SMALLINT(6) NOT NULL,
+	`ROLE_ID` SMALLINT(6) NOT NULL,
+	PRIMARY KEY (`ACTIVITY_ID`, `ROLE_ID`),
+	INDEX `ROLE_ID` (`ROLE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `stage1_activity_mapping` (
+	`ACTIVITY_ID` SMALLINT(6) NOT NULL,
+	`PERMISSION_ID` SMALLINT(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
