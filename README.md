@@ -4,13 +4,13 @@ A migration tool to migrate data from Mifos 2.x to Mifos X 1.22.0
 
 ### Caution!
 
-Since some of the Mifos feature are not supported in Mifos X, due to this migration may result into inconsitant data in Mifos X. before doing migration please do basic due diligence to see how data from Mifos will fit into Mifos X.
+Since some of the Mifos feature are not supported in Mifos X, And if you are using these features then migration may result into inconsitant data for thoese features in Mifos X. before doing migration please do basic due diligence to see how data from Mifos will fit into Mifos X.
 
 Some of them are listed here
 
-1) Mifos has loan product declining balance interest recalculation but not supported in Mifos X
-2) Mifos has interest compounding frequency in n * days or n * months where as Mifos X has only daily or Monthly
-3) Mifos has interest posting frequency in n * days or n * months where as Mifos X has only Monthly / Quarterly / Yearly
+* Mifos has loan product declining balance interest recalculation but not supported in Mifos X
+* Mifos has interest compounding frequency in n * days or n * months where as Mifos X has only Daily / Monthly / Quarterly / Yearly
+* Mifos has interest posting frequency in n * days or n * months where as Mifos X has only Monthly / Quarterly / Yearly
 
 So migration tool will put nearest/garbage values if it finds any un-supported feature or values in Mifos.
 
