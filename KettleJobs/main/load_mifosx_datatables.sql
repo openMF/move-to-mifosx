@@ -31,7 +31,10 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /* In MIfos if multiple family members inforamtion is cature 
-   then commment below bloack and un-comment commented block
+   then commment below block and un-comment commented block
+   
+   i.e., If AreFamilyDetailsRequired=true
+   
 */
 
 DROP TABLE IF EXISTS `relatives`;
