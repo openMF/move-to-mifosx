@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#47;</directory>
+    <directory>&#x2f;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,6 +33,11 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -61,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;03&#47;23 13:36:41.567</created_date>
+  <created_date>2014&#x2f;03&#x2f;23 13&#x3a;36&#x3a;41.567</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;03&#47;23 13:36:41.567</modified_date>
+  <modified_date>2014&#x2f;03&#x2f;23 13&#x3a;36&#x3a;41.567</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -92,7 +97,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -117,7 +122,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -139,50 +144,22 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Saving Products</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>interest calculation type mapping</from><to>Output Savings Product</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Input Saving Products</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>
+  <hop> <from>interest calculation type mapping</from><to>Output Savings Product</to><enabled>Y</enabled> </hop>
+  </order>
   <step>
     <name>Input Saving Products</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT
-po.PRD_OFFERING_ID As id
-, po.PRD_OFFERING_NAME As name
-, po.PRD_OFFERING_SHORT_NAME As short_name
-, IFNULL( IF(po.DESCRIPTION = &apos;&apos; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  ) , po.PRD_OFFERING_NAME ) As description
-, &apos;INR&apos; As currency_code
-, 2 As currency_digits
-, 0 As currency_multiplesof
-, so.interest_rate As nominal_annual_interest_rate
-, CASE 
-       WHEN ( rd_ip.recur_after * IF( rd_ip.RECURRENCE_ID = 1 , 7 , IF( rd_ip.RECURRENCE_ID = 2 , 30 , 1))) = 1 THEN 1 -- Daily
-       WHEN ( rd_ip.recur_after * IF( rd_ip.RECURRENCE_ID = 1 , 7 , IF( rd_ip.RECURRENCE_ID = 2 , 30 , 1))) &gt; 1 THEN 4 -- Monthly
-       ELSE 1  -- Defualted to Monthly 
-  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID [ 1 Week(s) 2 &#47; Month(s) 3 &#47; Day(s) ]
-, CASE
-	WHEN 31 &gt;= (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) AND (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) &gt; 27 THEN 4 -- Monthly
-	WHEN 100 &gt;= (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) AND (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) &gt; 80 THEN 5 -- Quarterly
-	WHEN 370 &gt;= (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) AND (rd_ic.recur_after * IF( rd_ic.RECURRENCE_ID = 1 , 7 , IF( rd_ic.RECURRENCE_ID = 2 , 30 , 1))) &gt; 350 THEN 7 -- Annually
-	ELSE 7 -- Defualt to yearly
-  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID [ 1 Week(s) 2 &#47; Month(s) 3 &#47; Day(s) ]
-, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 = Daily balance 2 = Daily average balance
-, 360 AS interest_calculation_days_in_year__type_enum
-, so.recommended_amount AS min_required_opening_balance
-, ${ACCT_TYPE} AS accounting_type
-FROM prd_offering po 
-INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID = po.PRD_OFFERING_ID
-INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id = po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id = 3 -- Savings Frequency of Interest Posting to Accounts
-INNER JOIN  meeting mt_ip ON mt_ip.meeting_id = pom_ip.prd_meeting_id AND mt_ip.meeting_type_id = 3 -- Savings Frequency of Interest Posting to Accounts
-INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id = mt_ip.meeting_id
-INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id = po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id = 2 -- Savings Time Period for Interest Calculation
-INNER JOIN  meeting mt_ic ON mt_ic.meeting_id = pom_ic.prd_meeting_id AND mt_ic.meeting_type_id = 2 -- Savings Time Period for Interest Calculation
-INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
+    <sql>SELECT&#xa;po.PRD_OFFERING_ID As id&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, IFNULL&#x28; IF&#x28;po.DESCRIPTION &#x3d; &#x27;&#x27; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  &#x29; , po.PRD_OFFERING_NAME &#x29; As description&#xa;, &#x27;INR&#x27; As currency_code&#xa;, 2 As currency_digits&#xa;, 0 As currency_multiplesof&#xa;, so.interest_rate As nominal_annual_interest_rate&#xa;, CASE &#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3d; 1 THEN 1 -- Daily&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 31 THEN 4 -- Monthly&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 100 THEN 5 -- Quaterly&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 190 THEN 6 -- Bi-annualy&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 370 THEN 7 -- Annualy&#xd;&#xa;&#xd;&#xa;       ELSE 1  -- Defualted to Monthly &#xa;  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, CASE&#xa;	WHEN 31 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 THEN 4 -- Monthly&#xa;	WHEN 100 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 THEN 5 -- Quarterly&#xa;	WHEN 190 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 THEN 5 -- Bi-Annually&#xd;&#xa;	WHEN 370 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 THEN 7 -- Annually&#xa;	ELSE 7 -- Defualt to yearly&#xa;  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 &#x3d; Daily balance 2 &#x3d; Daily average balance&#xa;, 360 AS interest_calculation_days_in_year__type_enum&#xa;, so.recommended_amount AS min_required_opening_balance&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; AS accounting_type&#xa;FROM prd_offering po &#xa;INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID&#xa;INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  meeting mt_ip ON mt_ip.meeting_id &#x3d; pom_ip.prd_meeting_id AND mt_ip.meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id &#x3d; mt_ip.meeting_id&#xa;INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  meeting mt_ic ON mt_ic.meeting_id &#x3d; pom_ic.prd_meeting_id AND mt_ic.meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id &#x3d; mt_ic.meeting_id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -190,8 +167,8 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>351</xloc>
-      <yloc>210</yloc>
+      <xloc>220</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -201,6 +178,7 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -283,8 +261,8 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>504</xloc>
-      <yloc>342</yloc>
+      <xloc>681</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -294,6 +272,7 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -314,8 +293,8 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>504</xloc>
-      <yloc>86</yloc>
+      <xloc>457</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -325,4 +304,5 @@ INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id = mt_ic.meeting_id</sql>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
+
 </transformation>
