@@ -158,6 +158,11 @@
           <variable_value>2</variable_value>
           <variable_type>JVM</variable_type>
         </field>
+        <field>
+          <variable_name>FAMILY_DETAILS_REQUIRED</variable_name>
+          <variable_value>1</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
