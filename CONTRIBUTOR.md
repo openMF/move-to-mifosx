@@ -1,4 +1,4 @@
-# List of contributors
+### List of contributors
 
   * Nayan Ambali (nayan.ambaliATgmail.com)
   * Goutham M
@@ -6,6 +6,6 @@
   * Binny Gopinath (binny.gopinathATgmail.com)
   * Pooja Mudegowdru (poojaATconfluxtechnologies.com)
  
-# Special thanks
+### Special thanks
 
   * Patrick Asare-Frimpong (patasafriATyahoo.com)
