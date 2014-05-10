@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#47;</directory>
+    <directory>&#x2f;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,6 +33,11 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -61,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;06&#47;14 18:36:26.745</created_date>
+  <created_date>2013&#x2f;06&#x2f;14 18&#x3a;36&#x3a;26.745</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;06&#47;14 18:36:26.745</modified_date>
+  <modified_date>2013&#x2f;06&#x2f;14 18&#x3a;36&#x3a;26.745</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -90,7 +95,7 @@
     <name>DestinatioDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinatioDB</database>
     <port>3306</port>
     <username/>
@@ -115,7 +120,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -140,7 +145,7 @@
     <name>DestinationDBPilot</name>
     <server/>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDBPilot</database>
     <port>1521</port>
     <username/>
@@ -165,7 +170,7 @@
     <name>DestinationDBtest</name>
     <server/>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDBtest</database>
     <port>1521</port>
     <username/>
@@ -290,7 +295,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -337,62 +342,22 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Loan Products</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Interest method mapper</from><to>Output Loan Products</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Input Loan Products</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>
+  <hop> <from>Interest method mapper</from><to>Output Loan Products</to><enabled>Y</enabled> </hop>
+  </order>
   <step>
     <name>Input Loan Products</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT
-  po.PRD_OFFERING_ID As id
-, &apos;INR&apos; As currency_code
-, 2 As currency_digits
-, laa.DEFAULT_LOAN_AMOUNT As principal_amount
-, laa.MIN_LOAN_AMOUNT As min_principal_amount
-, laa.MAX_LOAN_AMNT As max_principal_amount
-, 0 As arrearstolerance_amount
-, po.PRD_OFFERING_NAME As name
-, po.PRD_OFFERING_SHORT_NAME As short_name
-, po.DESCRIPTION As description
-, null  As fund_id
-, lo.DEF_INTEREST_RATE As 	nominal_interest_rate_per_period
-, lo.MIN_INTEREST_RATE As 	min_nominal_interest_rate_per_period
-, lo.MAX_INTEREST_RATE As 	max_nominal_interest_rate_per_period
-, 3 As 	interest_period_frequency_enum -- Per year
-, lo.DEF_INTEREST_RATE As 	annual_nominal_interest_rate
-, lo.INTEREST_TYPE_ID As 	interest_method_enum
-, 1 As 	interest_calculated_in_period_enum  -- Same as repayment period
-, rd.RECUR_AFTER As 	repay_every
-, rd.RECURRENCE_ID As 	repayment_period_frequency_enum
-, IF(lo.GRACEPERIOD_TYPE_ID = 2 OR (lo.GRACEPERIOD_TYPE_ID = 3 AND lo.MAX_INTEREST_RATE = 0 ) , nl.DEFAULT_NO_INSTALL + lo.GRACE_PERIOD_DURATION , nl.DEFAULT_NO_INSTALL ) As 	number_of_repayments
-, IF(lo.GRACEPERIOD_TYPE_ID = 2 OR (lo.GRACEPERIOD_TYPE_ID = 3 AND lo.MAX_INTEREST_RATE = 0 ) , nl.MIN_NO_INSTALL + lo.GRACE_PERIOD_DURATION , nl.MIN_NO_INSTALL ) As 	min_number_of_repayments
-, IF(lo.GRACEPERIOD_TYPE_ID = 2 OR (lo.GRACEPERIOD_TYPE_ID = 3 AND lo.MAX_INTEREST_RATE = 0 ) , nl.MAX_NO_INSTALL + lo.GRACE_PERIOD_DURATION , nl.MAX_NO_INSTALL ) As 	max_number_of_repayments
-, if(lo.GRACEPERIOD_TYPE_ID = 2 OR lo.GRACEPERIOD_TYPE_ID = 3 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_principal_periods
-, if(lo.GRACEPERIOD_TYPE_ID = 2 , lo.GRACE_PERIOD_DURATION , NULL ) As 	grace_on_interest_periods
-, NULL As 	grace_interest_free_periods
-, 1 As 	amortization_method_enum
-, ${ACCT_TYPE} As 	accounting_type
-, 1 As 	loan_transaction_strategy_id -- Mifos Style
-, po.GLOBAL_PRD_OFFERING_NUM As 	external_id
-, loan_counter_flag As include_in_borrower_cycle
-, prd.start_date As start_date
-, if(prd.end_date &lt;&gt; NULL , prd.end_date , if(prd.offering_status_id = 1 , NULL , prd.updated_date ))  As close_date
-, 0 As currency_multiplesof
-FROM prd_offering po 
-JOIN loan_offering lo ON lo.PRD_OFFERING_ID = po.PRD_OFFERING_ID
-JOIN prd_offering prd ON prd.prd_offering_id = lo.prd_offering_id
-LEFT JOIN loan_amount_same_for_all_loan laa ON laa.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
-JOIN prd_offering_meeting pom ON pom.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
-JOIN meeting me ON me.MEETING_ID = pom.PRD_MEETING_ID
-JOIN recurrence_detail rd ON rd.MEETING_ID = me.MEETING_ID
-JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING_ID
-</sql>
+    <sql>SELECT&#xa;  po.PRD_OFFERING_ID As id&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xa;, 2 As currency_digits&#xa;, laa.DEFAULT_LOAN_AMOUNT As principal_amount&#xa;, laa.MIN_LOAN_AMOUNT As min_principal_amount&#xa;, laa.MAX_LOAN_AMNT As max_principal_amount&#xa;, 0 As arrearstolerance_amount&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, po.DESCRIPTION As description&#xa;, null  As fund_id&#xa;, lo.DEF_INTEREST_RATE As 	nominal_interest_rate_per_period&#xa;, lo.MIN_INTEREST_RATE As 	min_nominal_interest_rate_per_period&#xa;, lo.MAX_INTEREST_RATE As 	max_nominal_interest_rate_per_period&#xa;, 3 As 	interest_period_frequency_enum -- Per year&#xa;, lo.DEF_INTEREST_RATE As 	annual_nominal_interest_rate&#xa;, lo.INTEREST_TYPE_ID As 	interest_method_enum&#xa;, 1 As 	interest_calculated_in_period_enum  -- Same as repayment period&#xa;, rd.RECUR_AFTER As 	repay_every&#xa;, rd.RECURRENCE_ID As 	repayment_period_frequency_enum&#xa;, IF&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 OR &#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 3 AND lo.MAX_INTEREST_RATE &#x3d; 0 &#x29; , nl.DEFAULT_NO_INSTALL &#x2b; lo.GRACE_PERIOD_DURATION , nl.DEFAULT_NO_INSTALL &#x29; As 	number_of_repayments&#xa;, IF&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 OR &#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 3 AND lo.MAX_INTEREST_RATE &#x3d; 0 &#x29; , nl.MIN_NO_INSTALL &#x2b; lo.GRACE_PERIOD_DURATION , nl.MIN_NO_INSTALL &#x29; As 	min_number_of_repayments&#xa;, IF&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 OR &#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 3 AND lo.MAX_INTEREST_RATE &#x3d; 0 &#x29; , nl.MAX_NO_INSTALL &#x2b; lo.GRACE_PERIOD_DURATION , nl.MAX_NO_INSTALL &#x29; As 	max_number_of_repayments&#xa;, if&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 OR lo.GRACEPERIOD_TYPE_ID &#x3d; 3 , lo.GRACE_PERIOD_DURATION , NULL &#x29; As 	grace_on_principal_periods&#xa;, if&#x28;lo.GRACEPERIOD_TYPE_ID &#x3d; 2 , lo.GRACE_PERIOD_DURATION , NULL &#x29; As 	grace_on_interest_periods&#xa;, NULL As 	grace_interest_free_periods&#xa;, 1 As 	amortization_method_enum&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; As 	accounting_type&#xa;, 1 As 	loan_transaction_strategy_id -- Mifos Style&#xa;, po.GLOBAL_PRD_OFFERING_NUM As 	external_id&#xa;, loan_counter_flag As include_in_borrower_cycle&#xa;, prd.start_date As start_date&#xa;, if&#x28;prd.end_date &#x3c;&#x3e; NULL , prd.end_date , if&#x28;prd.offering_status_id &#x3d; 1 , NULL , prd.updated_date &#x29;&#x29;  As close_date&#xa;, 0 As currency_multiplesof&#xa;FROM prd_offering po &#xa;JOIN loan_offering lo ON lo.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID&#xa;JOIN prd_offering prd ON prd.prd_offering_id &#x3d; lo.prd_offering_id&#xa;LEFT JOIN loan_amount_same_for_all_loan laa ON laa.PRD_OFFERING_ID &#x3d; lo.PRD_OFFERING_ID&#xa;JOIN prd_offering_meeting pom ON pom.PRD_OFFERING_ID &#x3d; lo.PRD_OFFERING_ID&#xa;JOIN meeting me ON me.MEETING_ID &#x3d; pom.PRD_MEETING_ID&#xa;JOIN recurrence_detail rd ON rd.MEETING_ID &#x3d; me.MEETING_ID&#xa;JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID &#x3d; lo.PRD_OFFERING_ID&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -411,6 +376,7 @@ JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -450,6 +416,7 @@ JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -623,4 +590,5 @@ JOIN no_of_install_same_for_all_loan nl ON  nl.PRD_OFFERING_ID = lo.PRD_OFFERING
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
+
 </transformation>

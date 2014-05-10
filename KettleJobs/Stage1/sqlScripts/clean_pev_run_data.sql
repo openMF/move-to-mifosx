@@ -29,5 +29,7 @@ TRUNCATE `m_client_attendance`;
 TRUNCATE `m_role_permission`;
 TRUNCATE `m_deposit_product_recurring_detail`;
 TRUNCATE `m_deposit_product_term_and_preclosure`;
+TRUNCATE `m_interest_rate_chart`;
+TRUNCATE `m_deposit_product_interest_rate_chart`;
 
 SET foreign_key_checks = 1;
