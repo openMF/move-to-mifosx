@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>savingproducts</name>
+    <name>recurring_products</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,33 +66,12 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;03&#x2f;23 13&#x3a;36&#x3a;41.567</created_date>
+  <created_date>2014&#x2f;05&#x2f;09 11&#x3a;17&#x3a;25.689</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;03&#x2f;23 13&#x3a;36&#x3a;41.567</modified_date>
+  <modified_date>2014&#x2f;05&#x2f;09 11&#x3a;17&#x3a;25.689</modified_date>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>AgileBI</name>
-    <server>localhost</server>
-    <type>MONETDB</type>
-    <access>Native</access>
-    <database>pentaho-instaview</database>
-    <port>50000</port>
-    <username>monetdb</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>DestinationDB</name>
     <server>localhost</server>
@@ -144,11 +123,71 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Saving Products</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>interest calculation type mapping</from><to>Output Savings Product</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input recurring Products</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>
+  <hop> <from>interest calculation type mapping</from><to>Output recurring Product</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output recurring Product</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants</from><to>Table  recurring details</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table  recurring details</from><to>Table  term and preclosure</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Input Saving Products</name>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>is_mandatory</name>
+        <type>Binary</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>allow_withdrawal</name>
+        <type>Binary</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>adjust_advance_towards_future_payments</name>
+        <type>Binary</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>441</xloc>
+      <yloc>151</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Input recurring Products</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -159,7 +198,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xa;po.PRD_OFFERING_ID As id&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, IFNULL&#x28; IF&#x28;po.DESCRIPTION &#x3d; &#x27;&#x27; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  &#x29; , po.PRD_OFFERING_NAME &#x29; As description&#xa;, &#x27;INR&#x27; As currency_code&#xa;, 2 As currency_digits&#xa;, 0 As currency_multiplesof&#xa;, so.interest_rate As nominal_annual_interest_rate&#xa;, CASE &#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3d; 1 THEN 1 -- Daily&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 31 THEN 4 -- Monthly&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 100 THEN 5 -- Quaterly&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 190 THEN 6 -- Bi-annualy&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 370 THEN 7 -- Annualy&#xd;&#xa;&#xd;&#xa;       ELSE 1  -- Defualted to Monthly &#xa;  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, CASE&#xa;	WHEN 31 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 THEN 4 -- Monthly&#xa;	WHEN 100 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 THEN 5 -- Quarterly&#xa;	WHEN 190 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 THEN 5 -- Bi-Annually&#xd;&#xa;	WHEN 370 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 THEN 7 -- Annually&#xa;	ELSE 7 -- Defualt to yearly&#xa;  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 &#x3d; Daily balance 2 &#x3d; Daily average balance&#xa;, 360 AS interest_calculation_days_in_year__type_enum&#xa;, so.recommended_amount AS min_required_opening_balance&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; AS accounting_type&#xa;FROM prd_offering po &#xa;INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID  AND so.SAVINGS_TYPE_ID &#x3d; 2 -- volunteer savings&#xa;INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  meeting mt_ip ON mt_ip.meeting_id &#x3d; pom_ip.prd_meeting_id AND mt_ip.meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id &#x3d; mt_ip.meeting_id&#xa;INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  meeting mt_ic ON mt_ic.meeting_id &#x3d; pom_ic.prd_meeting_id AND mt_ic.meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id &#x3d; mt_ic.meeting_id</sql>
+    <sql>SELECT&#xa;po.PRD_OFFERING_ID As id&#xd;&#xa;, 300 As deposit_type_enum  -- As RD account&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, IFNULL&#x28; IF&#x28;po.DESCRIPTION &#x3d; &#x27;&#x27; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  &#x29; , po.PRD_OFFERING_NAME &#x29; As description&#xa;, &#x27;INR&#x27; As currency_code&#xa;, 2 As currency_digits&#xa;, 0 As currency_multiplesof&#xa;, so.interest_rate As nominal_annual_interest_rate&#xa;, CASE &#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3d; 1 THEN 1 -- Daily&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 31 THEN 4 -- Monthly&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 100 THEN 5 -- Quaterly&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 190 THEN 6 -- Bi-annualy&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 370 THEN 7 -- Annualy&#xd;&#xa;&#xd;&#xa;       ELSE 1  -- Defualted to Monthly &#xa;  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, CASE&#xa;	WHEN 31 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 THEN 4 -- Monthly&#xa;	WHEN 100 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 THEN 5 -- Quarterly&#xa;	WHEN 190 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 THEN 5 -- Bi-Annually&#xd;&#xa;	WHEN 370 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 THEN 7 -- Annually&#xa;	ELSE 7 -- Defualt to yearly&#xa;  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 &#x3d; Daily balance 2 &#x3d; Daily average balance&#xa;, 360 AS interest_calculation_days_in_year__type_enum&#xa;, so.recommended_amount AS min_required_opening_balance&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; AS accounting_type&#xa;FROM prd_offering po &#xa;INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID AND so.SAVINGS_TYPE_ID &#x3d; 1 -- mandatoring savings&#xa;INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  meeting mt_ip ON mt_ip.meeting_id &#x3d; pom_ip.prd_meeting_id AND mt_ip.meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id &#x3d; mt_ip.meeting_id&#xa;INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  meeting mt_ic ON mt_ic.meeting_id &#x3d; pom_ic.prd_meeting_id AND mt_ic.meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id &#x3d; mt_ic.meeting_id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -167,14 +206,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>220</xloc>
-      <yloc>239</yloc>
+      <xloc>203</xloc>
+      <yloc>145</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Output Savings Product</name>
+    <name>Output recurring Product</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -258,11 +297,111 @@
           <column_name>interest_calculation_type_enum</column_name>
           <stream_name>interest_calculation_type_enum</stream_name>
         </field>
+        <field>
+          <column_name>deposit_type_enum</column_name>
+          <stream_name>deposit_type_enum</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>681</xloc>
-      <yloc>240</yloc>
+      <xloc>344</xloc>
+      <yloc>239</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table  recurring details</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_deposit_product_recurring_detail</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>savings_product_id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>is_mandatory</column_name>
+          <stream_name>is_mandatory</stream_name>
+        </field>
+        <field>
+          <column_name>allow_withdrawal</column_name>
+          <stream_name>allow_withdrawal</stream_name>
+        </field>
+        <field>
+          <column_name>adjust_advance_towards_future_payments</column_name>
+          <stream_name>adjust_advance_towards_future_payments</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>542</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table  term and preclosure</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_deposit_product_term_and_preclosure</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>savings_product_id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>543</xloc>
+      <yloc>241</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,8 +432,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>457</xloc>
-      <yloc>240</yloc>
+      <xloc>343</xloc>
+      <yloc>55</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

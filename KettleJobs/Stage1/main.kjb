@@ -145,12 +145,12 @@
       <fields>
         <field>
           <variable_name>TOOLHOME</variable_name>
-          <variable_value>E&#x3a;&#x5c;move-to-mifosx</variable_value>
+          <variable_value>E&#x3a;&#x5c;Projects&#x5c;Clients&#x5c;secdep&#x5c;mifosx_migration&#x5c;move-to-mifosx</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>CUR</variable_name>
-          <variable_value>INR</variable_value>
+          <variable_value>&#x22;INR&#x22;</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
