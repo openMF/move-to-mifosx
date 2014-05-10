@@ -27,5 +27,7 @@ TRUNCATE `m_organisation_currency`;
 TRUNCATE `m_meeting`;
 TRUNCATE `m_client_attendance`;
 TRUNCATE `m_role_permission`;
+TRUNCATE `m_deposit_product_recurring_detail`;
+TRUNCATE `m_deposit_product_term_and_preclosure`;
 
 SET foreign_key_checks = 1;
