@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>savingproducts</name>
+    <name>mandatory_savings_schedule</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,33 +66,12 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;03&#x2f;23 13&#x3a;36&#x3a;41.567</created_date>
+  <created_date>2014&#x2f;05&#x2f;12 10&#x3a;38&#x3a;31.930</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;03&#x2f;23 13&#x3a;36&#x3a;41.567</modified_date>
+  <modified_date>2014&#x2f;05&#x2f;12 10&#x3a;38&#x3a;31.930</modified_date>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>AgileBI</name>
-    <server>localhost</server>
-    <type>MONETDB</type>
-    <access>Native</access>
-    <database>pentaho-instaview</database>
-    <port>50000</port>
-    <username>monetdb</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>DestinationDB</name>
     <server>localhost</server>
@@ -144,11 +123,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Saving Products</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>interest calculation type mapping</from><to>Output Savings Product</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input savings schedule</from><to>Table mandatory savings schedule</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Input Saving Products</name>
+    <name>Input savings schedule</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -159,22 +137,22 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xa;po.PRD_OFFERING_ID As id&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, IFNULL&#x28; IF&#x28;po.DESCRIPTION &#x3d; &#x27;&#x27; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  &#x29; , po.PRD_OFFERING_NAME &#x29; As description&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xa;, 2 As currency_digits&#xa;, 0 As currency_multiplesof&#xa;, so.interest_rate As nominal_annual_interest_rate&#xa;, CASE &#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3d; 1 THEN 1 -- Daily&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 31 THEN 4 -- Monthly&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 100 THEN 5 -- Quaterly&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 190 THEN 6 -- Bi-annualy&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 370 THEN 7 -- Annualy&#xd;&#xa;&#xd;&#xa;       ELSE 1  -- Defualted to Monthly &#xa;  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, CASE&#xa;	WHEN 31 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 THEN 4 -- Monthly&#xa;	WHEN 100 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 THEN 5 -- Quarterly&#xa;	WHEN 190 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 THEN 5 -- Bi-Annually&#xd;&#xa;	WHEN 370 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 THEN 7 -- Annually&#xa;	ELSE 7 -- Defualt to yearly&#xa;  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 &#x3d; Daily balance 2 &#x3d; Daily average balance&#xa;, 360 AS interest_calculation_days_in_year__type_enum&#xa;, so.recommended_amount AS min_required_opening_balance&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; AS accounting_type&#xa;FROM prd_offering po &#xa;INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID  AND so.SAVINGS_TYPE_ID &#x3d; 2 -- volunteer savings&#xa;INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  meeting mt_ip ON mt_ip.meeting_id &#x3d; pom_ip.prd_meeting_id AND mt_ip.meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id &#x3d; mt_ip.meeting_id&#xa;INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  meeting mt_ic ON mt_ic.meeting_id &#x3d; pom_ic.prd_meeting_id AND mt_ic.meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id &#x3d; mt_ic.meeting_id</sql>
+    <sql>SELECT &#xd;&#xa;ss.ACCOUNT_ID AS savings_account_id,&#xd;&#xa;NULL AS fromdate,&#xd;&#xa;ss.PAYMENT_DATE AS duedate,&#xd;&#xa;ss.INSTALLMENT_ID AS installment,&#xd;&#xa;ss.DEPOSIT AS deposit_amount,&#xd;&#xa;ss.DEPOSIT_PAID AS deposit_amount_completed_derived,&#xd;&#xa;NULL As total_paid_in_advance_derived,&#xd;&#xa;NULL As total_paid_late_derived,&#xd;&#xa;ss.PAYMENT_STATUS As completed_derived,&#xd;&#xa;ss.PAYMENT_DATE As obligations_met_on_date,&#xd;&#xa;NULL As createdby_id,&#xd;&#xa;NULL As created_date,&#xd;&#xa;NULL As lastmodified_date,&#xd;&#xa;NULL As lastmodifiedby_id &#xd;&#xa;FROM&#xd;&#xa;saving_schedule ss</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>220</xloc>
-      <yloc>239</yloc>
+      <xloc>333</xloc>
+      <yloc>244</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Output Savings Product</name>
+    <name>Table mandatory savings schedule</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -186,7 +164,7 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_savings_product</table>
+    <table>m_mandatory_savings_schedule</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -203,98 +181,66 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
+          <column_name>savings_account_id</column_name>
+          <stream_name>savings_account_id</stream_name>
         </field>
         <field>
-          <column_name>name</column_name>
-          <stream_name>name</stream_name>
+          <column_name>fromdate</column_name>
+          <stream_name>fromdate</stream_name>
         </field>
         <field>
-          <column_name>short_name</column_name>
-          <stream_name>short_name</stream_name>
+          <column_name>duedate</column_name>
+          <stream_name>duedate</stream_name>
         </field>
         <field>
-          <column_name>description</column_name>
-          <stream_name>description</stream_name>
+          <column_name>installment</column_name>
+          <stream_name>installment</stream_name>
         </field>
         <field>
-          <column_name>currency_code</column_name>
-          <stream_name>currency_code</stream_name>
+          <column_name>deposit_amount</column_name>
+          <stream_name>deposit_amount</stream_name>
         </field>
         <field>
-          <column_name>currency_digits</column_name>
-          <stream_name>currency_digits</stream_name>
+          <column_name>deposit_amount_completed_derived</column_name>
+          <stream_name>deposit_amount_completed_derived</stream_name>
         </field>
         <field>
-          <column_name>currency_multiplesof</column_name>
-          <stream_name>currency_multiplesof</stream_name>
+          <column_name>total_paid_in_advance_derived</column_name>
+          <stream_name>total_paid_in_advance_derived</stream_name>
         </field>
         <field>
-          <column_name>nominal_annual_interest_rate</column_name>
-          <stream_name>nominal_annual_interest_rate</stream_name>
+          <column_name>total_paid_late_derived</column_name>
+          <stream_name>total_paid_late_derived</stream_name>
         </field>
         <field>
-          <column_name>interest_compounding_period_enum</column_name>
-          <stream_name>interest_compounding_period_enum</stream_name>
+          <column_name>completed_derived</column_name>
+          <stream_name>completed_derived</stream_name>
         </field>
         <field>
-          <column_name>interest_posting_period_enum</column_name>
-          <stream_name>interest_posting_period_enum</stream_name>
+          <column_name>obligations_met_on_date</column_name>
+          <stream_name>obligations_met_on_date</stream_name>
         </field>
         <field>
-          <column_name>interest_calculation_days_in_year_type_enum</column_name>
-          <stream_name>interest_calculation_days_in_year__type_enum</stream_name>
+          <column_name>createdby_id</column_name>
+          <stream_name>createdby_id</stream_name>
         </field>
         <field>
-          <column_name>min_required_opening_balance</column_name>
-          <stream_name>min_required_opening_balance</stream_name>
+          <column_name>created_date</column_name>
+          <stream_name>created_date</stream_name>
         </field>
         <field>
-          <column_name>accounting_type</column_name>
-          <stream_name>accounting_type</stream_name>
+          <column_name>lastmodified_date</column_name>
+          <stream_name>lastmodified_date</stream_name>
         </field>
         <field>
-          <column_name>interest_calculation_type_enum</column_name>
-          <stream_name>interest_calculation_type_enum</stream_name>
+          <column_name>lastmodifiedby_id</column_name>
+          <stream_name>lastmodifiedby_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>681</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>interest calculation type mapping</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>interest_calculation_type_enum</field_to_use>
-    <target_field/>
-    <non_match_default>1</non_match_default>
-    <fields>
-      <field>
-        <source_value>122</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>123</source_value>
-        <target_value>1</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>457</xloc>
-      <yloc>240</yloc>
+      <xloc>596</xloc>
+      <yloc>244</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
