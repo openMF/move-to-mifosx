@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -129,7 +130,9 @@
   <hop> <from>Add constants</from><to>Table  recurring details</to><enabled>Y</enabled> </hop>
   <hop> <from>Table  recurring details</from><to>Table  term and preclosure</to><enabled>Y</enabled> </hop>
   <hop> <from>Table  term and preclosure</from><to>Table interest rate chart</to><enabled>Y</enabled> </hop>
-  <hop> <from>Table interest rate chart</from><to>Table deposit product interest rate chart</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table  interest rate slab</from><to>Table deposit product interest rate chart</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table interest rate chart</from><to>interest rate slab</to><enabled>Y</enabled> </hop>
+  <hop> <from>interest rate slab</from><to>Table  interest rate slab</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -182,8 +185,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>441</xloc>
-      <yloc>151</yloc>
+      <xloc>320</xloc>
+      <yloc>218</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -200,7 +203,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xa;po.PRD_OFFERING_ID As id&#xd;&#xa;, 300 As deposit_type_enum  -- As RD account&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, IFNULL&#x28; IF&#x28;po.DESCRIPTION &#x3d; &#x27;&#x27; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  &#x29; , po.PRD_OFFERING_NAME &#x29; As description&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xa;, 2 As currency_digits&#xa;, 0 As currency_multiplesof&#xa;, so.interest_rate As nominal_annual_interest_rate&#xa;, CASE &#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3d; 1 THEN 1 -- Daily&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 31 THEN 4 -- Monthly&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 100 THEN 5 -- Quaterly&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 190 THEN 6 -- Bi-annualy&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 370 THEN 7 -- Annualy&#xd;&#xa;&#xd;&#xa;       ELSE 1  -- Defualted to Monthly &#xa;  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, CASE&#xa;	WHEN 31 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 THEN 4 -- Monthly&#xa;	WHEN 100 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 THEN 5 -- Quarterly&#xa;	WHEN 190 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 THEN 5 -- Bi-Annually&#xd;&#xa;	WHEN 370 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 THEN 7 -- Annually&#xa;	ELSE 7 -- Defualt to yearly&#xa;  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 &#x3d; Daily balance 2 &#x3d; Daily average balance&#xa;, 360 AS interest_calculation_days_in_year__type_enum&#xa;, so.recommended_amount AS min_required_opening_balance&#xd;&#xa;, po.start_date As from_date&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; AS accounting_type&#xa;FROM prd_offering po &#xa;INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID AND so.SAVINGS_TYPE_ID &#x3d; 1 -- mandatoring savings&#xa;INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  meeting mt_ip ON mt_ip.meeting_id &#x3d; pom_ip.prd_meeting_id AND mt_ip.meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id &#x3d; mt_ip.meeting_id&#xa;INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  meeting mt_ic ON mt_ic.meeting_id &#x3d; pom_ic.prd_meeting_id AND mt_ic.meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id &#x3d; mt_ic.meeting_id</sql>
+    <sql>SELECT&#xa;po.PRD_OFFERING_ID As id&#xd;&#xa;, 300 As deposit_type_enum  -- As RD account&#xa;, po.PRD_OFFERING_NAME As name&#xa;, po.PRD_OFFERING_SHORT_NAME As short_name&#xa;, IFNULL&#x28; IF&#x28;po.DESCRIPTION &#x3d; &#x27;&#x27; ,po.PRD_OFFERING_NAME , po.DESCRIPTION  &#x29; , po.PRD_OFFERING_NAME &#x29; As description&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xa;, 2 As currency_digits&#xa;, 0 As currency_multiplesof&#xd;&#xa;, 0 As zero_interest_rate&#xa;, so.interest_rate As nominal_annual_interest_rate&#xa;, CASE &#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3d; 1 THEN 1 -- Daily&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 31 THEN 4 -- Monthly&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 100 THEN 5 -- Quaterly&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 190 THEN 6 -- Bi-annualy&#xd;&#xa;       WHEN &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 AND  &#x28; rd_ip.recur_after &#x2a; IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ip.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3c; 370 THEN 7 -- Annualy&#xd;&#xa;&#xd;&#xa;       ELSE 1  -- Defualted to Monthly &#xa;  END AS interest_compounding_period_enum -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, CASE&#xa;	WHEN 31 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 27 THEN 4 -- Monthly&#xa;	WHEN 100 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 80 THEN 5 -- Quarterly&#xa;	WHEN 190 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 170 THEN 5 -- Bi-Annually&#xd;&#xa;	WHEN 370 &#x3e;&#x3d; &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; AND &#x28;rd_ic.recur_after &#x2a; IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 1 , 7 , IF&#x28; rd_ic.RECURRENCE_ID &#x3d; 2 , 30 , 1&#x29;&#x29;&#x29; &#x3e; 350 THEN 7 -- Annually&#xa;	ELSE 7 -- Defualt to yearly&#xa;  END AS interest_posting_period_enum -- -- recur after and RECURRENCE_ID &#x5b; 1 Week&#x28;s&#x29; 2 &#x2f; Month&#x28;s&#x29; 3 &#x2f; Day&#x28;s&#x29; &#x5d;&#xa;, so.interest_calculation_type_id AS interest_calculation_type_enum -- 1 &#x3d; Daily balance 2 &#x3d; Daily average balance&#xa;, 360 AS interest_calculation_days_in_year__type_enum&#xa;, so.recommended_amount AS min_required_opening_balance&#xd;&#xa;, po.start_date As from_date&#xa;, &#x24;&#x7b;ACCT_TYPE&#x7d; AS accounting_type&#xd;&#xa;, 1 As min_deposit_term &#xd;&#xa;, 0 As min_deposit_term_type_enum &#xa;FROM prd_offering po &#xa;INNER JOIN  savings_offering so ON so.PRD_OFFERING_ID &#x3d; po.PRD_OFFERING_ID AND so.SAVINGS_TYPE_ID &#x3d; 1 -- mandatoring savings&#xa;INNER JOIN  prd_offering_meeting pom_ip ON pom_ip.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ip.prd_offering_meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  meeting mt_ip ON mt_ip.meeting_id &#x3d; pom_ip.prd_meeting_id AND mt_ip.meeting_type_id &#x3d; 3 -- Savings Frequency of Interest Posting to Accounts&#xa;INNER JOIN  recurrence_detail rd_ip ON rd_ip.meeting_id &#x3d; mt_ip.meeting_id&#xa;INNER JOIN  prd_offering_meeting pom_ic ON pom_ic.prd_offering_id &#x3d; po.PRD_OFFERING_ID AND pom_ic.prd_offering_meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  meeting mt_ic ON mt_ic.meeting_id &#x3d; pom_ic.prd_meeting_id AND mt_ic.meeting_type_id &#x3d; 2 -- Savings Time Period for Interest Calculation&#xa;INNER JOIN  recurrence_detail rd_ic ON rd_ic.meeting_id &#x3d; mt_ic.meeting_id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -208,8 +211,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>203</xloc>
-      <yloc>145</yloc>
+      <xloc>82</xloc>
+      <yloc>212</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -272,10 +275,6 @@
           <stream_name>currency_multiplesof</stream_name>
         </field>
         <field>
-          <column_name>nominal_annual_interest_rate</column_name>
-          <stream_name>nominal_annual_interest_rate</stream_name>
-        </field>
-        <field>
           <column_name>interest_compounding_period_enum</column_name>
           <stream_name>interest_compounding_period_enum</stream_name>
         </field>
@@ -303,11 +302,15 @@
           <column_name>deposit_type_enum</column_name>
           <stream_name>deposit_type_enum</stream_name>
         </field>
+        <field>
+          <column_name>nominal_annual_interest_rate</column_name>
+          <stream_name>zero_interest_rate</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>344</xloc>
-      <yloc>239</yloc>
+      <xloc>223</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -360,8 +363,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>542</xloc>
-      <yloc>57</yloc>
+      <xloc>421</xloc>
+      <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -399,11 +402,19 @@
           <column_name>savings_product_id</column_name>
           <stream_name>id</stream_name>
         </field>
+        <field>
+          <column_name>min_deposit_term</column_name>
+          <stream_name>min_deposit_term</stream_name>
+        </field>
+        <field>
+          <column_name>min_deposit_term_type_enum</column_name>
+          <stream_name>min_deposit_term_type_enum</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>542</xloc>
-      <yloc>241</yloc>
+      <xloc>421</xloc>
+      <yloc>308</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -448,8 +459,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>750</xloc>
-      <yloc>241</yloc>
+      <xloc>844</xloc>
+      <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -490,8 +501,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>750</xloc>
-      <yloc>52</yloc>
+      <xloc>629</xloc>
+      <yloc>119</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -522,8 +533,127 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>343</xloc>
-      <yloc>55</yloc>
+      <xloc>222</xloc>
+      <yloc>122</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table  interest rate slab</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_interest_rate_slab</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>interest_rate_chart_id</column_name>
+          <stream_name>interest_chart_id</stream_name>
+        </field>
+        <field>
+          <column_name>period_type_enum</column_name>
+          <stream_name>const_period_type_enum</stream_name>
+        </field>
+        <field>
+          <column_name>to_period</column_name>
+          <stream_name>const_to_period</stream_name>
+        </field>
+        <field>
+          <column_name>from_period</column_name>
+          <stream_name>const_from_period</stream_name>
+        </field>
+        <field>
+          <column_name>annual_interest_rate</column_name>
+          <stream_name>nominal_annual_interest_rate</stream_name>
+        </field>
+        <field>
+          <column_name>currency_code</column_name>
+          <stream_name>currency_code</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>621</xloc>
+      <yloc>310</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>interest rate slab</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>const_period_type_enum</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>3</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>const_from_period</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>const_to_period</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>999</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>626</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
