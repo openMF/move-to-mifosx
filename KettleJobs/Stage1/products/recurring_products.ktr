@@ -145,7 +145,7 @@
     <fields>
       <field>
         <name>is_mandatory</name>
-        <type>Binary</type>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
@@ -157,7 +157,7 @@
       </field>
       <field>
         <name>allow_withdrawal</name>
-        <type>Binary</type>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
@@ -169,12 +169,12 @@
       </field>
       <field>
         <name>adjust_advance_towards_future_payments</name>
-        <type>Binary</type>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>1</nullif>
+        <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -409,8 +409,8 @@
     </step>
 
   <step>
-    <name>interest calculation type mapping</name>
-    <type>ValueMapper</type>
+    <name>Table deposit product interest rate chart</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -419,23 +419,37 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <field_to_use>interest_calculation_type_enum</field_to_use>
-    <target_field/>
-    <non_match_default>1</non_match_default>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_deposit_product_interest_rate_chart</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
-      <field>
-        <source_value>122</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>123</source_value>
-        <target_value>1</target_value>
-      </field>
+        <field>
+          <column_name>interest_rate_chart_id</column_name>
+          <stream_name>interest_chart_id</stream_name>
+        </field>
+        <field>
+          <column_name>deposit_product_id</column_name>
+          <stream_name>id</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>343</xloc>
-      <yloc>55</yloc>
+      <xloc>750</xloc>
+      <yloc>241</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -483,8 +497,8 @@
     </step>
 
   <step>
-    <name>Table deposit product interest rate chart</name>
-    <type>TableOutput</type>
+    <name>interest calculation type mapping</name>
+    <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -493,37 +507,23 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>DestinationDB</connection>
-    <schema/>
-    <table>m_deposit_product_interest_rate_chart</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
+    <field_to_use>interest_calculation_type_enum</field_to_use>
+    <target_field/>
+    <non_match_default>1</non_match_default>
     <fields>
-        <field>
-          <column_name>interest_rate_chart_id</column_name>
-          <stream_name>interest_chart_id</stream_name>
-        </field>
-        <field>
-          <column_name>deposit_product_id</column_name>
-          <stream_name>id</stream_name>
-        </field>
+      <field>
+        <source_value>122</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>123</source_value>
+        <target_value>1</target_value>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>750</xloc>
-      <yloc>241</yloc>
+      <xloc>343</xloc>
+      <yloc>55</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
