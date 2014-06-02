@@ -4,18 +4,18 @@
     <description/>
     <extended_description/>
     <job_version/>
-  <directory>&#47;</directory>
+  <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2013&#47;12&#47;27 13:00:23.552</created_date>
+  <created_date>2013&#x2f;12&#x2f;27 13&#x3a;00&#x3a;23.552</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;12&#47;27 13:00:23.552</modified_date>
+  <modified_date>2013&#x2f;12&#x2f;27 13&#x3a;00&#x3a;23.552</modified_date>
     <parameters>
     </parameters>
   <connection>
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -40,7 +40,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -69,7 +69,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></job-log-table>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
 <jobentry-log-table><connection/>
 <schema/>
 <table/>
@@ -109,7 +109,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;clientsDetails.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;clientsDetails.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -128,6 +128,7 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -141,7 +142,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;clientAddress.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;clientAddress.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -160,6 +161,7 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -173,7 +175,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;family details.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;family details.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -192,6 +194,7 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -205,7 +208,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;family_details_many.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;family_details_many.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -224,6 +227,7 @@
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
@@ -238,7 +242,7 @@
       <to>ClientDetails</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
@@ -272,8 +276,7 @@
   </hops>
   <notepads>
     <notepad>
-      <note>IN Mifos, if more one than one familiy details are captured then 
-run (many) transformer  otherwise run as it is</note>
+      <note>IN Mifos, if more one than one familiy details are captured then &#xa;run &#x28;many&#x29; transformer  otherwise run as it is</note>
       <xloc>597</xloc>
       <yloc>198</yloc>
       <width>380</width>
@@ -294,4 +297,5 @@ run (many) transformer  otherwise run as it is</note>
       <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
+
 </job>
