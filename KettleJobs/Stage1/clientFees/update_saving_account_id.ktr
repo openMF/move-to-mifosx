@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>savingsfees</name>
+    <name>update_saving_account_id</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;05&#x2f;24 13&#x3a;04&#x3a;55.522</created_date>
+  <created_date>2014&#x2f;06&#x2f;06 12&#x3a;09&#x3a;29.957</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;05&#x2f;24 13&#x3a;04&#x3a;55.522</modified_date>
+  <modified_date>2014&#x2f;06&#x2f;06 12&#x3a;09&#x3a;29.957</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -123,10 +123,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Fees</from><to>Output Charge</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input</from><to>Output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output</from><to>Update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Fees</name>
+    <name>Input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -136,8 +137,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  f.FEE_ID As id&#xd;&#xa;, f.FEE_NAME As name&#xd;&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xd;&#xa;, 2 As charge_applies_to_enum&#xd;&#xa;, 7 As charge_time_enum -- 7 &#x3d;&#x3e; while creating from UI it gives 7&#xd;&#xa;, if &#x28; f.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , 2 , 1&#x29; As charge_calculation_enum&#xd;&#xa;, if &#x28; f.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , RATE , FEE_AMOUNT&#x29; As amount&#xd;&#xa;, 0 As is_penalty&#xd;&#xa;, if &#x28; STATUS &#x3d; &#x27;1&#x27; , 1 , 0&#x29;  As is_active&#xd;&#xa;, 0 As is_deleted&#xd;&#xa;, 0 As charge_payment_mode_enum&#xd;&#xa;, rd.RECUR_AFTER As fee_interval&#xd;&#xa;, rod.DAYS As fee_on_day&#xd;&#xa;, 1 As fee_on_month -- 1 its a dummy value &#xd;&#xa;FROM fees f&#xd;&#xa;INNER JOIN fee_frequency ff on f.FEE_ID&#x3d;ff.FEE_ID&#xd;&#xa;INNER JOIN meeting m ON ff.FREQUENCY_MEETING_ID&#x3d;m.MEETING_ID&#xd;&#xa;INNER JOIN recurrence_detail rd ON m.MEETING_ID&#x3d;rd.MEETING_ID&#xd;&#xa;INNER JOIN recur_on_day rod ON rd.DETAILS_ID&#x3d;rod.DETAILS_ID&#xd;&#xa;WHERE CATEGORY_ID &#x3d; 2 -- 2&#x3d;&#x3e; membership fees</sql>
+    <connection>DestinationDB</connection>
+    <sql>SELECT&#xd;&#xa;concat&#x28;&#x27;CDA&#x27;,cl.id&#x29; As account_no,&#xd;&#xa;NULL   AS    external_id,&#xd;&#xa;cl.id   AS    client_id,&#xd;&#xa;NULL   AS    group_id,&#xd;&#xa;&#x28;select max&#x28;sp.id&#x29; from m_savings_product sp&#x29;   AS    product_id, &#xd;&#xa;NULL   AS    field_officer_id,&#xd;&#xa;300   AS    status_enum,&#xd;&#xa;1   AS    account_type_enum,&#xd;&#xa;100   AS    deposit_type_enum,&#xd;&#xa;cl.submittedon_date AS submittedon_date,&#xd;&#xa;cl.submittedon_userid As submittedon_userid,&#xd;&#xa;cl.activation_date As approvedon_date,&#xd;&#xa;cl.activatedon_userid As approvedon_userid,&#xd;&#xa;NULL   AS    rejectedon_date,&#xd;&#xa; NULL   AS    rejectedon_userid,&#xd;&#xa; NULL   AS    withdrawnon_date,&#xd;&#xa; NULL   AS    withdrawnon_userid,&#xd;&#xa; cl.activation_date  AS    activatedon_date,&#xd;&#xa; cl.activatedon_userid As activatedon_userid,&#xd;&#xa; cl.closedon_date As closedon_date,&#xd;&#xa; cl.closedon_userid AS    closedon_userid,&#xd;&#xa; &#x24;&#x7b;CUR&#x7d; As currency_code,&#xd;&#xa; 2   AS    currency_digits,&#xd;&#xa;0   AS    currency_multiplesof,&#xd;&#xa;0   AS    nominal_annual_interest_rate,&#xd;&#xa;7   AS    interest_compounding_period_enum,&#xd;&#xa;7   AS    interest_posting_period_enum,&#xd;&#xa;1   AS    interest_calculation_type_enum,&#xd;&#xa;365   AS    interest_calculation_days_in_year_type_enum,&#xd;&#xa; NULL   AS    min_required_opening_balance,&#xd;&#xa; NULL   AS    lockin_period_frequency,&#xd;&#xa; NULL   AS    lockin_period_frequency_enum,&#xd;&#xa;0   AS    withdrawal_fee_for_transfer,&#xd;&#xa;0   AS    allow_overdraft,&#xd;&#xa; NULL   AS    overdraft_limit,&#xd;&#xa; NULL   AS    lockedin_until_date_derived,&#xd;&#xa; NULL   AS    total_deposits_derived,&#xd;&#xa; NULL   AS    total_withdrawals_derived,&#xd;&#xa; NULL   AS    total_withdrawal_fees_derived,&#xd;&#xa; NULL   AS    total_fees_charge_derived,&#xd;&#xa; NULL   AS    total_penalty_charge_derived,&#xd;&#xa; NULL   AS    total_annual_fees_derived,&#xd;&#xa; NULL   AS    total_interest_earned_derived,&#xd;&#xa; NULL   AS    total_interest_posted_derived,&#xd;&#xa; 0   AS    account_balance_derived&#xd;&#xa; from m_client cl</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -145,14 +146,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>276</xloc>
-      <yloc>229</yloc>
+      <xloc>315</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Output Charge</name>
+    <name>Output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -164,11 +165,11 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_charge</table>
+    <table>m_savings_account</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
+    <use_batch>N</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -177,58 +178,233 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
+    <return_keys>Y</return_keys>
+    <return_field>default_account_id</return_field>
     <fields>
         <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
+          <column_name>client_id</column_name>
+          <stream_name>client_id</stream_name>
         </field>
         <field>
-          <column_name>name</column_name>
-          <stream_name>name</stream_name>
+          <column_name>group_id</column_name>
+          <stream_name>group_id</stream_name>
+        </field>
+        <field>
+          <column_name>product_id</column_name>
+          <stream_name>product_id</stream_name>
+        </field>
+        <field>
+          <column_name>field_officer_id</column_name>
+          <stream_name>field_officer_id</stream_name>
+        </field>
+        <field>
+          <column_name>status_enum</column_name>
+          <stream_name>status_enum</stream_name>
+        </field>
+        <field>
+          <column_name>account_type_enum</column_name>
+          <stream_name>account_type_enum</stream_name>
+        </field>
+        <field>
+          <column_name>deposit_type_enum</column_name>
+          <stream_name>deposit_type_enum</stream_name>
+        </field>
+        <field>
+          <column_name>submittedon_date</column_name>
+          <stream_name>submittedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>submittedon_userid</column_name>
+          <stream_name>submittedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>approvedon_date</column_name>
+          <stream_name>approvedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>approvedon_userid</column_name>
+          <stream_name>approvedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>rejectedon_date</column_name>
+          <stream_name>rejectedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>rejectedon_userid</column_name>
+          <stream_name>rejectedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>withdrawnon_date</column_name>
+          <stream_name>withdrawnon_date</stream_name>
+        </field>
+        <field>
+          <column_name>withdrawnon_userid</column_name>
+          <stream_name>withdrawnon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>activatedon_date</column_name>
+          <stream_name>activatedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>activatedon_userid</column_name>
+          <stream_name>activatedon_userid</stream_name>
+        </field>
+        <field>
+          <column_name>closedon_date</column_name>
+          <stream_name>closedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>closedon_userid</column_name>
+          <stream_name>closedon_userid</stream_name>
         </field>
         <field>
           <column_name>currency_code</column_name>
           <stream_name>currency_code</stream_name>
         </field>
         <field>
-          <column_name>charge_applies_to_enum</column_name>
-          <stream_name>charge_applies_to_enum</stream_name>
+          <column_name>currency_digits</column_name>
+          <stream_name>currency_digits</stream_name>
         </field>
         <field>
-          <column_name>charge_time_enum</column_name>
-          <stream_name>charge_time_enum</stream_name>
+          <column_name>currency_multiplesof</column_name>
+          <stream_name>currency_multiplesof</stream_name>
         </field>
         <field>
-          <column_name>charge_calculation_enum</column_name>
-          <stream_name>charge_calculation_enum</stream_name>
+          <column_name>nominal_annual_interest_rate</column_name>
+          <stream_name>nominal_annual_interest_rate</stream_name>
         </field>
         <field>
-          <column_name>amount</column_name>
-          <stream_name>amount</stream_name>
+          <column_name>interest_compounding_period_enum</column_name>
+          <stream_name>interest_compounding_period_enum</stream_name>
         </field>
         <field>
-          <column_name>is_penalty</column_name>
-          <stream_name>is_penalty</stream_name>
+          <column_name>interest_posting_period_enum</column_name>
+          <stream_name>interest_posting_period_enum</stream_name>
         </field>
         <field>
-          <column_name>is_active</column_name>
-          <stream_name>is_active</stream_name>
+          <column_name>interest_calculation_type_enum</column_name>
+          <stream_name>interest_calculation_type_enum</stream_name>
         </field>
         <field>
-          <column_name>is_deleted</column_name>
-          <stream_name>is_deleted</stream_name>
+          <column_name>interest_calculation_days_in_year_type_enum</column_name>
+          <stream_name>interest_calculation_days_in_year_type_enum</stream_name>
         </field>
         <field>
-          <column_name>charge_payment_mode_enum</column_name>
-          <stream_name>charge_payment_mode_enum</stream_name>
+          <column_name>min_required_opening_balance</column_name>
+          <stream_name>min_required_opening_balance</stream_name>
+        </field>
+        <field>
+          <column_name>lockin_period_frequency</column_name>
+          <stream_name>lockin_period_frequency</stream_name>
+        </field>
+        <field>
+          <column_name>lockin_period_frequency_enum</column_name>
+          <stream_name>lockin_period_frequency_enum</stream_name>
+        </field>
+        <field>
+          <column_name>withdrawal_fee_for_transfer</column_name>
+          <stream_name>withdrawal_fee_for_transfer</stream_name>
+        </field>
+        <field>
+          <column_name>allow_overdraft</column_name>
+          <stream_name>allow_overdraft</stream_name>
+        </field>
+        <field>
+          <column_name>overdraft_limit</column_name>
+          <stream_name>overdraft_limit</stream_name>
+        </field>
+        <field>
+          <column_name>lockedin_until_date_derived</column_name>
+          <stream_name>lockedin_until_date_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_deposits_derived</column_name>
+          <stream_name>total_deposits_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_withdrawals_derived</column_name>
+          <stream_name>total_withdrawals_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_withdrawal_fees_derived</column_name>
+          <stream_name>total_withdrawal_fees_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_fees_charge_derived</column_name>
+          <stream_name>total_fees_charge_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_penalty_charge_derived</column_name>
+          <stream_name>total_penalty_charge_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_annual_fees_derived</column_name>
+          <stream_name>total_annual_fees_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_interest_earned_derived</column_name>
+          <stream_name>total_interest_earned_derived</stream_name>
+        </field>
+        <field>
+          <column_name>total_interest_posted_derived</column_name>
+          <stream_name>total_interest_posted_derived</stream_name>
+        </field>
+        <field>
+          <column_name>account_balance_derived</column_name>
+          <stream_name>account_balance_derived</stream_name>
+        </field>
+        <field>
+          <column_name>external_id</column_name>
+          <stream_name>external_id</stream_name>
+        </field>
+        <field>
+          <column_name>account_no</column_name>
+          <stream_name>account_no</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>591</xloc>
-      <yloc>229</yloc>
+      <xloc>519</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Update</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>m_client</table>
+      <key>
+        <name>client_id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>default_savings_account</name>
+        <rename>default_account_id</rename>
+        </value>
+      </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>728</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
