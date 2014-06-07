@@ -100,8 +100,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>234</xloc>
-      <yloc>213</yloc>
+      <xloc>106</xloc>
+      <yloc>217</yloc>
       </entry>
     <entry>
       <name>update m_client with mandatory saving account</name>
@@ -133,8 +133,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>643</xloc>
-      <yloc>203</yloc>
+      <xloc>462</xloc>
+      <yloc>222</yloc>
       </entry>
     <entry>
       <name>Clients mandatory savings product</name>
@@ -166,8 +166,41 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>450</xloc>
-      <yloc>79</yloc>
+      <xloc>334</xloc>
+      <yloc>71</yloc>
+      </entry>
+    <entry>
+      <name>Saving Acc Charges</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;saving_acc_charges.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>724</xloc>
+      <yloc>223</yloc>
       </entry>
   </entries>
   <hops>
@@ -183,6 +216,15 @@
     <hop>
       <from>Clients mandatory savings product</from>
       <to>update m_client with mandatory saving account</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>update m_client with mandatory saving account</from>
+      <to>Saving Acc Charges</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
