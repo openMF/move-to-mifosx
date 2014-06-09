@@ -4,6 +4,7 @@
     <description/>
     <extended_description/>
     <job_version/>
+    <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2014&#x2f;04&#x2f;26 10&#x3a;48&#x3a;43.898</created_date>
@@ -100,8 +101,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>106</xloc>
-      <yloc>217</yloc>
+      <xloc>100</xloc>
+      <yloc>243</yloc>
       </entry>
     <entry>
       <name>update m_client with mandatory saving account</name>
@@ -133,8 +134,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>462</xloc>
-      <yloc>222</yloc>
+      <xloc>463</xloc>
+      <yloc>251</yloc>
       </entry>
     <entry>
       <name>Clients mandatory savings product</name>
@@ -166,8 +167,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>334</xloc>
-      <yloc>71</yloc>
+      <xloc>278</xloc>
+      <yloc>134</yloc>
       </entry>
     <entry>
       <name>Saving Acc Charges</name>
@@ -199,8 +200,41 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>724</xloc>
-      <yloc>223</yloc>
+      <xloc>669</xloc>
+      <yloc>132</yloc>
+      </entry>
+    <entry>
+      <name>Update saving account charges</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;adding_client_fees_acc_interval.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>830</xloc>
+      <yloc>259</yloc>
       </entry>
   </entries>
   <hops>
@@ -225,6 +259,15 @@
     <hop>
       <from>update m_client with mandatory saving account</from>
       <to>Saving Acc Charges</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Saving Acc Charges</from>
+      <to>Update saving account charges</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
