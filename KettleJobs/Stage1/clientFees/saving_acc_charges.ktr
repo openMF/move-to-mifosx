@@ -123,7 +123,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Account fees</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input Account fees</from><to>Table stage client fees accts</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Input Account fees</name>
@@ -137,7 +137,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa; cr.CUSTOMER_ID AS client_id,&#xd;&#xa; af.FEE_AMNT AS amount,&#xd;&#xa; 1 AS is_active,&#xd;&#xa; af.FEE_ID As charge_id,&#xd;&#xa; ftd.FEE_AMOUNT AS amount_paid_derived,&#xd;&#xa; af.FEE_AMNT-ftd.FEE_AMOUNT AS amount_outstanding_derived,&#xd;&#xa; IF&#x28;af.FEE_AMNT-ftd.FEE_AMOUNT&#x3d;0,1,0&#x29; AS is_paid_derived,&#xd;&#xa; att.DUE_DATE AS charge_due_date,&#xd;&#xa; ap.PAYMENT_DATE As transaction_date,&#xd;&#xa; cr.BRANCH_ID As office_id&#xd;&#xa;FROM customer cr&#xd;&#xa;INNER JOIN account ac ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 AND cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27;&#xd;&#xa;INNER JOIN account_fees af ON ac.ACCOUNT_ID&#x3d;af.ACCOUNT_ID&#xd;&#xa;INNER JOIN fee_trxn_detail ftd ON af.ACCOUNT_FEE_ID&#x3d;ftd.ACCOUNT_FEE_ID&#xd;&#xa;INNER JOIN account_trxn att ON ftd.ACCOUNT_TRXN_ID&#x3d;att.ACCOUNT_TRXN_ID&#xd;&#xa;INNER JOIN account_payment ap ON att.PAYMENT_ID&#x3d;ap.PAYMENT_ID&#xd;&#xa;INNER JOIN fees f ON af.FEE_ID&#x3d;f.FEE_ID AND f.CATEGORY_ID &#x3d; 2 -- 2 &#x3d;&#x3e; Client fees&#xd;&#xa;&#xd;&#xa; &#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>&#xd;&#xa;SELECT&#xd;&#xa; cr.CUSTOMER_ID AS client_id,&#xd;&#xa; af.FEE_AMNT AS amount,&#xd;&#xa; if&#x28;af.FEE_STATUS is null,2,af.FEE_STATUS&#x29; AS is_active,&#xd;&#xa; af.FEE_ID As charge_id,&#xd;&#xa; ftd.FEE_AMOUNT AS amount_paid_derived,&#xd;&#xa; af.FEE_AMNT-ftd.FEE_AMOUNT AS amount_outstanding_derived,&#xd;&#xa; IF&#x28;af.FEE_AMNT-ftd.FEE_AMOUNT&#x3d;0,1,0&#x29; AS is_paid_derived,&#xd;&#xa; curdate&#x28;&#x29; AS charge_due_date,&#xd;&#xa; atx.ACTION_DATE As transaction_date,&#xd;&#xa; cr.BRANCH_ID As office_id&#xd;&#xa;FROM account_fees af&#xd;&#xa;INNER JOIN fees f ON af.FEE_ID&#x3d;f.FEE_ID AND f.CATEGORY_ID &#x3d; 2 -- 2 &#x3d;&#x3e; Client fees &#xd;&#xa;INNER JOIN account ac ON ac.ACCOUNT_ID&#x3d;af.ACCOUNT_ID &#xd;&#xa;INNER JOIN customer cr ON ac.CUSTOMER_ID &#x3d; cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID &#x3d; 3 AND cr.DISCRIMINATOR &#x3d; &#x27;CLIENT&#x27;  &#xd;&#xa;INNER JOIN fee_trxn_detail ftd ON af.ACCOUNT_FEE_ID&#x3d;ftd.ACCOUNT_FEE_ID&#xd;&#xa;INNER JOIN account_trxn atx ON ftd.ACCOUNT_TRXN_ID&#x3d;atx.ACCOUNT_TRXN_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -152,7 +152,7 @@
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Table stage client fees accts</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -223,7 +223,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>487</xloc>
+      <xloc>624</xloc>
       <yloc>218</yloc>
       <draw>Y</draw>
       </GUI>
