@@ -200,16 +200,16 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>435</xloc>
+      <xloc>441</xloc>
       <yloc>336</yloc>
       </entry>
     <entry>
-      <name>Update saving account charges</name>
+      <name>Saving account charges and trxns</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;adding_client_fees_acc_interval.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;savings charges and trxns.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -233,8 +233,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>708</xloc>
-      <yloc>104</yloc>
+      <xloc>707</xloc>
+      <yloc>107</yloc>
       </entry>
     <entry>
       <name>SQL</name>
@@ -268,13 +268,13 @@
       <to>Saving Acc Charges</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Saving Acc Charges</from>
-      <to>Update saving account charges</to>
+      <to>Saving account charges and trxns</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
