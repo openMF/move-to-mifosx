@@ -134,8 +134,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>463</xloc>
-      <yloc>251</yloc>
+      <xloc>441</xloc>
+      <yloc>109</yloc>
       </entry>
     <entry>
       <name>Clients mandatory savings product</name>
@@ -167,8 +167,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>278</xloc>
-      <yloc>134</yloc>
+      <xloc>218</xloc>
+      <yloc>333</yloc>
       </entry>
     <entry>
       <name>Saving Acc Charges</name>
@@ -200,8 +200,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>669</xloc>
-      <yloc>132</yloc>
+      <xloc>435</xloc>
+      <yloc>336</yloc>
       </entry>
     <entry>
       <name>Update saving account charges</name>
@@ -233,20 +233,27 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>830</xloc>
-      <yloc>259</yloc>
+      <xloc>708</xloc>
+      <yloc>104</yloc>
+      </entry>
+    <entry>
+      <name>SQL</name>
+      <description/>
+      <type>SQL</type>
+      <sql>&#xd;&#xa;INSERT INTO &#x60;m_savings_product&#x60; &#x28;&#x60;name&#x60;, &#x60;short_name&#x60;, &#x60;description&#x60;, &#x60;deposit_type_enum&#x60;, &#x60;currency_code&#x60;, &#x60;currency_digits&#x60;, &#x60;currency_multiplesof&#x60;, &#x60;nominal_annual_interest_rate&#x60;, &#x60;interest_compounding_period_enum&#x60;, &#x60;interest_posting_period_enum&#x60;, &#x60;interest_calculation_type_enum&#x60;, &#x60;interest_calculation_days_in_year_type_enum&#x60;, &#x60;min_required_opening_balance&#x60;, &#x60;lockin_period_frequency&#x60;, &#x60;lockin_period_frequency_enum&#x60;, &#x60;accounting_type&#x60;, &#x60;withdrawal_fee_amount&#x60;, &#x60;withdrawal_fee_type_enum&#x60;, &#x60;withdrawal_fee_for_transfer&#x60;, &#x60;allow_overdraft&#x60;, &#x60;overdraft_limit&#x60;&#x29; VALUES &#x28;&#x27;Client Fees&#x27;, &#x27;CF&#x27;, &#x27;All the fees collected against a client need to be collected using this product.&#x27;, 100, &#x27;INR&#x27;, 2, 0, 0.000000, 7, 7, 1, 365, NULL, NULL, NULL, 1, NULL, NULL, 0, 0, NULL&#x29;&#x3b;&#xd;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DestinationDB</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>218</xloc>
+      <yloc>119</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>Clients mandatory savings product</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Clients mandatory savings product</from>
       <to>update m_client with mandatory saving account</to>
@@ -273,6 +280,24 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>SQL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>SQL</from>
+      <to>Clients mandatory savings product</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
