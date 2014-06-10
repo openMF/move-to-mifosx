@@ -31,5 +31,6 @@ TRUNCATE `m_deposit_product_recurring_detail`;
 TRUNCATE `m_deposit_product_term_and_preclosure`;
 TRUNCATE `m_interest_rate_chart`;
 TRUNCATE `m_deposit_product_interest_rate_chart`;
+TRUNCATE `stage1_client_fees_account`;
 
 SET foreign_key_checks = 1;
