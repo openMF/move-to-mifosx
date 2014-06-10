@@ -124,9 +124,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Account fees</from><to>Output saving acc charges</to><enabled>Y</enabled> </hop>
-  <hop> <from>Output saving acc charges</from><to>Output saving acc trxns</to><enabled>Y</enabled> </hop>
-  <hop> <from>Output saving acc trxns</from><to>Output charges paid</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output saving acc trxns 2</from><to>Output saving acc charges</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output saving acc charges</from><to>Output charges paid</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input Account fees</from><to>Output saving acc trxns</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output saving acc trxns</from><to>Output saving acc trxns 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Input Account fees</name>
@@ -140,7 +141,7 @@
            <schema_name/>
            </partitioning>
     <connection>DestinationDB</connection>
-    <sql>SELECT &#xd;&#xa; cl.default_savings_account AS savings_account_id,&#xd;&#xa; ch.id AS charge_id,&#xd;&#xa; 0 AS is_penalty,&#xd;&#xa; ch.charge_time_enum AS charge_time_enum,&#xd;&#xa; cfa.charge_due_date AS charge_due_date,&#xd;&#xa; ch.fee_on_month AS fee_on_month,&#xd;&#xa; ch.fee_on_day AS fee_on_day,&#xd;&#xa; ch.fee_interval AS fee_interval,&#xd;&#xa; ch.charge_calculation_enum AS charge_calculation_enum,&#xd;&#xa; cfa.amount AS amount,&#xd;&#xa; cfa.amount_paid_derived AS amount_paid_derived,&#xd;&#xa; cfa.amount_outstanding_derived AS amount_outstanding_derived,&#xd;&#xa; cfa.is_paid_derived AS is_paid_derived,&#xd;&#xa; 0 AS waived,&#xd;&#xa; 1 AS is_active,&#xd;&#xa; cfa.office_id AS &#x60;office_id&#x60;,&#xd;&#xa; 1 AS &#x60;transaction_type_enum&#x60;,&#xd;&#xa; 0 AS &#x60;is_reversed&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;transaction_date&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;balance_end_date_derived&#x60;,&#xd;&#xa;0 AS &#x60;balance_number_of_days_derived&#x60;,&#xd;&#xa;0 AS &#x60;running_balance_derived&#x60;,&#xd;&#xa;0 AS &#x60;cumulative_balance_derived&#x60;,&#xd;&#xa;cfa.transaction_date AS &#x60;created_date&#x60;&#xd;&#xa;FROM stage1_client_fees_account cfa&#xd;&#xa;INNER JOIN m_client cl ON cfa.client_id&#x3d;cl.id&#xd;&#xa;INNER JOIN m_charge ch ON cfa.charge_id&#x3d;ch.id&#xd;&#xa;&#xd;&#xa;</sql>
+    <sql>SELECT &#xd;&#xa; cl.default_savings_account AS savings_account_id,&#xd;&#xa; ch.id AS charge_id,&#xd;&#xa; 0 AS is_penalty,&#xd;&#xa; ch.charge_time_enum AS charge_time_enum,&#xd;&#xa; cfa.charge_due_date AS charge_due_date,&#xd;&#xa; ch.fee_on_month AS fee_on_month,&#xd;&#xa; ch.fee_on_day AS fee_on_day,&#xd;&#xa; ch.fee_interval AS fee_interval,&#xd;&#xa; ch.charge_calculation_enum AS charge_calculation_enum,&#xd;&#xa; cfa.amount AS amount,&#xd;&#xa; cfa.amount_paid_derived AS amount_paid_derived,&#xd;&#xa; cfa.amount_outstanding_derived AS amount_outstanding_derived,&#xd;&#xa; cfa.is_paid_derived AS is_paid_derived,&#xd;&#xa; 0 AS waived,&#xd;&#xa; 1 AS is_active,&#xd;&#xa; cfa.office_id AS &#x60;office_id&#x60;,&#xd;&#xa; 0 AS &#x60;is_reversed&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;transaction_date&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;balance_end_date_derived&#x60;,&#xd;&#xa;0 AS &#x60;balance_number_of_days_derived&#x60;,&#xd;&#xa;0 AS &#x60;running_balance_derived&#x60;,&#xd;&#xa;0 AS &#x60;cumulative_balance_derived&#x60;,&#xd;&#xa;cfa.transaction_date AS &#x60;created_date&#x60;,&#xd;&#xa;1 As deposit_transaction, --  1  deposit&#xd;&#xa; 7 as withdrawal_transaction -- 7 pay charge&#xd;&#xa;FROM stage1_client_fees_account cfa&#xd;&#xa;INNER JOIN m_client cl ON cfa.client_id&#x3d;cl.id&#xd;&#xa;INNER JOIN m_charge ch ON cfa.charge_id&#x3d;ch.id &#xd;&#xa;&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -148,8 +149,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>113</xloc>
-      <yloc>328</yloc>
+      <xloc>228</xloc>
+      <yloc>280</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -198,8 +199,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>692</xloc>
-      <yloc>163</yloc>
+      <xloc>657</xloc>
+      <yloc>303</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -296,8 +297,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>321</xloc>
-      <yloc>169</yloc>
+      <xloc>658</xloc>
+      <yloc>134</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -328,16 +329,12 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>m_savings_account_transaction_id</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
         <field>
           <column_name>office_id</column_name>
           <stream_name>office_id</stream_name>
-        </field>
-        <field>
-          <column_name>transaction_type_enum</column_name>
-          <stream_name>transaction_type_enum</stream_name>
         </field>
         <field>
           <column_name>is_reversed</column_name>
@@ -375,11 +372,97 @@
           <column_name>savings_account_id</column_name>
           <stream_name>savings_account_id</stream_name>
         </field>
+        <field>
+          <column_name>transaction_type_enum</column_name>
+          <stream_name>deposit_transaction</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>520</xloc>
-      <yloc>337</yloc>
+      <xloc>434</xloc>
+      <yloc>136</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Output saving acc trxns 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_savings_account_transaction</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>Y</return_keys>
+    <return_field>m_savings_account_transaction_id</return_field>
+    <fields>
+        <field>
+          <column_name>office_id</column_name>
+          <stream_name>office_id</stream_name>
+        </field>
+        <field>
+          <column_name>is_reversed</column_name>
+          <stream_name>is_reversed</stream_name>
+        </field>
+        <field>
+          <column_name>transaction_date</column_name>
+          <stream_name>transaction_date</stream_name>
+        </field>
+        <field>
+          <column_name>amount</column_name>
+          <stream_name>amount</stream_name>
+        </field>
+        <field>
+          <column_name>balance_end_date_derived</column_name>
+          <stream_name>balance_end_date_derived</stream_name>
+        </field>
+        <field>
+          <column_name>balance_number_of_days_derived</column_name>
+          <stream_name>balance_number_of_days_derived</stream_name>
+        </field>
+        <field>
+          <column_name>running_balance_derived</column_name>
+          <stream_name>running_balance_derived</stream_name>
+        </field>
+        <field>
+          <column_name>cumulative_balance_derived</column_name>
+          <stream_name>cumulative_balance_derived</stream_name>
+        </field>
+        <field>
+          <column_name>created_date</column_name>
+          <stream_name>created_date</stream_name>
+        </field>
+        <field>
+          <column_name>savings_account_id</column_name>
+          <stream_name>savings_account_id</stream_name>
+        </field>
+        <field>
+          <column_name>transaction_type_enum</column_name>
+          <stream_name>withdrawal_transaction</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>433</xloc>
+      <yloc>298</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

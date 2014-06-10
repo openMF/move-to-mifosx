@@ -56,7 +56,9 @@ CREATE TABLE `stage1_client_fees_account` (
 	`amount_outstanding_derived` INT(10) NOT NULL,
 	`is_paid_derived` INT(10) NOT NULL,
 	`is_active` INT(10) NOT NULL,
-	`charge_due_date` DATE NOT NULL
+	`charge_due_date` DATE NOT NULL,
+	`transaction_date` DATE NOT NULL,
+	`office_id` INT(10) NOT NULL
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB;
