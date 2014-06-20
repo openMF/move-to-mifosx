@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>savingsaccount</name>
+    <name>rd_acc_terms_and_preclosure</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -66,33 +67,12 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;03&#x2f;25 12&#x3a;20&#x3a;06.872</created_date>
+  <created_date>2014&#x2f;06&#x2f;19 18&#x3a;46&#x3a;33.126</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;03&#x2f;25 12&#x3a;20&#x3a;06.872</modified_date>
+  <modified_date>2014&#x2f;06&#x2f;19 18&#x3a;46&#x3a;33.126</modified_date>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>AgileBI</name>
-    <server>localhost</server>
-    <type>MONETDB</type>
-    <access>Native</access>
-    <database>pentaho-instaview</database>
-    <port>50000</port>
-    <username>monetdb</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>DestinationDB</name>
     <server>localhost</server>
@@ -144,13 +124,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Account state mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>Account state mapping</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>interest calculation type mapping</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input RD term and preclosure</from><to>Output RD acc term and preclosure</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Account state mapping</name>
-    <type>ValueMapper</type>
+    <name>Input RD term and preclosure</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -159,56 +137,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <field_to_use>saving_status_id</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>13</source_value>
-        <target_value>100</target_value>
-      </field>
-      <field>
-        <source_value>14</source_value>
-        <target_value>100</target_value>
-      </field>
-      <field>
-        <source_value>15</source_value>
-        <target_value>600</target_value>
-      </field>
-      <field>
-        <source_value>16</source_value>
-        <target_value>300</target_value>
-      </field>
-      <field>
-        <source_value>17</source_value>
-        <target_value>600</target_value>
-      </field>
-      <field>
-        <source_value>17</source_value>
-        <target_value>600</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>479</xloc>
-      <yloc>71</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT &#xa; sa.ACCOUNT_ID As 	id&#xa;, sa.ACCOUNT_ID As 	account_no&#xa;, ac.GLOBAL_ACCOUNT_NUM As 	external_id&#xa;, IF &#x28; cr.DISCRIMINATOR &#x3d; &#x22;CLIENT&#x22; , ac.CUSTOMER_ID , NULL &#x29; As 	client_id&#xa;, IF &#x28; cr.DISCRIMINATOR &#x3d; &#x22;GROUP&#x22; , ac.CUSTOMER_ID , NULL &#x29; As group_id&#xa;, sa.PRD_OFFERING_ID As product_id&#xa;, cr.loan_officer_id As 	field_officer_id&#xa;, ac.ACCOUNT_STATE_ID As 	saving_status_id&#xa;, IF &#x28; cr.DISCRIMINATOR &#x3d; &#x22;CLIENT&#x22; , 1, 2 &#x29; As 	account_type_enum&#xa;, ac.created_date AS submittedon_date&#xa;, ac.created_by AS submittedon_userid&#xa;, sa.ACTIVATION_DATE AS approvedon_date&#xa;, ac.created_by AS approvedon_userid&#xa;, sa.ACTIVATION_DATE AS activatedon_date&#xa;, ac.created_by AS activatedon_userid&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xa;, 2 As 	currency_digits&#xa;, 0 AS currency_multiplesof&#xa;, sa.interest_rate AS nominal_annual_interest_rate&#xa;, 4 AS interest_compounding_period_enum&#xa;, 5 AS interest_posting_period_enum&#xa;, sa.interest_calculation_type_id AS interest_calculation_type_enum&#xa;, 360 AS interest_calculation_days_in_year_type_enum&#xa;, 0 AS min_required_opening_balance&#xa;, 0 AS lockin_period_frequency&#xa;, 0 AS lockin_period_frequency_enum&#xa;, 0 AS withdrawal_fee_for_transfer&#xa;, null AS lockedin_until_date_derived&#xa;, SUM&#x28;IF&#x28;stx.DEPOSIT_AMOUNT &#x3e; 0 , atx.AMOUNT , 0 &#x29;&#x29; AS total_deposits_derived&#xa;, SUM&#x28;IF&#x28;stx.WITHDRAWAL_AMOUNT &#x3e; 0 , atx.AMOUNT , 0&#x29;&#x29; AS total_withdrawals_derived&#xa;, 0 As total_withdrawal_fees_derived&#xa;, 0 As total_fees_charge_derived&#xa;, 0 AS total_penalty_charge_derived&#xa;, 0 AS total_annual_fees_derived&#xa;, SUM&#x28;stx.INTEREST_AMOUNT&#x29; &#x2b; sa.INT_TO_BE_POSTED AS total_interest_earned_derived&#xa;, SUM&#x28;stx.INTEREST_AMOUNT&#x29; AS total_interest_posted_derived&#xa;, sa.savings_balance AS account_balance_derived&#xa;FROM savings_account sa&#xa;LEFT JOIN account ac ON ac.ACCOUNT_ID &#x3d; sa.ACCOUNT_ID&#xa;LEFT JOIN account_trxn atx ON atx.ACCOUNT_ID &#x3d; ac.ACCOUNT_ID&#xa;LEFT JOIN savings_trxn_detail stx ON atx.ACCOUNT_TRXN_ID &#x3d; stx.ACCOUNT_TRXN_ID &#xa;LEFT JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xa;GROUP BY sa.ACCOUNT_ID</sql>
+    <connection>DestinationDB</connection>
+    <sql>select sacc.id  As savings_account_id,&#xd;&#xa;dptp.min_deposit_term As min_deposit_term,&#xd;&#xa;dptp.max_deposit_term As max_deposit_term,&#xd;&#xa;dptp.min_deposit_term_type_enum As min_deposit_term_type_enum,&#xd;&#xa;dptp.max_deposit_term_type_enum As max_deposit_term_type_enum,&#xd;&#xa;dptp.in_multiples_of_deposit_term As in_multiples_of_deposit_term,&#xd;&#xa;dptp.in_multiples_of_deposit_term_type_enum As in_multiples_of_deposit_term,&#xd;&#xa;dptp.pre_closure_penal_applicable As pre_closure_penal_applicable,&#xd;&#xa;dptp.pre_closure_penal_interest As pre_closure_penal_interest,&#xd;&#xa;dptp.pre_closure_penal_interest_on_enum As pre_closure_penal_interest_on_enum,&#xd;&#xa;10 As deposit_period,&#xd;&#xa;3 As deposit_period_frequency_enum,&#xd;&#xa;sacc.total_deposits_derived As deposit_amount,&#xd;&#xa;sacc.total_deposits_derived As maturity_amount,&#xd;&#xa;ADDDATE&#x28;curdate&#x28;&#x29;, INTERVAL 5 YEAR&#x29; As maturity_date,&#xd;&#xa;0 As transfer_interest_to_linked_account&#xd;&#xa;from m_savings_account sacc&#xd;&#xa;inner join m_deposit_product_term_and_preclosure dptp on sacc.product_id&#x3d;dptp.savings_product_id &#xd;&#xa;AND sacc.deposit_type_enum &#x3d; 300 -- 300 RD Acc&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -216,14 +146,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>334</xloc>
-      <yloc>177</yloc>
+      <xloc>305</xloc>
+      <yloc>216</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Output RD acc term and preclosure</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -235,7 +165,7 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_savings_account</table>
+    <table>m_deposit_account_term_and_preclosure</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -252,190 +182,74 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
+          <column_name>savings_account_id</column_name>
+          <stream_name>savings_account_id</stream_name>
         </field>
         <field>
-          <column_name>account_no</column_name>
-          <stream_name>account_no</stream_name>
+          <column_name>min_deposit_term</column_name>
+          <stream_name>min_deposit_term</stream_name>
         </field>
         <field>
-          <column_name>external_id</column_name>
-          <stream_name>external_id</stream_name>
+          <column_name>max_deposit_term</column_name>
+          <stream_name>max_deposit_term</stream_name>
         </field>
         <field>
-          <column_name>client_id</column_name>
-          <stream_name>client_id</stream_name>
+          <column_name>min_deposit_term_type_enum</column_name>
+          <stream_name>min_deposit_term_type_enum</stream_name>
         </field>
         <field>
-          <column_name>group_id</column_name>
-          <stream_name>group_id</stream_name>
+          <column_name>max_deposit_term_type_enum</column_name>
+          <stream_name>max_deposit_term_type_enum</stream_name>
         </field>
         <field>
-          <column_name>product_id</column_name>
-          <stream_name>product_id</stream_name>
+          <column_name>in_multiples_of_deposit_term</column_name>
+          <stream_name>in_multiples_of_deposit_term</stream_name>
         </field>
         <field>
-          <column_name>field_officer_id</column_name>
-          <stream_name>field_officer_id</stream_name>
+          <column_name>in_multiples_of_deposit_term_type_enum</column_name>
+          <stream_name>in_multiples_of_deposit_term_1</stream_name>
         </field>
         <field>
-          <column_name>status_enum</column_name>
-          <stream_name>saving_status_id</stream_name>
+          <column_name>pre_closure_penal_applicable</column_name>
+          <stream_name>pre_closure_penal_applicable</stream_name>
         </field>
         <field>
-          <column_name>account_type_enum</column_name>
-          <stream_name>account_type_enum</stream_name>
+          <column_name>pre_closure_penal_interest</column_name>
+          <stream_name>pre_closure_penal_interest</stream_name>
         </field>
         <field>
-          <column_name>submittedon_date</column_name>
-          <stream_name>submittedon_date</stream_name>
+          <column_name>pre_closure_penal_interest_on_enum</column_name>
+          <stream_name>pre_closure_penal_interest_on_enum</stream_name>
         </field>
         <field>
-          <column_name>submittedon_userid</column_name>
-          <stream_name>submittedon_userid</stream_name>
+          <column_name>deposit_period</column_name>
+          <stream_name>deposit_period</stream_name>
         </field>
         <field>
-          <column_name>approvedon_date</column_name>
-          <stream_name>approvedon_date</stream_name>
+          <column_name>deposit_period_frequency_enum</column_name>
+          <stream_name>deposit_period_frequency_enum</stream_name>
         </field>
         <field>
-          <column_name>approvedon_userid</column_name>
-          <stream_name>approvedon_userid</stream_name>
+          <column_name>deposit_amount</column_name>
+          <stream_name>deposit_amount</stream_name>
         </field>
         <field>
-          <column_name>activatedon_date</column_name>
-          <stream_name>activatedon_date</stream_name>
+          <column_name>maturity_amount</column_name>
+          <stream_name>maturity_amount</stream_name>
         </field>
         <field>
-          <column_name>activatedon_userid</column_name>
-          <stream_name>activatedon_userid</stream_name>
+          <column_name>maturity_date</column_name>
+          <stream_name>maturity_date</stream_name>
         </field>
         <field>
-          <column_name>currency_code</column_name>
-          <stream_name>currency_code</stream_name>
-        </field>
-        <field>
-          <column_name>currency_digits</column_name>
-          <stream_name>currency_digits</stream_name>
-        </field>
-        <field>
-          <column_name>currency_multiplesof</column_name>
-          <stream_name>currency_multiplesof</stream_name>
-        </field>
-        <field>
-          <column_name>nominal_annual_interest_rate</column_name>
-          <stream_name>nominal_annual_interest_rate</stream_name>
-        </field>
-        <field>
-          <column_name>interest_compounding_period_enum</column_name>
-          <stream_name>interest_compounding_period_enum</stream_name>
-        </field>
-        <field>
-          <column_name>interest_posting_period_enum</column_name>
-          <stream_name>interest_posting_period_enum</stream_name>
-        </field>
-        <field>
-          <column_name>interest_calculation_type_enum</column_name>
-          <stream_name>interest_calculation_type_enum</stream_name>
-        </field>
-        <field>
-          <column_name>interest_calculation_days_in_year_type_enum</column_name>
-          <stream_name>interest_calculation_days_in_year_type_enum</stream_name>
-        </field>
-        <field>
-          <column_name>min_required_opening_balance</column_name>
-          <stream_name>min_required_opening_balance</stream_name>
-        </field>
-        <field>
-          <column_name>lockin_period_frequency_enum</column_name>
-          <stream_name>lockin_period_frequency_enum</stream_name>
-        </field>
-        <field>
-          <column_name>lockin_period_frequency</column_name>
-          <stream_name>lockin_period_frequency</stream_name>
-        </field>
-        <field>
-          <column_name>withdrawal_fee_for_transfer</column_name>
-          <stream_name>withdrawal_fee_for_transfer</stream_name>
-        </field>
-        <field>
-          <column_name>lockedin_until_date_derived</column_name>
-          <stream_name>lockedin_until_date_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_deposits_derived</column_name>
-          <stream_name>total_deposits_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_withdrawals_derived</column_name>
-          <stream_name>total_withdrawals_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_withdrawal_fees_derived</column_name>
-          <stream_name>total_withdrawal_fees_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_fees_charge_derived</column_name>
-          <stream_name>total_fees_charge_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_penalty_charge_derived</column_name>
-          <stream_name>total_penalty_charge_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_annual_fees_derived</column_name>
-          <stream_name>total_annual_fees_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_interest_earned_derived</column_name>
-          <stream_name>total_interest_earned_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_interest_posted_derived</column_name>
-          <stream_name>total_interest_posted_derived</stream_name>
-        </field>
-        <field>
-          <column_name>account_balance_derived</column_name>
-          <stream_name>account_balance_derived</stream_name>
+          <column_name>transfer_interest_to_linked_account</column_name>
+          <stream_name>transfer_interest_to_linked_account</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>639</xloc>
-      <yloc>179</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>interest calculation type mapping</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>interest_calculation_type_enum</field_to_use>
-    <target_field/>
-    <non_match_default>1</non_match_default>
-    <fields>
-      <field>
-        <source_value>122</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>123</source_value>
-        <target_value>1</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>480</xloc>
-      <yloc>323</yloc>
+      <xloc>654</xloc>
+      <yloc>216</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
