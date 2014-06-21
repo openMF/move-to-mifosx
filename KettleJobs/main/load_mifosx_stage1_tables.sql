@@ -60,5 +60,5 @@ CREATE TABLE `stage1_client_fees_account` (
 	`transaction_date` DATE NOT NULL,
 	`office_id` INT(10) NOT NULL
 )
-COLLATE='latin1_swedish_ci'
-ENGINE=InnoDB;
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
