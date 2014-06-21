@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>mandatory_savings_schedule</name>
+    <name>rd_acc_interest_rate_chart</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;05&#x2f;12 10&#x3a;38&#x3a;31.930</created_date>
+  <created_date>2014&#x2f;06&#x2f;20 11&#x3a;48&#x3a;40.253</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;05&#x2f;12 10&#x3a;38&#x3a;31.930</modified_date>
+  <modified_date>2014&#x2f;06&#x2f;20 11&#x3a;48&#x3a;40.253</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -123,10 +123,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input savings schedule</from><to>Table mandatory savings schedule</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input interest rate chart</from><to>Output RD Acc interest rate chart</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Input savings schedule</name>
+    <name>Input interest rate chart</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -136,8 +136,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;ss.ACCOUNT_ID AS savings_account_id,&#xd;&#xa;NULL AS fromdate,&#xd;&#xa;ss.PAYMENT_DATE AS duedate,&#xd;&#xa;ss.INSTALLMENT_ID AS installment,&#xd;&#xa;ss.DEPOSIT AS deposit_amount,&#xd;&#xa;ss.DEPOSIT_PAID AS deposit_amount_completed_derived,&#xd;&#xa;NULL As total_paid_in_advance_derived,&#xd;&#xa;NULL As total_paid_late_derived,&#xd;&#xa;ss.PAYMENT_STATUS As completed_derived,&#xd;&#xa;ss.PAYMENT_DATE As obligations_met_on_date,&#xd;&#xa;NULL As createdby_id,&#xd;&#xa;NULL As created_date,&#xd;&#xa;NULL As lastmodified_date,&#xd;&#xa;NULL As lastmodifiedby_id &#xd;&#xa;FROM&#xd;&#xa;saving_schedule ss where ss.DEPOSIT &#x3e; 0 and ss.PAYMENT_DATE IS NOT NULL</sql>
+    <connection>DestinationDB</connection>
+    <sql>SELECT sacc.id AS savings_account_id,&#xd;&#xa;irc.name AS name,&#xd;&#xa;irc.description AS description,&#xd;&#xa;irc.from_date AS from_date,&#xd;&#xa;irc.end_date AS end_date&#xd;&#xa;FROM m_savings_account sacc&#xd;&#xa;INNER JOIN m_savings_product sp ON sacc.product_id&#x3d;sp.id AND sp.deposit_type_enum&#x3d;300 -- enum 300 for RD acc&#xd;&#xa;INNER JOIN m_deposit_product_interest_rate_chart dpir ON sp.id&#x3d;dpir.deposit_product_id&#xd;&#xa;INNER JOIN m_interest_rate_chart irc ON dpir.interest_rate_chart_id&#x3d;irc.id&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -145,14 +145,14 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>333</xloc>
-      <yloc>244</yloc>
+      <xloc>315</xloc>
+      <yloc>218</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table mandatory savings schedule</name>
+    <name>Output RD Acc interest rate chart</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -164,11 +164,11 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_mandatory_savings_schedule</table>
+    <table>m_savings_account_interest_rate_chart</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
+    <use_batch>N</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -185,62 +185,26 @@
           <stream_name>savings_account_id</stream_name>
         </field>
         <field>
-          <column_name>fromdate</column_name>
-          <stream_name>fromdate</stream_name>
+          <column_name>name</column_name>
+          <stream_name>name</stream_name>
         </field>
         <field>
-          <column_name>duedate</column_name>
-          <stream_name>duedate</stream_name>
+          <column_name>description</column_name>
+          <stream_name>description</stream_name>
         </field>
         <field>
-          <column_name>installment</column_name>
-          <stream_name>installment</stream_name>
+          <column_name>from_date</column_name>
+          <stream_name>from_date</stream_name>
         </field>
         <field>
-          <column_name>deposit_amount</column_name>
-          <stream_name>deposit_amount</stream_name>
-        </field>
-        <field>
-          <column_name>deposit_amount_completed_derived</column_name>
-          <stream_name>deposit_amount_completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_paid_in_advance_derived</column_name>
-          <stream_name>total_paid_in_advance_derived</stream_name>
-        </field>
-        <field>
-          <column_name>total_paid_late_derived</column_name>
-          <stream_name>total_paid_late_derived</stream_name>
-        </field>
-        <field>
-          <column_name>completed_derived</column_name>
-          <stream_name>completed_derived</stream_name>
-        </field>
-        <field>
-          <column_name>obligations_met_on_date</column_name>
-          <stream_name>obligations_met_on_date</stream_name>
-        </field>
-        <field>
-          <column_name>createdby_id</column_name>
-          <stream_name>createdby_id</stream_name>
-        </field>
-        <field>
-          <column_name>created_date</column_name>
-          <stream_name>created_date</stream_name>
-        </field>
-        <field>
-          <column_name>lastmodified_date</column_name>
-          <stream_name>lastmodified_date</stream_name>
-        </field>
-        <field>
-          <column_name>lastmodifiedby_id</column_name>
-          <stream_name>lastmodifiedby_id</stream_name>
+          <column_name>end_date</column_name>
+          <stream_name>end_date</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>596</xloc>
-      <yloc>244</yloc>
+      <xloc>625</xloc>
+      <yloc>218</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

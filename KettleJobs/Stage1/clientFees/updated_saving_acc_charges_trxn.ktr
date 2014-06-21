@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>accountNotes</name>
+    <name>saving_acc_charges_trxn</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -66,56 +67,12 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#x2f;06&#x2f;24 17&#x3a;37&#x3a;37.472</created_date>
+  <created_date>2014&#x2f;06&#x2f;11 11&#x3a;15&#x3a;25.114</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#x2f;06&#x2f;24 17&#x3a;37&#x3a;37.472</modified_date>
+  <modified_date>2014&#x2f;06&#x2f;11 11&#x3a;15&#x3a;25.114</modified_date>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>AgileBI</name>
-    <server>localhost</server>
-    <type>MONETDB</type>
-    <access>Native</access>
-    <database>pentaho-instaview</database>
-    <port>50006</port>
-    <username>monetdb</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>DestinatioDB</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>, </access>
-    <database>DestinatioDB</database>
-    <port>3306</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>DestinationDB</name>
     <server>localhost</server>
@@ -125,106 +82,6 @@
     <port>3306</port>
     <username/>
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>mifos</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>mifos</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SARALIM1SHARED</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>saral_im1</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SARALIM2SHARED</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>saral_im2</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SARALSHARED</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>saral</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -266,36 +123,39 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>staging</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>stage1</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>account notes input</from><to>Notes output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Input Account fees</from><to>Output saving acc trxns</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output saving acc trxns</from><to>Output saving acc trxns 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Output saving acc trxns 2</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Notes output</name>
+    <name>Input Account fees</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <sql>SELECT &#xd;&#xa; cl.default_savings_account AS savings_account_id,&#xd;&#xa; ch.id AS charge_id,&#xd;&#xa; 0 AS is_penalty,&#xd;&#xa; ch.charge_time_enum AS charge_time_enum,&#xd;&#xa; cfa.charge_due_date AS charge_due_date,&#xd;&#xa; ch.fee_on_month AS fee_on_month,&#xd;&#xa; ch.fee_on_day AS fee_on_day,&#xd;&#xa; ch.fee_interval AS fee_interval,&#xd;&#xa; ch.charge_calculation_enum AS charge_calculation_enum,&#xd;&#xa; cfa.amount AS amount,&#xd;&#xa; cfa.amount_paid_derived AS amount_paid_derived,&#xd;&#xa; cfa.amount_outstanding_derived AS amount_outstanding_derived,&#xd;&#xa; cfa.is_paid_derived AS is_paid_derived,&#xd;&#xa; 0 AS waived,&#xd;&#xa; 1 AS is_active,&#xd;&#xa; cfa.office_id AS &#x60;office_id&#x60;,&#xd;&#xa; 0 AS &#x60;is_reversed&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;transaction_date&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;balance_end_date_derived&#x60;,&#xd;&#xa;0 AS &#x60;balance_number_of_days_derived&#x60;,&#xd;&#xa;0 AS &#x60;running_balance_derived&#x60;,&#xd;&#xa;0 AS &#x60;cumulative_balance_derived&#x60;,&#xd;&#xa;cfa.transaction_date AS &#x60;created_date&#x60;,&#xd;&#xa;1 As deposit_transaction, --  1  deposit&#xd;&#xa; 7 as withdrawal_transaction, -- 7 pay charge&#xd;&#xa;sac.id As saving_account_charge_id&#xd;&#xa;FROM stage1_client_fees_account cfa&#xd;&#xa;INNER JOIN m_client cl ON cfa.client_id&#x3d;cl.id&#xd;&#xa;INNER JOIN m_charge ch ON cfa.charge_id&#x3d;ch.id &#xd;&#xa;inner join m_savings_account_charge sac on sac.charge_id&#x3d;ch.id&#xd;&#xa;&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>282</xloc>
+      <yloc>202</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Output saving acc trxns</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -307,11 +167,11 @@
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>m_note</table>
+    <table>m_savings_account_transaction</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
+    <use_batch>N</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -324,57 +184,61 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>client_id</column_name>
-          <stream_name>client_id</stream_name>
+          <column_name>office_id</column_name>
+          <stream_name>office_id</stream_name>
         </field>
         <field>
-          <column_name>group_id</column_name>
-          <stream_name>group_id</stream_name>
+          <column_name>is_reversed</column_name>
+          <stream_name>is_reversed</stream_name>
         </field>
         <field>
-          <column_name>loan_id</column_name>
-          <stream_name>loan_id</stream_name>
+          <column_name>transaction_date</column_name>
+          <stream_name>transaction_date</stream_name>
         </field>
         <field>
-          <column_name>loan_transaction_id</column_name>
-          <stream_name>loan_transaction_id</stream_name>
+          <column_name>amount</column_name>
+          <stream_name>amount</stream_name>
         </field>
         <field>
-          <column_name>note_type_enum</column_name>
-          <stream_name>note_type_enum</stream_name>
+          <column_name>balance_end_date_derived</column_name>
+          <stream_name>balance_end_date_derived</stream_name>
         </field>
         <field>
-          <column_name>note</column_name>
-          <stream_name>note</stream_name>
+          <column_name>balance_number_of_days_derived</column_name>
+          <stream_name>balance_number_of_days_derived</stream_name>
+        </field>
+        <field>
+          <column_name>running_balance_derived</column_name>
+          <stream_name>running_balance_derived</stream_name>
+        </field>
+        <field>
+          <column_name>cumulative_balance_derived</column_name>
+          <stream_name>cumulative_balance_derived</stream_name>
         </field>
         <field>
           <column_name>created_date</column_name>
           <stream_name>created_date</stream_name>
         </field>
         <field>
-          <column_name>createdby_id</column_name>
-          <stream_name>createdby_id</stream_name>
+          <column_name>savings_account_id</column_name>
+          <stream_name>savings_account_id</stream_name>
         </field>
         <field>
-          <column_name>lastmodified_date</column_name>
-          <stream_name>lastmodified_date</stream_name>
-        </field>
-        <field>
-          <column_name>lastmodifiedby_id</column_name>
-          <stream_name>lastmodifiedby_id</stream_name>
+          <column_name>transaction_type_enum</column_name>
+          <stream_name>deposit_transaction</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>595</xloc>
-      <yloc>198</yloc>
+      <xloc>488</xloc>
+      <yloc>58</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>account notes input</name>
-    <type>TableInput</type>
+    <name>Output saving acc trxns 2</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -383,17 +247,123 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3d; 1 , cr.CUSTOMER_ID , NULL &#x29; As client_id ,&#xd;&#xa;if &#x28;cr.CUSTOMER_LEVEL_ID &#x3e; 1 , cr.CUSTOMER_ID , NULL &#x29; As group_id , &#xd;&#xa;ac.ACCOUNT_ID As loan_id ,&#xd;&#xa;NULL As loan_transaction_id ,&#xd;&#xa;&#x27;200&#x27; As note_type_enum , &#xd;&#xa;an.NOTE As note ,&#xd;&#xa;an.COMMENT_DATE As created_date , &#xd;&#xa;an.OFFICER_ID As createdby_id , &#xd;&#xa;an.COMMENT_DATE  As lastmodified_date , &#xd;&#xa;an.OFFICER_ID As lastmodifiedby_id&#xd;&#xa;FROM account_notes an &#xd;&#xa;JOIN account ac ON ac.ACCOUNT_ID &#x3d; an.ACCOUNT_ID&#xd;&#xa;JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xd;&#xa;WHERE  ac.ACCOUNT_TYPE_ID &#x3d; 1</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_savings_account_transaction</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>Y</return_keys>
+    <return_field>m_savings_account_transaction_id</return_field>
+    <fields>
+        <field>
+          <column_name>office_id</column_name>
+          <stream_name>office_id</stream_name>
+        </field>
+        <field>
+          <column_name>is_reversed</column_name>
+          <stream_name>is_reversed</stream_name>
+        </field>
+        <field>
+          <column_name>transaction_date</column_name>
+          <stream_name>transaction_date</stream_name>
+        </field>
+        <field>
+          <column_name>amount</column_name>
+          <stream_name>amount</stream_name>
+        </field>
+        <field>
+          <column_name>balance_end_date_derived</column_name>
+          <stream_name>balance_end_date_derived</stream_name>
+        </field>
+        <field>
+          <column_name>balance_number_of_days_derived</column_name>
+          <stream_name>balance_number_of_days_derived</stream_name>
+        </field>
+        <field>
+          <column_name>running_balance_derived</column_name>
+          <stream_name>running_balance_derived</stream_name>
+        </field>
+        <field>
+          <column_name>cumulative_balance_derived</column_name>
+          <stream_name>cumulative_balance_derived</stream_name>
+        </field>
+        <field>
+          <column_name>created_date</column_name>
+          <stream_name>created_date</stream_name>
+        </field>
+        <field>
+          <column_name>savings_account_id</column_name>
+          <stream_name>savings_account_id</stream_name>
+        </field>
+        <field>
+          <column_name>transaction_type_enum</column_name>
+          <stream_name>withdrawal_transaction</stream_name>
+        </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>325</xloc>
-      <yloc>198</yloc>
+      <xloc>487</xloc>
+      <yloc>220</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_savings_account_charge_paid_by</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>Y</return_keys>
+    <return_field>saving_account_charge_id</return_field>
+    <fields>
+        <field>
+          <column_name>savings_account_transaction_id</column_name>
+          <stream_name>m_savings_account_transaction_id</stream_name>
+        </field>
+        <field>
+          <column_name>savings_account_charge_id</column_name>
+          <stream_name>saving_account_charge_id</stream_name>
+        </field>
+        <field>
+          <column_name>amount</column_name>
+          <stream_name>amount_paid_derived</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>751</xloc>
+      <yloc>220</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
