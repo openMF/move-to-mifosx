@@ -137,7 +137,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xd;&#xa;ss.ACCOUNT_ID AS savings_account_id,&#xd;&#xa;NULL AS fromdate,&#xd;&#xa;ss.PAYMENT_DATE AS duedate,&#xd;&#xa;ss.INSTALLMENT_ID AS installment,&#xd;&#xa;ss.DEPOSIT AS deposit_amount,&#xd;&#xa;ss.DEPOSIT_PAID AS deposit_amount_completed_derived,&#xd;&#xa;NULL As total_paid_in_advance_derived,&#xd;&#xa;NULL As total_paid_late_derived,&#xd;&#xa;ss.PAYMENT_STATUS As completed_derived,&#xd;&#xa;ss.PAYMENT_DATE As obligations_met_on_date,&#xd;&#xa;NULL As createdby_id,&#xd;&#xa;NULL As created_date,&#xd;&#xa;NULL As lastmodified_date,&#xd;&#xa;NULL As lastmodifiedby_id &#xd;&#xa;FROM&#xd;&#xa;saving_schedule ss where ss.DEPOSIT &#x3e; 0 and ss.PAYMENT_DATE IS NOT NULL</sql>
+    <sql>SELECT &#xd;&#xa;ss.ACCOUNT_ID AS savings_account_id,&#xd;&#xa;NULL AS fromdate,&#xd;&#xa;ss.ACTION_DATE AS duedate,&#xd;&#xa;ss.INSTALLMENT_ID AS installment,&#xd;&#xa;ss.DEPOSIT AS deposit_amount,&#xd;&#xa;ss.DEPOSIT_PAID AS deposit_amount_completed_derived,&#xd;&#xa;NULL As total_paid_in_advance_derived,&#xd;&#xa;NULL As total_paid_late_derived,&#xd;&#xa;ss.PAYMENT_STATUS As completed_derived,&#xd;&#xa;If&#x28;ss.PAYMENT_STATUS &#x3d; 1, ss.PAYMENT_DATE , NULL &#x29; As obligations_met_on_date,&#xd;&#xa;NULL As createdby_id,&#xd;&#xa;NULL As created_date,&#xd;&#xa;NULL As lastmodified_date,&#xd;&#xa;NULL As lastmodifiedby_id &#xd;&#xa;FROM&#xd;&#xa;saving_schedule ss where ss.DEPOSIT &#x3e; 0 and ss.ACTION_DATE IS NOT NULL </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
