@@ -52,6 +52,5 @@ TRUNCATE `m_savings_product_charge`;
 TRUNCATE `m_deposit_account_term_and_preclosure`;
 TRUNCATE `m_savings_account_interest_rate_chart`;
 TRUNCATE `m_savings_account_interest_rate_slab`;
-TRUNCATE `m_calendar_instance`;
 
 SET foreign_key_checks = 1;

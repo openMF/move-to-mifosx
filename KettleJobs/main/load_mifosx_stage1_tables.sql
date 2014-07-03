@@ -50,6 +50,7 @@ CREATE TABLE `stage1_activity_mapping` (
 
 CREATE TABLE `stage1_client_fees_account` (
 	`client_id` INT(10) NOT NULL,
+	`fee_account_id` INT(11) NOT NULL,
 	`amount` INT(10) NOT NULL,
 	`charge_id` INT(10) NOT NULL,
 	`amount_paid_derived` INT(10) NOT NULL,
