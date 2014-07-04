@@ -137,7 +137,7 @@
            <schema_name/>
            </partitioning>
     <connection>DestinationDB</connection>
-    <sql>SELECT &#xd;&#xa; cl.default_savings_account AS savings_account_id,&#xd;&#xa; ch.id AS charge_id,&#xd;&#xa; 0 AS is_penalty,&#xd;&#xa; ch.charge_time_enum AS charge_time_enum,&#xd;&#xa; DATE_ADD&#x28; max&#x28;transaction_date&#x29;, INTERVAL 7 DAY&#x29; AS charge_due_date,  -- need fix, 7 should be derived from fees frequency&#xd;&#xa; ch.fee_on_month AS fee_on_month,&#xd;&#xa; ch.fee_on_day AS fee_on_day,  -- Need to be derived per account based o center meeting day&#xd;&#xa; ch.fee_interval AS fee_interval,&#xd;&#xa; ch.charge_calculation_enum AS charge_calculation_enum,&#xd;&#xa; cfa.amount AS amount,&#xd;&#xa; SUM&#x28;cfa.amount_paid_derived&#x29; AS amount_paid_derived,&#xd;&#xa; SUM&#x28;cfa.amount&#x29;- SUM&#x28;cfa.amount_paid_derived&#x29; AS amount_outstanding_derived,&#xd;&#xa; cfa.is_paid_derived AS is_paid_derived,&#xd;&#xa; 0 AS waived,&#xd;&#xa; cfa.is_active AS is_active,  &#xd;&#xa; cfa.office_id AS &#x60;office_id&#x60;,&#xd;&#xa; 0 AS &#x60;is_reversed&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;transaction_date&#x60;&#xd;&#xa;FROM stage1_client_fees_account cfa&#xd;&#xa;INNER JOIN m_client cl ON cfa.client_id&#x3d;cl.id &#xd;&#xa;INNER JOIN m_charge ch ON cfa.charge_id&#x3d;ch.id &#xd;&#xa;group by  cfa.fee_account_id</sql>
+    <sql>SELECT&#xd;&#xa;cfa.fee_account_id As fee_account_id,  &#xd;&#xa; cl.default_savings_account AS savings_account_id,&#xd;&#xa; ch.id AS charge_id,&#xd;&#xa; 0 AS is_penalty,&#xd;&#xa; ch.charge_time_enum AS charge_time_enum,&#xd;&#xa; DATE_ADD&#x28; max&#x28;transaction_date&#x29;, INTERVAL 7 DAY&#x29; AS charge_due_date,  -- need fix, 7 should be derived from fees frequency&#xd;&#xa; ch.fee_on_month AS fee_on_month,&#xd;&#xa; ch.fee_on_day AS fee_on_day,  -- Need to be derived per account based o center meeting day&#xd;&#xa; ch.fee_interval AS fee_interval,&#xd;&#xa; ch.charge_calculation_enum AS charge_calculation_enum,&#xd;&#xa; cfa.amount AS amount,&#xd;&#xa; SUM&#x28;cfa.amount_paid_derived&#x29; AS amount_paid_derived,&#xd;&#xa; SUM&#x28;cfa.amount&#x29;- SUM&#x28;cfa.amount_paid_derived&#x29; AS amount_outstanding_derived,&#xd;&#xa; cfa.is_paid_derived AS is_paid_derived,&#xd;&#xa; 0 AS waived,&#xd;&#xa; cfa.is_active AS is_active,  &#xd;&#xa; cfa.office_id AS &#x60;office_id&#x60;,&#xd;&#xa; 0 AS &#x60;is_reversed&#x60;,&#xd;&#xa; cfa.transaction_date AS &#x60;transaction_date&#x60;&#xd;&#xa;FROM stage1_client_fees_account cfa&#xd;&#xa;INNER JOIN m_client cl ON cfa.client_id&#x3d;cl.id &#xd;&#xa;INNER JOIN m_charge ch ON cfa.charge_id&#x3d;ch.id &#xd;&#xa;group by  cfa.fee_account_id</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -239,6 +239,10 @@
         <field>
           <column_name>waived</column_name>
           <stream_name>waived</stream_name>
+        </field>
+        <field>
+          <column_name>id</column_name>
+          <stream_name>fee_account_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
