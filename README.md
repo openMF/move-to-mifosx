@@ -2,6 +2,10 @@ Move To Mifosx
 --------------
 A migration tool to migrate data from Mifos 2.x to Mifos X 1.22.0
 
+### LICENSE
+
+Read the license at https://github.com/openMF/move-to-mifosx/blob/master/LICENSE.md
+
 ### Caution!
 
 Since some of the Mifos feature are not supported in Mifos X, And if you are using these features then migration may result into inconsitant data for thoese features in Mifos X. before doing migration please do basic due diligence to see how data from Mifos will fit into Mifos X.
