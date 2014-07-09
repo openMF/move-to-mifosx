@@ -1,71 +1,72 @@
-Move To Mifosx
---------------
-A migration tool to migrate data from Mifos 2.x to Mifos X 1.22.0
+Mifos X: A Platform for Microfinance
+======
 
-### Caution!
+The next evolution of mifos focussing being faster, lighter and cheaper to change (than existing mifos) so that it is more responsive to the needs of MFI’s and Integrators
 
-Since some of the Mifos feature are not supported in Mifos X, And if you are using these features then migration may result into inconsitant data for thoese features in Mifos X. before doing migration please do basic due diligence to see how data from Mifos will fit into Mifos X.
+Build Status
+============
 
-Some of them are listed here
+Travis
 
-* Mifos has loan product declining balance interest recalculation but not supported in Mifos X
-* Mifos has interest compounding frequency in n * days or n * months where as Mifos X has only Daily / Monthly / Quarterly / Yearly
-* Mifos has interest posting frequency in n * days or n * months where as Mifos X has only Monthly / Quarterly / Yearly
+[![Build
+Status](https://travis-ci.org/openMF/mifosx.png?branch=master)](https://travis-ci.org/openMF/mifosx)
 
-So migration tool will put nearest/garbage values if it finds any un-supported feature or values in Mifos.
+Cloudbees Jenkins
 
-### Installation and setup
+[![Build
+Status](https://openmf.ci.cloudbees.com/job/MIFOSX%20INTEGRATION%20TEST/badge/icon)](https://openmf.ci.cloudbees.com/job/MIFOSX%20INTEGRATION%20TEST/)
 
-####Prerequisites
-Kettle requires the Sun Java Runtime Environment (JRE) version 1.5 (also called 5.0 in some naming schemes) or newer. You can obtain a JRE for free from http://java.sun.com/.
-
-####Installing Kettle
-You can download Pentaho Data Integration (PDI), also known as Kettle, from Sourceforge.net. Go to http://community.pentaho.com/ Download> Data Integration.
-
-PDI does not require installation. Simply unpack the zip file into a folder of your choice. On Unix-like operating systems, you will need to make the shell scripts executable by using the chmod command:
-
-cd Kettle
-chmod +x *.sh
-
-#### Configure source and destination database
-
-Navigate to simple-jndi folder
-
-```
-cd <Kettle>/..\data-integration\simple-jndi\
-```
-And append below line to jdbc.properties file and save it.
-
-```
-SourceDB/type=javax.sql.DataSource
-SourceDB/driver=org.gjt.mm.mysql.Driver
-SourceDB/url=jdbc:mysql://000.00.00.00:3306/mifos?useUnicode=true&characterEncoding=UTF-8
-SourceDB/user=conflux
-SourceDB/password=confluxtech
-DestinationDB/type=javax.sql.DataSource
-DestinationDB/driver=org.gjt.mm.mysql.Driver
-DestinationDB/url=jdbc:mysql://localhost:3306/mifosx?useUnicode=true&characterEncoding=UTF-8
-DestinationDB/user=root
-DestinationDB/password=****
-```
-
-#### Set PDIPATH and  KETTLEPATH
-
-Edit the file start_data_migration.bat/.sh ( file located under *\move-to-mifosx\KettleJobs\main\ )
-
-* SET PDIPATH=<path where PDI tool is located>\data-integration\ Ex:I:\Devspace\opensourcetools\data-integration\
-* SET KETTLEPATH=<path where Migration jobs are located>\move-to-mifosx\KettleJobs\  Ex: C:\Users\nayan\Documents\GitHub\move-to-mifosx\KettleJobs\
+<a target="_blank" href="https://openmf.ci.cloudbees.com/job/MIFOSX%20INTEGRATION%20TEST/"  title="Jenkins@CloudBees">Jenkins@CloudBees Unit + Integration Tests</a>
 
 
-### Run the migration tool
+Version
+==========
 
-Either it can be run by executing the windows batch file start_data_migration.bat (On *nix machine run start_data_migration.sh) or running the main.kjb (located at \move-to-mifosx\KettleJobs\Stage1\ ) through Spoon user interface.
+The API for the mifos-platform (project named 'Mifos X')is documented in the api-docs under <b>Full API Matrix</b> and can be viewed <a target="_blank" href="https://demo.openmf.org/api-docs/apiLive.htm" title="API Documentation"> here
+</a>
 
-Note: If you are running through Spoon user interface make sure you have run the below steps
+Latest stable release can always been viewed on master branch: <a target="_blank" href="https://github.com/openMF/mifosx/tree/master" title="Latest Release">Latest Release on Master</a>, <a target="_blank" href="https://github.com/openMF/mifosx/blob/master/CHANGELOG.md" title="Latest release change log">View change log</a>
 
-* mysql -uroot -pmysql %DESTDB% < %KETTLEPATH%main\load_mifosx_ddl.sql
-* mysql -uroot -pmysql %DESTDB% < %KETTLEPATH%main\load_mifosx_datatables.sql
-* mysql -uroot -pmysql %DESTDB% < %KETTLEPATH%main\data_table_registered.sql
-* mysql -uroot -pmysql %DESTDB% < %KETTLEPATH%main\load_mifosx_migration_stored_procedures.sql
-* mysql -uroot -pmysql %DESTDB% < %KETTLEPATH%main\load_mifosx_stage1_tables.sql
+License
+=============
 
+This project is licensed under the open source MPL V2. See https://github.com/openMF/mifosx/blob/master/LICENSE.md
+
+Mifos Platform API
+=====================
+
+<a target="_blank" href="https://demo.openmf.org/api-docs/apiLive.htm" title="mifos platform api">API Documentation (Demo Server)</a>
+
+
+Online Demos
+=============================
+
+* <a target="_blank" href="https://demo.openmf.org" title="Reference Client App">Community App</a>
+* ~~<a target="_blank" href="https://demo.openmf.org/old/" title="Community App">Reference Client App (Deprecated)</a>~~
+
+Developers
+==========
+see https://mifosforge.jira.com/wiki/display/MIFOSX/MifosX+Technical - Developers Wiki Page
+
+see https://mifosforge.jira.com/wiki/display/MIFOSX/Getting+started+-+Contributing+to+MifosX  - Getting Started.
+
+see https://mifosforge.jira.com/wiki/display/MIFOSX/The+Basic+Design - Overview of Platform Implementation
+
+see https://github.com/openMF/mifosx/wiki/Screen-Based-Reporting for info around reporting
+
+see https://github.com/openMF/mifosx/wiki/Git-Usuage for info around using git
+
+see https://www.ohloh.net/p/mifosx for activity overview and basic code analysis.
+
+Roadmap
+==============
+
+<a target="_blank" href="http://goo.gl/IXS9Q" title="Community Roadmap (High Level)">Community Roadmap (High Level)</a>
+
+<a target="_blank" href="https://mifosforge.jira.com/browse/MIFOSX#selectedTab=com.atlassian.jira.plugin.system.project%3Aroadmap-panel" 
+   title="Project Release Roadmap on JIRA (Detailed View)">Project Release Roadmap on JIRA (Detailed View)</a>
+
+Video Demonstration
+===============
+
+Demonstration of first Prototype of this platform with browser App (April 2012) - http://www.youtube.com/watch?v=zN5Dn1Lc_js
