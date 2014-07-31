@@ -346,7 +346,8 @@
   <order>
   <hop> <from>Table input</from><to>Interest method mapper</to><enabled>Y</enabled> </hop>
   <hop> <from>Interest method mapper</from><to>Account state mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>Account state mapping</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Account state mapping</from><to>Table output m_loan</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table output m_loan</from><to>Table m_loan_disbursement_detail</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Account state mapping</name>
@@ -475,7 +476,7 @@
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Table output m_loan</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -489,7 +490,7 @@
     <schema/>
     <table>m_loan</table>
     <commit>1000</commit>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
@@ -822,8 +823,66 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>497</xloc>
-      <yloc>211</yloc>
+      <xloc>519</xloc>
+      <yloc>111</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table m_loan_disbursement_detail</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <schema/>
+    <table>m_loan_disbursement_detail</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>loan_id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>expected_disburse_date</column_name>
+          <stream_name>expected_disbursedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>disbursedon_date</column_name>
+          <stream_name>disbursedon_date</stream_name>
+        </field>
+        <field>
+          <column_name>approved_principal</column_name>
+          <stream_name>principal_disbursed_derived</stream_name>
+        </field>
+        <field>
+          <column_name>principal</column_name>
+          <stream_name>principal_amount</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>519</xloc>
+      <yloc>330</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
