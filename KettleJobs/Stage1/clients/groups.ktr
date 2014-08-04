@@ -309,7 +309,7 @@
 , cr.PARENT_CUSTOMER_ID     As    parent_id
 , 2     As    level_id
 , CONCAT(cr.DISPLAY_NAME , IF(cn.customer_id IS NOT NULL , cr.customer_id , &apos;&apos;)) AS DISPLAY_NAME
-, NULL     As    hierarchy
+, concat(&apos;.&apos;,cr.parent_customer_id,&apos;.&apos;,cr.customer_id,&apos;.&apos;) As hierarchy
 , cr.CREATED_DATE As submitedDate
 , cr.CREATED_BY As submittedBy
 FROM customer cr
