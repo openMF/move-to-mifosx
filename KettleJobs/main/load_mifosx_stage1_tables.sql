@@ -24,7 +24,7 @@ CREATE TABLE `stage1_acc_gl_journal_entry` (
   `office_running_balance` decimal(19,6) NOT NULL DEFAULT '0.000000',
   `organization_running_balance` decimal(19,6) NOT NULL DEFAULT '0.000000',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `stage1_acc_product_mapping`;
 CREATE TABLE `stage1_acc_product_mapping` (
@@ -63,3 +63,15 @@ CREATE TABLE `stage1_client_fees_account` (
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `stage1_center_meeting` (
+  `center_id` bigint(20) NOT NULL,
+  `meeting_date` date NOT NULL,
+  UNIQUE KEY `unique_calendar_instance_id_meeting_date` (`center_id`,`meeting_date`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `stage1_client_attendance` (
+  `client_id` bigint(20) NOT NULL,
+  `center_id` bigint(20) NOT NULL,
+  `meeting_date` date NOT NULL,
+  `attendance_type_enum` smallint(5) NOT NULL
+) ENGINE=InnoDB;
