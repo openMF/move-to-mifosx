@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>CenterMeetings</name>
+    <name>ClientAttendance_from_stage1</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;12&#47;28 12:24:40.756</created_date>
+  <created_date>2014&#47;08&#47;04 15:28:15.602</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;12&#47;28 12:24:40.756</modified_date>
+  <modified_date>2014&#47;08&#47;04 15:28:15.602</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -86,56 +86,6 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>DestinationDBPilot</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>DestinationDBPilot</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>DestinationDBtest</name>
-    <server/>
-    <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>DestinationDBtest</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -168,9 +118,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input center meeting</from><to>Output Stage center meeting</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Input stage client meeting details</from><to>I&#47;U client attendance</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Input center meeting</name>
+    <name>Input stage client meeting details</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -179,16 +129,15 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SourceDB</connection>
-    <sql>SELECT DISTINCT
-	cs.customer_id As center_id,
-	cs.action_date AS action_date
-FROM
-	customer_schedule cs 
-	JOIN customer c ON cs.customer_id = c.customer_id AND c.discriminator = &apos;CENTER&apos;
-WHERE
-    cs.action_date &lt;= CURDATE();
-	;</sql>
+    <connection>DestinationDB</connection>
+    <sql>SELECT 
+sca.client_id As client_id,
+mm.id As meeting_id,
+sca.attendance_type_enum As attendance_type_enum
+FROM 
+stage1_client_attendance sca
+JOIN m_calendar_instance ci ON ci.entity_id = sca.center_id and ci.entity_type_enum = 4
+JOIN m_meeting mm ON mm.calendar_instance_id = ci.id AND sca.meeting_date = mm.meeting_date;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -196,15 +145,15 @@ WHERE
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>344</xloc>
-      <yloc>205</yloc>
+      <xloc>294</xloc>
+      <yloc>155</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Output Stage center meeting</name>
-    <type>TableOutput</type>
+    <name>I&#47;U client attendance</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -213,36 +162,43 @@ WHERE
            <schema_name/>
            </partitioning>
     <connection>DestinationDB</connection>
-    <schema/>
-    <table>stage1_center_meeting</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>center_id</column_name>
-          <stream_name>center_id</stream_name>
-        </field>
-        <field>
-          <column_name>meeting_date</column_name>
-          <stream_name>action_date</stream_name>
-        </field>
-    </fields>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>m_client_attendance</table>
+      <key>
+        <name>client_id</name>
+        <field>client_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>meeting_id</name>
+        <field>meeting_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>client_id</name>
+        <rename>client_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>meeting_id</name>
+        <rename>meeting_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>attendance_type_enum</name>
+        <rename>attendance_type_enum</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>611</xloc>
-      <yloc>205</yloc>
+      <xloc>647</xloc>
+      <yloc>153</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
