@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,11 +33,6 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -66,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;03&#x2f;25 12&#x3a;20&#x3a;06.872</created_date>
+  <created_date>2014&#47;03&#47;25 12:20:06.872</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;03&#x2f;25 12&#x3a;20&#x3a;06.872</modified_date>
+  <modified_date>2014&#47;03&#47;25 12:20:06.872</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -97,7 +92,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>, </access>
+    <access>JNDI</access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -122,7 +117,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>, </access>
+    <access>JNDI</access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -144,16 +139,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Account state mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>Account state mapping</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>
-  <hop> <from>interest calculation type mapping</from><to>Table output</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Table input</from><to>Account state mapping</to><enabled>Y</enabled> </hop>  <hop> <from>Account state mapping</from><to>interest calculation type mapping</to><enabled>Y</enabled> </hop>  <hop> <from>interest calculation type mapping</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Account state mapping</name>
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -201,14 +192,59 @@
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT &#xa; sa.ACCOUNT_ID As 	id&#xa;, sa.ACCOUNT_ID As 	account_no&#xa;, ac.GLOBAL_ACCOUNT_NUM As 	external_id&#xa;, IF &#x28; cr.DISCRIMINATOR &#x3d; &#x22;CLIENT&#x22; , ac.CUSTOMER_ID , NULL &#x29; As 	client_id&#xa;, IF &#x28; cr.DISCRIMINATOR &#x3d; &#x22;GROUP&#x22; , ac.CUSTOMER_ID , NULL &#x29; As group_id&#xa;, sa.PRD_OFFERING_ID As product_id&#xa;, cr.loan_officer_id As 	field_officer_id&#xa;, ac.ACCOUNT_STATE_ID As 	saving_status_id&#xa;, IF &#x28; cr.DISCRIMINATOR &#x3d; &#x22;CLIENT&#x22; , 1, 2 &#x29; As 	account_type_enum&#xa;, ac.created_date AS submittedon_date&#xa;, ac.created_by AS submittedon_userid&#xa;, sa.ACTIVATION_DATE AS approvedon_date&#xa;, ac.created_by AS approvedon_userid&#xa;, sa.ACTIVATION_DATE AS activatedon_date&#xa;, ac.created_by AS activatedon_userid&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xa;, &#x24;&#x7b;CUR_DIGIT&#x7d; As 	currency_digits&#xa;, 0 AS currency_multiplesof&#xa;, sa.interest_rate AS nominal_annual_interest_rate&#xa;, 4 AS interest_compounding_period_enum&#xa;, 5 AS interest_posting_period_enum&#xa;, sa.interest_calculation_type_id AS interest_calculation_type_enum&#xa;, 360 AS interest_calculation_days_in_year_type_enum&#xa;, 0 AS min_required_opening_balance&#xa;, 0 AS lockin_period_frequency&#xa;, 0 AS lockin_period_frequency_enum&#xa;, 0 AS withdrawal_fee_for_transfer&#xa;, null AS lockedin_until_date_derived&#xa;, SUM&#x28;IF&#x28;stx.DEPOSIT_AMOUNT &#x3e; 0 , atx.AMOUNT , 0 &#x29;&#x29; AS total_deposits_derived&#xa;, SUM&#x28;IF&#x28;stx.WITHDRAWAL_AMOUNT &#x3e; 0 , atx.AMOUNT , 0&#x29;&#x29; AS total_withdrawals_derived&#xa;, 0 As total_withdrawal_fees_derived&#xa;, 0 As total_fees_charge_derived&#xa;, 0 AS total_penalty_charge_derived&#xa;, 0 AS total_annual_fees_derived&#xa;, SUM&#x28;stx.INTEREST_AMOUNT&#x29; &#x2b; sa.INT_TO_BE_POSTED AS total_interest_earned_derived&#xa;, SUM&#x28;stx.INTEREST_AMOUNT&#x29; AS total_interest_posted_derived&#xa;, sa.savings_balance AS account_balance_derived&#xd;&#xa;, IF &#x28;po.PRD_CATEGORY_ID&#x3d;2,300,100&#x29; AS deposit_type_enum&#xa;FROM savings_account sa&#xd;&#xa;LEFT JOIN prd_offering po on sa.PRD_OFFERING_ID&#x3d;po.PRD_OFFERING_ID&#xa;LEFT JOIN account ac ON ac.ACCOUNT_ID &#x3d; sa.ACCOUNT_ID&#xa;LEFT JOIN account_trxn atx ON atx.ACCOUNT_ID &#x3d; ac.ACCOUNT_ID&#xa;LEFT JOIN savings_trxn_detail stx ON atx.ACCOUNT_TRXN_ID &#x3d; stx.ACCOUNT_TRXN_ID &#xa;LEFT JOIN customer cr ON cr.CUSTOMER_ID &#x3d; ac.CUSTOMER_ID&#xa;GROUP BY sa.ACCOUNT_ID</sql>
+    <sql>SELECT 
+ sa.ACCOUNT_ID As 	id
+, sa.ACCOUNT_ID As 	account_no
+, ac.GLOBAL_ACCOUNT_NUM As 	external_id
+, IF ( cr.DISCRIMINATOR = &quot;CLIENT&quot; , ac.CUSTOMER_ID , NULL ) As 	client_id
+, IF ( cr.DISCRIMINATOR = &quot;GROUP&quot; , ac.CUSTOMER_ID , NULL ) As group_id
+, sa.PRD_OFFERING_ID As product_id
+, cr.loan_officer_id As 	field_officer_id
+, ac.ACCOUNT_STATE_ID As 	saving_status_id
+, IF ( cr.DISCRIMINATOR = &quot;CLIENT&quot; , 1, 2 ) As 	account_type_enum
+, ac.created_date AS submittedon_date
+, ac.created_by AS submittedon_userid
+, sa.ACTIVATION_DATE AS approvedon_date
+, ac.created_by AS approvedon_userid
+, sa.ACTIVATION_DATE AS activatedon_date
+, ac.created_by AS activatedon_userid
+, ${CUR} As currency_code
+, ${CUR_DIGIT} As 	currency_digits
+, 0 AS currency_multiplesof
+, sa.interest_rate AS nominal_annual_interest_rate
+, 4 AS interest_compounding_period_enum
+, 5 AS interest_posting_period_enum
+, sa.interest_calculation_type_id AS interest_calculation_type_enum
+, 360 AS interest_calculation_days_in_year_type_enum
+, 0 AS min_required_opening_balance
+, 0 AS lockin_period_frequency
+, 0 AS lockin_period_frequency_enum
+, 0 AS withdrawal_fee_for_transfer
+, null AS lockedin_until_date_derived
+, SUM(IF(stx.DEPOSIT_AMOUNT &gt; 0 , atx.AMOUNT , 0 )) AS total_deposits_derived
+, SUM(IF(stx.WITHDRAWAL_AMOUNT &gt; 0 , atx.AMOUNT , 0)) AS total_withdrawals_derived
+, 0 As total_withdrawal_fees_derived
+, 0 As total_fees_charge_derived
+, 0 AS total_penalty_charge_derived
+, 0 AS total_annual_fees_derived
+, SUM(stx.INTEREST_AMOUNT) + sa.INT_TO_BE_POSTED AS total_interest_earned_derived
+, SUM(stx.INTEREST_AMOUNT) AS total_interest_posted_derived
+, sa.savings_balance AS account_balance_derived
+, IF (po.PRD_CATEGORY_ID=2,300,100) AS deposit_type_enum
+, sa.LAST_INT_POST_DATE As start_interest_calculation_date
+FROM savings_account sa
+LEFT JOIN prd_offering po on sa.PRD_OFFERING_ID=po.PRD_OFFERING_ID
+LEFT JOIN account ac ON ac.ACCOUNT_ID = sa.ACCOUNT_ID
+LEFT JOIN account_trxn atx ON atx.ACCOUNT_ID = ac.ACCOUNT_ID
+LEFT JOIN savings_trxn_detail stx ON atx.ACCOUNT_TRXN_ID = stx.ACCOUNT_TRXN_ID 
+LEFT JOIN customer cr ON cr.CUSTOMER_ID = ac.CUSTOMER_ID
+GROUP BY sa.ACCOUNT_ID</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -227,7 +263,6 @@
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -403,6 +438,10 @@
           <column_name>deposit_type_enum</column_name>
           <stream_name>deposit_type_enum</stream_name>
         </field>
+        <field>
+          <column_name>start_interest_calculation_date</column_name>
+          <stream_name>start_interest_calculation_date</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -417,7 +456,6 @@
     <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -449,5 +487,4 @@
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
-
 </transformation>
