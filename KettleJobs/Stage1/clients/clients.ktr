@@ -412,9 +412,12 @@
 , NULL	 As	image_id
 , cr.CREATED_DATE As submitedDate
 , cr.CREATED_BY As submittedBy
+, If(cr.STATUS_ID = 6, cr.UPDATED_DATE, NULL) As closed_date
+, cd.GENDER As Gender_cv_id
 FROM customer cr
 LEFT JOIN account ac ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 
 LEFT JOIN customer_name_detail cnd ON cnd.CUSTOMER_ID = cr.CUSTOMER_ID AND cnd.NAME_TYPE = 3
+LEFT JOIN customer_detail cd ON cr.CUSTOMER_ID = cd.CUSTOMER_ID
 WHERE DISCRIMINATOR = &apos;CLIENT&apos;</sql>
     <limit>0</limit>
     <lookup/>
@@ -516,6 +519,14 @@ WHERE DISCRIMINATOR = &apos;CLIENT&apos;</sql>
         <field>
           <column_name>submittedon_userid</column_name>
           <stream_name>submittedBy</stream_name>
+        </field>
+        <field>
+          <column_name>closedon_date</column_name>
+          <stream_name>closed_date</stream_name>
+        </field>
+        <field>
+          <column_name>gender_cv_id</column_name>
+          <stream_name>Gender_cv_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>

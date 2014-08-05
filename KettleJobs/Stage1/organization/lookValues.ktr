@@ -414,11 +414,7 @@
         <target_value>Gender</target_value>
       </field>
       <field>
-        <source_value>GroupClosureReason</source_value>
-        <target_value>GroupFlag</target_value>
-      </field>
-      <field>
-        <source_value>ReasonForPreClosure</source_value>
+        <source_value>GroupFlag</source_value>
         <target_value>ClientClosureReason</target_value>
       </field>
       <field>
@@ -432,6 +428,10 @@
       <field>
         <source_value>Handicapped</source_value>
         <target_value>Municipality</target_value>
+      </field>
+      <field>
+        <source_value>GroupFlag</source_value>
+        <target_value>GroupClosureReason</target_value>
       </field>
     </fields>
      <cluster_schema/>
