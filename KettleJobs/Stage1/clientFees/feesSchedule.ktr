@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>saving_acc_charges</name>
+    <name>feesSchedule</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;06&#47;07 11:26:50.268</created_date>
+  <created_date>2014&#47;08&#47;06 16:52:50.496</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;06&#47;07 11:26:50.268</modified_date>
+  <modified_date>2014&#47;08&#47;06 16:52:50.496</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -118,12 +118,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Account fees</from><to>stage fees account with transaction</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Input customer_fee_schedule</from><to>Output charge_schedule</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Input Account fees</name>
+    <name>Input customer_fee_schedule</name>
     <type>TableInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -131,23 +131,17 @@
            </partitioning>
     <connection>SourceDB</connection>
     <sql>SELECT
- cr.CUSTOMER_ID AS client_id,
- af.ACCOUNT_FEE_ID As fee_account_id,
- af.FEE_AMNT AS amount,
- if(af.FEE_STATUS=2,0,1) AS is_active,
- af.FEE_ID As charge_id,
- ifnull(ftd.FEE_AMOUNT,0) AS amount_paid_derived,
- af.FEE_AMNT-ftd.FEE_AMOUNT AS amount_outstanding_derived,
- IF(af.FEE_AMNT-ftd.FEE_AMOUNT=0,1,0) AS is_paid_derived,
- curdate() AS charge_due_date, -- not used, instead derived in next step
- atx.ACTION_DATE As transaction_date,
- cr.BRANCH_ID As office_id
-FROM account_fees af
-INNER JOIN fees f ON af.FEE_ID=f.FEE_ID AND f.CATEGORY_ID = 2 -- 2 =&gt; Client fees 
-INNER JOIN account ac ON ac.ACCOUNT_ID=af.ACCOUNT_ID 
-INNER JOIN customer cr ON ac.CUSTOMER_ID = cr.CUSTOMER_ID AND ac.ACCOUNT_TYPE_ID = 3 AND cr.DISCRIMINATOR = &apos;CLIENT&apos;  
-LEFT JOIN fee_trxn_detail ftd ON af.ACCOUNT_FEE_ID=ftd.ACCOUNT_FEE_ID
-LEFT JOIN account_trxn atx ON ftd.ACCOUNT_TRXN_ID=atx.ACCOUNT_TRXN_ID</sql>
+-- cfs.INSTALLMENT_ID
+  cfs.ACCOUNT_FEE_ID As savings_account_charge_id
+, cfs.AMOUNT As due_amount
+, cfs.AMOUNT_PAID As paid_amount
+, cs.ACTION_DATE As due_date
+, IF(cfs.AMOUNT_PAID &gt;= cfs.AMOUNT,cs.ACTION_DATE,NULL) As obligation_met_on_date
+FROM customer_fee_schedule cfs
+JOIN customer_schedule cs ON cs.ID = cfs.ID
+JOIN customer cr ON cr.CUSTOMER_ID = cs.CUSTOMER_ID AND cr.CUSTOMER_LEVEL_ID = 1
+JOIN account_fees af on af.ACCOUNT_FEE_ID = cfs.ACCOUNT_FEE_ID
+JOIN account ac ON ac.ACCOUNT_ID = af.ACCOUNT_ID and ac.ACCOUNT_TYPE_ID = 3</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -155,14 +149,14 @@ LEFT JOIN account_trxn atx ON ftd.ACCOUNT_TRXN_ID=atx.ACCOUNT_TRXN_ID</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>281</xloc>
-      <yloc>218</yloc>
+      <xloc>365</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>stage fees account with transaction</name>
+    <name>Output charge_schedule</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -173,7 +167,7 @@ LEFT JOIN account_trxn atx ON ftd.ACCOUNT_TRXN_ID=atx.ACCOUNT_TRXN_ID</sql>
            </partitioning>
     <connection>DestinationDB</connection>
     <schema/>
-    <table>stage1_client_fees_account</table>
+    <table>ct_savings_account_charge_schedule</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -190,54 +184,30 @@ LEFT JOIN account_trxn atx ON ftd.ACCOUNT_TRXN_ID=atx.ACCOUNT_TRXN_ID</sql>
     <return_field/>
     <fields>
         <field>
-          <column_name>client_id</column_name>
-          <stream_name>client_id</stream_name>
+          <column_name>savings_account_charge_id</column_name>
+          <stream_name>savings_account_charge_id</stream_name>
         </field>
         <field>
-          <column_name>amount</column_name>
-          <stream_name>amount</stream_name>
+          <column_name>due_amount</column_name>
+          <stream_name>due_amount</stream_name>
         </field>
         <field>
-          <column_name>is_active</column_name>
-          <stream_name>is_active</stream_name>
+          <column_name>paid_amount</column_name>
+          <stream_name>paid_amount</stream_name>
         </field>
         <field>
-          <column_name>charge_id</column_name>
-          <stream_name>charge_id</stream_name>
+          <column_name>due_date</column_name>
+          <stream_name>due_date</stream_name>
         </field>
         <field>
-          <column_name>amount_paid_derived</column_name>
-          <stream_name>amount_paid_derived</stream_name>
-        </field>
-        <field>
-          <column_name>amount_outstanding_derived</column_name>
-          <stream_name>amount_outstanding_derived</stream_name>
-        </field>
-        <field>
-          <column_name>is_paid_derived</column_name>
-          <stream_name>is_paid_derived</stream_name>
-        </field>
-        <field>
-          <column_name>charge_due_date</column_name>
-          <stream_name>charge_due_date</stream_name>
-        </field>
-        <field>
-          <column_name>transaction_date</column_name>
-          <stream_name>transaction_date</stream_name>
-        </field>
-        <field>
-          <column_name>office_id</column_name>
-          <stream_name>office_id</stream_name>
-        </field>
-        <field>
-          <column_name>fee_account_id</column_name>
-          <stream_name>fee_account_id</stream_name>
+          <column_name>obligations_met_on_date</column_name>
+          <stream_name>obligation_met_on_date</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>579</xloc>
-      <yloc>218</yloc>
+      <xloc>650</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
