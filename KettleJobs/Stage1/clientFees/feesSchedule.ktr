@@ -131,8 +131,8 @@
            </partitioning>
     <connection>SourceDB</connection>
     <sql>SELECT
--- cfs.INSTALLMENT_ID
-  cfs.ACCOUNT_FEE_ID As savings_account_charge_id
+  cfs.INSTALLMENT_ID As installment_id
+, cfs.ACCOUNT_FEE_ID As savings_account_charge_id
 , cfs.AMOUNT As due_amount
 , cfs.AMOUNT_PAID As paid_amount
 , cs.ACTION_DATE As due_date
@@ -202,6 +202,10 @@ JOIN account ac ON ac.ACCOUNT_ID = af.ACCOUNT_ID and ac.ACCOUNT_TYPE_ID = 3</sql
         <field>
           <column_name>obligations_met_on_date</column_name>
           <stream_name>obligation_met_on_date</stream_name>
+        </field>
+        <field>
+          <column_name>installment</column_name>
+          <stream_name>installment_id</stream_name>
         </field>
     </fields>
      <cluster_schema/>
