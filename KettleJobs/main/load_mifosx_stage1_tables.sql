@@ -58,10 +58,13 @@ CREATE TABLE `stage1_client_fees_account` (
 	`is_paid_derived` INT(10) NOT NULL,
 	`is_active` INT(10) NOT NULL,
 	`charge_due_date` DATE NOT NULL,
-	`transaction_date` DATE NOT NULL,
+	`transaction_date` DATE NULL DEFAULT NULL,
+	`transaction_id` INT(11) NULL DEFAULT NULL,
 	`office_id` INT(10) NOT NULL
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
 
 CREATE TABLE `stage1_center_meeting` (
   `center_id` bigint(20) NOT NULL,
