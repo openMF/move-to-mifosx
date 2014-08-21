@@ -147,7 +147,8 @@ cfa.fee_account_id As fee_account_id,
  cfa.is_paid_derived AS is_paid_derived,
  0 AS waived,
  cfa.is_active AS is_active,
- 1 As is_calendar_inherited
+ 1 As is_calendar_inherited,
+&apos;2014-06-06&apos; As start_date  -- this dummy date next ktr will override it
 FROM stage1_client_fees_account cfa
 INNER JOIN m_client cl ON cfa.client_id=cl.id 
 INNER JOIN m_charge ch ON cfa.charge_id=ch.id 
@@ -260,6 +261,10 @@ group by  cfa.fee_account_id</sql>
         <field>
           <column_name>is_calendar_inherited</column_name>
           <stream_name>is_calendar_inherited</stream_name>
+        </field>
+        <field>
+          <column_name>start_date</column_name>
+          <stream_name>start_date</stream_name>
         </field>
     </fields>
      <cluster_schema/>
