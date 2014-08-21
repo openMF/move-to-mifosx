@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>updated_saving_acc_charges</name>
+    <name>update_fees_start_date</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;06&#47;11 10:17:17.454</created_date>
+  <created_date>2014&#47;08&#47;21 14:28:34.698</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;06&#47;11 10:17:17.454</modified_date>
+  <modified_date>2014&#47;08&#47;21 14:28:34.698</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -118,56 +118,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Input Account fees</from><to>Output saving acc charges</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Table input</from><to>Update</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Input Account fees</name>
+    <name>Table input</name>
     <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>DestinationDB</connection>
-    <sql>SELECT
-cfa.fee_account_id As fee_account_id,  
- cl.default_savings_account AS savings_account_id,
- ch.id AS charge_id,
- 0 AS is_penalty,
- ch.charge_time_enum AS charge_time_enum,
- DATE_ADD( max(transaction_date), INTERVAL 7 DAY) AS charge_due_date,  -- need fix, 7 should be derived from fees frequency
- ch.fee_on_month AS fee_on_month,
- ch.fee_on_day AS fee_on_day,  -- Need to be derived per account based o center meeting day
- ch.fee_interval AS fee_interval,
- ch.charge_calculation_enum AS charge_calculation_enum,
- cfa.amount AS amount,
- SUM(cfa.amount_paid_derived) AS amount_paid_derived,
- SUM(cfa.amount)- SUM(cfa.amount_paid_derived) AS amount_outstanding_derived,
- cfa.is_paid_derived AS is_paid_derived,
- 0 AS waived,
- cfa.is_active AS is_active,
- 1 As is_calendar_inherited
-FROM stage1_client_fees_account cfa
-INNER JOIN m_client cl ON cfa.client_id=cl.id 
-INNER JOIN m_charge ch ON cfa.charge_id=ch.id 
-group by  cfa.fee_account_id</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>Y</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>329</xloc>
-      <yloc>174</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Output saving acc charges</name>
-    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -176,96 +130,59 @@ group by  cfa.fee_account_id</sql>
            <schema_name/>
            </partitioning>
     <connection>DestinationDB</connection>
-    <schema/>
-    <table>m_savings_account_charge</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>m_savings_account_charge_id</return_field>
-    <fields>
-        <field>
-          <column_name>amount</column_name>
-          <stream_name>amount</stream_name>
-        </field>
-        <field>
-          <column_name>amount_outstanding_derived</column_name>
-          <stream_name>amount_outstanding_derived</stream_name>
-        </field>
-        <field>
-          <column_name>amount_paid_derived</column_name>
-          <stream_name>amount_paid_derived</stream_name>
-        </field>
-        <field>
-          <column_name>charge_calculation_enum</column_name>
-          <stream_name>charge_calculation_enum</stream_name>
-        </field>
-        <field>
-          <column_name>charge_due_date</column_name>
-          <stream_name>charge_due_date</stream_name>
-        </field>
-        <field>
-          <column_name>charge_id</column_name>
-          <stream_name>charge_id</stream_name>
-        </field>
-        <field>
-          <column_name>charge_time_enum</column_name>
-          <stream_name>charge_time_enum</stream_name>
-        </field>
-        <field>
-          <column_name>fee_interval</column_name>
-          <stream_name>fee_interval</stream_name>
-        </field>
-        <field>
-          <column_name>fee_on_day</column_name>
-          <stream_name>fee_on_day</stream_name>
-        </field>
-        <field>
-          <column_name>fee_on_month</column_name>
-          <stream_name>fee_on_month</stream_name>
-        </field>
-        <field>
-          <column_name>is_active</column_name>
-          <stream_name>is_active</stream_name>
-        </field>
-        <field>
-          <column_name>is_paid_derived</column_name>
-          <stream_name>is_paid_derived</stream_name>
-        </field>
-        <field>
-          <column_name>is_penalty</column_name>
-          <stream_name>is_penalty</stream_name>
-        </field>
-        <field>
-          <column_name>savings_account_id</column_name>
-          <stream_name>savings_account_id</stream_name>
-        </field>
-        <field>
-          <column_name>waived</column_name>
-          <stream_name>waived</stream_name>
-        </field>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>fee_account_id</stream_name>
-        </field>
-        <field>
-          <column_name>is_calendar_inherited</column_name>
-          <stream_name>is_calendar_inherited</stream_name>
-        </field>
-    </fields>
+    <sql>SELECT 
+sac.id As charge_account_id,
+DATE(sacs.due_date) As start_date
+FROM 
+m_savings_account_charge sac
+INNER JOIN ct_savings_account_charge_schedule sacs ON sacs.savings_account_charge_id = sac.id and sacs.installment = 1 AND sacs.due_date is not null;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>626</xloc>
-      <yloc>174</yloc>
+      <xloc>345</xloc>
+      <yloc>206</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Update</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DestinationDB</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>Y</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>m_savings_account_charge</table>
+      <key>
+        <name>charge_account_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>start_date</name>
+        <rename>start_date</rename>
+        </value>
+      </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>585</xloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
