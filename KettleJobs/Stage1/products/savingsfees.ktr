@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,11 +33,6 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -66,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;05&#x2f;24 13&#x3a;04&#x3a;55.522</created_date>
+  <created_date>2014&#47;05&#47;24 13:04:55.522</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;05&#x2f;24 13&#x3a;04&#x3a;55.522</modified_date>
+  <modified_date>2014&#47;05&#47;24 13:04:55.522</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -76,7 +71,7 @@
     <name>DestinationDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>, </access>
+    <access>JNDI</access>
     <database>DestinationDB</database>
     <port>3306</port>
     <username/>
@@ -101,7 +96,7 @@
     <name>SourceDB</name>
     <server>localhost</server>
     <type>MYSQL</type>
-    <access>, </access>
+    <access>JNDI</access>
     <database>SourceDB</database>
     <port>3306</port>
     <username/>
@@ -123,21 +118,39 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Fees</from><to>Output Charge</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Fees</from><to>Output Charge</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Fees</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>SourceDB</connection>
-    <sql>SELECT&#xd;&#xa;  f.FEE_ID As id&#xd;&#xa;, f.FEE_NAME As name&#xd;&#xa;, &#x24;&#x7b;CUR&#x7d; As currency_code&#xd;&#xa;, 2 As charge_applies_to_enum&#xd;&#xa;, 7 As charge_time_enum -- 7 &#x3d;&#x3e; while creating from UI it gives 7&#xd;&#xa;, if &#x28; f.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , 2 , 1&#x29; As charge_calculation_enum&#xd;&#xa;, if &#x28; f.DISCRIMINATOR &#x3d; &#x27;RATE&#x27; , RATE , FEE_AMOUNT&#x29; As amount&#xd;&#xa;, 0 As is_penalty&#xd;&#xa;, if &#x28; STATUS &#x3d; &#x27;1&#x27; , 1 , 0&#x29;  As is_active&#xd;&#xa;, 0 As is_deleted&#xd;&#xa;, 0 As charge_payment_mode_enum&#xd;&#xa;, rd.RECUR_AFTER As fee_interval&#xd;&#xa;, rod.DAYS As fee_on_day&#xd;&#xa;, 1 As fee_on_month -- 1 its a dummy value &#xd;&#xa;FROM fees f&#xd;&#xa;INNER JOIN fee_frequency ff on f.FEE_ID&#x3d;ff.FEE_ID&#xd;&#xa;INNER JOIN meeting m ON ff.FREQUENCY_MEETING_ID&#x3d;m.MEETING_ID&#xd;&#xa;INNER JOIN recurrence_detail rd ON m.MEETING_ID&#x3d;rd.MEETING_ID&#xd;&#xa;INNER JOIN recur_on_day rod ON rd.DETAILS_ID&#x3d;rod.DETAILS_ID&#xd;&#xa;WHERE CATEGORY_ID &#x3d; 2 -- 2&#x3d;&#x3e; membership fees</sql>
+    <sql>SELECT
+  f.FEE_ID As id
+, f.FEE_NAME As name
+, ${CUR} As currency_code
+, 2 As charge_applies_to_enum
+, 11 As charge_time_enum -- 11 =&gt; weekly fees
+, if ( f.DISCRIMINATOR = &apos;RATE&apos; , 2 , 1) As charge_calculation_enum
+, if ( f.DISCRIMINATOR = &apos;RATE&apos; , RATE , FEE_AMOUNT) As amount
+, 0 As is_penalty
+, if ( STATUS = &apos;1&apos; , 1 , 0)  As is_active
+, 0 As is_deleted
+, 0 As charge_payment_mode_enum
+, rd.RECUR_AFTER As fee_interval
+, rod.DAYS As fee_on_day
+, 1 As fee_on_month -- 1 its a dummy value 
+FROM fees f
+INNER JOIN fee_frequency ff on f.FEE_ID=ff.FEE_ID
+INNER JOIN meeting m ON ff.FREQUENCY_MEETING_ID=m.MEETING_ID
+INNER JOIN recurrence_detail rd ON m.MEETING_ID=rd.MEETING_ID
+INNER JOIN recur_on_day rod ON rd.DETAILS_ID=rod.DETAILS_ID
+WHERE CATEGORY_ID = 2 -- 2=&gt; membership fees</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -156,7 +169,6 @@
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -238,5 +250,4 @@
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
-
 </transformation>
